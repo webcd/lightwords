@@ -70,6 +70,9 @@ class StarterSite extends TimberSite {
     $context['widgets_footer_2'] = Timber::get_widgets('footer2');
     $context['widgets_footer_3'] = Timber::get_widgets('footer3');
     $context['widgets_footer_4'] = Timber::get_widgets('footer4');
+
+    // Inline SVG
+    $context['do_inlinesvg'] = file_exists( get_template_directory_uri() + '/dist/img/sprite.symbol.svg.twig' );
 /*
     ?><pre><?php var_dump($context['menu']->items); ?></pre><?php
 */

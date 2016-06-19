@@ -55,7 +55,9 @@
 
 		</div><!-- end .site-wrapper -->
 
+		{% if do_inlinesvg %}
 		<div class="inline-svg">{% include 'sprite.symbol.svg.twig' %}</div>
+		{% endif %}
 
 		{{ function('wp_footer') }}
 
