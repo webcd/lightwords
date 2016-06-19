@@ -1,0 +1,63 @@
+<!doctype html>
+
+{% block head %}
+	{% include 'head.twig' %}
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+
+		<div class="site-wrapper">
+
+			<!-- HEADER -->
+			<header class="site-header">
+				{% block header %}
+					{% include 'header.twig' %}
+				{% endblock %}
+			</header>
+
+			<!-- CONTENT -->
+			<section class="site-content">
+
+				<!-- MAIN -->
+				<main class="{{sidebar_class}}" role="main">
+					<section class="wrapper wrapper--content">
+
+						<div class="container">
+							{% block title %}
+								{% if title %}<h1>{{title}}</h1>{% endif %}
+							{% endblock %}
+						</div>
+
+						{% block content %}
+							<div class="container">
+								Sorry, no content
+							</div>
+						{% endblock %}
+
+					</section>
+				</main>
+
+				<!-- SIDEBAR -->
+				{% if sidebar %}
+				<aside class="site-aside">
+					{{sidebar}}
+				</aside>
+				{% endif %}
+
+			</section><!-- end .site-content -->
+
+			<!-- FOOTER -->
+			<footer class="site-footer">
+				{% block footer %}
+					{% include 'footer.twig' %}
+				{% endblock %}
+			</footer>
+
+		</div><!-- end .site-wrapper -->
+
+		<div class="inline-svg">{% include 'sprite.symbol.svg.twig' %}</div>
+
+		{{ function('wp_footer') }}
+
+	</body>
+</html>

@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Returns HTML for a breadcrumb trail.
+ *
+ * @param $variables
+ *   An associative array containing:
+ *   - breadcrumb: An array containing the breadcrumb links.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% if breadcrumb is defined %}
+<nav class="breadcrumb" role="navigation">
+  <h2 class="breadcrumb-label">{{ 'You are here'|t }}</h2>
+  <ol>
+  {% for item in breadcrumb %}
+    {% if loop.first %}
+      <li>{{ item }} » </li>
+    {% elseif loop.last %}
+      <li>{{ item }}</li>
+    {% else %}
+      <li>{{ item }} » </li>
+    {% endif %}
+  {% endfor %}
+  </ol>
+</nav>
+{% endif %}

@@ -1,0 +1,25 @@
+/*
+Theme Name:         Lightwords
+Theme URI:          https://github.com/webcd/lightwords#readme
+Description:        A minimal WordPress starter theme. Powered by Twig, Gulp and Bootstrap, inspired by Sage, based on Timber-starter-theme!
+Version:            0.1.0
+Author:             Webcd
+Author URI:         http://webcd.fr
+Text Domain:        lightwords
+
+License:            MIT License
+License URI:        http://opensource.org/licenses/MIT
+*/
+
+
+/* CONFIG */
+@import "variables";
+
+/* VENDOR LIBS */
+@import "bootstrap";
+
+/* LIBS */
+@import "foo";
+
+/* APP */
+@import "app";
