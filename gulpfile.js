@@ -33,7 +33,7 @@ global.config = {
   filesJs: [
     // "node_modules/jquery/dist/jquery.js", // not needed, provided by WordPress
     "node_modules/bootstrap-sass/assets/javascripts/bootstrap/transition.js",
-    "node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js",
+    // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js",
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/affix.js",
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/alert.js",
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/button.js",
@@ -44,6 +44,7 @@ global.config = {
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/popover.js",
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js",
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/tab.js",
+		"src/js/parallax.js",
     "src/js/main.js"
   ],
 };
@@ -228,7 +229,7 @@ gulp.task("scripts", function() {
     .pipe(gulp.dest(config.pathTmp + config.path.js))
 
     // prod
-		.pipe(plugins.rename({suffix: ".min"}))
+		// .pipe(plugins.rename({suffix: ".min"}))
 		.pipe(plugins.uglify({outSourceMaps: true}))
 		.pipe(gulp.dest(config.pathJsDest))
     .pipe(reload({stream: true}))
