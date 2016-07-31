@@ -1,0 +1,23 @@
+<div class="metas">
+
+  {% if post.categories or post.terms('tags') %}
+  <div class="terms">
+
+    {% for cat in post.categories %}
+    <a class="category-link btn btn-primary btn-xs" href="{{cat.link}}">{{cat.name}}</a>
+    {% endfor %}
+
+    {% for tag in post.terms('tags') %}
+    <a class="tag-link btn btn-xs" href="{{tag.link}}">#{{tag.name}}</a>
+    {% endfor %}
+
+  </div>
+  {% endif %}
+
+  <div class="publish">
+    <span class="author"><span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a></span>
+    <span>&bull;</span>
+    <span class="date">{{ post.post_date|date}}</span>
+  </div>
+
+</div>

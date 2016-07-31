@@ -2,24 +2,24 @@
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+			<a class="navbar-brand" href="{{site.url}}" rel="home">
+				<svg class="logo" viewBox="0 0 100 100" width="24" height="24">
+					<use xlink:href="#computing88"></use>
+				</svg>
+				<span class="site-name">{{site.name}}</span>
+			</a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="#navbar-collapse, #overlay-navbar, body" data-toggle-classname="navbar-expanded" aria-expanded="false">
 				<span class="sr-only">Toggle navigation</span>
         <i class="fa fa-lg fa-bars"></i>
 			</button>
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#searchbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle" data-toggle="#searchbar-collapse, body" data-toggle-classname="searchbar-expanded" aria-expanded="false">
 				<span class="sr-only">Toggle search</span>
         <i class="fa fa-lg fa-search"></i>
 			</button>
-			<a class="navbar-brand" href="{{site.url}}" rel="home">
-				<!-- <svg class="logo" viewBox="0 0 100 100" width="25" height="25">
-					<use xlink:href="#computing88"></use>
-				</svg> -->
-				<span class="site-name">{{site.name}}</span>
-			</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+		<div class="collapse navbar-collapse" id="navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
 				{% include 'menu.twig' %}
 			</ul>

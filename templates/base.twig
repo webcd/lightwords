@@ -1,65 +1,82 @@
 <!doctype html>
 
+<!-- HEAD -->
 {% block head %}
-	{% include 'head.twig' %}
+{% include 'head.twig' %}
 {% endblock %}
 
-	<body class="{{body_class}}" data-template="base.twig">
+<!-- BODY -->
+<body class="{{body_class}} sticky-header parallax-hero debug debug--breakpoints" data-template="base.twig">
 
-		<div class="site-wrapper">
+	<!-- SITE-WRAPPER -->
+	<div class="site-wrapper">
 
-			<!-- HEADER -->
-			<header class="site-header">
-				{% block header %}
-					{% include 'header.twig' %}
-				{% endblock %}
-			</header>
+		<!-- HEADER -->
+		<header class="site-header">
+			{% block header %}
+			{% include 'header.twig' %}
+			{% endblock %}
+		</header>
 
-			<!-- CONTENT -->
-			<section class="site-content">
+		<!-- SITE-CONTENT -->
+		<section class="site-content">
 
-				<!-- MAIN -->
-				<main class="{{sidebar_class}}" role="main">
-					<section class="wrapper wrapper--content">
+			<!-- MAIN -->
+			<main class="wrapper wrapper--content" role="main">
 
-						<div class="container">
-							{% block title %}
-								{% if title %}<h1>{{title}}</h1>{% endif %}
-							{% endblock %}
-						</div>
-
-						{% block content %}
-							<div class="container">
-								Sorry, no content
-							</div>
-						{% endblock %}
-
-					</section>
-				</main>
-
-				<!-- SIDEBAR -->
-				{% if sidebar %}
-				<aside class="site-aside">
-					{{sidebar}}
-				</aside>
+				{% if not is_homepage %}
+				<!-- BREADCRUMB -->
+				<section class="wrapper wrapper--breadcrumb">
+					<div class="container">
+						{# native walker: % include "breadcrumb.twig" %#}
+						{{ breadcrumb }}
+					</div>
+				</section>
 				{% endif %}
 
-			</section><!-- end .site-content -->
-
-			<!-- FOOTER -->
-			<footer class="site-footer">
-				{% block footer %}
-					{% include 'footer.twig' %}
+				<!-- ARTICLE CONTENT -->
+				{% block content %}
+				<div class="container">
+					Sorry, no content!
+				</div>
 				{% endblock %}
-			</footer>
 
-		</div><!-- end .site-wrapper -->
+			</main>
 
-		{% if do_inlinesvg %}
-		<div class="inline-svg">{% include 'sprite.symbol.svg.twig' %}</div>
-		{% endif %}
+			{% if sidebar %}
+			<!-- SIDEBAR -->
+			<aside class="site-aside">
+				{{sidebar}}
+			</aside>
+			{% endif %}
 
-		{{ function('wp_footer') }}
+		</section><!-- end .site-content -->
 
-	</body>
+		<!-- FOOTER -->
+		<footer class="site-footer">
+			{% block footer %}
+			{% include 'footer.twig' %}
+			{% endblock %}
+		</footer>
+
+	</div><!-- end .site-wrapper -->
+
+	<div class="overlay" data-toggle="#navbar-collapse, #overlay-navbar, body" data-toggle-classname="navbar-expanded" id="overlay-navbar"></div>
+
+	{% if do_inlinesvg %}
+	<!-- INLINE SVG -->
+	<div class="inline-svg">{% include 'sprite.symbol.svg.twig' %}</div>
+	{% endif %}
+
+	{% if not do_debug_zone %}
+	<!-- DEBUG ZONE -->
+	<div class="debug-zone">
+		<div class="debug-zone__item debug-zone__item--bp"></div>
+	</div>
+	{% endif %}
+
+	<!-- WP_FOOTER -->
+	{{ function('wp_footer') }}
+
+</body>
 </html>
