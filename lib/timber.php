@@ -78,8 +78,6 @@ class StarterSite extends TimberSite {
 
     // Inline SVG
     $context['do_inlinesvg'] = file_exists( get_template_directory_uri().'/dist/img/sprite.symbol.svg.twig' );
-    // TODO: remove this and find out the permissions we need
-    $context['do_inlinesvg'] = true;
 /*
     ?><pre><?php var_dump($context['menu']->items); ?></pre><?php
 */
