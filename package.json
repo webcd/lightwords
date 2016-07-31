@@ -1,6 +1,6 @@
 {
   "name": "lightwords",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A minimal WordPress starter theme. Powered by Twig, Gulp and Bootstrap, inspired by Sage, based on Timber-starter-theme!",
   "homepage": "https://github.com/webcd/lightwords#readme",
   "author": "Nicolas Giethlen (@nicolasgiethlen)",
