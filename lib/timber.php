@@ -46,6 +46,7 @@ class StarterSite extends TimberSite {
     //this is where you can register custom taxonomies
   }
 
+  // Global context, available to all templates
   function add_to_context( $context ) {
     $context['site'] = $this;
 
@@ -55,10 +56,14 @@ class StarterSite extends TimberSite {
 
     $context['login_url'] = wp_login_url();
 
+    $context['is_homepage'] = is_front_page();
+
     // BREADCRUMB
     // From: https://github.com/timber/timber/issues/719
     if ( function_exists( 'yoast_breadcrumb' ) ) {
       $context['breadcrumb'] = yoast_breadcrumb('<nav class="breadcrumb">','</nav>', false );
+    } else {
+      // TODO: stock WordPress breadcrumb
     }
 
     // SEARCH FORM
@@ -72,7 +77,9 @@ class StarterSite extends TimberSite {
     $context['widgets_footer_4'] = Timber::get_widgets('footer4');
 
     // Inline SVG
-    $context['do_inlinesvg'] = file_exists( get_template_directory_uri() + '/dist/img/sprite.symbol.svg.twig' );
+    $context['do_inlinesvg'] = file_exists( get_template_directory_uri().'/dist/img/sprite.symbol.svg.twig' );
+    // TODO: remove this and find out the permissions we need
+    $context['do_inlinesvg'] = true;
 /*
     ?><pre><?php var_dump($context['menu']->items); ?></pre><?php
 */
@@ -81,7 +88,7 @@ class StarterSite extends TimberSite {
 
   // Demo Twig filter
   function myfoo( $text ) {
-    $text .= ' bar!';
+    $text .= ' <= Timber custom-filtered thing!';
 
     return $text;
   }
