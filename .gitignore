@@ -4,4 +4,4 @@ vendor
 src/.doc
 src/.tmp
 
-dist
+# dist
