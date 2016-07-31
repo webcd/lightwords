@@ -10,4 +10,5 @@
  */
 
 $context = Timber::get_context();
+$context['title'] = "Ooops, someting went wrong!";
 Timber::render( '404.twig', $context );
