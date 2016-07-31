@@ -1,0 +1,8 @@
+// BUTTONS
+
+.btn-secondary {
+  @include button-variant(white, $brand-secondary, darken($brand-secondary, 10%));
+}
+.btn-ternary {
+  @include button-variant(white, $brand-ternary, darken($brand-ternary, 10%));
+}

@@ -1,0 +1,92 @@
+/* BREAKPOINTS */
+
+$screen-expanded: $grid-float-breakpoint;  // alias
+
+$breakpoints: (
+  'expanded':     $screen-expanded,
+  'min':          0em,
+  'xs':           $screen-xs,
+  'sm':           $screen-sm,
+  'md':           $screen-md,
+  'lg':           $screen-lg
+);
+
+@function bp($breakpoint) {
+  @return map-get($breakpoints, $breakpoint);
+}
+
+// Main responsive mixin
+
+@mixin bp($point: expanded, $max-width: false) {
+
+  @if $point map-has-keys($breakpoints, $point) {
+    @if $max-width {
+      @media (max-width: bp($point)) {
+        @content;
+      }
+    } @else {
+      @media (min-width: bp($point)) {
+        @content;
+      }
+    }
+  } @else {
+    @warn "ERROR: unknown breakpoint #{$point} in mixin bp()";
+  }
+}
+
+// DEBUG BREAKPOINTS
+
+// DEBUG
+
+.debug-zone { display: none; }
+
+/*html*/.debug {
+
+  .debug-zone {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.75);
+  }
+
+  .debug-zone__item {
+    padding: $gutter-eighth $gutter-quarter;
+    color: #0f0;
+
+    &:before { font-size: 2rem; }
+    &:after {}
+  }
+}
+
+/*html*/.debug.debug--breakpoints {
+
+  // In case ther is no 'min' breakpoint
+  .debug-zone__item--bp:before { content: "min"; }
+  .debug-zone__item--bp:after { content: "(0em / 0px)"; }
+
+  @each $breakpoint-name, $breakpoint-width in $breakpoints {
+
+    @media (min-width: $breakpoint-width) {
+
+      .debug-zone__item--bp::before {
+        content:$breakpoint-name; // name
+      }
+      .debug-zone__item--bp::after {
+        content: ' (' +
+        bp($breakpoint-name) + ' / ' + // value in em
+        (bp($breakpoint-name) / 1em * $font-size-base) + ')'; // value in px
+      }
+    }
+  }
+}
+
+
+// TOOLS
+
+.hidden-expanded { @include bp('expanded') { display: none !important; } }
+
+.hidden-collapsed {
+  display: none; @include bp('expanded') { display: block !important; } }
+
+.searchbar-collapse { @include bp('expanded') { display: block !important; } }

@@ -1,0 +1,7 @@
+/* BASE */
+
+// Avoid 150px height default behaviour
+.inline-svg { svg { display: none; } }
+
+// Responsive images by default
+img { max-width: 100%; }

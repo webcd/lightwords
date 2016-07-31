@@ -1,0 +1,426 @@
+///////////////////////////////////////////////////////////////////////////////
+// DEMO
+///////////////////////////////////////////////////////////////////////////////
+
+// Shameless playbround
+
+
+///////////////////////////////////////////////////////////////////////////////
+// WRAPPERS
+
+// Macro-wrappers
+
+// .site-wrapper {         background-color: white; }
+// .site-header {          background-color: white; }
+// .site-content {         background-color: white; }
+// .site-footer {          background-color: white; }
+
+// Micro-wrappers
+
+.wrapper--pre-header {  background-color: $gray-lightest; }
+// .wrapper--header {      background-color: transparent; }
+.wrapper--post-header { background-color: $gray-lightest; }
+
+.wrapper--pre-footer {  background-color: $gray-lighter; }
+.wrapper--footer {      background-color: $gray-lighter; }
+.wrapper--post-footer { background-color: $gray-lighter; }
+
+// .wrapper--content {     background-color: white; }
+
+.wrapper--breadcrumb {  background-color: $brand-primary; }
+.wrapper--posts {       background-color: $gray-darker; color: $gray-lightest; }
+// .article {} // TODO: wrapper for an article main content
+
+// Nano-wrappers
+
+// .wrapper--hero {}
+// .wrapper--article-content {}
+// .wrapper--posts {}
+
+
+.wrapper--content { padding-bottom: $gutter-double; }
+
+
+///////////////////////////////////////////////////////////////////////////////
+// HEADER
+
+// MAIN LOGO
+
+.navbar-brand {
+  @include bp('md') {
+    position: relative;
+    top: -3.75rem;
+    font-size: 3rem;
+
+    > .logo {
+      width: 3.75rem;
+      height: 3.75rem;
+    }
+  }
+
+  .site-name {
+    color: $brand-primary;
+  }
+
+  .logo {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    vertical-align: text-bottom;
+    fill: $brand-primary;
+  }
+}
+
+
+// SEARCHBAR
+
+.searchform input[type='submit'] {
+  &:not([disabled]) { // don't submit less than 3 chars
+    color: $brand-primary;
+
+    &:hover {
+      color: white;
+      background-color: $brand-primary;
+    }
+  }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// BREADCRUMB
+
+.breadcrumb {
+  padding-top: $gutter-half;
+  padding-bottom: $gutter-half;
+  color: white;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// MAIN MENU
+
+.navbar { border: 0; }
+
+.wrapper--header .navbar-nav {
+  > li {
+    font-weight: 300;
+    text-transform: uppercase;
+
+    > a {
+      color: $brand-primary;
+      font-size: 2rem;
+    }
+  }
+}
+
+
+.navbar-default {
+
+  .navbar-toggle {
+    color: $gray-light;
+
+    &:hover, &:focus {
+      background-color: transparent;
+      color: $gray;
+    }
+  }
+
+
+  .navbar-nav {
+
+    // ACTIVE ITEM
+
+    > .active > a,
+    > .active > a:hover,
+    > .active > a:focus,
+    > .current-menu-item > a,
+    > .current-menu-item > a:hover,
+    > .current-menu-item > a:focus {
+      background-color: $brand-primary;
+      color: white;
+    }
+
+    // DROPDOWN ITEM OPENED
+
+    > .open > a,
+    > .open > a:hover,
+    > .open > a:focus {
+      background-color: $gray-dark;
+      color: white;
+    }
+  }
+
+}
+
+// MOBILE ONLY OFFSCREEN PANEL MENU
+
+@include bp('expanded', true) {
+
+  // OVERLAY
+
+  .overlay {
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(0,0,0,.5) 3px, rgba(0,0,0,.5) 6px),
+    linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0.25));
+  }
+
+  .navbar-collapse {
+    background-color: $gray-darker;
+
+    > .navbar-nav {
+      margin-top: $gutter-quarter;
+      margin-bottom: $gutter-quarter;
+
+      > .menu-item {
+        padding-top: $gutter-quarter;
+        padding-bottom: $gutter-quarter;
+
+        > a {
+          &:hover {
+            color: white;
+          }
+        }
+      }
+    }
+
+    // Generated label
+    &:before {
+      content: "menu";
+      text-transform: uppercase;
+      font-size: 2.4rem;
+      font-weight: 300;
+      background-color: $gray-darkest;
+      color: $gray-light;
+    }
+  }
+
+}
+
+// DEKSTOP INLINE DROPDOWN SUBMENU
+
+@include bp('expanded') {
+  .navbar-collapse .dropdown-menu {
+    // justify-content: center; // default
+    background-color: $gray-dark;
+
+    > .menu-item {
+      a {
+        color: $gray-light;
+        text-transform: none;
+
+        &:hover, &:focus {
+          color: $gray-lighter;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// FOOTER
+
+.site-footer {
+  text-align: center;
+
+  @include bp('sm') {
+    text-align: left;
+  }
+}
+
+.footer-copyright {
+  padding: 1.5rem 0;
+  text-align: center;
+  font-weight: 500;
+  color: $gray;
+}
+
+.widget ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// BASE
+
+a { transition: color 0.125s; }
+
+.h1 { margin-bottom: $gutter; }
+
+p { margin-bottom: $gutter; }
+
+blockquote {
+  font-family: $font-family-serif;
+  font-style: italic;
+  color: $gray;
+  border-color: $brand-primary;
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// METAS
+
+.terms {
+  line-height: 2;
+  padding-bottom: $gutter-quarter;
+  border-bottom: 1px dotted;
+}
+
+.publish {
+  font-style: italic;
+  color: $gray-light;
+  margin-top: $gutter-quarter;
+  padding-top: $gutter-eighth;
+}
+
+.tag-link {
+  text-transform: none;
+  font-weight: 500;
+  background-color: transparent;
+  border-color: transparent;
+  color: $brand-secondary;
+
+  &:hover {
+    background-color: transparent;
+    border-color: transparent;
+    color: lighten($brand-secondary, 20%);
+  }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// POST(S)
+
+// SINGLE
+
+.article-content {
+  position: relative;
+  padding-top: $gutter-double;
+  padding-bottom: $gutter-double;
+
+  .metas {
+    margin-bottom: $gutter;
+  }
+}
+
+.article-content-body {
+
+  // TODO : didn't find how to make a real excerpt in WP
+  // the <!-- more --> thing changes nothing in markup
+  // So we made the very first paragraph of content highlighted!
+  > p:first-child {
+    @extend .lead;
+  }
+}
+
+@include bp(sm) {
+  .hero-title {
+    $parallax-security-size: $gutter;
+    position: absolute;
+    top: $parallax-security-size; //hack
+    left: 0;
+    transform: translate3d(0, -100%, 0);
+    margin: 0;
+    padding: $gutter-quarter $gutter-half;
+    padding-bottom: $gutter-quarter + $parallax-security-size;
+    background-color: white;
+  }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// TILES
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  padding: $gutter-half;
+  // margin-bottom: $gutter;
+  @include shadow(1);
+  transition: box-shadow 0.125s;
+  cursor: pointer;
+
+  &:hover {
+    @include shadow(2);
+  }
+
+  > * {
+    flex: 0 0 auto;
+
+    &.tile__body {
+      flex-grow: 1;
+    }
+  }
+
+  &:nth-child(4) {
+    @include bp('md') {
+      display: none;
+    }
+    @include bp('lg') {
+      display: flex;
+    }
+  }
+}
+
+.tile__hero {
+  position: relative;
+  margin: -$gutter-half;
+  margin-bottom: $gutter-half;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+
+  > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    transform: translate3d(-50%, -50%, 0) scale3d(1.2, 1.2, 1);
+    transition: transform 0.5s $ease-bump;
+
+    .tile:hover & {
+      transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+    }
+  }
+}
+
+.tile__title {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding: $gutter-quarter $gutter-half;
+  background-color: rgba(0,0,0,0.5);
+
+  a {
+    color: white;
+    font-weight: 300;
+  }
+}
+
+.tile__body {
+  margin-top: $gutter-half;
+
+  .read-more {
+    display: block;
+    text-align: right;
+  }
+}
+
+.tile__foot {
+  text-align: right;
+
+  .read-more {
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+}
+
+
+// Latest posts tiles are dark
+.posts--latest {
+  .tile-post {
+    background-color: $gray-darkest;
+  }
+}

@@ -1,30 +1,30 @@
-// IMPORTS
-
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,900,300");
-@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
-
 // DEFAULT BOOTSTRAP VARIABLES OVERRIDE
 
+// COLORS
 
-$brand-primary:           darken(#428bca, 6.5%);
-$brand-secondary:         darken(#f80, 6.5%);  // Non Bootstrap var
-$brand-ternary:           darken(#80f, 6.5%);  // Non Bootstrap var
+$brand-primary:           #428bca;
+$brand-secondary:         #f80;
+$brand-ternary:           #80f;  // [NEW]
 
 // TODO : shades of base colors
 
-$link-color:              $brand-secondary;
-
 $gray-base:               #000;
+$gray-darkest:            lighten($gray-base, 3.5%);  // #??? [NEW]
 $gray-darker:             lighten($gray-base, 13.5%); // #222
 $gray-dark:               lighten($gray-base, 20%);   // #333
 $gray:                    lighten($gray-base, 33.5%); // #555
 $gray-light:              lighten($gray-base, 46.7%); // #777
 $gray-lighter:            lighten($gray-base, 93.5%); // #eee
+$gray-lightest:           lighten($gray-base, 97%);   // #??? [NEW]
+
+// Links
+
+$link-color:              $brand-secondary;
 
 // TYPOGRAPHY
 
-$font-family-sans-serif:  "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-family-serif:       Georgia, "Times New Roman", Times, serif;
+$font-family-sans-serif:  "Work Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:       "Lora", Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 $font-family-base:        $font-family-sans-serif;
@@ -43,22 +43,22 @@ $font-size-h6:            ceil(($font-size-base * 0.85));
 $line-height-base:        1.5;
 
 $headings-font-family:    inherit;
-$headings-font-weight:    900;
+$headings-font-weight:    700;
 $headings-line-height:    1.1;
 $headings-color:          inherit;
 
 $border-radius-base:      0px;
-$border-radius-large:     0px;
-$border-radius-small:     0px;
+$border-radius-large:     1.4142 * $border-radius-base;
+$border-radius-small:     2 * $border-radius-base;
 
 $btn-font-weight:         900;
-$btn-text-transform:      uppercase;  // Non Bootstrap var
+$btn-text-transform:      uppercase;  // [NEW]
 
 $input-bg:                #fff;
 $input-border:            #ccc;
 $input-color-placeholder: #999;
 
-// TODO : other colors buttons
+// TODO : other colors buttons (done elsewhere)
 
 $screen-sm:               768px;
 $screen-md:               992px;
@@ -73,8 +73,9 @@ $navbar-collapse-max-height:              340px;
 $navbar-margin-bottom:                    0;
 
 $navbar-default-color:                    #777;
-$navbar-default-bg:                       transparent;
-$navbar-default-border:                   transparent;
+$navbar-default-bg:                       white;
+$navbar-default-border:                   white;
+
 $navbar-default-link-color:               #777 !default;
 $navbar-default-link-hover-color:         #333 !default;
 $navbar-default-link-hover-bg:            transparent !default;
@@ -84,12 +85,33 @@ $navbar-default-link-disabled-color:      #ccc !default;
 $navbar-default-link-disabled-bg:         transparent !default;
 
 
+// Common screen sizes, in em unit (1em = 16px, browser default font-size)
+//          in em    in px
+// 'xxs':   20em,    // 320
+// 'xs':    30em,    // 480
+// 's':     40em,    // 640
+// 'sm':    48em,    // 768
+// 'm':     60em,    // 960
+// 'ml':    64em,    // 1024
+// 'l':     75em,    // 1200
+// 'xl':    90em,    // 1440
+// 'xxl':   100em,   // 1600
+// 'xxxl':  120em    // 1920
 
+$screen-xs: 30em;    // 480px
+$screen-sm: 48em;    // 768px
+$screen-md: 62em;    // 992px
+$screen-lg: 75em;    // 1200px
 
+$grid-float-breakpoint: $screen-sm;
 
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
 
-
-
+$container-tablet:             (720px + $grid-gutter-width);
+$container-desktop:            (940px + $grid-gutter-width);
+$container-large-desktop:      (1140px + $grid-gutter-width);
 
 
 
@@ -97,4 +119,45 @@ $navbar-default-link-disabled-bg:         transparent !default;
 
 .btn {
   text-transform: $btn-text-transform;
+}
+
+// TODO : auto-compute this (or retro-compute $grid-gutter-width)
+$gutter:                                  3rem;
+
+$gutter-half:                             $gutter / 2;
+$gutter-quarter:                          $gutter / 4;
+$gutter-eighth:                           $gutter / 8;
+$gutter-double:                           $gutter * 2;
+$gutter-quad:                             $gutter * 4;
+$gutter-octo:                             $gutter * 8;
+
+
+
+// BOOTSTRAP REMOVAL
+
+.fade {
+  opacity: 0;
+  transition: opacity .15s;
+  &.in {
+    opacity: 1;
+  }
+}
+
+.collapse {
+  display: none;
+
+  &.in      { display: block; }
+  // [converter] extracted tr&.in to tr.collapse.in
+  // [converter] extracted tbody&.in to tbody.collapse.in
+}
+
+tr.collapse.in    { display: table-row; }
+
+tbody.collapse.in { display: table-row-group; }
+
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s, visibility 0.35s;
 }

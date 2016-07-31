@@ -1,0 +1,28 @@
+/* LAYOUT */
+
+
+// STICKY FOOTER
+
+html, body, .site-wrapper { min-height: 100vh; }
+.site-wrapper { display: flex; flex-direction: column; }
+.site-content { flex-grow: 1; }
+
+.wrapper--breadcrumb {
+  padding-top: $gutter-half;
+  padding-bottom: $gutter-half;
+}
+
+
+// BOOTSSRAP LEGACY CONTAINER
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left:  $gutter-half;
+  padding-right: $gutter-half;
+  @include clearfix;
+
+  @include bp('sm') { width: $container-sm; }
+  @include bp('md') { width: $container-md; }
+  @include bp('lg') { width: $container-lg; }
+}

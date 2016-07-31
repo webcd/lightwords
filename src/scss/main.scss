@@ -13,13 +13,31 @@ License URI:        http://opensource.org/licenses/MIT
 
 
 /* CONFIG */
+
 @import "variables";
 
 /* VENDOR LIBS */
+
 @import "bootstrap";
 
 /* LIBS */
-@import "foo";
+
+@import "lib/cdn-imports";
+
+@import "lib/base";
+@import "lib/animation";
+@import "lib/wordstrap";
+@import "lib/shadows";
+// @import "lib/fixed-ratio";
+@import "lib/breakpoints";
+@import "lib/flexgrid";
+@import "lib/layout";
+@import "lib/sticky-header";
+@import "lib/navbar";
+
+@import "lib/foo";
 
 /* APP */
+
 @import "app";
+@import "demo";

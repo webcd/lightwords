@@ -1,0 +1,132 @@
+// OFFSCREEN MOBILE MENU
+
+// .navbar-default { background-color: white; }
+
+.site-header { background-color: white; }
+
+.navbar-default .navbar-toggle {
+  padding: 10px;
+  border: 0;
+  width: 44px;
+}
+
+
+
+@include bp('expanded', true) {
+
+  // OVERLAY
+
+  body.navbar-expanded {
+    overflow: hidden;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.25s;
+
+    &.navbar-expanded {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  // SEARCHBAR
+
+  .searchbar-collapse {
+    display: block;
+    overflow: hidden;
+    height: 0px;
+    transition: height 0.5s $ease-bump;
+
+    &.searchbar-expanded {
+      height: 60px;
+    }
+
+    .searchform {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  // Bring toggle btns back to foreground
+  .navbar-toggle { z-index: +1; }
+
+  // Offscreen pannel
+
+  .navbar-collapse {
+    $navbar-collapse-width: 20em;
+
+    display: block !important;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: $navbar-collapse-width;
+    height: 100vh;
+    padding-top: 60px;
+    background-color: white; // todo
+    box-shadow: none;
+    @include shadow(5);
+    transform: translate3d(100%, 0, 0);
+    transition: transform 0.5s $ease-bump;
+
+    &.navbar-expanded {
+      transform: translate3d(0, 0, 0);
+
+      /*body*/.searchbar-expanded & {
+        transform: translate3d(0, 60px, 0);
+      }
+    }
+
+    > .navbar-nav {
+      margin-top: $gutter-half;
+      margin-bottom: $gutter-half;
+    }
+
+    // Generated label
+    &:before {
+      content: "menu";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-left: $gutter-half;
+      font-size: 2.4rem;
+      line-height: 60px;
+      @include shadow(1);
+    }
+  }
+
+}
+
+
+// DESKTOP INLINE DROPDOWN SUBMENU
+
+@include bp('expanded') {
+  .navbar-collapse .dropdown.open {
+    position: static;
+
+    .dropdown-menu {
+      width: 100vw;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      box-shadow: none;
+      @include shadow(1);
+
+      > .menu-item {
+        a {
+          padding-top: $gutter-quarter;
+          padding-bottom: $gutter-quarter;
+        }
+      }
+    }
+  }
+}
