@@ -2,7 +2,9 @@
 
 ## Elements
 
-* member account / login link etc
+* isolate all root "controllers" .php files into a dedicated folder
+* member account links / login link / post-type or category link / etc
+* Timber helper for RICG images
 * native breadcrumb
 * search form (need a dedicated partial)
 * sidebars?
@@ -14,7 +16,13 @@
 * buttons variations (ternary, hollow)
 * flex grid (to be continued)
 * SVG fontawesome
-* Bootstrap removal : navbar, scaffolding, type, buttons, responsive-utilities...
+* Bootstrap removal
+  * navbar,
+  * scaffolding,
+  * type,
+  * buttons,
+  * responsive-utilities
+  * ...
 
 ## JS
 
@@ -31,6 +39,8 @@
 
 # KNOWN bugs
 
+- mobile offscreen menu is broken when in admin mode
 - js sourcemaps must be fixed
-- remove emoji snippets is broken
+- remove emoji snippets is broken (temp disabled)
 - dual topbar sometimes renders 'stacked'?
+- parallax needs security offset in the settings
