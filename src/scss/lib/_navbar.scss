@@ -1,6 +1,10 @@
 // OFFSCREEN MOBILE MENU
 
-// .navbar-default { background-color: white; }
+$navbar-collapse-width: 20em;
+
+$adminbar-height-mobile: px2rem(45px);
+$navbar-height-mobile: 6rem;
+
 
 .site-header { background-color: white; }
 
@@ -9,8 +13,6 @@
   border: 0;
   width: 44px;
 }
-
-
 
 @include bp('expanded', true) {
 
@@ -47,7 +49,7 @@
     transition: height 0.5s $ease-bump;
 
     &.searchbar-expanded {
-      height: 60px;
+      height: $navbar-height-mobile;
     }
 
     .searchform {
@@ -62,7 +64,6 @@
   // Offscreen pannel
 
   .navbar-collapse {
-    $navbar-collapse-width: 20em;
 
     display: block !important;
     position: fixed;
@@ -70,21 +71,28 @@
     top: 0;
     width: $navbar-collapse-width;
     height: 100vh;
-    padding-top: 60px;
+    padding-top: $navbar-height-mobile;
     background-color: white; // todo
     box-shadow: none;
     @include shadow(5);
     transform: translate3d(100%, 0, 0);
     transition: transform 0.5s $ease-bump;
 
+    // Vertical offset modifiers
+
+    /*body*/.searchbar-expanded & { transform: translate3d(100%, $navbar-height-mobile, 0); }
+    /*body*/.admin-bar & { transform: translate3d(100%, $adminbar-height-mobile, 0); }
+    /*body*/.admin-bar.searchbar-expanded & { transform: translate3d(100%, $adminbar-height-mobile + $navbar-height-mobile, 0); }
+
     &.navbar-expanded {
       transform: translate3d(0, 0, 0);
 
-      /*body*/.searchbar-expanded & {
-        transform: translate3d(0, 60px, 0);
-      }
+      /*body*/.searchbar-expanded & { transform: translate3d(0, $navbar-height-mobile, 0); }
+      /*body*/.admin-bar & { transform: translate3d(0, $adminbar-height-mobile, 0); }
+      /*body*/.admin-bar.searchbar-expanded & { transform: translate3d(0, $adminbar-height-mobile + $navbar-height-mobile, 0); }
     }
 
+    // Give nav some air
     > .navbar-nav {
       margin-top: $gutter-half;
       margin-bottom: $gutter-half;
@@ -98,8 +106,8 @@
       left: 0;
       width: 100%;
       padding-left: $gutter-half;
-      font-size: 2.4rem;
-      line-height: 60px;
+      font-size: 2.4rem; // a bit magical value
+      line-height: $navbar-height-mobile;
       @include shadow(1);
     }
   }
