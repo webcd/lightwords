@@ -8,7 +8,7 @@
 		aria-haspopup="true"
 		aria-expanded="false"
 		{% endif %}
-		>{{item.title}}
+		><span>{{item.title}}</span>
 		{% if (item.has_child_class()) %}
 		<span class="caret"></span>
 		{% endif %}
@@ -17,7 +17,7 @@
 	<ul class="dropdown-menu">
 		{% for item_child in item.get_children %}
 		<li class="{{item_child.classes | join(' ')}}">
-			<a href="{{item_child.get_link}}">{{item_child.title}}</a>
+			<a href="{{item_child.get_link}}"><span>{{item_child.title}}</span></a>
 		</li>
 		{% endfor %}
 	</ul>
@@ -37,7 +37,7 @@
 		aria-haspopup="true"
 		aria-expanded="false"
 		{% endif %}
-		>{{item.title}}
+		><span>{{item.title}}</span>
 		{% if (item.has_child_class()) %}
 		<span class="caret"></span>
 		{% endif %}
@@ -46,7 +46,7 @@
 	<ul class="dropdown-menu">
 		{% for item_child in item.get_children %}
 		<li class="{{item_child.classes | join(' ')}}">
-			<a href="{{item_child.get_link}}">{{item_child.title}}</a>
+			<a href="{{item_child.get_link}}"><span>{{item_child.title}}</span></a>
 		</li>
 		{% endfor %}
 	</ul>
