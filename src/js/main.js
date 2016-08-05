@@ -1,9 +1,52 @@
 (function ($) {
   console.log("main.js in action 😀");
 
+  // CONFIGURATION
+
+  var CONFIG = {
+    namespace: 'Lightwords',
+    debug: true,
+    debuggers: ['breakpoints'],
+    stickyHeader: true,
+    parallaxHero: true,
+  };
+
+  if (! window[CONFIG.namespace]) {
+    // Create the app main object
+    window[CONFIG.namespace] = {};
+    // Attach the configuration to it
+    Lightwords.CONFIG = CONFIG;
+
+  } else {
+    console.error("OUCH! window." + CONFIG.namespace + " already exists!");
+  }
+
+  console.log('Lightwords.CONFIG:');
+  console.log(Lightwords.CONFIG);
+
+
+  // DOM IS READY!
+
   $(function() {
 
-    // TOGGLE HELPER
+    // CONFIGURATION BODY TAG CLASSES
+
+    var $body = $("body");
+
+    // Debug classes
+
+    if (Lightwords.CONFIG.debug) {
+      $body.addClass("debug");
+
+      if (Lightwords.CONFIG.debuggers) {
+        Lightwords.CONFIG.debuggers.forEach(function (debug) {
+          $body.addClass("debug--" + debug);
+        });
+      }
+    }
+
+    if (Lightwords.CONFIG.stickyHeader) { $body.addClass("sticky-header"); }
+    if (Lightwords.CONFIG.parallaxHero) { $body.addClass("parallax-hero"); }
 
     // TOGGLE HELPER
 
@@ -18,13 +61,20 @@
 
         $toggler.addEventListener('click', function() {
 
-          toggleStuff($target, classname);
+          toggleStuff(this, $target, classname);
 
         });
       });
 
-      var toggleStuff = function ($target, classname) {
-      //console.log($targets);
+      var toggleStuff = function ($el, $target, classname) {
+
+        var activeClassname = 'active';
+        if ($el.classList.contains(activeClassname)) {
+            $el.classList.remove(activeClassname);
+
+          } else {
+            $el.classList.add(activeClassname);
+          }
 
         if ($target.classList.contains(classname)) {
             $target.classList.remove(classname);
