@@ -17,7 +17,6 @@
 * flex grid (to be continued)
 * SVG fontawesome
 * Bootstrap removal
-  * navbar,
   * scaffolding,
   * type,
   * buttons,
@@ -39,8 +38,9 @@
 
 # KNOWN bugs
 
-- mobile offscreen menu is broken when in admin mode
-- js sourcemaps must be fixed
-- remove emoji snippets is broken (temp disabled)
-- dual topbar sometimes renders 'stacked'?
-- parallax needs security offset in the settings
+* still an issue with file_exists on the SVG twig template (/lib/timber.php)
+* fixed-positioned elements aren't fixed!
+* js sourcemaps must be fixed
+* remove-emoji snippets is broken (temp disabled)
+* dual topbar sometimes renders 'stacked' (on resize it seems)
+* parallax needs security offset in the settings

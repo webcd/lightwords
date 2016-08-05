@@ -53,30 +53,34 @@
 
 .navbar-brand {
 
-  .site-name {
-    color: $brand-primary;
-    text-transform: uppercase;
-    color: white;
-  }
+  color: $gray-light;
 
   .logo {
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
     vertical-align: text-bottom;
-    fill: white;
+    fill: $gray-light;
   }
 
-  @include bp('md') {
-    position: relative;
-    top: -3.4rem;
-    font-size: 3rem;
+  &:hover {
+    color: $gray-lighter;
 
-    > .logo {
-      width: 3.75rem;
-      height: 3.75rem;
+    .logo {
+      fill: $gray-lighter;
     }
   }
+
+  // @include bp('md') {
+  //   position: relative;
+  //   top: -3.4rem; // pure magical val
+  //   font-size: 3rem;
+  //
+  //   > .logo {
+  //     width: 3.75rem;
+  //     height: 3.75rem;
+  //   }
+  // }
 }
 
 
@@ -105,6 +109,7 @@
     }
 
     &:not([disabled]) { // active button
+      color: white;
     }
   }
 }

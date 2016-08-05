@@ -58,7 +58,7 @@ $input-bg:                #fff;
 $input-border:            #ccc;
 $input-color-placeholder: #999;
 
-// TODO : other colors buttons (done elsewhere)
+
 
 $screen-sm:               768px;
 $screen-md:               992px;
@@ -67,23 +67,6 @@ $screen-lg:               1200px;
 $grid-columns:            12;
 $grid-gutter-width:       30px;
 $grid-float-breakpoint:   $screen-sm;
-
-$navbar-height:                           50px;
-$navbar-collapse-max-height:              340px;
-$navbar-margin-bottom:                    0;
-
-$navbar-default-color:                    #777;
-$navbar-default-bg:                       white;
-$navbar-default-border:                   white;
-
-$navbar-default-link-color:               #777 !default;
-$navbar-default-link-hover-color:         #333 !default;
-$navbar-default-link-hover-bg:            transparent !default;
-$navbar-default-link-active-color:        #555 !default;
-$navbar-default-link-active-bg:           #ccc;
-$navbar-default-link-disabled-color:      #ccc !default;
-$navbar-default-link-disabled-bg:         transparent !default;
-
 
 // Common screen sizes, in em unit (1em = 16px, browser default font-size)
 //          in em    in px
@@ -112,6 +95,34 @@ $grid-float-breakpoint: $screen-sm;
 $container-tablet:             (720px + $grid-gutter-width);
 $container-desktop:            (940px + $grid-gutter-width);
 $container-large-desktop:      (1140px + $grid-gutter-width);
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// NEW VARIABLES
+
+// NAVBAR CONFIGURATION
+
+$header-color-bg: white;
+
+$navbar-menu-mobile-width:     15em !default;
+
+$adminbar-height-mobile:       4.5rem !default;
+$adminbar-height-desktop:      3.2rem !default;
+
+$navbar-height-mobile:         6rem !default;
+$navbar-height-desktop:        $navbar-height-mobile !default;
+$topbar-height-mobile:         6rem !default;
+$topbar-height-desktop:        $topbar-height-mobile !default;
+
+$topbars-total-height:         $navbar-height-mobile + $topbar-height-mobile;
+
+
+$navbar-btn-size:              4.4rem !default;
+
+$navbar-brand-width:           auto !default;
+$navbar-brand-height:          $navbar-btn-size !default;
+
 
 
 
@@ -160,4 +171,15 @@ tbody.collapse.in { display: table-row-group; }
   height: 0;
   overflow: hidden;
   transition: height 0.35s, visibility 0.35s;
+}
+
+
+// TEMP DEBUG
+
+// Debug touchzones
+
+.debug.debug--touchzones {
+  a, button, .btn {
+    outline: 1px dashed red;
+  }
 }

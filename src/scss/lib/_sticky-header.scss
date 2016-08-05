@@ -31,10 +31,10 @@
   }
 
   .site-content{
-    padding-top: 1 * $navbar-height + 10px; // collapse btns increase height
+    padding-top: $navbar-height-mobile; // collapse btns increase height
 
     @include bp('expanded') {
-      padding-top: 2 * $navbar-height;
+      padding-top: $navbar-height-desktop + $topbar-height-desktop;
     }
   }
 

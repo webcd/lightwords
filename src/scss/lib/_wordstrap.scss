@@ -1,36 +1,17 @@
 // WORDPRESS + BOOTSTRAP
 
-.current-menu-item {
-  @extend .active;
-}
-
 // TODO: HACKY, tpl needed
 .searchform {
-  // @extend .navbar-form;
-  // @extend .navbar-right;
+  input[type="text"] {
+    @extend .form-control;
+  }
 
-  > div {
-    position: relative;
-    @extend .form-group;
-
-    input[type="text"] {
-      @extend .form-control;
-      padding-right: 12rem;
-    }
-
-    input[type="submit"] {
-      @extend .btn;
-      @extend .btn-default;
-      position: absolute;
-      top: 1px;
-      right: 1px;
-      border: 0;
-      color: $gray-light;
-      font-weight: normal;
-      text-transform: uppercase;
-    }
+  input[type="submit"] {
+    @extend .btn;
+    @extend .btn-default;
   }
 }
+
 
 .screen-reader-text {
   @extend .sr-only;

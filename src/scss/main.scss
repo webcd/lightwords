@@ -34,6 +34,7 @@ License URI:        http://opensource.org/licenses/MIT
 @import "lib/flexgrid";
 @import "lib/layout";
 @import "lib/sticky-header";
+@import "lib/nav";
 @import "lib/navbar";
 
 @import "lib/foo";
@@ -41,4 +42,4 @@ License URI:        http://opensource.org/licenses/MIT
 /* APP */
 
 @import "app";
-@import "demo";
+// @import "demo";

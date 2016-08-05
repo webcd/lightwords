@@ -1,0 +1,21 @@
+// NAVS
+// TODO!
+
+$nav-fontsize: 1.6rem;
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+
+  > * {
+    flex: 1 0 100%;
+
+    @include bp('expanded') {
+      flex: 0 0 auto;
+    }
+  }
+}

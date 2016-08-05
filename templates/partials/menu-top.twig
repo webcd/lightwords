@@ -1,15 +1,21 @@
-<div class="searchbar-collapse collapse" id="searchbar-collapse">
-	<nav class="navbar" role="navigation">
-		<div class="container">
-			<div class="navbar-header">
-			</div>
+<nav class="topbar" id="topbar">
+	<div class="bar-wrapper container">
 
+		<div class="bar-filler"></div>
+
+		<div class="topbar-menu">
+			<nav class="menu-secondary hidden-collapsed" role="navigation">
+				<ul class="nav">
+
+					{% include 'menu.twig' %}
+
+				</ul>
+			</nav>
+		</div>
+
+		<div class="topbar-search">
 			{{ searchform }}
+		</div>
 
-			<ul class="nav navbar-nav navbar-right hidden-collapsed">
-				{% include 'menu.twig' %}
-			</ul>
-
-		</div><!-- /.container -->
-	</nav>
-</div>
+	</div><!-- /.container -->
+</nav>

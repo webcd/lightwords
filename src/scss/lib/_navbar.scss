@@ -1,22 +1,358 @@
-// OFFSCREEN MOBILE MENU
-
-$navbar-collapse-width: 20em;
-
-$adminbar-height-mobile: px2rem(45px);
-$navbar-height-mobile: 6rem;
+///////////////////////////////////////////////////////////////////////////////
+// NAVBAR
 
 
-.site-header { background-color: white; }
+.site-header { background-color: $header-color-bg; }
 
-.navbar .navbar-toggle {
-  padding: 10px;
-  border: 0;
-  width: 44px;
+.wrapper--pre-header {}
+.wrapper--header {}
+.wrapper--post-header {}
+
+///////////////////////////////////////////////////////////////////////////////
+// BAR WRAPPERS
+
+
+.bar-wrapper {
+  // Bar content gutter
+  padding-top: ($navbar-height-mobile - $navbar-btn-size) / 2;
+  padding-bottom: ($navbar-height-mobile - $navbar-btn-size) / 2;
+
+  // Gives flexbox behavious to bars
+  display: flex;
+  flex-wrap: wrap;
+  > * { flex: 0 0 auto; }
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
-@include bp('expanded', true) {
+// A movable div that pushes neighbors on the sides
+.bar-filler { flex: 1; }
 
-  // OVERLAY
+
+///////////////////////////////////////////////////////////////////////////////
+// TOPBAR
+
+.topbar {
+  overflow: hidden;
+  height: $topbar-height-mobile;
+  // border-top: $topbar-height-mobile solid $header-color-bg;
+  // padding-top: $topbar-height-mobile;
+  transition: height 0.5s $ease-bump; // TODO: use accellerated transform
+
+  .topbar-menu {
+    margin-right: $gutter-half;
+  }
+
+  .topbar-search {
+    flex-basis: 100%;
+    @include bp('expanded') {
+      flex-basis: auto;
+    }
+  }
+}
+
+// Topbar on mobile - toggles visibility
+@include bp('expanded', true) {
+  .site-header {
+    transform: translate3d(0, - $topbar-height-mobile, 0);
+    transition: transform 0.5s $ease-bump;
+
+    /*html*/.topbar-expanded & {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+// SEARCHFORM
+
+.bar-wrapper .searchform {
+  position: relative;
+
+  input[type="text"] {
+    height: $navbar-btn-size;
+    line-height: $navbar-btn-size;
+    padding-right: 12rem;
+  }
+
+  input[type="submit"] {
+    position: absolute;
+    top: 0.1rem;
+    right: 0.1rem;
+    border: 0;
+    height: $navbar-btn-size - 0.2rem;
+    color: $gray-light;
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// NAVBAR
+
+.navbar { }
+
+
+///////////////////////////////////////////////////////////////////////////////
+// NAVBAR HEADER
+
+.navbar-header {
+  margin-left: -$gutter-half;
+}
+
+@include bp('expanded') {
+  .navbar-menu { margin-right: - $gutter; }
+  .topbar-search { margin-right: - $gutter-half; }
+  .topbar-menu { margin-left: - $gutter-half; }
+}
+
+// NAVBAR BRAND
+
+.navbar-brand {
+  display: block;
+  height: $navbar-brand-height;
+  padding-left: $gutter-half;
+  padding-right: $gutter-half;
+  font-size: $nav-fontsize;
+  line-height: $navbar-brand-height;
+  text-transform: uppercase;
+  color: $gray;
+
+  .logo {
+    vertical-align: middle;
+    fill: $gray;
+    transition: transform 0.25s;
+  }
+
+  &:hover {
+    color: $gray-darker;
+    .logo {
+      fill: $gray-darker;
+      transform: scale3d(1.2, 1.2, 1);
+    }
+  }
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// NAVBAR FOOTER
+
+.navbar-footer {
+  margin-left: $gutter-half;
+  font-size: 0; // removes space from inline buttons
+}
+
+
+// NAVBAR BUTTONS
+
+.btn-toggle {
+  padding: 10px;
+  border: 0;
+  min-width:$navbar-btn-size;
+  height:$navbar-btn-size;
+  font-size: 1.6rem;
+  background-color: transparent;
+  color: $gray-light;
+  transition: color 0.25s;
+
+  &:hover, &:active {
+    color: $gray-darker;
+  }
+
+  &:focus {
+    outline: 0.1rem solid rgba(0,0,0,0.25);
+  }
+
+  // Gutter between buttons + left spacing
+  margin-left: $gutter-quarter;
+
+  // Bring toggle btns back to foreground (in case of overlay/offscreen panel)
+  position: relative;
+  z-index: +1;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// NAVBAR MENU
+
+// COMMON STYLES
+
+.menu-primary,
+.menu-secondary {
+
+  // Menu items are common dy default
+  .menu-item {
+
+    // Space between items when stacked
+    margin-bottom: $gutter-quarter;
+
+    @include bp('expanded') {
+      margin-bottom: 0;
+      margin-left: $gutter-half;
+    }
+
+    > a {
+      display: block;
+      min-height: 4.4rem;
+      padding-left: $gutter-half;
+      padding-right: $gutter-half;
+
+      // Flex overkill vertical center
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      // Extra span for advanced styling (aka vertical center)
+      span:first-child { // don't catch submenus carret span
+        flex: 0 0 auto;
+        line-height: 1;
+        padding: $gutter-quarter 0;
+      }
+    }
+
+    &.current-menu-item {
+      a {
+        background: $brand-secondary;
+        color: white;
+      }
+    }
+
+    > .dropdown-menu {
+      // reset lists
+      list-style-type: none;
+      padding-left: 0;
+
+      .menu-item {
+        > a {
+          @include bp('expanded', true) {
+            padding-left: $gutter;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// MOBILE MENU
+.navbar-menu {
+
+  // MOBILE MENU
+
+  // Pain in the ass to reset mobile navbar styles on larger screens
+  // So for once, we allow MOBILE ONLY styles max-width @mq here!
+  @include bp('expanded', true) {
+    display: block !important;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: $navbar-menu-mobile-width * 2;
+    height: 100vh;
+    padding-top: $navbar-height-mobile;
+    transform: translate3d(100%, $navbar-height-mobile, 0);
+    transition: transform 0.5s $ease-bump, box-shadow 0.5s;
+    background-color: $header-color-bg; // TODO remove or smarter color
+
+    &.navbar-expanded {
+      // Move the navbar into viewport
+      transform: translate3d(50%, $topbar-height-mobile, 0);
+
+      @include shadow(5);
+    }
+
+    > .menu-primary {
+      // Give nav some air
+      margin: $gutter-half 0;
+    }
+
+    // Generated label
+    &:before {
+      content: "MENU";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-left: $gutter-quarter * 3;
+      line-height: $navbar-height-mobile;
+      @include shadow(1);
+    }
+  }
+
+  /////////////////////////////////////////////////////////////////////////////
+  //DESKTOP MENU
+
+  // Desktop ONLY styles
+  @include bp('expanded') {
+
+    @include clearfix;
+    margin-left: $gutter-half;
+
+
+    //   DESKTOP INLINE DROPDOWN SUBMENU
+
+    // TODO + dropdown JS
+
+    .dropdown {
+
+      .dropdown-menu {
+        background-color: $header-color-bg;
+        position: fixed;-webkit-transform: translateZ(0);
+        width: 100vw;
+        left: 0;
+        top: $navbar-height-desktop + $topbar-height-desktop;
+        display: flex;
+        justify-content: center;
+        box-shadow: none;
+        @include shadow(1);
+        transform: scale3d(1, 0, 1);
+        transform-origin: 50% 0 0;
+        overflow: hidden;
+        transition: transform 0.5s $ease-bump;
+
+        /*html*/.admin-bar & {
+          top: $navbar-height-desktop + $topbar-height-desktop + $adminbar-height-desktop;
+        }
+
+        > .menu-item {
+          a {
+          }
+        }
+      }
+
+      &.open {  // TODO: use .expanded instead
+
+        .dropdown-menu {
+          transform: scale3d(1, 1, 1);
+        }
+      }
+    }
+  }
+
+} // end of .navbar-menu
+
+
+///////////////////////////////////////////////////////////////////////////////
+// SECONDARY MENU
+
+.menu-secondary {
+
+  @include bp('expanded') {
+    // By default, same as .menu-primary
+  }
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// OVERLAY
+
+@include bp('expanded', true) {
 
   body.navbar-expanded {
     overflow: hidden;
@@ -37,104 +373,6 @@ $navbar-height-mobile: 6rem;
     &.navbar-expanded {
       opacity: 1;
       transform: translate3d(0, 0, 0);
-    }
-  }
-
-  // SEARCHBAR
-
-  .searchbar-collapse {
-    display: block;
-    overflow: hidden;
-    height: 0px;
-    transition: height 0.5s $ease-bump;
-
-    &.searchbar-expanded {
-      height: $navbar-height-mobile;
-    }
-
-    .searchform {
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-  }
-
-  // Bring toggle btns back to foreground
-  .navbar-toggle { z-index: +1; }
-
-  // Offscreen pannel
-
-  .navbar-collapse {
-
-    display: block !important;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: $navbar-collapse-width;
-    height: 100vh;
-    padding-top: $navbar-height-mobile;
-    background-color: white; // todo
-    box-shadow: none;
-    @include shadow(5);
-    transform: translate3d(100%, 0, 0);
-    transition: transform 0.5s $ease-bump;
-
-    // Vertical offset modifiers
-
-    /*body*/.searchbar-expanded & { transform: translate3d(100%, $navbar-height-mobile, 0); }
-    /*body*/.admin-bar & { transform: translate3d(100%, $adminbar-height-mobile, 0); }
-    /*body*/.admin-bar.searchbar-expanded & { transform: translate3d(100%, $adminbar-height-mobile + $navbar-height-mobile, 0); }
-
-    &.navbar-expanded {
-      transform: translate3d(0, 0, 0);
-
-      /*body*/.searchbar-expanded & { transform: translate3d(0, $navbar-height-mobile, 0); }
-      /*body*/.admin-bar & { transform: translate3d(0, $adminbar-height-mobile, 0); }
-      /*body*/.admin-bar.searchbar-expanded & { transform: translate3d(0, $adminbar-height-mobile + $navbar-height-mobile, 0); }
-    }
-
-    // Give nav some air
-    > .navbar-nav {
-      margin-top: $gutter-half;
-      margin-bottom: $gutter-half;
-    }
-
-    // Generated label
-    &:before {
-      content: "menu";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding-left: $gutter-half;
-      font-size: 2.4rem; // a bit magical value
-      line-height: $navbar-height-mobile;
-      @include shadow(1);
-    }
-  }
-
-}
-
-
-// DESKTOP INLINE DROPDOWN SUBMENU
-
-@include bp('expanded') {
-  .navbar-collapse .dropdown.open {
-    position: static;
-
-    .dropdown-menu {
-      width: 100vw;
-      left: 0;
-      display: flex;
-      justify-content: center;
-      box-shadow: none;
-      @include shadow(1);
-
-      > .menu-item {
-        a {
-          padding-top: $gutter-quarter;
-          padding-bottom: $gutter-quarter;
-        }
-      }
     }
   }
 }
