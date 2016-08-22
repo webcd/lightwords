@@ -71,16 +71,16 @@
     }
   }
 
-  // @include bp('md') {
-  //   position: relative;
-  //   top: -3.4rem; // pure magical val
-  //   font-size: 3rem;
-  //
-  //   > .logo {
-  //     width: 3.75rem;
-  //     height: 3.75rem;
-  //   }
-  // }
+  @include bp('md') {
+    position: relative;
+    top: -3.4rem; // pure magical val
+    font-size: 3rem;
+
+    > .logo {
+      width: 3.75rem;
+      height: 3.75rem;
+    }
+  }
 }
 
 
