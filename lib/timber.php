@@ -51,7 +51,7 @@ class StarterSite extends TimberSite {
     $context['site'] = $this;
 
     // MENUS
-    $context['menu'] = new TimberMenu();
+    $context['menu'] = new TimberMenu('menu-main');
     $context['menu_top'] = new TimberMenu('menu-top');
 
     $context['login_url'] = wp_login_url();

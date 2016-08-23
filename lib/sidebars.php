@@ -45,6 +45,7 @@ function register_widget_areas() {
   ));
 
   register_nav_menus( array(
-	   'menu-top' => 'The top, secondary navbar',
+    'menu-main' => 'The main, primary navbar',
+    'menu-top' => 'The top, secondary navbar',
   ) );
 }
