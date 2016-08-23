@@ -5,9 +5,9 @@
 * isolate all root "controllers" .php files into a dedicated folder
 * member account links / login link / post-type or category link / etc
 * Timber helper for RICG images
-* native breadcrumb
+* native breadcrumb?
+* pagination
 * search form (need a dedicated partial)
-* sidebars?
 * comments
 
 ## CSS
@@ -25,8 +25,7 @@
 
 ## JS
 
-* ripple effect
-* parallax on mobile
+* parallax on mobile?
 
 ## MISC
 
