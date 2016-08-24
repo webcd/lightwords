@@ -1,21 +1,46 @@
-// DEFAULT BOOTSTRAP VARIABLES OVERRIDE
+////////////////////////////////////////////////////////////////////////////////
+// NEW VARIABLES
 
 // COLORS
 
-$brand-primary:           #428bca;
-$brand-secondary:         #f80;
-$brand-ternary:           #80f;  // [NEW]
+$color-primary:               #428bca !default;
+$color-secondary:             #f80 !default;
+$color-ternary:               #80f !default;
 
-// TODO : shades of base colors
+$color-variation-ratio-base:  10% !default;
+$color-variation-ratio-more:  20% !default;
+$color-variation-ratio-most:  30% !default;
 
-$gray-base:               #000;
-$gray-darkest:            lighten($gray-base, 3.5%);  // #??? [NEW]
-$gray-darker:             lighten($gray-base, 13.5%); // #222
-$gray-dark:               lighten($gray-base, 20%);   // #333
-$gray:                    lighten($gray-base, 33.5%); // #555
-$gray-light:              lighten($gray-base, 46.7%); // #777
-$gray-lighter:            lighten($gray-base, 93.5%); // #eee
-$gray-lightest:           lighten($gray-base, 97%);   // #??? [NEW]
+// NAVBAR CONFIGURATION
+
+$header-color-bg:             white;
+
+$navbar-menu-mobile-width:    15em !default;
+
+$adminbar-height-mobile:      4.5rem !default;
+$adminbar-height-desktop:     3.2rem !default;
+
+$navbar-height-mobile:        6rem !default;
+$navbar-height-desktop:       $navbar-height-mobile !default;
+$topbar-height-mobile:        6rem !default;
+$topbar-height-desktop:       $topbar-height-mobile !default;
+
+$topbars-total-height:        $navbar-height-mobile + $topbar-height-mobile;
+
+$navbar-btn-size:             4.4rem !default;
+
+$navbar-brand-width:          auto !default;
+$navbar-brand-height:         $navbar-btn-size !default;
+
+
+
+
+// DEFAULT BOOTSTRAP VARIABLES OVERRIDE
+
+
+$brand-primary:           $color-primary;
+$brand-secondary:         $color-secondary;
+$brand-ternary:           $color-ternary;  // [NEW]
 
 // Links
 
@@ -51,7 +76,7 @@ $border-radius-base:      0px;
 $border-radius-large:     1.4142 * $border-radius-base;
 $border-radius-small:     2 * $border-radius-base;
 
-$btn-font-weight:         900;
+$btn-font-weight:         700;
 $btn-text-transform:      uppercase;  // [NEW]
 
 $input-bg:                #fff;
@@ -98,34 +123,9 @@ $container-large-desktop:      (1140px + $grid-gutter-width);
 
 
 
-///////////////////////////////////////////////////////////////////////////////
-// NEW VARIABLES
-
-// NAVBAR CONFIGURATION
-
-$header-color-bg: white;
-
-$navbar-menu-mobile-width:     15em !default;
-
-$adminbar-height-mobile:       4.5rem !default;
-$adminbar-height-desktop:      3.2rem !default;
-
-$navbar-height-mobile:         6rem !default;
-$navbar-height-desktop:        $navbar-height-mobile !default;
-$topbar-height-mobile:         6rem !default;
-$topbar-height-desktop:        $topbar-height-mobile !default;
-
-$topbars-total-height:         $navbar-height-mobile + $topbar-height-mobile;
 
 
-$navbar-btn-size:              4.4rem !default;
-
-$navbar-brand-width:           auto !default;
-$navbar-brand-height:          $navbar-btn-size !default;
-
-
-
-
+////////////////////////////////////////////////////////////////////////////////
 // COMPUTE
 
 .btn {
@@ -158,12 +158,9 @@ $gutter-octo:                             $gutter * 8;
   display: none;
 
   &.in      { display: block; }
-  // [converter] extracted tr&.in to tr.collapse.in
-  // [converter] extracted tbody&.in to tbody.collapse.in
 }
 
 tr.collapse.in    { display: table-row; }
-
 tbody.collapse.in { display: table-row-group; }
 
 .collapsing {

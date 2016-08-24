@@ -1,0 +1,101 @@
+// COLOR VARIABLES
+
+$gray-base:               black;
+$gray-darkest:            lighten($gray-base, 3.5%);  // #??? [NEW]
+$gray-darker:             lighten($gray-base, 13.5%); // #222
+$gray-dark:               lighten($gray-base, 20%);   // #333
+$gray:                    lighten($gray-base, 33.5%); // #555
+$gray-light:              lighten($gray-base, 46.7%); // #777
+$gray-lighter:            lighten($gray-base, 93.5%); // #eee
+$gray-lightest:           lighten($gray-base, 97%);   // #??? [NEW]
+
+$color-primary-darkest: darken($color-primary, $color-variation-ratio-most);
+$color-primary-darker: darken($color-primary, $color-variation-ratio-more);
+$color-primary-dark: darken($color-primary, $color-variation-ratio-base);
+$color-primary-light: lighten($color-primary, $color-variation-ratio-base);
+$color-primary-lighter: lighten($color-primary, $color-variation-ratio-more);
+$color-primary-lightest: lighten($color-primary, $color-variation-ratio-most);
+
+$color-secondary-darkest: darken($color-secondary, $color-variation-ratio-most);
+$color-secondary-darker: darken($color-secondary, $color-variation-ratio-more);
+$color-secondary-dark: darken($color-secondary, $color-variation-ratio-base);
+$color-secondary-light: lighten($color-secondary, $color-variation-ratio-base);
+$color-secondary-lighter: lighten($color-secondary, $color-variation-ratio-more);
+$color-secondary-lightest: lighten($color-secondary, $color-variation-ratio-most);
+
+$color-ternary-darkest: darken($color-ternary, $color-variation-ratio-most);
+$color-ternary-darker: darken($color-ternary, $color-variation-ratio-more);
+$color-ternary-dark: darken($color-ternary, $color-variation-ratio-base);
+$color-ternary-light: lighten($color-ternary, $color-variation-ratio-base);
+$color-ternary-lighter: lighten($color-ternary, $color-variation-ratio-more);
+$color-ternary-lightest: lighten($color-ternary, $color-variation-ratio-most);
+
+
+// COLOR CLASSES
+
+.color-gray-lightest { color: $gray-lightest; }
+.color-gray-lighter { color: $gray-lighter; }
+.color-gray-light { color: $gray-light; }
+.color-gray { color: $gray; }
+.color-gray-dark { color: $gray-dark; }
+.color-gray-darker { color: $gray-darker; }
+.color-gray-darkest { color: $gray-darkest; }
+
+.color-primary-darkest { color: $color-primary-darkest; }
+.color-primary-darker { color: $color-primary-darker; }
+.color-primary-dark { color: $color-primary-dark; }
+.color-primary { color: $color-primary; }
+.color-primary-light { color: $color-primary-light; }
+.color-primary-lighter { color: $color-primary-lighter; }
+.color-primary-lightest { color: $color-primary-lightest; }
+
+.color-secondary-darkest { color: $color-secondary-darkest; }
+.color-secondary-darker { color: $color-secondary-darker; }
+.color-secondary-dark { color: $color-secondary-dark; }
+.color-secondary { color: $color-secondary; }
+.color-secondary-light { color: $color-secondary-light; }
+.color-secondary-lighter { color: $color-secondary-lighter; }
+.color-secondary-lightest { color: $color-secondary-lightest; }
+
+.color-ternary-darkest { color: $color-ternary-darkest; }
+.color-ternary-darker { color: $color-ternary-darker; }
+.color-ternary-dark { color: $color-ternary-dark; }
+.color-ternary { color: $color-ternary; }
+.color-ternary-light { color: $color-ternary-light; }
+.color-ternary-lighter { color: $color-ternary-lighter; }
+.color-ternary-lightest { color: $color-ternary-lightest; }
+
+
+// BACKGROUND COLOR CLASSES
+
+.gray-lightest { background-color: $gray-lightest; }
+.gray-lighter { background-color: $gray-lighter; }
+.gray-light { background-color: $gray-light; }
+.gray { background-color: $gray; }
+.gray-dark { background-color: $gray-dark; }
+.gray-darker { background-color: $gray-darker; }
+.gray-darkest { background-color: $gray-darkest; }
+
+.primary-darkest { background-color: $color-primary-darkest; }
+.primary-darker { background-color: $color-primary-darker; }
+.primary-dark { background-color: $color-primary-dark; }
+.primary { background-color: $color-primary; }
+.primary-light { background-color: $color-primary-light; }
+.primary-lighter { background-color: $color-primary-lighter; }
+.primary-lightest { background-color: $color-primary-lightest; }
+
+.secondary-darkest { background-color: $color-secondary-darkest; }
+.secondary-darker { background-color: $color-secondary-darker; }
+.secondary-dark { background-color: $color-secondary-dark; }
+.secondary { background-color: $color-secondary; }
+.secondary-light { background-color: $color-secondary-light; }
+.secondary-lighter { background-color: $color-secondary-lighter; }
+.secondary-lightest { background-color: $color-secondary-lightest; }
+
+.ternary-darkest { background-color: $color-ternary-darkest; }
+.ternary-darker { background-color: $color-ternary-darker; }
+.ternary-dark { background-color: $color-ternary-dark; }
+.ternary { background-color: $color-ternary; }
+.ternary-light { background-color: $color-ternary-light; }
+.ternary-lighter { background-color: $color-ternary-lighter; }
+.ternary-lightest { background-color: $color-ternary-lightest; }
