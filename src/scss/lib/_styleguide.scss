@@ -1,3 +1,12 @@
+.sg-fixed-ratios {
+
+  .fixed-ratio {
+    background-color: $gray;
+    color: white;
+    margin-bottom: $gutter;
+  }
+}
+
 .sg-color-blocks {
   display: flex;
   flex-wrap: wrap;

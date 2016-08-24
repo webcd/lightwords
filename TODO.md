@@ -14,7 +14,6 @@
 
 * flex grid (to be continued)
 * SVG fontawesome
-* fixed ratio
 * allow v-scroll on expanded mobile navbar
 * Bootstrap removal
   * scaffolding,

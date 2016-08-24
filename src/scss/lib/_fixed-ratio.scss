@@ -1,35 +1,45 @@
 /* FIXED RATIO */
 
-// TODO
+.fixed-ratio {
 
-.embed-responsive {
   position: relative;
   display: block;
   height: 0;
   padding: 0;
   overflow: hidden;
 
-  .embed-responsive-item,
-  iframe,
-  embed,
-  object,
-  video {
+  & > * {
     position: absolute;
     top: 0;
-    left: 0;
     bottom: 0;
-    height: 100%;
+    left: 0;
     width: 100%;
+    height: 100%;
     border: 0;
   }
 }
 
-// Modifier class for 16:9 aspect ratio
-.embed-responsive-16by9 {
-  padding-bottom: 56.25%;
-}
+.fixed-ratio--1by1 {    padding-bottom: 100%; }
+.fixed-ratio--1by2 {    padding-bottom: 200%; }
+.fixed-ratio--2by1 {    padding-bottom: 50%; }
+.fixed-ratio--4by3 {    padding-bottom: 75%; }
+.fixed-ratio--16by9 {   padding-bottom: 56.25%; }
 
-// Modifier class for 4:3 aspect ratio
-.embed-responsive-4by3 {
-  padding-bottom: 75%;
+
+
+// CAPPED WIDTH
+
+$responsive-img-max-width: 48rem !default;
+
+.img-capped,
+.capped-width {
+
+  display: block;
+  max-width: $responsive-img-max-width;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include bp('sm') {
+    max-width: 100%;
+  }
 }
