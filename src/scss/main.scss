@@ -24,11 +24,13 @@ License URI:        http://opensource.org/licenses/MIT
 
 @import "lib/cdn-imports";
 
+@import "lib/shadows";
 @import "lib/base";
 @import "lib/type";
+@import "lib/colors";
 @import "lib/animation";
+@import "lib/buttons";
 @import "lib/wordstrap";
-@import "lib/shadows";
 // @import "lib/fixed-ratio";
 @import "lib/breakpoints";
 @import "lib/flexgrid";
@@ -37,6 +39,7 @@ License URI:        http://opensource.org/licenses/MIT
 @import "lib/nav";
 @import "lib/navbar";
 @import "lib/ripple";
+@import "lib/styleguide";
 
 @import "lib/foo";
 
