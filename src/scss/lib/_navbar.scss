@@ -159,6 +159,7 @@
   background-color: transparent;
   color: $gray-light;
   transition: color 0.25s;
+  vertical-align: top;
 
   &:hover, &:active {
     color: $gray-darker;
@@ -239,6 +240,84 @@
   }
 }
 
+// HAMBURGER ANIMATED ICON
+
+$hamburger-height: 2.4rem;
+$hamburger-height-bars: $hamburger-height / 8;
+$hamburger-color: $gray-light;
+
+.hamburger-wrapper {
+	height: $hamburger-height;
+	width: $hamburger-height;
+	text-align: center;
+	position: relative;
+
+	&:hover {
+		.hamburger,
+		.hamburger:before,
+		.hamburger:after {
+			background-color: $gray-lighter;
+		}
+	}
+}
+
+.hamburger,
+.hamburger:before,
+.hamburger:after {
+	display: block;
+	height: $hamburger-height-bars;
+	width: 100%;
+	background-color: $hamburger-color;
+	transform: rotate(0deg);
+  transition: transform 0.75s $ease-bump,
+  background-color 0.25s;
+}
+
+.hamburger:before,
+.hamburger:after {
+	content: '';
+	position: absolute;
+}
+
+.hamburger {
+	position: relative;
+	top: ($hamburger-height / 2 - $hamburger-height-bars / 2);
+
+	&:before { top: ($hamburger-height * 3 / 8); }
+	&:after {  top: (- $hamburger-height * 3 / 8); }
+}
+
+.navbar-expanded  {
+
+  .hamburger-wrapper {
+
+    &:hover {
+  		.hamburger {
+        background-color: transparent;
+      }
+  		.hamburger:before,
+  		.hamburger:after {
+  			background-color: $gray-darker;
+  		}
+  	}
+  }
+
+	.hamburger {
+		background-color: rgba(255, 255, 255, 0.0);
+		transform: rotate(-90deg);
+
+		&:after {
+			transform: translateY($hamburger-height * 3 / 8) rotate(-135deg);
+		}
+
+		&:before {
+			transform: translateY(- $hamburger-height * 3 / 8) rotate(-45deg);
+		}
+
+	}
+}
+
+
 /////////////////////////////////////////////////////////////////////////////
 // MOBILE MENU
 .navbar-menu {
@@ -253,6 +332,7 @@
     right: 0;
     top: 0;
     width: $navbar-menu-mobile-width * 2;
+    padding-right: $navbar-menu-mobile-width;
     height: 100vh;
     padding-top: $navbar-height-mobile;
     transform: translate3d(100%, $navbar-height-mobile, 0);
@@ -269,6 +349,8 @@
     > .menu-primary {
       // Give nav some air
       margin: $gutter-half 0;
+      // Allow vertical scroll
+      // overflow-y: auto; // TODO
     }
 
     // Generated label
