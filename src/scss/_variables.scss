@@ -1,6 +1,18 @@
 ////////////////////////////////////////////////////////////////////////////////
 // NEW VARIABLES
 
+// GUTTER
+
+$gutter:                                  3rem;
+
+$gutter-half:                             $gutter / 2;
+$gutter-quarter:                          $gutter / 4;
+$gutter-eighth:                           $gutter / 8;
+$gutter-double:                           $gutter * 2;
+$gutter-quad:                             $gutter * 4;
+$gutter-octo:                             $gutter * 8;
+
+
 // COLORS
 
 $color-primary:               #428bca !default;
@@ -36,7 +48,6 @@ $navbar-brand-height:         $navbar-btn-size !default;
 
 
 // DEFAULT BOOTSTRAP VARIABLES OVERRIDE
-
 
 $brand-primary:           $color-primary;
 $brand-secondary:         $color-secondary;
@@ -126,24 +137,6 @@ $container-large-desktop:      (1140px + $grid-gutter-width);
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// COMPUTE
-
-.btn {
-  text-transform: $btn-text-transform;
-}
-
-// TODO : auto-compute this (or retro-compute $grid-gutter-width)
-$gutter:                                  3rem;
-
-$gutter-half:                             $gutter / 2;
-$gutter-quarter:                          $gutter / 4;
-$gutter-eighth:                           $gutter / 8;
-$gutter-double:                           $gutter * 2;
-$gutter-quad:                             $gutter * 4;
-$gutter-octo:                             $gutter * 8;
-
-
-
 // BOOTSTRAP REMOVAL
 
 .fade {
@@ -168,15 +161,4 @@ tbody.collapse.in { display: table-row-group; }
   height: 0;
   overflow: hidden;
   transition: height 0.35s, visibility 0.35s;
-}
-
-
-// TEMP DEBUG
-
-// Debug touchzones
-
-.debug.debug--touchzones {
-  a, button, .btn {
-    outline: 1px dashed red;
-  }
 }
