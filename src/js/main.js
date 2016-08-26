@@ -10,7 +10,7 @@
     stickyHeader: true,
     parallaxHero: true,
     rippleEffect: true,
-    rippleSelector: ".btn, .menu-item, .nav-item-toplevel, .nav-item-sublevel, .navbar-brand, .logo--navbar"
+    rippleSelector: ".btn"
   };
 
 

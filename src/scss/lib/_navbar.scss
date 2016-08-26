@@ -384,7 +384,7 @@ $hamburger-color: $gray-light;
 
       .dropdown-menu {
         background-color: $header-color-bg;
-        position: fixed;-webkit-transform: translateZ(0);
+        position: fixed;
         width: 100vw;
         left: 0;
         top: $navbar-height-desktop + $topbar-height-desktop;

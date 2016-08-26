@@ -9,7 +9,7 @@ global.config = {
 
 	// Server config
 
-	browsersyncProxyURL: "localhost/wordpress", // put your wordpress dev URL here
+	browsersyncProxyURL: "wordpress-sandbox.nicolas-g.ct.webcd.lan", // put your wordpress dev URL here
 	serverport: 3000,
 	openBrowser: false,
 	openBrowsers: ["google chrome", "firefox"],
