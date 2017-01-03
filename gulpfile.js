@@ -66,8 +66,8 @@ config.pathTemplates =  ["*.php", "lib/**/*.php", "templates/**/*.twig"];
 
 // Destination
 config.pathJsDest =     config.path.dist + config.path.js;
-// config.pathCssDest =    config.path.dist + config.path.css;
-config.pathCssDest =    "./";
+config.pathCssDest =    config.path.dist + config.path.css;
+//config.pathCssDest =    "./";
 config.pathFontsDest =  config.path.dist + config.path.fonts;
 config.pathImagesDest = config.path.dist + config.path.img;
 
