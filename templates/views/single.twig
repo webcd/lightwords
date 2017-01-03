@@ -19,19 +19,7 @@
 	</section>
 
 	{% if post.comment_status != 'closed' %}
-	<section class="wrapper wrapper--comments">
-		<div class="container">
-			<div class="respond">
-				<h3 class="h2">Comments</h3>
-				{{ fn('comment_form') }}
-			</div>
-			<div class="responses">
-				{% for cmt in post.get_comments() %}
-					{% include "comment.twig" with {comment:cmt} %}
-				{% endfor %}
-			</div>
-		</div>
-	</section>
+        {% include 'comments.twig' %}
 	{% endif %}
 
 </article>
