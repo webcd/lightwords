@@ -7,7 +7,7 @@
         }
     ],
     "require": {
-        "timber/timber": "^1.1"
+        "timber/timber": "^1.7"
     },
     "autoload": {
         "psr-4": {
