@@ -1,0 +1,31 @@
+.sg-fixed-ratios {
+
+  .fixed-ratio {
+    background-color: $gray;
+    color: white;
+    margin-bottom: $gutter;
+  }
+}
+
+.sg-color-blocks {
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    flex: 1 0 12.5%;
+    min-height: 10rem;
+    padding: $gutter-quarter;
+
+    span {
+      background-color: white;
+    }
+  }
+}
+
+.sg-buttons {
+
+  .btn {
+    display: inline-block;
+    margin-right: $gutter-half;
+  }
+}

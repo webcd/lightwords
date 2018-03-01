@@ -1,18 +1,23 @@
 <?php
 
-$theme_includes = [
-  'lib/timber.php', // Legacy Timber-starter-theme function.php content
-  'lib/assets.php', // Enqueue styles and scripts
-  'lib/sidebars.php', // Register widget areas (aka sidebars)
-  // 'lib/remove-emoji.php' // Disable emojicons introduced with WP 4.2
-];
+	require_once(__DIR__ . '/vendor/autoload.php');
+    
+	new \Timber\Timber();
+	
+	if ( ! class_exists( 'Timber' ) ) {
+	  add_action( 'admin_notices', function() {
+	    echo '<div class="error"><p>Timber not loaded. run composer install in current path template</p></div>';
+	  } );
+	  return;
+	}
 
-foreach ($theme_includes as $file) {
-  if (!$filepath = locate_template($file)) {
-    trigger_error(sprintf(__('Error locating %s for inclusion', 'sage'), $file), E_USER_ERROR);
-  }
-
-  require_once $filepath;
-}
-
-unset($file, $filepath);
+	// Templates search path
+	Timber::$dirname = array(
+	  'templates',
+	  'templates/views',
+	  'templates/partials',
+	  'dist/img'
+	);
+    
+    // Run classes App
+    new App\StarterSite();
