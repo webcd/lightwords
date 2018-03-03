@@ -29,6 +29,13 @@ body,
   padding-right: $gutter-half;
   @include clearfix;
 
+  &.container--fluid {
+    @include bp('expanded') {
+      padding-left: $gutter;
+      padding-right: $gutter;
+    }
+  }
+
   &:not(.container--fluid) {
     @include bp('sm') {
       width: $container-sm;
