@@ -84,18 +84,25 @@ class StarterSite extends \TimberSite
     }
 
     // Demo Twig filter
-    function myfoo($text)
-    {
-        $text .= ' <= Timber custom-filtered thing!';
+    // This filter doesn't work anymore, see below
+    // TODO: fix it or remove it
+    // function myfoo($text)
+    // {
+    //     $text .= ' <= Timber custom-filtered thing!';
 
-        return $text;
-    }
+    //     return $text;
+    // }
 
     // Pimp my Twig
     function add_to_twig($twig)
     {
         // this is where you can add your own functions to twig
         $twig->addExtension(new \Twig_Extension_StringLoader());
+<<<<<<< HEAD
+=======
+        // This filter throw a 500 error
+        // $twig->addFilter('myfoo', new \Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
+>>>>>>> dev
         return $twig;
     }
 
