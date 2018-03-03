@@ -77,23 +77,29 @@
 // SEARCHFORM
 
 .bar-wrapper .searchform {
-  position: relative;
+  display: none;
 
-  input[type='text'] {
-    height: $navbar-btn-size;
-    line-height: $navbar-btn-size;
-    padding-right: 12rem;
-  }
+  /*html*/
+  .search & {
+    display: block;
+    position: relative;
 
-  input[type='submit'] {
-    position: absolute;
-    top: 0.1rem;
-    right: 0.1rem;
-    border: 0;
-    height: $navbar-btn-size - 0.2rem;
-    color: $gray-light;
-    font-weight: normal;
-    text-transform: uppercase;
+    input[type='text'] {
+      height: $navbar-btn-size;
+      line-height: $navbar-btn-size;
+      padding-right: 12rem;
+    }
+
+    input[type='submit'] {
+      position: absolute;
+      top: 0.1rem;
+      right: 0.1rem;
+      border: 0;
+      height: $navbar-btn-size - 0.2rem;
+      color: $gray-light;
+      font-weight: normal;
+      text-transform: uppercase;
+    }
   }
 }
 
@@ -160,6 +166,15 @@
   // Bring toggle btns back to foreground (in case of overlay/offscreen panel)
   position: relative;
   z-index: +1;
+}
+
+.topbar-toggle--search {
+  display: none;
+
+  /*html*/
+  .search & {
+    display: inline-block;
+  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -70,32 +70,35 @@
 // SEARCHBAR
 // TODO: real classes + tpl
 
-.searchform {
-  div input[type='text'] {
-    background-color: transparent;
-    border-color: $gray-light;
-  }
-
-  div input[type='submit'] {
-    background-color: $brand-primary;
-    color: white;
-
-    &:hover {
-      background-color: $gray-lighter;
-      color: $brand-primary;
-    }
-
-    &[disabled] {
-      // don't submit less than 3 chars
+/*html*/
+.search {
+  .searchform {
+    div input[type='text'] {
       background-color: transparent;
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.25);
-      }
+      border-color: $gray-light;
     }
 
-    &:not([disabled]) {
-      // active button
+    div input[type='submit'] {
+      background-color: $brand-primary;
       color: white;
+
+      &:hover {
+        background-color: $gray-lighter;
+        color: $brand-primary;
+      }
+
+      &[disabled] {
+        // don't submit less than 3 chars
+        background-color: transparent;
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.25);
+        }
+      }
+
+      &:not([disabled]) {
+        // active button
+        color: white;
+      }
     }
   }
 }
