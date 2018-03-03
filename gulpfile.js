@@ -29,13 +29,13 @@ global.config = {
 
   filesJs: [
     // "node_modules/jquery/dist/jquery.js", // not needed, provided by WordPress
-    'node_modules/bootstrap-sass/assets/javascripts/bootstrap/transition.js',
+    // 'node_modules/bootstrap-sass/assets/javascripts/bootstrap/transition.js',
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js",
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/affix.js",
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/alert.js",
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/button.js",
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/carousel.js",
-    'node_modules/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js',
+    // 'node_modules/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js',
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/modal.js",
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js",
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/popover.js",
