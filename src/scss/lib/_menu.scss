@@ -1,0 +1,163 @@
+///////////////////////////////////////////////////////////////////////////////
+// NAVBAR MENU
+
+/////////////////////////////////////////////////////////////////////////////
+// COMMON STYLES
+
+.menu-primary,
+.menu-secondary {
+  // Menu items are common dy default
+
+  .menu-item {
+    // Space between items when stacked
+    margin-bottom: $gutter-quarter;
+
+    &.open {
+      @include shadow(1);
+      margin-bottom: 0;
+      transition: all 0.25s ease;
+    }
+
+    // background-color: $gray-lighter;
+
+    > a {
+      display: block;
+      min-height: 4.4rem;
+      padding-left: $gutter-half;
+      padding-right: $gutter-half;
+
+      // Flex overkill vertical center
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      // Extra span for advanced styling (aka vertical center)
+      span:first-child {
+        // don't catch submenus carret span
+        flex: 0 0 auto;
+        line-height: 1;
+        padding: $gutter-quarter 0;
+      }
+    }
+
+    &.current-menu-item {
+      > a {
+        color: $brand-secondary;
+      }
+    }
+
+    > .dropdown-menu {
+      // reset lists
+      list-style-type: none;
+      padding-left: 0;
+
+      margin-top: $gutter-quarter;
+
+      .menu-item {
+        // background-color: $gray-light;
+
+        > a {
+          @include bp('expanded', true) {
+            padding-left: $gutter;
+          }
+        }
+      }
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// MOBILE MENU
+
+.navbar-menu {
+  // MOBILE MENU
+
+  // Pain in the ass to reset mobile navbar styles on larger screens
+  // So for once, we allow MOBILE ONLY styles max-width @mq here!
+  @include bp('expanded', true) {
+    display: block !important;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: $navbar-menu-mobile-width * 2;
+    padding-right: $navbar-menu-mobile-width;
+    height: 100vh;
+    padding-top: $navbar-height-mobile;
+    transform: translate3d(100%, $navbar-height-mobile, 0);
+    transition: transform 0.5s $ease-bump, box-shadow 0.5s;
+    background-color: $header-color-bg; // TODO remove or smarter color
+
+    &.navbar-expanded {
+      // Move the navbar into viewport
+      transform: translate3d(50%, $topbar-height-mobile, 0);
+
+      @include shadow(5);
+    }
+
+    > .menu-primary {
+      margin: $gutter-half 0;
+    }
+
+    // Generated label
+    &:before {
+      content: 'MENU';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-left: $gutter-quarter * 3;
+      line-height: $navbar-height-mobile;
+      font-weight: bold;
+      color: $gray-light;
+      @include shadow(1);
+    }
+  }
+
+  /////////////////////////////////////////////////////////////////////////////
+  //DESKTOP MENU
+
+  // Desktop ONLY styles
+  @include bp('expanded') {
+    margin-left: $gutter-half;
+
+    .dropdown {
+      position: relative;
+
+      .dropdown-menu {
+        background-color: $header-color-bg;
+        position: absolute;
+        left: 0;
+        width: 20vw;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: none;
+        @include shadow(1);
+        transform: scale3d(1, 0, 1);
+        transform-origin: 50% 0 0;
+        overflow: hidden;
+        transition: transform 0.5s $ease-bump;
+
+        /*html*/
+        .admin-bar & {
+          top: $navbar-height-desktop + $topbar-height-desktop +
+            $adminbar-height-desktop;
+        }
+
+        > .menu-item {
+          a {
+          }
+        }
+      }
+
+      &.open {
+        // TODO: use .expanded instead
+
+        .dropdown-menu {
+          transform: scale3d(1, 1, 1);
+        }
+      }
+    }
+  }
+}

@@ -13,40 +13,44 @@
 // .site-header {          background-color: white; }
 // .site-content {         background-color: white; }
 // .site-footer {          background-color: white; }
+.site-footer {
+  background-color: $gray-lightest;
+  @include shadow(2);
+}
 
 // Micro-wrappers
 
-.wrapper--pre-header {
-  background-color: $gray-darkest;
-}
-.wrapper--header {
-  background-color: $gray-darkest;
-}
-.wrapper--post-header {
-  background-color: $gray-lightest;
-}
+// .wrapper--pre-header {
+//   background-color: $gray-darkest;
+// }
+// .wrapper--header {
+//   background-color: $gray-darkest;
+// }
+// .wrapper--post-header {
+//   background-color: $gray-lightest;
+// }
 
-.wrapper--pre-footer {
-  background-color: $gray-lightest;
-}
-.wrapper--footer {
-  background-color: $gray-darkest;
-}
-.wrapper--post-footer {
-  background-color: $gray-darkest;
-}
+// .wrapper--pre-footer {
+//   background-color: $gray-lightest;
+// }
+// .wrapper--footer {
+//   background-color: $gray-darkest;
+// }
+// .wrapper--post-footer {
+//   background-color: $gray-darkest;
+// }
 
 // .wrapper--content {     background-color: white; }
 
-.wrapper--breadcrumb {
-  background-color: $brand-primary;
-  padding-top: $gutter-half;
-  padding-bottom: $gutter-half;
-}
-.wrapper--posts {
-  background-color: $gray-darker;
-  color: $gray-lightest;
-}
+// .wrapper--breadcrumb {
+//   background-color: $brand-primary;
+//   padding-top: $gutter-half;
+//   padding-bottom: $gutter-half;
+// }
+// .wrapper--posts {
+//   background-color: $gray-darker;
+//   color: $gray-lightest;
+// }
 // .article {} // TODO: wrapper for an article main content
 
 // Nano-wrappers
@@ -56,17 +60,19 @@
 // .wrapper--posts {}
 
 .wrapper--footer {
-  padding: $gutter-double 0;
+  padding-top: $gutter-double;
+  padding-bottom: $gutter-double;
 }
 .wrapper--posts {
-  padding: $gutter-double 0;
+  padding-top: $gutter-double;
+  padding-bottom: $gutter-double;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 // HEADER
 
 .sticky-header .site-header {
-  @include shadow(3);
+  @include shadow(2);
 }
 
 // SEARCHBAR
@@ -106,17 +112,13 @@
 // BREADCRUMB
 
 .breadcrumb {
-  padding-top: $gutter-half;
-  padding-bottom: $gutter-half;
-  color: white;
+  // padding-top: $gutter-half;
+  // padding-bottom: $gutter-half;
+  // color: white;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 // MAIN MENU
-
-.navbar {
-  border: 0;
-}
 
 .navbar {
   // @extend .navbar-inverse;
@@ -299,10 +301,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 // BASE
 
-a {
-  transition: color 0.125s;
-}
-
 .h1 {
   margin-bottom: $gutter;
 }
@@ -456,6 +454,7 @@ blockquote {
 
 .tile__body {
   margin-top: $gutter-half;
+  color: white;
 
   .read-more {
     display: block;
