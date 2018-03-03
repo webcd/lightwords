@@ -2,52 +2,33 @@
 
 ## URGENT
 
-* permettre des containers fluide (full-width)
-* refactoring des sous-menu
-* passer le parallaxe en full CSS (si possible ?)
-* via la config :
-  * masquer la breadcrumb
-  * masquer la recherche
-  * masquer la topbar
-* utiliser les extrait dans le contenu des articles
+* Fluid containers (full width)
+* Sub-menus refactoring
+* CSS parallax
+* Disable features from config:
+  * breadcrumbs
+  * seach
+  * topbar
+* use article extracts in page content
 
 ## LATER
 
-* séparer les styles "de base" de ceux de la "skin"
-* passer de Gulp à Webpack
-* Virer complètement Bootstrap
-* Utiliser Aramid grid / layout
-* Virer complètement jQuery ?
-* Supprimer le styleguide automatique
-
-## Elements
-
-* member account links / login link / post-type or category link / etc
-* sidebars?
-
-## CSS
-
-* color palette
-* buttons variations (ternary, hollow)
-* flex grid (to be continued)
-* SVG fontawesome
-* Bootstrap removal
+* Split styles into "base" and "skin"
+* Move from Gulp to Webpack build process
+* Get rid off Bootstrap
   * scaffolding,
   * type,
   * buttons,
   * responsive-utilities
   * ...
-
-## JS
-
-* ripple effect
-* parallax on mobile
-
-## MISC
-
+* Use Aramid grid / layout
+* Get rid off jQuery?
+* Simple breadcrumbs (no YoastSEO) (see: https://gist.github.com/tinotriste/5387124)
+* Member account links / login page
 * i18n / translate ALL text
-* forms
+* forms styling (including Cravity Forms)
 * admin theme options?
+* JS ripple effect
 
 # KNOWN bugs
 
