@@ -3,17 +3,6 @@
 
   // CONFIGURATION
 
-  var CONFIG = {
-    namespace: 'Lightwords',
-    debug: true,
-    debuggers: ['breakpoints'],
-    stickyHeader: true,
-    parallaxHero: true,
-    rippleEffect: true,
-    search: true,
-    rippleSelector: '.btn'
-  }
-
   if (!window[CONFIG.namespace]) {
     // Create the app main object
     window[CONFIG.namespace] = {}
