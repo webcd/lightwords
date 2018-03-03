@@ -19,27 +19,7 @@
 		
 	</section>
 
-	{% if latest_posts %}
-	<section class="wrapper wrapper--posts">
-		<div class="container">
-
-			<h2>Latest Posts</h2>
-	
-			<section class="posts posts--latest flexrow flexrow--gutter">
-				{% for post in latest_posts %}
-
-				{% include 'tile-post.twig' %}
-
-				{% endfor %}
-
-				<div class="flex-full text-center">
-					<a href="#" class="btn btn-primary">See all posts</a>
-				</div>
-			</section>
-
-		</div>
-	</section>
-	{% endif %}
+	{% include 'latest-posts.twig' %}
 
 </article>
 {% endblock %}
