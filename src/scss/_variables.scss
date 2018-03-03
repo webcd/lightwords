@@ -3,106 +3,104 @@
 
 // GUTTER
 
-$gutter:                                  3rem;
+$gutter: 3rem;
 
-$gutter-half:                             $gutter / 2;
-$gutter-quarter:                          $gutter / 4;
-$gutter-eighth:                           $gutter / 8;
-$gutter-double:                           $gutter * 2;
-$gutter-quad:                             $gutter * 4;
-$gutter-octo:                             $gutter * 8;
-
+$gutter-half: $gutter / 2;
+$gutter-quarter: $gutter / 4;
+$gutter-eighth: $gutter / 8;
+$gutter-double: $gutter * 2;
+$gutter-quad: $gutter * 4;
+$gutter-octo: $gutter * 8;
 
 // COLORS
 
-$color-primary:               #428bca !default;
-$color-secondary:             #f80 !default;
-$color-ternary:               #80f !default;
+$color-primary: #428bca !default;
+$color-secondary: #f80 !default;
+$color-ternary: #80f !default;
 
-$color-variation-ratio-base:  10% !default;
-$color-variation-ratio-more:  20% !default;
-$color-variation-ratio-most:  30% !default;
+$color-variation-ratio-base: 10% !default;
+$color-variation-ratio-more: 20% !default;
+$color-variation-ratio-most: 30% !default;
 
 // NAVBAR CONFIGURATION
 
-$header-color-bg:             white;
+$header-color-bg: white;
 
-$navbar-menu-mobile-width:    15em !default;
+$navbar-menu-mobile-width: 15em !default;
 
-$adminbar-height-mobile:      4.5rem !default;
-$adminbar-height-desktop:     3.2rem !default;
+$adminbar-height-mobile: 4.5rem !default;
+$adminbar-height-desktop: 3.2rem !default;
 
-$navbar-height-mobile:        6rem !default;
-$navbar-height-desktop:       $navbar-height-mobile !default;
-$topbar-height-mobile:        6rem !default;
-$topbar-height-desktop:       $topbar-height-mobile !default;
+$navbar-height-mobile: 6rem !default;
+$navbar-height-desktop: $navbar-height-mobile !default;
+$topbar-height-mobile: 6rem !default;
+$topbar-height-desktop: $topbar-height-mobile !default;
 
-$topbars-total-height:        $navbar-height-mobile + $topbar-height-mobile;
+// Computed heights
+$topbars-total-height: $navbar-height-mobile + $topbar-height-mobile;
+$topbars-total-height-desktop: $navbar-height-desktop + $topbar-height-desktop;
 
-$navbar-btn-size:             4.4rem !default;
+$navbar-btn-size: 4.4rem !default;
 
-$navbar-brand-width:          auto !default;
-$navbar-brand-height:         $navbar-btn-size !default;
-
-
-
+// Logo
+$navbar-logo-height: $navbar-btn-size !default;
+$navbar-logo-height-desktop: $navbar-btn-size * 2 !default;
 
 // DEFAULT BOOTSTRAP VARIABLES OVERRIDE
 
-$brand-primary:           $color-primary;
-$brand-secondary:         $color-secondary;
-$brand-ternary:           $color-ternary;  // [NEW]
+$brand-primary: $color-primary;
+$brand-secondary: $color-secondary;
+$brand-ternary: $color-ternary; // [NEW]
 
 // Links
 
-$link-color:              $brand-secondary;
+$link-color: $brand-secondary;
 
 // TYPOGRAPHY
 
-$font-family-sans-serif:  "Work Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-family-serif:       "Lora", Georgia, "Times New Roman", Times, serif;
+$font-family-sans-serif: 'Work Sans', 'Helvetica Neue', Helvetica, Arial,
+  sans-serif;
+$font-family-serif: 'Lora', Georgia, 'Times New Roman', Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
-$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
-$font-family-base:        $font-family-sans-serif;
+$font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
+$font-family-base: $font-family-sans-serif;
 
-$font-size-base:          16px;
-$font-size-large:         ceil(($font-size-base * 1.25));
-$font-size-small:         ceil(($font-size-base * 0.85));
+$font-size-base: 16px;
+$font-size-large: ceil(($font-size-base * 1.25));
+$font-size-small: ceil(($font-size-base * 0.85));
 
-$font-size-h1:            floor(($font-size-base * 2.6));
-$font-size-h2:            floor(($font-size-base * 2.15));
-$font-size-h3:            ceil(($font-size-base * 1.7));
-$font-size-h4:            ceil(($font-size-base * 1.25));
-$font-size-h5:            $font-size-base;
-$font-size-h6:            ceil(($font-size-base * 0.85));
+$font-size-h1: floor(($font-size-base * 2.6));
+$font-size-h2: floor(($font-size-base * 2.15));
+$font-size-h3: ceil(($font-size-base * 1.7));
+$font-size-h4: ceil(($font-size-base * 1.25));
+$font-size-h5: $font-size-base;
+$font-size-h6: ceil(($font-size-base * 0.85));
 
-$line-height-base:        1.5;
+$line-height-base: 1.5;
 
-$headings-font-family:    inherit;
-$headings-font-weight:    700;
-$headings-line-height:    1.1;
-$headings-color:          inherit;
+$headings-font-family: inherit;
+$headings-font-weight: 700;
+$headings-line-height: 1.1;
+$headings-color: inherit;
 
-$border-radius-base:      0px;
-$border-radius-large:     1.4142 * $border-radius-base;
-$border-radius-small:     2 * $border-radius-base;
+$border-radius-base: 0px;
+$border-radius-large: 1.4142 * $border-radius-base;
+$border-radius-small: 2 * $border-radius-base;
 
-$btn-font-weight:         700;
-$btn-text-transform:      uppercase;  // [NEW]
+$btn-font-weight: 700;
+$btn-text-transform: uppercase; // [NEW]
 
-$input-bg:                #fff;
-$input-border:            #ccc;
+$input-bg: #fff;
+$input-border: #ccc;
 $input-color-placeholder: #999;
 
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
 
-
-$screen-sm:               768px;
-$screen-md:               992px;
-$screen-lg:               1200px;
-
-$grid-columns:            12;
-$grid-gutter-width:       30px;
-$grid-float-breakpoint:   $screen-sm;
+$grid-columns: 12;
+$grid-gutter-width: 30px;
+$grid-float-breakpoint: $screen-sm;
 
 // Common screen sizes, in em unit (1em = 16px, browser default font-size)
 //          in em    in px
@@ -117,10 +115,10 @@ $grid-float-breakpoint:   $screen-sm;
 // 'xxl':   100em,   // 1600
 // 'xxxl':  120em    // 1920
 
-$screen-xs: 30em;    // 480px
-$screen-sm: 48em;    // 768px
-$screen-md: 62em;    // 992px
-$screen-lg: 75em;    // 1200px
+$screen-xs: 30em; // 480px
+$screen-sm: 48em; // 768px
+$screen-md: 62em; // 992px
+$screen-lg: 75em; // 1200px
 
 $grid-float-breakpoint: $screen-sm;
 
@@ -128,20 +126,16 @@ $grid-float-breakpoint: $screen-sm;
 //
 //## Define the maximum width of `.container` for different screen sizes.
 
-$container-tablet:             (720px + $grid-gutter-width);
-$container-desktop:            (940px + $grid-gutter-width);
-$container-large-desktop:      (1140px + $grid-gutter-width);
-
-
-
-
+$container-tablet: (720px + $grid-gutter-width);
+$container-desktop: (940px + $grid-gutter-width);
+$container-large-desktop: (1140px + $grid-gutter-width);
 
 ////////////////////////////////////////////////////////////////////////////////
 // BOOTSTRAP REMOVAL
 
 .fade {
   opacity: 0;
-  transition: opacity .15s;
+  transition: opacity 0.15s;
   &.in {
     opacity: 1;
   }
@@ -150,11 +144,17 @@ $container-large-desktop:      (1140px + $grid-gutter-width);
 .collapse {
   display: none;
 
-  &.in      { display: block; }
+  &.in {
+    display: block;
+  }
 }
 
-tr.collapse.in    { display: table-row; }
-tbody.collapse.in { display: table-row-group; }
+tr.collapse.in {
+  display: table-row;
+}
+tbody.collapse.in {
+  display: table-row-group;
+}
 
 .collapsing {
   position: relative;

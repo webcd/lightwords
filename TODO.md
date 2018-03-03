@@ -2,7 +2,6 @@
 
 ## URGENT
 
-* utiliser une image "simple" pour le logo (sans texte)
 * permettre des containers fluide (full-width)
 * refactoring des sous-menu
 * passer le parallaxe en full CSS (si possible ?)

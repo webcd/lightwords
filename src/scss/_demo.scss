@@ -4,7 +4,6 @@
 
 // Shameless playbround
 
-
 ///////////////////////////////////////////////////////////////////////////////
 // WRAPPERS
 
@@ -17,18 +16,35 @@
 
 // Micro-wrappers
 
-.wrapper--pre-header {  background-color: $gray-darkest; }
-.wrapper--header {      background-color: $gray-darkest;; }
-.wrapper--post-header { background-color: $gray-lightest; }
+.wrapper--pre-header {
+  background-color: $gray-darkest;
+}
+.wrapper--header {
+  background-color: $gray-darkest;
+}
+.wrapper--post-header {
+  background-color: $gray-lightest;
+}
 
-.wrapper--pre-footer {  background-color: $gray-lightest; }
-.wrapper--footer {      background-color: $gray-darkest; }
-.wrapper--post-footer { background-color: $gray-darkest; }
+.wrapper--pre-footer {
+  background-color: $gray-lightest;
+}
+.wrapper--footer {
+  background-color: $gray-darkest;
+}
+.wrapper--post-footer {
+  background-color: $gray-darkest;
+}
 
 // .wrapper--content {     background-color: white; }
 
-.wrapper--breadcrumb {  background-color: $brand-primary; }
-.wrapper--posts {       background-color: $gray-darker; color: $gray-lightest; }
+.wrapper--breadcrumb {
+  background-color: $brand-primary;
+}
+.wrapper--posts {
+  background-color: $gray-darker;
+  color: $gray-lightest;
+}
 // .article {} // TODO: wrapper for an article main content
 
 // Nano-wrappers
@@ -37,10 +53,12 @@
 // .wrapper--article-content {}
 // .wrapper--posts {}
 
-
-.wrapper--footer { padding: $gutter-double 0; }
-.wrapper--posts { padding: $gutter-double 0; }
-
+.wrapper--footer {
+  padding: $gutter-double 0;
+}
+.wrapper--posts {
+  padding: $gutter-double 0;
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // HEADER
@@ -49,52 +67,16 @@
   @include shadow(3);
 }
 
-// MAIN LOGO
-
-.navbar-brand {
-
-  color: $gray-light;
-
-  .logo {
-    display: inline-block;
-    width: 2.4rem;
-    height: 2.4rem;
-    vertical-align: text-bottom;
-    fill: $gray-light;
-  }
-
-  &:hover {
-    color: $gray-lighter;
-
-    .logo {
-      fill: $gray-lighter;
-    }
-  }
-
-  @include bp('md') {
-    position: relative;
-    top: -3.4rem; // pure magical val
-    font-size: 3rem;
-
-    > .logo {
-      width: 3.75rem;
-      height: 3.75rem;
-    }
-  }
-}
-
-
 // SEARCHBAR
 // TODO: real classes + tpl
 
 .searchform {
-  div input[type="text"] {
+  div input[type='text'] {
     background-color: transparent;
     border-color: $gray-light;
   }
 
   div input[type='submit'] {
-
     background-color: $brand-primary;
     color: white;
 
@@ -103,17 +85,20 @@
       color: $brand-primary;
     }
 
-    &[disabled] { // don't submit less than 3 chars
+    &[disabled] {
+      // don't submit less than 3 chars
       background-color: transparent;
-      &:hover { background-color: rgba(0,0,0,0.25); }
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.25);
+      }
     }
 
-    &:not([disabled]) { // active button
+    &:not([disabled]) {
+      // active button
       color: white;
     }
   }
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // BREADCRUMB
@@ -124,11 +109,12 @@
   color: white;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////
 // MAIN MENU
 
-.navbar { border: 0; }
+.navbar {
+  border: 0;
+}
 
 .navbar {
   // @extend .navbar-inverse;
@@ -147,7 +133,6 @@
 }
 
 .navbar {
-
   .btn-toggle {
     color: $gray-light;
 
@@ -162,7 +147,6 @@
   }
 
   .navbar-nav {
-
     // ACTIVE ITEM
 
     > .active > a,
@@ -184,18 +168,22 @@
       color: white;
     }
   }
-
 }
 
 // MOBILE ONLY OFFSCREEN PANEL MENU
 
 @include bp('expanded', true) {
-
   // OVERLAY
 
   .overlay {
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(0,0,0,.5) 3px, rgba(0,0,0,.5) 6px),
-    linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0.25));
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 3px,
+        rgba(0, 0, 0, 0.5) 3px,
+        rgba(0, 0, 0, 0.5) 6px
+      ),
+      linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25));
   }
 
   .navbar-collapse {
@@ -219,7 +207,7 @@
 
     // Generated label
     &:before {
-      content: "menu";
+      content: 'menu';
       text-transform: uppercase;
       font-size: 2.4rem;
       font-weight: 300;
@@ -227,7 +215,6 @@
       color: $gray-light;
     }
   }
-
 }
 
 // DEKSTOP INLINE DROPDOWN SUBMENU
@@ -242,7 +229,8 @@
         color: $gray-light;
         text-transform: none;
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
           color: $gray-lighter;
           background-color: transparent;
         }
@@ -250,7 +238,6 @@
     }
   }
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // FOOTER
@@ -288,14 +275,13 @@
       &:after {
         position: absolute;
         left: 0;
-        content: "";
+        content: '';
         display: block;
         width: 100%;
         height: 0.2rem;
         background-color: white;
         transform: scale3d(0, 1, 1);
         transition: transform 0.25s $ease-bump;
-
       }
 
       &:hover {
@@ -308,16 +294,20 @@
   }
 }
 
-
-
 ///////////////////////////////////////////////////////////////////////////////
 // BASE
 
-a { transition: color 0.125s; }
+a {
+  transition: color 0.125s;
+}
 
-.h1 { margin-bottom: $gutter; }
+.h1 {
+  margin-bottom: $gutter;
+}
 
-p { margin-bottom: $gutter; }
+p {
+  margin-bottom: $gutter;
+}
 
 blockquote {
   font-family: $font-family-serif;
@@ -325,8 +315,6 @@ blockquote {
   color: $gray;
   border-color: $brand-primary;
 }
-
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // METAS
@@ -358,7 +346,6 @@ blockquote {
   }
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////
 // POST(S)
 
@@ -375,7 +362,6 @@ blockquote {
 }
 
 .article-content-body {
-
   // TODO : didn't find how to make a real excerpt in WP
   // the <!-- more --> thing changes nothing in markup
   // So we made the very first paragraph of content highlighted!
@@ -397,7 +383,6 @@ blockquote {
     background-color: white;
   }
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // TILES
@@ -459,7 +444,7 @@ blockquote {
   bottom: 0;
   margin: 0;
   padding: $gutter-quarter $gutter-half;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 
   a {
     color: white;
@@ -484,7 +469,6 @@ blockquote {
     text-transform: uppercase;
   }
 }
-
 
 // Latest posts tiles are dark
 .posts--latest {

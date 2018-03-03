@@ -1,16 +1,19 @@
 ///////////////////////////////////////////////////////////////////////////////
 // NAVBAR
 
+.site-header {
+  background-color: $header-color-bg;
+}
 
-.site-header { background-color: $header-color-bg; }
-
-.wrapper--pre-header {}
-.wrapper--header {}
-.wrapper--post-header {}
+.wrapper--pre-header {
+}
+.wrapper--header {
+}
+.wrapper--post-header {
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // BAR WRAPPERS
-
 
 .bar-wrapper {
   // Bar content gutter
@@ -20,7 +23,9 @@
   // Gives flexbox behavious to bars
   display: flex;
   flex-wrap: wrap;
-  > * { flex: 0 0 auto; }
+  > * {
+    flex: 0 0 auto;
+  }
 
   a {
     &:hover {
@@ -30,8 +35,9 @@
 }
 
 // A movable div that pushes neighbors on the sides
-.bar-filler { flex: 1; }
-
+.bar-filler {
+  flex: 1;
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // TOPBAR
@@ -58,10 +64,11 @@
 // Topbar on mobile - toggles visibility
 @include bp('expanded', true) {
   .site-header {
-    transform: translate3d(0, - $topbar-height-mobile, 0);
+    transform: translate3d(0, -$topbar-height-mobile, 0);
     transition: transform 0.5s $ease-bump;
 
-    /*html*/.topbar-expanded & {
+    /*html*/
+    .topbar-expanded & {
       transform: translate3d(0, 0, 0);
     }
   }
@@ -72,13 +79,13 @@
 .bar-wrapper .searchform {
   position: relative;
 
-  input[type="text"] {
+  input[type='text'] {
     height: $navbar-btn-size;
     line-height: $navbar-btn-size;
     padding-right: 12rem;
   }
 
-  input[type="submit"] {
+  input[type='submit'] {
     position: absolute;
     top: 0.1rem;
     right: 0.1rem;
@@ -90,12 +97,11 @@
   }
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////
 // NAVBAR
 
-.navbar { }
-
+.navbar {
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // NAVBAR HEADER
@@ -105,39 +111,16 @@
 }
 
 @include bp('expanded') {
-  .navbar-menu { margin-right: - $gutter; }
-  .topbar-search { margin-right: - $gutter-half; }
-  .topbar-menu { margin-left: - $gutter-half; }
-}
-
-// NAVBAR BRAND
-
-.navbar-brand {
-  display: block;
-  height: $navbar-brand-height;
-  padding-left: $gutter-half;
-  padding-right: $gutter-half;
-  font-size: $nav-fontsize;
-  line-height: $navbar-brand-height;
-  text-transform: uppercase;
-  color: $gray;
-
-  .logo {
-    vertical-align: middle;
-    fill: $gray;
-    transition: transform 0.25s;
+  .navbar-menu {
+    margin-right: -$gutter;
   }
-
-  &:hover {
-    color: $gray-darker;
-    .logo {
-      fill: $gray-darker;
-      transform: scale3d(1.2, 1.2, 1);
-    }
+  .topbar-search {
+    margin-right: -$gutter-half;
   }
-
+  .topbar-menu {
+    margin-left: -$gutter-half;
+  }
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // NAVBAR FOOTER
@@ -147,26 +130,26 @@
   font-size: 0; // removes space from inline buttons
 }
 
-
 // NAVBAR BUTTONS
 
 .btn-toggle {
   padding: 10px;
   border: 0;
-  min-width:$navbar-btn-size;
-  height:$navbar-btn-size;
+  min-width: $navbar-btn-size;
+  height: $navbar-btn-size;
   font-size: 1.6rem;
   background-color: transparent;
   color: $gray-light;
   transition: color 0.25s;
   vertical-align: top;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     color: $gray-darker;
   }
 
   &:focus {
-    outline: 0.1rem solid rgba(0,0,0,0.25);
+    outline: 0.1rem solid rgba(0, 0, 0, 0.25);
   }
 
   // Gutter between buttons + left spacing
@@ -177,7 +160,6 @@
   z-index: +1;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////
 // NAVBAR MENU
 
@@ -185,10 +167,8 @@
 
 .menu-primary,
 .menu-secondary {
-
   // Menu items are common dy default
   .menu-item {
-
     // Space between items when stacked
     margin-bottom: $gutter-quarter;
 
@@ -209,7 +189,8 @@
       justify-content: center;
 
       // Extra span for advanced styling (aka vertical center)
-      span:first-child { // don't catch submenus carret span
+      span:first-child {
+        // don't catch submenus carret span
         flex: 0 0 auto;
         line-height: 1;
         padding: $gutter-quarter 0;
@@ -235,7 +216,6 @@
           }
         }
       }
-
     }
   }
 }
@@ -247,81 +227,79 @@ $hamburger-height-bars: $hamburger-height / 8;
 $hamburger-color: $gray-light;
 
 .hamburger-wrapper {
-	height: $hamburger-height;
-	width: $hamburger-height;
-	text-align: center;
-	position: relative;
+  height: $hamburger-height;
+  width: $hamburger-height;
+  text-align: center;
+  position: relative;
 
-	&:hover {
-		.hamburger,
-		.hamburger:before,
-		.hamburger:after {
-			background-color: $gray-lighter;
-		}
-	}
+  &:hover {
+    .hamburger,
+    .hamburger:before,
+    .hamburger:after {
+      background-color: $gray-lighter;
+    }
+  }
 }
 
 .hamburger,
 .hamburger:before,
 .hamburger:after {
-	display: block;
-	height: $hamburger-height-bars;
-	width: 100%;
-	background-color: $hamburger-color;
-	transform: rotate(0deg);
-  transition: transform 0.75s $ease-bump,
-  background-color 0.25s;
+  display: block;
+  height: $hamburger-height-bars;
+  width: 100%;
+  background-color: $hamburger-color;
+  transform: rotate(0deg);
+  transition: transform 0.75s $ease-bump, background-color 0.25s;
 }
 
 .hamburger:before,
 .hamburger:after {
-	content: '';
-	position: absolute;
+  content: '';
+  position: absolute;
 }
 
 .hamburger {
-	position: relative;
-	top: ($hamburger-height / 2 - $hamburger-height-bars / 2);
+  position: relative;
+  top: ($hamburger-height / 2 - $hamburger-height-bars / 2);
 
-	&:before { top: ($hamburger-height * 3 / 8); }
-	&:after {  top: (- $hamburger-height * 3 / 8); }
+  &:before {
+    top: ($hamburger-height * 3 / 8);
+  }
+  &:after {
+    top: (-$hamburger-height * 3 / 8);
+  }
 }
 
-.navbar-expanded  {
-
+.navbar-expanded {
   .hamburger-wrapper {
-
     &:hover {
-  		.hamburger {
+      .hamburger {
         background-color: transparent;
       }
-  		.hamburger:before,
-  		.hamburger:after {
-  			background-color: $gray-darker;
-  		}
-  	}
+      .hamburger:before,
+      .hamburger:after {
+        background-color: $gray-darker;
+      }
+    }
   }
 
-	.hamburger {
-		background-color: rgba(255, 255, 255, 0.0);
-		transform: rotate(-90deg);
+  .hamburger {
+    background-color: rgba(255, 255, 255, 0);
+    transform: rotate(-90deg);
 
-		&:after {
-			transform: translateY($hamburger-height * 3 / 8) rotate(-135deg);
-		}
+    &:after {
+      transform: translateY($hamburger-height * 3 / 8) rotate(-135deg);
+    }
 
-		&:before {
-			transform: translateY(- $hamburger-height * 3 / 8) rotate(-45deg);
-		}
-
-	}
+    &:before {
+      transform: translateY(-$hamburger-height * 3 / 8) rotate(-45deg);
+    }
+  }
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 // MOBILE MENU
 .navbar-menu {
-
   // MOBILE MENU
 
   // Pain in the ass to reset mobile navbar styles on larger screens
@@ -355,7 +333,7 @@ $hamburger-color: $gray-light;
 
     // Generated label
     &:before {
-      content: "MENU";
+      content: 'MENU';
       position: absolute;
       top: 0;
       left: 0;
@@ -371,17 +349,14 @@ $hamburger-color: $gray-light;
 
   // Desktop ONLY styles
   @include bp('expanded') {
-
     @include clearfix;
     margin-left: $gutter-half;
-
 
     //   DESKTOP INLINE DROPDOWN SUBMENU
 
     // TODO + dropdown JS
 
     .dropdown {
-
       .dropdown-menu {
         background-color: $header-color-bg;
         position: fixed;
@@ -397,8 +372,10 @@ $hamburger-color: $gray-light;
         overflow: hidden;
         transition: transform 0.5s $ease-bump;
 
-        /*html*/.admin-bar & {
-          top: $navbar-height-desktop + $topbar-height-desktop + $adminbar-height-desktop;
+        /*html*/
+        .admin-bar & {
+          top: $navbar-height-desktop + $topbar-height-desktop +
+            $adminbar-height-desktop;
         }
 
         > .menu-item {
@@ -407,7 +384,8 @@ $hamburger-color: $gray-light;
         }
       }
 
-      &.open {  // TODO: use .expanded instead
+      &.open {
+        // TODO: use .expanded instead
 
         .dropdown-menu {
           transform: scale3d(1, 1, 1);
@@ -415,27 +393,21 @@ $hamburger-color: $gray-light;
       }
     }
   }
-
 } // end of .navbar-menu
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // SECONDARY MENU
 
 .menu-secondary {
-
   @include bp('expanded') {
     // By default, same as .menu-primary
   }
 }
 
-
-
 ///////////////////////////////////////////////////////////////////////////////
 // OVERLAY
 
 @include bp('expanded', true) {
-
   body.navbar-expanded {
     overflow: hidden;
   }
@@ -446,7 +418,7 @@ $hamburger-color: $gray-light;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 
     transform: translate3d(-100%, 0, 0);
     opacity: 0;
