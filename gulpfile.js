@@ -41,8 +41,16 @@ global.config = {
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/popover.js",
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js",
     // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/tab.js",
+    'src/js/vendor/parallax.js',
+
     'src/js/config.js',
-    'src/js/parallax.js',
+
+    'src/js/lib/configure.js',
+    'src/js/lib/toggler.js',
+    'src/js/lib/ripple.js',
+    'src/js/lib/search.js',
+    'src/js/lib/parallax.js',
+
     'src/js/main.js'
   ]
 }
