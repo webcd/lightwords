@@ -1,5 +1,26 @@
 # TODO
 
+## URGENT
+
+* utiliser une image "simple" pour le logo (sans texte)
+* permettre des containers fluide (full-width)
+* refactoring des sous-menu
+* passer le parallaxe en full CSS (si possible ?)
+* via la config :
+  * masquer la breadcrumb
+  * masquer la recherche
+  * masquer la topbar
+* utiliser les extrait dans le contenu des articles
+
+## LATER
+
+* séparer les styles "de base" de ceux de la "skin"
+* passer de Gulp à Webpack
+* Virer complètement Bootstrap
+* Utiliser Aramid grid / layout
+* Virer complètement jQuery ?
+* Supprimer le styleguide automatique
+
 ## Elements
 
 * member account links / login link / post-type or category link / etc
@@ -28,7 +49,6 @@
 * i18n / translate ALL text
 * forms
 * admin theme options?
-
 
 # KNOWN bugs
 
