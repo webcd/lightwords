@@ -111,14 +111,16 @@
 }
 
 @include bp('expanded') {
-  .navbar-menu {
-    margin-right: -$gutter;
-  }
-  .topbar-search {
-    margin-right: -$gutter-half;
-  }
-  .topbar-menu {
-    margin-left: -$gutter-half;
+  .container:not(.container--fluid) {
+    .navbar-menu {
+      margin-right: -$gutter;
+    }
+    .topbar-search {
+      margin-right: -$gutter-half;
+    }
+    .topbar-menu {
+      margin-left: -$gutter-half;
+    }
   }
 }
 

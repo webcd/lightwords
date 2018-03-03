@@ -2,7 +2,6 @@
 
 ## URGENT
 
-* Fluid containers (full width)
 * Sub-menus refactoring
 * CSS parallax
 * Disable features from config:
