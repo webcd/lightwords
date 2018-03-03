@@ -35,7 +35,10 @@
     }
 
     if (Lightwords.CONFIG.search) {
-      $body.addClass('search')
+      $body.addClass('has-search')
+    }
+    if (Lightwords.CONFIG.breadcrumbs) {
+      $body.addClass('has-breadcrumbs')
     }
     if (Lightwords.CONFIG.stickyHeader) {
       $body.addClass('sticky-header')

@@ -8,6 +8,7 @@ window.CONFIG = {
   debuggers: ['breakpoints'],
 
   search: true,
+  breadcrumbs: true,
   stickyHeader: true,
   parallaxHero: true,
   rippleEffect: true,

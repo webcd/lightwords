@@ -6,7 +6,6 @@
 * CSS parallax
 * Disable features from config:
   * breadcrumbs
-  * seach
   * topbar
 * use article extracts in page content
 

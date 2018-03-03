@@ -16,8 +16,14 @@ body,
 }
 
 .wrapper--breadcrumb {
-  padding-top: $gutter-half;
-  padding-bottom: $gutter-half;
+  display: none;
+
+  /*html*/
+  .has-breadcrumbs & {
+    display: block;
+    padding-top: $gutter-half;
+    padding-bottom: $gutter-half;
+  }
 }
 
 // BOOTSSRAP LEGACY CONTAINER
