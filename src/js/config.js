@@ -10,6 +10,7 @@ window.CONFIG = {
   search: true,
   breadcrumbs: true,
   stickyHeader: true,
+
   parallaxHero: true,
   rippleEffect: true,
   rippleSelector: '.btn'

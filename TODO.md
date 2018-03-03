@@ -5,7 +5,6 @@
 * Sub-menus refactoring
 * CSS parallax
 * Disable features from config:
-  * breadcrumbs
   * topbar
 * use article extracts in page content
 

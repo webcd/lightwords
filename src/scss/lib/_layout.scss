@@ -15,17 +15,6 @@ body,
   flex-grow: 1;
 }
 
-.wrapper--breadcrumb {
-  display: none;
-
-  /*html*/
-  .has-breadcrumbs & {
-    display: block;
-    padding-top: $gutter-half;
-    padding-bottom: $gutter-half;
-  }
-}
-
 // BOOTSSRAP LEGACY CONTAINER
 
 .container {

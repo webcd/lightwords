@@ -1,0 +1,25 @@
+// HAS FEATURE (or rather don't!)
+
+// SEARCH
+
+/*html*/
+.has-no-search {
+  // Toggle button
+  .topbar-toggle--search {
+    display: none;
+  }
+
+  // Search form
+  .bar-wrapper .searchform {
+    display: none;
+  }
+}
+
+// BEADCRUMBS
+
+/*html*/
+.has-no-breadcrumbs {
+  .wrapper--breadcrumb {
+    display: none;
+  }
+}

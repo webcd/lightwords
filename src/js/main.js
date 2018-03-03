@@ -34,11 +34,13 @@
       }
     }
 
-    if (Lightwords.CONFIG.search) {
-      $body.addClass('has-search')
+    // Has feature
+
+    if (!Lightwords.CONFIG.search) {
+      $body.addClass('has-no-search')
     }
-    if (Lightwords.CONFIG.breadcrumbs) {
-      $body.addClass('has-breadcrumbs')
+    if (!Lightwords.CONFIG.breadcrumbs) {
+      $body.addClass('has-no-breadcrumbs')
     }
     if (Lightwords.CONFIG.stickyHeader) {
       $body.addClass('sticky-header')
