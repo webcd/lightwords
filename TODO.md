@@ -2,11 +2,10 @@
 
 ## URGENT
 
-* Sub-menus refactoring
+* Page template for all posts
 * CSS parallax
 * Disable features from config:
   * topbar
-* use article extracts in page content
 
 ## LATER
 
