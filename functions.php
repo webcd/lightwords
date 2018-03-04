@@ -19,5 +19,8 @@
 	  'dist/img'
 	);
     
-    // Run classes App
-    new App\StarterSite();
+  // Run classes App
+  new App\StarterSite();
+
+	// TODO: move this into /core/StarterSite.php (and make it work)
+ 	add_theme_support( 'post-thumbnails', array( 'post', 'article' ) );
