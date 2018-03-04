@@ -270,7 +270,7 @@
     padding-bottom: $gutter-quarter;
 
     > a {
-      color: white;
+      color: $gray;
 
       position: relative;
       &:after {
@@ -280,12 +280,15 @@
         display: block;
         width: 100%;
         height: 0.2rem;
-        background-color: white;
+        background-color: $gray-darker;
         transform: scale3d(0, 1, 1);
-        transition: transform 0.25s $ease-bump;
+        transition: all 0.25s $ease-bump;
       }
 
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
+        color: $gray-darker;
         text-decoration: none;
         &:after {
           transform: scale3d(1, 1, 1);
