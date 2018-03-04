@@ -253,13 +253,6 @@
   }
 }
 
-.footer-copyright {
-  padding: 1.5rem 0;
-  text-align: center;
-  font-weight: 500;
-  color: $gray;
-}
-
 // .widget-title {}
 
 .widget ul {
@@ -295,6 +288,33 @@
         }
       }
     }
+  }
+}
+
+.footer-copyright,
+.footer-made-by {
+  margin-bottom: $gutter-quarter;
+  text-align: center;
+  font-weight: 500;
+  color: $gray;
+}
+
+.footer-made-by {
+  margin-bottom: $gutter;
+}
+
+.maker-link {
+  font-size: 0;
+  opacity: 0.8;
+  transition: all 0.25s;
+  > svg {
+    height: 2rem;
+    position: relative;
+    top: 0.5rem;
+  }
+
+  &:hover {
+    opacity: 1;
   }
 }
 
