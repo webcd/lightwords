@@ -491,9 +491,7 @@ blockquote {
   }
 }
 
-// Latest posts tiles are dark
-.posts--latest {
-  .tile-post {
-    background-color: $gray-darkest;
-  }
+// Posts tiles are dark
+.tile-post {
+  background-color: $gray-darkest;
 }
