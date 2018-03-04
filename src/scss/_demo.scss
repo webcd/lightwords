@@ -112,17 +112,15 @@
 // BREADCRUMB
 
 .breadcrumb {
-  // padding-top: $gutter-half;
-  // padding-bottom: $gutter-half;
+  padding-top: $gutter-half;
+  padding-bottom: $gutter-half;
   // color: white;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 // MAIN MENU
 
-.navbar {
-  // @extend .navbar-inverse;
-}
+// .navbar {}
 
 .wrapper--header .navbar-nav {
   > li {
@@ -262,8 +260,7 @@
   color: $gray;
 }
 
-.widget-title {
-}
+// .widget-title {}
 
 .widget ul {
   list-style-type: none;
