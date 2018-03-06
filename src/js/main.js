@@ -1,9 +1,5 @@
-;(function($) {
-  console.log('main.js in action 😀')
-
-  // DOM IS READY!
-
-  $(function() {
-    // It's up to you!
-  })
-})(jQuery)
+require('./lib/config')
+require('./lib/configure')
+require('./lib/toggler')
+require('./lib/ripple')
+require('./lib/search')

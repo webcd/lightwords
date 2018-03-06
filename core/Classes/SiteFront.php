@@ -40,7 +40,11 @@ class SiteFront extends \App\Lib\SiteCore
      * */
     public function enqueue_scripts()
     {
-        wp_enqueue_script('main', get_stylesheet_directory_uri().'/dist/js/main.js', array('jquery'), '0.1.0', true);
+        wp_deregister_script('jquery');
+        wp_enqueue_style('maincss', mix('main.css'));
+        wp_enqueue_script('manifest', mix('manifest.js'), '', '', true);
+        wp_enqueue_script('vendor', mix('vendor.js'), '', '', true);
+        wp_enqueue_script('main', mix('main.js'), '', '', true);
     }
 
     /**

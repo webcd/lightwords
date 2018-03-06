@@ -25,6 +25,7 @@
 * forms styling (including Cravity Forms)
 * admin theme options?
 * JS ripple effect
+* Laravel mix sprite svg
 
 # KNOWN bugs
 
@@ -33,3 +34,4 @@
 * js sourcemaps must be fixed
 * dual topbar sometimes renders 'stacked' (on resize it seems)
 * parallax needs security offset in the settings
+* BrowserSync not reload
