@@ -28,13 +28,10 @@
 @import 'lib/logo';
 @import 'lib/ripple';
 @import 'lib/has-feature';
-// @import 'lib/styleguide';
 
 @import 'lib/debug';
-
-@import 'lib/foo';
 
 /* APP */
 
 @import 'app';
-@import 'demo';
+@import 'skins/default';
