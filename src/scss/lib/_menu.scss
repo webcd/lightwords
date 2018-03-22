@@ -138,17 +138,6 @@
         transform-origin: 50% 0 0;
         overflow: hidden;
         transition: transform 0.5s $ease-bump;
-
-        /*html*/
-        .admin-bar & {
-          top: $navbar-height-desktop + $topbar-height-desktop +
-            $adminbar-height-desktop;
-        }
-
-        > .menu-item {
-          a {
-          }
-        }
       }
 
       &.open {
