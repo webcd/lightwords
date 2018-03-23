@@ -48,6 +48,7 @@
     "vinyl-paths": "^2.1.0"
   },
   "dependencies": {
-    "bootstrap-sass": "^3.3.6"
+    "bootstrap-sass": "^3.3.6",
+    "jquery-parallax.js": "^1.5.0"
   }
 }
