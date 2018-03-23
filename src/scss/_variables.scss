@@ -5,6 +5,7 @@
 
 $gutter: 3rem;
 
+// Computed gutters
 $gutter-half: $gutter / 2;
 $gutter-quarter: $gutter / 4;
 $gutter-eighth: $gutter / 8;
@@ -21,6 +22,9 @@ $color-ternary: #80f !default;
 $color-variation-ratio-base: 10% !default;
 $color-variation-ratio-more: 20% !default;
 $color-variation-ratio-most: 30% !default;
+
+// Computed colors
+@import 'lib/colors';
 
 // NAVBAR CONFIGURATION
 
@@ -41,6 +45,9 @@ $topbars-total-height: $navbar-height-mobile + $topbar-height-mobile;
 $topbars-total-height-desktop: $navbar-height-desktop + $topbar-height-desktop;
 
 $navbar-btn-size: 4.4rem !default;
+$navbar-btn-padding: 1rem !default;
+$navbar-btn-color: $gray-light !default;
+$navbar-btn-color-hover: $gray-darker !default;
 
 // Logo
 $navbar-logo-height: $navbar-btn-size !default;

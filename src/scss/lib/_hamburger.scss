@@ -1,0 +1,107 @@
+// HAMBURGER (and other navbar-footer buttons)
+
+// NAVBAR BUTTONS
+
+.btn-toggle {
+  padding: 1rem;
+  border: 0;
+  min-width: $navbar-btn-size;
+  height: $navbar-btn-size;
+  font-size: 1.6rem;
+  background-color: transparent;
+  color: $navbar-btn-color;
+  transition: color 0.25s;
+  vertical-align: top;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $navbar-btn-color-hover;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  // Gutter between buttons + left spacing
+  margin-left: $gutter-quarter;
+
+  // Bring toggle btns back to foreground (in case of overlay/offscreen panel)
+  position: relative;
+  z-index: +1;
+}
+
+// HAMBURGER BUTTON
+
+$hamburger-height: $navbar-btn-size - 2 * $navbar-btn-padding;
+
+.hamburger-wrapper {
+  height: $hamburger-height;
+  width: $hamburger-height;
+  text-align: center;
+  position: relative;
+
+  &:hover {
+    .hamburger,
+    .hamburger:before,
+    .hamburger:after {
+      background-color: currentColor;
+    }
+  }
+}
+
+.hamburger,
+.hamburger:before,
+.hamburger:after {
+  display: block;
+  height: $hamburger-height / 8;
+  width: 100%;
+  background-color: currentColor;
+  transform: rotate(0deg);
+  transition: transform 0.75s $ease-bump, background-color 0.25s;
+}
+
+.hamburger:before,
+.hamburger:after {
+  content: '';
+  position: absolute;
+}
+
+.hamburger {
+  position: relative;
+  top: ($hamburger-height / 2 - $hamburger-height / 16);
+
+  &:before {
+    top: ($hamburger-height * 3 / 8);
+  }
+  &:after {
+    top: (-$hamburger-height * 3 / 8);
+  }
+}
+
+.navbar-expanded {
+  .hamburger-wrapper {
+    &:hover {
+      .hamburger {
+        background-color: transparent;
+      }
+      .hamburger:before,
+      .hamburger:after {
+        background-color: currentColor;
+      }
+    }
+  }
+
+  .hamburger {
+    background-color: rgba(255, 255, 255, 0);
+    transform: rotate(-90deg);
+
+    &:after {
+      transform: translateY($hamburger-height * 3 / 8) rotate(-135deg);
+    }
+
+    &:before {
+      transform: translateY(-$hamburger-height * 3 / 8) rotate(-45deg);
+    }
+  }
+}
