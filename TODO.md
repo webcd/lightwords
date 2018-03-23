@@ -10,23 +10,23 @@
 ## LATER
 
 * Split styles into "base" and "skin"
-* Move from Gulp to Webpack build process
 * Get rid off Bootstrap
-  * scaffolding,
-  * type,
-  * buttons,
-  * responsive-utilities
-  * ...
 * Use Aramid grid / layout
 * Get rid off jQuery?
-* Simple breadcrumbs (no YoastSEO) (see: https://gist.github.com/tinotriste/5387124)
+* Forms styling (including Gravity Forms)
 * Member account links / login page
-* i18n / translate ALL text
-* forms styling (including Cravity Forms)
+* Move from Gulp to Webpack build process (or fix Mix build)
+* WooCommerce support
+
+* Simple breadcrumbs (no YoastSEO) (see: https://gist.github.com/tinotriste/5387124)
 * admin theme options?
-* JS ripple effect
+* i18n / translate ALL text?
 
 # KNOWN bugs
+
+* add_theme_support( 'post-thumbnails' ) only works in functions.php
+
+## To be confirmed
 
 * still an issue with file_exists on the SVG twig template (/lib/timber.php)
 * fixed-positioned elements aren't fixed!
