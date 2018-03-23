@@ -3,7 +3,6 @@
 .ripple {
   position: relative;
   overflow: hidden;
-  -webkit-transform: translatez(0);
 }
 
 .ink {
@@ -17,53 +16,12 @@
 }
 
 .ink.animate {
-  -webkit-animation: ripple-effect 0.5s linear;
-  -o-animation: ripple-effect 0.5s linear;
   animation: ripple-effect 0.5s linear;
 }
 
 @keyframes ripple-effect {
   100% {
     opacity: 0;
-    -webkit-transform: scale(2.5);
-    -ms-transform: scale(2.5);
-    -o-transform: scale(2.5);
-    transform: scale(2.5);
-  }
-}
-@-webkit-keyframes ripple-effect {
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(2.5);
-    -ms-transform: scale(2.5);
-    -o-transform: scale(2.5);
-    transform: scale(2.5);
-  }
-}
-@-moz-keyframes ripple-effect {
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(2.5);
-    -ms-transform: scale(2.5);
-    -o-transform: scale(2.5);
-    transform: scale(2.5);
-  }
-}
-@-ms-keyframes ripple-effect {
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(2.5);
-    -ms-transform: scale(2.5);
-    -o-transform: scale(2.5);
-    transform: scale(2.5);
-  }
-}
-@-o-keyframes ripple-effect {
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(2.5);
-    -ms-transform: scale(2.5);
-    -o-transform: scale(2.5);
     transform: scale(2.5);
   }
 }
