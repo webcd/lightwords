@@ -73,29 +73,6 @@
   }
 }
 
-// SEARCHFORM
-
-.bar-wrapper .searchform {
-  position: relative;
-
-  input[type='text'] {
-    height: $navbar-btn-size;
-    line-height: $navbar-btn-size;
-    padding-right: 12rem;
-  }
-
-  input[type='submit'] {
-    position: absolute;
-    top: 0.1rem;
-    right: 0.1rem;
-    border: 0;
-    height: $navbar-btn-size - 0.2rem;
-    color: $gray-light;
-    font-weight: normal;
-    text-transform: uppercase;
-  }
-}
-
 ///////////////////////////////////////////////////////////////////////////////
 // NAVBAR
 

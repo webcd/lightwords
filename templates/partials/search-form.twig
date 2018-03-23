@@ -1,7 +1,5 @@
 <form role="search" method="get" id="searchform" class="searchform" action="{{ site.url }}">
-    <div>
-        <label class="screen-reader-text" for="s">Rechercher&nbsp;:</label>
-        <input type="text" value="" name="s" id="s">
-        <input type="submit" id="searchsubmit" value="Rechercher" disabled="disabled">
-    </div>
+  <label class="searchform__label sr-only" for="s">Rechercher&nbsp;:</label>
+  <input class="searchform__input" type="text" value="" name="s" id="s">
+  <input class="searchform__submit btn btn-primary" type="submit" id="searchsubmit" value="Rechercher" disabled="disabled">
 </form>

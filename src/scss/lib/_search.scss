@@ -1,0 +1,39 @@
+// SEARCH FORM
+
+.searchform {
+  position: relative;
+
+  .searchform__input {
+    @extend .form-control;
+    background-color: transparent;
+    border-color: $gray-light;
+
+    height: $navbar-btn-size;
+    line-height: $navbar-btn-size;
+    padding-right: 12rem;
+  }
+
+  .searchform__submit {
+    background-color: $brand-primary;
+    color: white;
+
+    position: absolute;
+    top: 0.1rem;
+    right: 0.1rem;
+    border: 0;
+    height: $navbar-btn-size - 0.2rem;
+    font-weight: normal;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: $gray-lighter;
+      color: $brand-primary;
+    }
+
+    &[disabled] {
+      // don't submit less than 3 chars
+      background-color: transparent;
+      color: $gray-light;
+    }
+  }
+}
