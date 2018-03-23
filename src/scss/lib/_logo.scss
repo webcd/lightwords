@@ -13,7 +13,7 @@
 .logo--mobile {
   height: $navbar-logo-height;
 
-  @include bp('expanded') {
+  @include bp($expanded) {
     display: none;
   }
 }
@@ -24,7 +24,7 @@
   position: relative;
   top: -($topbar-height-desktop - 0.8rem); // TODO better
 
-  @include bp('expanded') {
+  @include bp($expanded) {
     display: inline-block;
   }
 }

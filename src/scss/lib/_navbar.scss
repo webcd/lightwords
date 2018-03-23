@@ -54,14 +54,14 @@
 
   .topbar-search {
     flex-basis: 100%;
-    @include bp('expanded') {
+    @include bp($expanded) {
       flex-basis: auto;
     }
   }
 }
 
 // Topbar on mobile - toggles visibility
-@include bp('expanded', true) {
+@include bp($expanded, true) {
   .site-header {
     transform: translate3d(0, -$topbar-height-mobile, 0);
     transition: transform 0.5s $ease-bump;
@@ -85,7 +85,7 @@
   margin-left: -$gutter-half;
 }
 
-@include bp('expanded') {
+@include bp($expanded) {
   .container:not(.container--fluid) {
     .navbar-menu {
       margin-right: -$gutter;
@@ -111,7 +111,7 @@
 // SECONDARY MENU
 
 .menu-secondary {
-  @include bp('expanded') {
+  @include bp($expanded) {
     // By default, same as .menu-primary
   }
 }
@@ -119,7 +119,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 // OVERLAY
 
-@include bp('expanded', true) {
+@include bp($expanded, true) {
   body.navbar-expanded {
     overflow: hidden;
   }

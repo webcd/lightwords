@@ -4,17 +4,13 @@
   position: relative;
 
   .searchform__input {
-    @extend .form-control;
-    background-color: transparent;
-    border-color: $gray-light;
-
     height: $navbar-btn-size;
     line-height: $navbar-btn-size;
     padding-right: 12rem;
   }
 
   .searchform__submit {
-    background-color: $brand-primary;
+    background-color: $color-primary;
     color: white;
 
     position: absolute;
@@ -27,7 +23,7 @@
 
     &:hover {
       background-color: $gray-lighter;
-      color: $brand-primary;
+      color: $color-primary;
     }
 
     &[disabled] {

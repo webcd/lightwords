@@ -1,44 +1,45 @@
-<article class="tile tile-post flex-sm-6 flex-md-4 flex-lg-3"
+<article class="tile tile-post col-sm-6 col-md-4 col-lg-3"
   onclick="window.location.href = '{{ post.link }}';"
   >
+  <div class="tile__content">
+    <div class="tile__head">
 
-  <div class="tile__head">
+      <div class="tile__hero">
 
-    <div class="tile__hero">
+        <img
+            src="{{ post.thumbnail.src|resize(480) }}"
+            srcset="
+              {{ post.thumbnail.src|resize(768) }} 768w,
+              {{ post.thumbnail.src|resize(480) }} 480w,
+              {{ post.thumbnail.src|resize(220) }} 220w
+            "
+            sizes="
+                (min-width: 1200px) 25vw,
+                (min-width: 992px) 33.33vw,
+                (min-width: 768px) 50vw,
+                100vw
+            "
+            itemprop="image"
+            alt="{{ post.thumbnail.alt }}" />
 
-      <img
-          src="{{ post.thumbnail.src|resize(480) }}"
-          srcset="
-            {{ post.thumbnail.src|resize(768) }} 768w,
-            {{ post.thumbnail.src|resize(480) }} 480w,
-            {{ post.thumbnail.src|resize(220) }} 220w
-          "
-          sizes="
-              (min-width: 1200px) 25vw,
-              (min-width: 992px) 33.33vw,
-              (min-width: 768px) 50vw,
-              100vw
-          "
-          itemprop="image"
-          alt="{{ post.thumbnail.alt }}" />
+        <h3 class="h3 tile__title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
 
-      <h3 class="h3 tile__title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
+      </div>
+
+      {% include "metas.twig" %}
 
     </div>
 
-    {% include "metas.twig" %}
+    <div class="tile__body">
 
-  </div>
+      <p>
+        {{post.get_preview(20, false, '')}}
+      </p>
 
-  <div class="tile__body">
+    </div>
 
-    <p>
-      {{post.get_preview(20, false, '')}}
-    </p>
-
-  </div>
-
-  <div class="tile__foot">
-    <a class="read-more" href="{{ post.link }}">Lire la suite</a>
+    <div class="tile__foot">
+      <a class="read-more" href="{{ post.link }}">Lire la suite</a>
+    </div>
   </div>
 </article>

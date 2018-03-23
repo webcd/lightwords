@@ -1,0 +1,83 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<article class="post-type-styleguide" id="post-{{post.ID}}">
+
+	<section class="wrapper wrapper--article-content">
+		<div class="article-content container">
+
+			<h1 class="h1 main-title hero-title">Styleguide</h1>
+			<div class="article-content-body">
+
+        <!-- Styleguide content -->
+        <h1>Heading 1</h1>
+        <h1>Heading 1<br>on two lines</h1>
+        <h2>Heading 2</h2>
+        <h2>Heading 2<br>on two lines</h2>
+        <h3>Heading 3</h3>
+        <h3>Heading 3<br>on two lines</h3>
+        <h4>Heading 4</h4>
+        <h4>Heading 4<br>on two lines</h4>
+
+        <hr>
+
+        <p class="big">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt, aspernatur. A provident error, molestias dolore quos facilis, doloribus eaque tempora voluptas, voluptatem animi commodi libero dicta qui enim laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem molestias praesentium voluptate. Magni at, provident culpa minima ex porro ipsum ut dignissimos nam commodi quis qui dolorum saepe perferendis beatae alias facere assumenda voluptatem eum suscipit architecto! Ea.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt, aspernatur. A provident error, molestias dolore quos facilis, doloribus eaque tempora voluptas, voluptatem animi commodi libero dicta qui enim laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem molestias praesentium voluptate. Magni at, provident culpa minima ex porro ipsum ut dignissimos nam commodi quis qui dolorum saepe perferendis beatae alias facere assumenda voluptatem eum suscipit architecto! Ea.</p>
+
+        <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt, aspernatur. A provident error, molestias dolore quos facilis, doloribus eaque tempora voluptas, voluptatem animi commodi libero dicta qui enim laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem molestias praesentium voluptate. Magni at, provident culpa minima ex porro ipsum ut dignissimos nam commodi quis qui dolorum saepe perferendis beatae alias facere assumenda voluptatem eum suscipit architecto! Ea.</p>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <button class="btn">.btn</button>
+            <button class="btn btn-default" disabled>disabled</button>
+            <button class="btn btn-primary btn-round" disabled>disabled</button>
+            <button class="btn btn-secondary btn-hollow" disabled>disabled</button>
+            <a href="#" class="btn btn-default">.btn-default</a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <button class="btn btn-primary btn-xs">.btn-xs</button>
+            <button class="btn btn-primary btn-sm">.btn-sm</button>
+            <button class="btn btn-primary">.btn</button>
+            <a href="#" class="btn btn-primary btn-lg">.btn-lg</a>
+            <button class="btn btn-primary btn-xl">.btn-xl</button>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <button class="btn btn-default">.btn-default</button>
+            <button class="btn btn-primary">.btn-primary</button>
+            <button class="btn btn-secondary">.btn-secondary</button>
+            <button class="btn btn-ternary">.btn-ternary</button>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <button class="btn btn-default btn-round">.btn-round</button>
+            <button class="btn btn-primary btn-round">.btn-round</button>
+            <button class="btn btn-secondary btn-round">.btn-round</button>
+            <button class="btn btn-ternary btn-round">.btn-round</button>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <button class="btn btn-default btn-hollow">.btn-hollow</button>
+            <button class="btn btn-primary btn-hollow">.btn-hollow</button>
+            <button class="btn btn-secondary btn-hollow">.btn-hollow</button>
+            <button class="btn btn-ternary btn-hollow">.btn-hollow</button>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <button class="btn btn-primary btn-block">.btn-block</button>
+            <button class="btn btn-primary btn-wrap">.btn-wrap very very long button multi-line content</button>
+          </div>
+        </div>
+        <!-- End styleguide content -->
+
+			</div>
+
+		</div>
+		
+	</section>
+
+	{% include 'latest-posts.twig' %}
+
+</article>
+{% endblock %}
+
+

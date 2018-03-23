@@ -1,32 +1,37 @@
 # TODO
 
-## URGENT
+## Urgent
 
-* Page template for all posts
+* Allow full-width .container on tablet ('xs')
+* Fix padding-top on light skin (with AND without hero image)
+* Sticky footer broken (main content too tall)
+* Forms styling (including Gravity Forms) + search bar
+* Modals
+
+## Later
+
+* Find a way to include the styleguide template by default
+* WooCommerce support
+* Page template for archive listing ALL the posts (not only a category)
 * CSS parallax
 * Disable features from config:
   * topbar
-* Modals
-
-## LATER
-
-* Get rid off Bootstrap
-* Use Aramid grid / layout
-* Get rid off jQuery?
-* Forms styling (including Gravity Forms)
 * Member account links / login page
 * Move from Gulp to Webpack build process (or fix Mix build)
-* WooCommerce support
 
 * Simple breadcrumbs (no YoastSEO) (see: https://gist.github.com/tinotriste/5387124)
+
+## Probably not
+
 * admin theme options?
+* Get rid off jQuery?
 * i18n / translate ALL text?
 
-# KNOWN bugs
+# KNOWN BUGS
 
 * add_theme_support( 'post-thumbnails' ) only works in functions.php
 
-## To be confirmed
+## To be confirmed bugs
 
 * still an issue with file_exists on the SVG twig template (/lib/timber.php)
 * fixed-positioned elements aren't fixed!

@@ -9,9 +9,6 @@
   // Menu items are common dy default
 
   .menu-item {
-    // Space between items when stacked
-    margin-bottom: $gutter-quarter;
-
     > .menu-item-link {
       display: block;
       min-height: 4.4rem;
@@ -35,7 +32,7 @@
 
     &.current-menu-item {
       > .menu-item-link {
-        color: $brand-secondary;
+        color: $color-secondary;
       }
     }
 
@@ -44,11 +41,9 @@
       list-style-type: none;
       padding-left: 0;
 
-      margin-top: $gutter-quarter;
-
       .menu-item {
         > .menu-item-link {
-          @include bp('expanded', true) {
+          @include bp($expanded, true) {
             padding-left: $gutter;
           }
         }
@@ -65,7 +60,7 @@
 
   // Pain in the ass to reset mobile navbar styles on larger screens
   // So for once, we allow MOBILE ONLY styles max-width @mq here!
-  @include bp('expanded', true) {
+  @include bp($expanded, true) {
     display: block !important;
     position: fixed;
     right: 0;
@@ -87,6 +82,12 @@
 
     > .menu-primary {
       margin: $gutter-half 0;
+
+      .menu-item:not(.dropdown),
+      .dropdown-toggle {
+        // Space between items when stacked
+        margin-bottom: $gutter-quarter;
+      }
     }
 
     // Generated label
@@ -108,8 +109,11 @@
   //DESKTOP MENU
 
   // Desktop ONLY styles
-  @include bp('expanded') {
+  @include bp($expanded) {
     margin-left: $gutter-half;
+
+    .menu-item {
+    }
 
     // Hide and show dropdown submenu
     .dropdown {
@@ -121,6 +125,8 @@
         position: absolute;
         left: 0;
         width: 20vw;
+        padding-top: $gutter-quarter;
+        padding-bottom: $gutter-quarter;
 
         display: flex;
         flex-direction: column;

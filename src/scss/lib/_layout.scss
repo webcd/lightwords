@@ -2,15 +2,19 @@
 
 // STICKY FOOTER
 
-html,
+html {
+  min-height: 100vh;
+}
 body,
 .site-wrapper {
   min-height: 100vh;
 }
+
 .site-wrapper {
   display: flex;
   flex-direction: column;
 }
+
 .site-content {
   flex-grow: 1;
 }
@@ -25,31 +29,51 @@ body,
   }
 }
 
-// BOOTSSRAP LEGACY CONTAINER
+// MAIN PAGE TITLE
 
-.container {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: $gutter-half;
-  padding-right: $gutter-half;
-  @include clearfix;
+.main-title {
+  margin-top: $gutter-double;
+}
 
-  &.container--fluid {
-    @include bp('expanded') {
-      padding-left: $gutter;
-      padding-right: $gutter;
+// ALIGNEMENT HELPERS
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// VISIBILITY HELPERS
+// TODO: move this
+
+@each $breakpoint-name, $breakpoint-width in $breakpoints {
+  .visible-#{$breakpoint-name} {
+    @include bp($breakpoint-name) {
+      display: initial;
     }
   }
 
-  &:not(.container--fluid) {
-    @include bp('sm') {
-      width: $container-sm;
+  .hidden-#{$breakpoint-name} {
+    @include bp($breakpoint-name) {
+      display: none;
     }
-    @include bp('md') {
-      width: $container-md;
-    }
-    @include bp('lg') {
-      width: $container-lg;
-    }
+  }
+}
+
+.hidden-collapsed {
+  @include bp($expanded, true) {
+    display: none;
+  }
+}
+
+.hidden-expanded {
+  @include bp($expanded) {
+    display: none;
   }
 }

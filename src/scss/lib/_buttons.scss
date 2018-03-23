@@ -1,210 +1,149 @@
-// BUTTONS MIXINS
-
-// Button variants
-//
-// Easily pump out default styles, as well as :hover, :focus, :active,
-// and disabled options for all buttons
-
-@mixin button-variant($color, $background, $border) {
-  color: $color;
-  background-color: $background;
-  border-color: $border;
-  transition: all 0.25s;
-
-  &:focus,
-  &.focus {
-    color: $color;
-    background-color: darken($background, 10%);
-    border-color: darken($border, 25%);
-  }
-  &:hover {
-    color: $color;
-    background-color: darken($background, 10%);
-    border-color: darken($border, 12%);
-    @include shadow(2);
-  }
-  &:active,
-  &.active {
-    color: $color;
-    background-color: darken($background, 10%);
-    border-color: darken($border, 12%);
-
-    &:hover,
-    &:focus,
-    &.focus {
-      color: $color;
-      background-color: darken($background, 17%);
-      border-color: darken($border, 25%);
-    }
-  }
-  &:active,
-  &.active,
-  .active > &.dropdown-toggle {
-    background-image: none;
-  }
-  &.disabled,
-  &[disabled] {
-    &:hover,
-    &:focus,
-    &.focus {
-      background-color: $background;
-      border-color: $border;
-    }
-  }
-}
-
-// Button sizes
-@mixin button-size(
-  $padding-vertical,
-  $padding-horizontal,
-  $font-size,
-  $line-height,
-  $border-radius
-) {
-  padding: $padding-vertical $padding-horizontal;
-  font-size: $font-size;
-  line-height: $line-height;
-  border-radius: $border-radius;
-}
-
-// BUTTONS CLASSES
-
-// BASE
+// BUTTONS
 
 .btn {
   display: inline-block;
-  margin-bottom: 0; // For input.btn
+  margin-bottom: $gutter-half; // For input.btn
   font-weight: $btn-font-weight;
   text-align: center;
   vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid transparent;
+  border: none;
   white-space: nowrap;
   text-transform: $btn-text-transform;
-  @include button-size(
-    $padding-base-vertical,
-    $padding-base-horizontal,
-    $font-size-base,
-    $line-height-base,
-    $btn-border-radius-base
-  );
-  @include user-select(none);
+  // height: 4.4rem; // Recommanded touch size
+  background-color: transparent;
+  padding: 1rem $gutter-half;
+  transition: all 0.25s;
+  color: $text-color-base;
 
-  &,
-  &:active,
-  &.active {
-    &:focus,
-    &.focus {
-      @include tab-focus;
-    }
+  &:hover {
+    @include shadow(2);
+    color: $text-color-base;
   }
 
-  &:hover,
-  &:focus,
-  &.focus {
-    color: $btn-default-color;
-    text-decoration: none;
-  }
+  // TODO : focus, active, disabled
 
-  &:active,
-  &.active {
-    outline: 0;
-    background-image: none;
-    @include box-shadow(inset 0 3px 5px rgba(0, 0, 0, 0.125));
+  &:disabled {
+    @include shadow(0);
+    opacity: 0.75;
+    cursor: not-allowed;
   }
+}
 
-  &.disabled,
-  &[disabled] {
-    cursor: $cursor-disabled;
-    @include opacity(0.65);
-    @include box-shadow(none);
-  }
+// BUTTON SIZES
+
+.btn-xs {
+  padding: $gutter-eighth $gutter-quarter;
+  font-size: $font-size-small;
+}
+
+.btn-sm {
+  padding: $gutter-eighth $gutter-half;
+}
+
+.btn-lg {
+  padding: ($gutter-eighth * 3) ($gutter-quarter * 3);
+  font-size: $font-size-big;
+}
+
+.btn-xl {
+  padding: ($gutter-eighth * 5) $gutter;
+  font-size: $font-size-big;
 }
 
 // BUTTONS COLORS
 
 .btn-default {
-  @include button-variant(
-    $btn-default-color,
-    $btn-default-bg,
-    $btn-default-border
-  );
+  background-color: $gray-lighter;
+  color: $text-color-base;
+
+  &:hover:not(:disabled) {
+    background-color: $gray-light;
+    color: $text-color-base;
+  }
 }
 .btn-primary {
-  @include button-variant(
-    $btn-primary-color,
-    $color-primary,
-    darken($color-primary, 10%)
-  );
+  background-color: $color-primary;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: $color-primary-dark;
+    color: white;
+  }
 }
 .btn-secondary {
-  @include button-variant(
-    $btn-primary-color,
-    $color-secondary,
-    darken($color-secondary, 10%)
-  );
+  background-color: $color-secondary;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: $color-secondary-dark;
+    color: white;
+  }
 }
 .btn-ternary {
-  @include button-variant(
-    $btn-primary-color,
-    $color-ternary,
-    darken($color-ternary, 10%)
-  );
+  background-color: $color-ternary;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: $color-ternary-dark;
+    color: white;
+  }
 }
 
 // HOLLOW BUTTONS
 
 .btn-hollow {
   background-color: transparent;
-  border-width: $gutter-eighth;
+  border: 0.2rem solid;
 
-  &:hover {
-    background-color: transparent;
+  &:hover:not(:disabled) {
+    @include shadow(0);
   }
 
+  &.btn-default {
+    color: $gray-light;
+    border-color: $gray-light;
+
+    &:hover:not(:disabled) {
+      background-color: $gray-light;
+      color: white;
+    }
+  }
   &.btn-primary {
     color: $color-primary;
+    border-color: $color-primary;
+
+    &:hover:not(:disabled) {
+      background-color: $color-primary;
+      color: white;
+    }
   }
   &.btn-secondary {
     color: $color-secondary;
+    border-color: $color-secondary;
+
+    &:hover:not(:disabled) {
+      background-color: $color-secondary;
+      color: white;
+    }
   }
   &.btn-ternary {
     color: $color-ternary;
+    border-color: $color-ternary;
+
+    &:hover:not(:disabled) {
+      background-color: $color-ternary;
+      color: white;
+    }
   }
 }
 
-// BUTTON SIZES
+// ROUNDED BUTTONS
 
-.btn-lg {
-  // line-height: ensure even-numbered height of button next to large input
-  @include button-size(
-    $padding-large-vertical,
-    $padding-large-horizontal,
-    $font-size-large,
-    $line-height-large,
-    $btn-border-radius-large
-  );
-}
-.btn-sm {
-  // line-height: ensure proper height of button next to small input
-  @include button-size(
-    $padding-small-vertical,
-    $padding-small-horizontal,
-    $font-size-small,
-    $line-height-small,
-    $btn-border-radius-small
-  );
-}
-.btn-xs {
-  @include button-size(
-    $padding-xs-vertical,
-    $padding-xs-horizontal,
-    $font-size-small,
-    $line-height-small,
-    $btn-border-radius-small
-  );
+.btn-round {
+  border-radius: 100rem;
 }
 
 // BLOCK BUTTONS
@@ -215,9 +154,9 @@
 }
 
 // Vertically space out multiple block buttons
-.btn-block + .btn-block {
-  margin-top: $gutter-quarter;
-}
+// .btn-block + .btn-block {
+//   margin-top: $gutter-quarter;
+// }
 
 // Specificity overrides
 input[type='submit'],
@@ -226,4 +165,10 @@ input[type='button'] {
   &.btn-block {
     width: 100%;
   }
+}
+
+// WRAP BUTTONS (multiline)
+
+.btn-wrap {
+  white-space: normal;
 }

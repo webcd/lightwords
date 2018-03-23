@@ -18,12 +18,12 @@
   text-transform: none;
   background-color: transparent;
   border-color: transparent;
-  color: $brand-secondary;
+  color: $color-secondary;
 
   &:hover {
     background-color: transparent;
     border-color: transparent;
-    color: lighten($brand-secondary, 20%);
+    color: lighten($color-secondary, 20%);
   }
 }
 
@@ -34,7 +34,7 @@
 
 .article-content {
   position: relative;
-  padding-top: $gutter-double;
+  padding-top: $gutter-double; // TODO: too much if no hero image!
   padding-bottom: $gutter-double;
 
   .metas {
@@ -47,7 +47,7 @@
   // the <!-- more --> thing changes nothing in markup
   // So we made the very first paragraph of content highlighted!
   > p:first-child {
-    @extend .lead;
+    font-size: 2rem;
   }
 }
 
@@ -69,17 +69,14 @@
 // TILES
 
 .tile {
+  // margin-bottom: $gutter;
+}
+
+.tile__content {
+  height: 100%;
+  padding: $gutter-half;
   display: flex;
   flex-direction: column;
-  padding: $gutter-half;
-  // margin-bottom: $gutter;
-  @include shadow(1);
-  transition: box-shadow 0.125s;
-  cursor: pointer;
-
-  &:hover {
-    @include shadow(2);
-  }
 
   > * {
     flex: 0 0 auto;
@@ -89,13 +86,12 @@
     }
   }
 
-  &:nth-child(4) {
-    @include bp('md') {
-      display: none;
-    }
-    @include bp('lg') {
-      display: flex;
-    }
+  @include shadow(1);
+  transition: box-shadow 0.125s;
+  cursor: pointer;
+
+  &:hover {
+    @include shadow(2);
   }
 }
 
@@ -154,5 +150,7 @@
 
 // Posts tiles are dark
 .tile-post {
-  background-color: $gray-darkest;
+  .tile__content {
+    background-color: $gray-darkest;
+  }
 }

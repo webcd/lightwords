@@ -11,6 +11,13 @@
 
     > a {
       color: $gray;
+      transition: all 0.25s;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $gray-darkest;
+      }
     }
   }
 }

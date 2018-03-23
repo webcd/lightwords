@@ -14,7 +14,7 @@ $nav-fontsize: 1.6rem;
   > * {
     flex: 1 0 100%;
 
-    @include bp('expanded') {
+    @include bp($expanded) {
       flex: 0 0 auto;
     }
   }

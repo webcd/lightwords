@@ -1,0 +1,11 @@
+// FORMS
+
+input[type='text'] {
+  display: block;
+  width: 100%;
+  height: 4.4rem;
+  line-height: 4.4rem;
+  padding: 0 $gutter-half;
+  border-width: 0.1rem;
+  border-color: $input-border-color;
+}
