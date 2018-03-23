@@ -6,6 +6,7 @@
 * CSS parallax
 * Disable features from config:
   * topbar
+* Modals
 
 ## LATER
 
