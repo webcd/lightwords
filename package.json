@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.6",
-    "jquery-parallax.js": "^1.5.0"
+    "jquery-parallax.js": "^1.5.0",
+    "normalize.css": "^8.0.0"
   }
 }
