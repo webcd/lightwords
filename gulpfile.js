@@ -28,19 +28,6 @@ global.config = {
   // Order-dependant javascript files static build
 
   filesJs: [
-    // "node_modules/jquery/dist/jquery.js", // not needed, provided by WordPress
-    'node_modules/bootstrap-sass/assets/javascripts/bootstrap/transition.js',
-    // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js",
-    // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/affix.js",
-    // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/alert.js",
-    // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/button.js",
-    // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/carousel.js",
-    'node_modules/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js',
-    // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/modal.js",
-    // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js",
-    // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/popover.js",
-    // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js",
-    // "node_modules/bootstrap-sass/assets/javascripts/bootstrap/tab.js",
     'node_modules/jquery-parallax.js/parallax.js',
 
     'src/js/config.js',
@@ -71,7 +58,6 @@ config.pathTemplates = ['*.php', 'lib/**/*.php', 'templates/**/*.twig']
 // Destination
 config.pathJsDest = config.path.dist + config.path.js
 config.pathCssDest = config.path.dist + config.path.css
-//config.pathCssDest =    "./";
 config.pathFontsDest = config.path.dist + config.path.fonts
 config.pathImagesDest = config.path.dist + config.path.img
 

@@ -12,19 +12,12 @@
     // Space between items when stacked
     margin-bottom: $gutter-quarter;
 
-    &.open {
-      @include shadow(1);
-      margin-bottom: 0;
-      transition: all 0.25s ease;
-    }
-
-    // background-color: $gray-lighter;
-
-    > a {
+    > .menu-item-link {
       display: block;
       min-height: 4.4rem;
       padding-left: $gutter-half;
       padding-right: $gutter-half;
+      cursor: pointer;
 
       // Flex overkill vertical center
       display: flex;
@@ -41,7 +34,7 @@
     }
 
     &.current-menu-item {
-      > a {
+      > .menu-item-link {
         color: $brand-secondary;
       }
     }
@@ -54,9 +47,7 @@
       margin-top: $gutter-quarter;
 
       .menu-item {
-        // background-color: $gray-light;
-
-        > a {
+        > .menu-item-link {
           @include bp('expanded', true) {
             padding-left: $gutter;
           }
@@ -120,8 +111,10 @@
   @include bp('expanded') {
     margin-left: $gutter-half;
 
+    // Hide and show dropdown submenu
     .dropdown {
       position: relative;
+      transition: all 0.25s ease;
 
       .dropdown-menu {
         background-color: $header-color-bg;
@@ -139,13 +132,14 @@
         overflow: hidden;
         transition: transform 0.5s $ease-bump;
       }
+    }
 
-      &.open {
-        // TODO: use .expanded instead
+    .dropdown.active {
+      @include shadow(1);
+      margin-bottom: 0;
 
-        .dropdown-menu {
-          transform: scale3d(1, 1, 1);
-        }
+      .dropdown-menu {
+        transform: scale3d(1, 1, 1);
       }
     }
   }

@@ -7,10 +7,15 @@
     var $togglers = document.querySelectorAll('[data-toggle]')
 
     Array.prototype.forEach.call($togglers, function($toggler) {
-      var $targets = document.querySelectorAll(
-        $toggler.getAttribute('data-toggle')
-      )
-      var classname = $toggler.getAttribute('data-toggle-classname') // TODO : name for data-attributes too
+      var targetsSelector = $toggler.getAttribute('data-toggle')
+      // Target self by default
+      var $targets = [$toggler]
+      // Otherwise use provided selector
+      if (targetsSelector) {
+        $targets = document.querySelectorAll(targetsSelector)
+      }
+
+      var classname = $toggler.getAttribute('data-toggle-classname')
 
       Array.prototype.forEach.call($targets, function($target) {
         $toggler.addEventListener('click', function() {
@@ -26,10 +31,12 @@
           $el.classList.add(activeClassname)
         }
 
-        if ($target.classList.contains(classname)) {
-          $target.classList.remove(classname)
-        } else {
-          $target.classList.add(classname)
+        if (classname) {
+          if ($target.classList.contains(classname)) {
+            $target.classList.remove(classname)
+          } else {
+            $target.classList.add(classname)
+          }
         }
       }
     })

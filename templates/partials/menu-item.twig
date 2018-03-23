@@ -1,22 +1,22 @@
-	<a href="{{item.get_link}}"
-		{% if (item.has_child_class()) %}
-		class="dropdown-toggle"
-		data-toggle="dropdown"
-		role="button"
-		aria-haspopup="true"
-		aria-expanded="false"
-		{% endif %}
-		><span>{{item.title}}</span>
-		{% if (item.has_child_class()) %}
-		<span class="caret"></span>
-		{% endif %}
-	</a>
-	{% if (item.has_child_class()) %}
-	<ul class="dropdown-menu">
-		{% for item_child in item.get_children %}
-		<li class="{{item_child.classes | join(' ')}}">
-			<a href="{{item_child.get_link}}"><span>{{item_child.title}}</span></a>
-		</li>
-		{% endfor %}
-	</ul>
-	{% endif %}
+{% if (item.has_child_class()) %}
+<span
+  class="menu-item-link dropdown-toggle"
+  ><span>{{item.title}}</span>
+  <span class="caret"></span>
+</span>
+<ul class="dropdown-menu">
+  {% for item_child in item.get_children %}
+  <li class="{{item_child.classes | join(' ')}}">
+    <a href="{{item_child.get_link}}" class="menu-item-link">
+      <span>{{item_child.title}}</span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% else %}
+<a href="{{item.get_link}}" class="menu-item-link">
+  <span>{{item.title}}</span>
+</a>
+{% endif %}
+

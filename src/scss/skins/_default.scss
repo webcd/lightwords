@@ -127,7 +127,7 @@
     font-weight: 300;
     text-transform: uppercase;
 
-    > a {
+    > .menu-item-link {
       color: $brand-primary;
       font-size: 2rem;
     }
@@ -145,29 +145,6 @@
       .navbar-expanded & {
         color: $gray-darker;
       }
-    }
-  }
-
-  .navbar-nav {
-    // ACTIVE ITEM
-
-    > .active > a,
-    > .active > a:hover,
-    > .active > a:focus,
-    > .current-menu-item > a,
-    > .current-menu-item > a:hover,
-    > .current-menu-item > a:focus {
-      background-color: $brand-primary;
-      color: white;
-    }
-
-    // DROPDOWN ITEM OPENED
-
-    > .open > a,
-    > .open > a:hover,
-    > .open > a:focus {
-      background-color: $gray-dark;
-      color: white;
     }
   }
 }
@@ -199,7 +176,7 @@
         padding-top: $gutter-quarter;
         padding-bottom: $gutter-quarter;
 
-        > a {
+        > .menu-item-link {
           &:hover {
             color: white;
           }
@@ -227,7 +204,7 @@
     background-color: $gray-dark;
 
     > .menu-item {
-      a {
+      .menu-item-link {
         color: $gray-light;
         text-transform: none;
 
