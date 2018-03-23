@@ -1,0 +1,51 @@
+///////////////////////////////////////////////////////////////////////////////
+// WRAPPERS
+
+// Macro-wrappers
+
+// .site-wrapper {         background-color: white; }
+// .site-header {          background-color: white; }
+// .site-content {         background-color: white; }
+.site-footer {
+  background-color: $gray-lightest;
+  @include shadow(2);
+}
+
+// Micro-wrappers
+
+.wrapper--pre-header {
+}
+.wrapper--header {
+}
+.wrapper--post-header {
+}
+
+.wrapper--pre-footer {
+}
+.wrapper--footer {
+  padding-top: $gutter-double;
+  padding-bottom: $gutter-double;
+}
+.wrapper--post-footer {
+}
+
+.wrapper--content {
+}
+
+// Nano-wrappers
+
+.wrapper--hero {
+}
+.wrapper--article-content {
+}
+.wrapper--posts {
+  padding-top: $gutter-double;
+  padding-bottom: $gutter-double;
+}
+.wrapper--breadcrumb {
+  padding-top: $gutter-half;
+  padding-bottom: $gutter-half;
+}
+
+.article {
+} // TODO: wrapper for an article main content?

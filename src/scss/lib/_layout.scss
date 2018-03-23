@@ -15,6 +15,16 @@ body,
   flex-grow: 1;
 }
 
+// CENTERED MOBILE FOOTER
+
+.site-footer {
+  text-align: center;
+
+  @include bp('sm') {
+    text-align: left;
+  }
+}
+
 // BOOTSSRAP LEGACY CONTAINER
 
 .container {

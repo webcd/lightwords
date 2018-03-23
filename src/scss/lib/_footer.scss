@@ -1,0 +1,61 @@
+///////////////////////////////////////////////////////////////////////////////
+// FOOTER
+
+.widget_nav_menu ul {
+  list-style-type: none;
+  padding-left: 0;
+
+  > li {
+    padding-top: $gutter-quarter;
+    padding-bottom: $gutter-quarter;
+
+    > a {
+      color: $gray;
+    }
+  }
+}
+
+.footer-copyright,
+.footer-made-by {
+  margin-bottom: $gutter-half;
+  text-align: center;
+  color: $gray;
+}
+
+.footer-copyright {
+  @include bp('sm') {
+    display: flex;
+    justify-content: center;
+    > * {
+      flex-basis: 50%;
+    }
+    .footer-copyright__copyright {
+      padding-right: $gutter-half;
+      border-right: 0.1rem solid currentColor;
+      text-align: right;
+    }
+    .footer-copyright__legal {
+      padding-left: $gutter-half;
+      text-align: left;
+    }
+  }
+}
+
+.footer-made-by {
+  margin-bottom: $gutter;
+}
+
+.maker-link {
+  font-size: 0;
+  opacity: 0.8;
+  transition: all 0.25s;
+  > svg {
+    height: 2rem;
+    position: relative;
+    top: 0.5rem;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}

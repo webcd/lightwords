@@ -131,6 +131,14 @@
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.5);
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 3px,
+        rgba(0, 0, 0, 0.5) 3px,
+        rgba(0, 0, 0, 0.5) 6px
+      ),
+      linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25));
 
     transform: translate3d(-100%, 0, 0);
     opacity: 0;

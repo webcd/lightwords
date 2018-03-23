@@ -10,7 +10,6 @@
 
 ## LATER
 
-* Split styles into "base" and "skin"
 * Get rid off Bootstrap
 * Use Aramid grid / layout
 * Get rid off jQuery?

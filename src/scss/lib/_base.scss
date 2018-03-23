@@ -1,7 +1,30 @@
 /* BASE */
 
 // Avoid 150px height default behaviour
-.inline-svg { svg { display: none; } }
+.inline-svg {
+  svg {
+    display: none;
+  }
+}
 
 // Responsive images by default
-img { max-width: 100%; }
+img {
+  max-width: 100%;
+}
+
+// BASE TYPOGRAPHY
+
+.h1 {
+  margin-bottom: $gutter;
+}
+
+p {
+  margin-bottom: $gutter;
+}
+
+blockquote {
+  font-family: $font-family-serif;
+  font-style: italic;
+  color: $gray;
+  border-color: $brand-primary;
+}
