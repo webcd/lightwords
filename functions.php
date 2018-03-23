@@ -23,4 +23,6 @@
   new App\StarterSite();
 
 	// TODO: move this into /core/StarterSite.php (and make it work)
- 	add_theme_support( 'post-thumbnails', array( 'post', 'article' ) );
+	// See: https://developer.wordpress.org/reference/functions/add_theme_support/#post-thumbnails
+ 	// add_theme_support( 'post-thumbnails' ); // Should be enough
+ 	add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );
