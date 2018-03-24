@@ -1,8 +1,7 @@
 {
   "name": "lightwords",
   "version": "0.5.0",
-  "description":
-    "A minimal WordPress starter theme. Powered by Twig, Gulp and Sass, based on Timber-starter-theme!",
+  "description": "A minimal WordPress starter theme. Powered by Twig, Gulp and Sass, based on Timber-starter-theme!",
   "homepage": "https://github.com/webcd/lightwords#readme",
   "author": "Nicolas Giethlen (@nicolasgiethlen)",
   "license": "MIT",
@@ -16,7 +15,12 @@
     "type": "git",
     "url": "git+https://github.com/webcd/lightwords.git"
   },
-  "keywords": ["wordpress", "starter-theme", "gulp", "bootstrap"],
+  "keywords": [
+    "wordpress",
+    "starter-theme",
+    "gulp",
+    "bootstrap"
+  ],
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "beepbeep": "^1.2.0",
@@ -46,6 +50,7 @@
   "dependencies": {
     "cyanid": "git+https://github.com/Chmood/cyanid.git",
     "jquery-parallax.js": "^1.5.0",
-    "normalize.css": "^8.0.0"
+    "normalize.css": "^8.0.0",
+    "select2": "^4.0.6-rc.1"
   }
 }

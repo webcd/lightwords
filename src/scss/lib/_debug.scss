@@ -1,9 +1,11 @@
-// DEBUG
+/* DEBUG */
 
 // Debug touchzones
 
 .debug.debug--touchzones {
-  a, button, .btn {
+  a,
+  button,
+  .btn {
     outline: 1px dashed red;
   }
 }

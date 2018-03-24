@@ -5,7 +5,11 @@
 * Allow full-width .container on tablet ('xs')
 * Fix padding-top on light skin (with AND without hero image)
 * Sticky footer broken (main content too tall)
-* Forms styling (including Gravity Forms) + search bar
+* Forms styling
+  * Finalize common form styles
+  * Prevent Gravity Forms css's (4 stylesheets) from loading
+  * Style radios and checkboxes
+  * File upload?
 * Modals
 
 ## Later
@@ -30,6 +34,7 @@
 # KNOWN BUGS
 
 * add_theme_support( 'post-thumbnails' ) only works in functions.php
+* Select2 seems to only work on the last select of the page? (and data-placeholder is broken)
 
 ## To be confirmed bugs
 

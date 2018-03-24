@@ -29,6 +29,7 @@ global.config = {
 
   filesJs: [
     'node_modules/jquery-parallax.js/parallax.js',
+    'node_modules/select2/dist/js/select2.js',
 
     'src/js/config.js',
 
@@ -36,6 +37,7 @@ global.config = {
     'src/js/lib/toggler.js',
     'src/js/lib/ripple.js',
     'src/js/lib/search.js',
+    'src/js/lib/select2.js',
     'src/js/lib/parallax.js',
 
     'src/js/main.js'

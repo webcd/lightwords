@@ -45,6 +45,11 @@ $color-variation-ratio-most: 30% !default;
 // Computed colors
 @import 'lib/colors';
 
+$color-error: red;
+$color-warning: orange;
+$color-info: blue;
+$color-success: green;
+
 // Site wide
 
 $text-color-base: $gray-darker;

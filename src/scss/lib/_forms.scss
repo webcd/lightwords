@@ -1,11 +1,125 @@
-// FORMS
+/* FORMS */
 
-input[type='text'] {
+input[type='text'],
+input[type='number'],
+input[type='email'],
+input[type='password'],
+input[type='tel'],
+input[type='url'] {
   display: block;
   width: 100%;
+  border: 0.1rem solid $input-border-color;
+  padding: 0 $gutter-half;
   height: 4.4rem;
   line-height: 4.4rem;
-  padding: 0 $gutter-half;
-  border-width: 0.1rem;
-  border-color: $input-border-color;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  border: 0.1rem solid $input-border-color;
+  padding: $gutter-half;
+  line-height: $line-height-base;
+}
+
+select {
+  display: block;
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: $gutter-quarter;
+}
+
+// SELECT2 OVERRIDES
+
+.select2-selection {
+  border: 0.1rem solid $input-border-color !important;
+  border-radius: 0 !important;
+  height: 4.4rem !important;
+}
+
+.select2-selection__rendered {
+  // padding: 0 $gutter-half;
+  line-height: 4.4rem !important;
+}
+
+.select2-selection__arrow {
+  height: 4.4rem !important;
+}
+
+// GRAVITY FORMS OVERRIDES (WIP)
+
+.gf_browser_chrome.gform_wrapper.gf_reset_wrapper {
+  form {
+    .gform_heading {
+      .gform_description {
+      }
+    }
+
+    .validation_error {
+    }
+
+    .gform_body {
+      ul.gform_fields {
+        .gfield {
+          .gfield_label {
+            .gfield_required {
+            }
+          }
+
+          .ginput_container {
+            input {
+            }
+          }
+
+          .gfield_description.validation_message {
+          }
+        }
+        .gfield_error {
+        }
+        .gf_left_half {
+        }
+      }
+    }
+  }
+}
+
+//
+
+.gform_fields {
+  list-style-type: none;
+  padding-left: 0;
+  @extend .row;
+}
+
+.gf_left_half,
+.gf_right_half {
+  @extend .col-sm-6;
+}
+
+.gfield {
+  // margin-bottom: $gutter;
+}
+
+input[type='submit'].gform_button {
+  @extend .btn;
+  @extend .btn-primary;
+  // @extend .btn;
+}
+
+.gfield_required {
+  color: $color-error;
+}
+
+.validation_error {
+  color: $color-error;
+}
+
+.gfield_error {
+  .validation_message {
+    color: $color-error;
+  }
 }
