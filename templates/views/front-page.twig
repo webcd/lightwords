@@ -10,10 +10,15 @@
 
     <section class="wrapper wrapper--article-content">
       <div class="article-content container">
-        <h1 class="h1 main-title hero-title">{{ post.title }}</h1>
+
+        <h1 class="h1 main-title {% if post.get_thumbnail %}hero-title{% endif %}">
+          {{ post.title }}
+        </h1>
+
         <div class="article-content-body">
           {{ post.content }}
         </div>
+
       </div>
     </section>
 

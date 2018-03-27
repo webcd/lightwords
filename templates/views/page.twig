@@ -2,17 +2,26 @@
 
 {% block content %}
 
-  <div class="container">
+  <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 
-    <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-      <section class="article-content">
-        <h1 class="h1 main-title">{{post.title}}</h1>
-        <div class="article-body">
-          {{post.content}}
+    {% if post.get_thumbnail %}
+      {% include "hero.twig" %}
+    {% endif %}
+
+    <section class="wrapper wrapper--article-content">
+      <div class="article-content container">
+
+        <h1 class="h1 main-title {% if post.get_thumbnail %}hero-title{% endif %}">
+          {{ post.title }}
+        </h1>
+
+        <div class="article-content-body">
+          {{ post.content }}
         </div>
-      </section>
-    </article>
 
-  </div>
+      </div>
+    </section>
+
+  </article>
 
 {% endblock %}
