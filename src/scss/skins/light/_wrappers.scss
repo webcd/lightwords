@@ -42,8 +42,9 @@
   padding-bottom: $gutter-double;
 }
 .wrapper--breadcrumb {
-  padding-top: $gutter-half;
-  padding-bottom: $gutter-half;
+  padding-top: $gutter-quarter;
+  padding-bottom: $gutter-quarter;
+  background-color: $gray-lightest;
 }
 
 .article {
