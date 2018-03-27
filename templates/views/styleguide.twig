@@ -1,6 +1,4 @@
-{% extends "base.twig" %}
-
-{% block content %}
+{% extends "base.twig" %} {% block content %}
 
 <article class="post-type-styleguide" id="post-{{post.ID}}">
 
@@ -12,18 +10,30 @@
 
         <!-- Styleguide content -->
 
-        <h1>Heading 1</h1>
-        <h1>Heading 1
-          <br>on two lines</h1>
-        <h2>Heading 2</h2>
-        <h2>Heading 2
-          <br>on two lines</h2>
-        <h3>Heading 3</h3>
-        <h3>Heading 3
-          <br>on two lines</h3>
-        <h4>Heading 4</h4>
-        <h4>Heading 4
-          <br>on two lines</h4>
+        <div class="row">
+          <div class="col-sm-6">
+            <h1>Heading 1</h1>
+            <h1>Heading 1
+              <br>on two lines</h1>
+            <h2>Heading 2</h2>
+            <h2>Heading 2
+              <br>on two lines</h2>
+            <h3>Heading 3</h3>
+            <h3>Heading 3
+              <br>on two lines</h3>
+          </div>
+          <div class="col-sm-6">
+            <h4>Heading 4</h4>
+            <h4>Heading 4
+              <br>on two lines</h4>
+            <h5>Heading 5</h5>
+            <h5>Heading 5
+              <br>on two lines</h5>
+            <h6>Heading 6</h6>
+            <h6>Heading 6
+              <br>on two lines</h6>
+          </div>
+        </div>
 
         <hr>
 
@@ -49,24 +59,28 @@
 
         <div class="row">
           <div class="col-xs-6 col-sm-4 col-md-3">
+            <h3>Colors</h3>
             <button class="btn btn-default">.btn-default</button>
             <button class="btn btn-primary">.btn-primary</button>
             <button class="btn btn-secondary">.btn-secondary</button>
             <button class="btn btn-ternary">.btn-ternary</button>
           </div>
           <div class="col-xs-6 col-sm-4 col-md-3">
+            <h3>Rounded</h3>
             <button class="btn btn-default btn-round">.btn-round</button>
             <button class="btn btn-primary btn-round">.btn-round</button>
             <button class="btn btn-secondary btn-round">.btn-round</button>
             <button class="btn btn-ternary btn-round">.btn-round</button>
           </div>
           <div class="col-xs-6 col-sm-4 col-md-3">
+            <h3>Hollow</h3>
             <button class="btn btn-default btn-hollow">.btn-hollow</button>
             <button class="btn btn-primary btn-hollow">.btn-hollow</button>
             <button class="btn btn-secondary btn-hollow">.btn-hollow</button>
             <button class="btn btn-ternary btn-hollow">.btn-hollow</button>
           </div>
           <div class="col-xs-6 col-sm-4 col-md-3">
+            <h3>Sizes</h3>
             <button class="btn btn-primary btn-xs">.btn-xs</button>
             <button class="btn btn-primary btn-sm">.btn-sm</button>
             <button class="btn btn-primary">.btn</button>
@@ -74,15 +88,15 @@
             <button class="btn btn-primary btn-xl">.btn-xl</button>
           </div>
           <div class="col-xs-6 col-sm-4 col-md-3">
+            <h3>Layout</h3>
             <button class="btn btn-primary btn-block">.btn-block</button>
             <button class="btn btn-primary btn-wrap">.btn-wrap very very long button multi-line content</button>
           </div>
           <div class="col-xs-6 col-sm-4 col-md-3">
-            <button class="btn">.btn</button>
+            <h3>Disabled</h3>
             <button class="btn btn-default" disabled>disabled</button>
             <button class="btn btn-primary btn-round" disabled>disabled</button>
             <button class="btn btn-secondary btn-hollow" disabled>disabled</button>
-            <a href="#" class="btn btn-default">.btn-default</a>
           </div>
         </div>
 
@@ -259,6 +273,8 @@
             </div>
           </form>
         </div>
+
+
 
         <!-- End styleguide content -->
 
