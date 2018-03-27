@@ -1,21 +1,21 @@
 {% if latest_posts %}
-<section class="wrapper wrapper--posts">
-  <div class="container container--fluid">
+  <section class="wrapper wrapper--posts">
+    <div class="container container--fluid">
 
-    <h2>Derniers articles</h2>
+      <h2>Derniers articles</h2>
 
-    <section class="posts posts--latest row">
-      {% for post in latest_posts %}
+      <section class="posts posts--latest row">
+        {% for post in latest_posts %}
 
-      {% include 'tile-post.twig' %}
+        {% include 'tile-post.twig' %}
 
-      {% endfor %}
+        {% endfor %}
 
-      <div class="col--full text-center">
-        <a href="#" class="btn btn-primary">Voir tous les articles</a>
-      </div>
-    </section>
+        <div class="col--full text-center">
+          <a href="#" class="btn btn-primary">Voir tous les articles</a>
+        </div>
+      </section>
 
-  </div>
-</section>
+    </div>
+  </section>
 {% endif %}

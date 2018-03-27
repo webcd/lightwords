@@ -1,13 +1,13 @@
 {% for item in menu %}
-<li class="{{item.classes | join(' ')}} {{ (item.has_child_class) ? 'dropdown' : null }}"	data-toggle>
-	{% include 'menu-item.twig' %}
-</li>
+  <li class="{{item.classes | join(' ')}} {{ (item.has_child_class) ? 'dropdown' : null }}"	data-toggle>
+    {% include 'menu-item.twig' %}
+  </li>
 {% endfor %}
 
 <li class="divider"></li>
 
 {% for item in menu_top %}
-<li class="hidden-expanded {{item.classes | join(' ')}} {{ (item.has_child_class) ? 'dropdown' : null }}"	data-toggle>
-	{% include 'menu-item.twig' %}
-</li>
+  <li class="hidden-expanded {{item.classes | join(' ')}} {{ (item.has_child_class) ? 'dropdown' : null }}"	data-toggle>
+    {% include 'menu-item.twig' %}
+  </li>
 {% endfor %}

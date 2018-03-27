@@ -1,19 +1,18 @@
 <section class="wrapper wrapper--hero">
-    <div class="hero">
-    <!-- <img src="{{ post.thumbnail.src }}" /> -->
-    <img
-        src="{{ post.thumbnail.src|resize(1920) }}"
-        srcset="
-          {{ post.thumbnail.src|resize(1920) }} 1920w,
-          {{ post.thumbnail.src|resize(1200) }} 1200w,
-          {{ post.thumbnail.src|resize(768) }} 768w,
-          {{ post.thumbnail.src|resize(480) }} 480w,
-          {{ post.thumbnail.src|resize(220) }} 220w
-        "
-        sizes="
-            100vw
-        "
-        itemprop="image"
-        alt="{{ post.thumbnail.alt }}" />
+  <div class="hero">
+  <img
+    src="{{ post.thumbnail.src|resize(1920) }}"
+    srcset="
+      {{ post.thumbnail.src|resize(1920) }} 1920w,
+      {{ post.thumbnail.src|resize(1200) }} 1200w,
+      {{ post.thumbnail.src|resize(768) }} 768w,
+      {{ post.thumbnail.src|resize(480) }} 480w,
+      {{ post.thumbnail.src|resize(220) }} 220w
+    "
+    sizes="
+      100vw
+    "
+    itemprop="image"
+    alt="{{ post.thumbnail.alt }}" />
   </div>
 </section>

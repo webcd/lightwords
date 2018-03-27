@@ -1,21 +1,23 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 
-	{% if post.get_thumbnail %}
-	{% include "hero.twig" %}
-	{% endif %}
+  <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 
-	<section class="wrapper wrapper--article-content">
-		<div class="article-content container">
+    {% if post.get_thumbnail %}
+      {% include "hero.twig" %}
+    {% endif %}
 
-			<h1 class="h1 main-title hero-title">{{ title }}</h1>
-			<div class="article-content-body">
-				<p class="lead">Sorry, we couldn't find what you're looking for.</p>
-			</div>
-		</div>
-	</section>
+    <section class="wrapper wrapper--article-content">
+      <div class="article-content container">
 
-</article>
+        <h1 class="h1 main-title hero-title">{{ title }}</h1>
+        <div class="article-content-body">
+          <p class="lead">Sorry, we couldn't find what you're looking for.</p>
+        </div>
+      </div>
+    </section>
+
+  </article>
+
 {% endblock %}

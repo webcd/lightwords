@@ -2,80 +2,83 @@
 
 <!-- HEAD -->
 {% block head %}
-{% include 'head.twig' %}
+  {% include 'head.twig' %}
 {% endblock %}
 
 <!-- BODY -->
 <body class="{{body_class}}" data-template="base.twig">
 
-	<!-- SITE-WRAPPER -->
-	<div class="site-wrapper">
+  <!-- SITE-WRAPPER -->
+  <div class="site-wrapper">
 
-		<!-- HEADER -->
-		<header class="site-header">
-			{% block header %}
-			{% include 'header.twig' %}
-			{% endblock %}
-		</header>
+    <!-- HEADER -->
+    <header class="site-header">
+      {% block header %}
+        {% include 'header.twig' %}
+      {% endblock %}
+    </header>
 
-		<!-- SITE-CONTENT -->
-		<section class="site-content">
+    <!-- SITE-CONTENT -->
+    <section class="site-content">
 
-			<!-- MAIN -->
-			<main class="wrapper wrapper--content" role="main">
-				{% if not fn('is_front_page') %}
-				<!-- BREADCRUMB -->
-				<section class="wrapper wrapper--breadcrumb">
-					<div class="container">
-						{# native walker: % include "breadcrumb.twig" %#}
-						{{ breadcrumb }}
-					</div>
-				</section>
-				{% endif %}
+      <!-- MAIN -->
+      <main class="wrapper wrapper--content" role="main">
+        {% if not fn('is_front_page') %}
+          <!-- BREADCRUMB -->
+          <section class="wrapper wrapper--breadcrumb">
+            <div class="container">
+              {# native walker: % include "breadcrumb.twig" %#}
+              {{ breadcrumb }}
+            </div>
+          </section>
+        {% endif %}
 
-				<!-- ARTICLE CONTENT -->
-				{% block content %}
-				<div class="container">
-					Sorry, no content!
-				</div>
-				{% endblock %}
+        <!-- ARTICLE CONTENT -->
+        {% block content %}
+          <div class="container">
+            Sorry, no content!
+          </div>
+        {% endblock %}
 
-			</main>
-               {# {{ \Timber::get_widgets('footer1') }}#}
-			{% if sidebar %}
-			<!-- SIDEBAR -->
-			<aside class="site-aside">
-				{{ sidebar }}
-			</aside>
-			{% endif %}
+      </main>
 
-		</section><!-- end .site-content -->
+      {% if sidebar %}
+        <!-- SIDEBAR -->
+        <aside class="site-aside">
+          {{ sidebar }}
+        </aside>
+      {% endif %}
 
-		<!-- FOOTER -->
-		<footer class="site-footer">
-			{% block footer %}
-			{% include 'footer.twig' %}
-			{% endblock %}
-		</footer>
+    </section><!-- end .site-content -->
 
-	</div><!-- end .site-wrapper -->
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      {% block footer %}
+        {% include 'footer.twig' %}
+      {% endblock %}
+    </footer>
 
-	<div class="overlay" data-toggle="#navbar-menu, #overlay-navbar, body" data-toggle-classname="navbar-expanded" id="overlay-navbar"></div>
+  </div><!-- end .site-wrapper -->
 
-	{% if do_inlinesvg %}
-	<!-- INLINE SVG -->
-    <div class="inline-svg">{% include 'sprite.symbol.svg.twig' %}</div>
-	{% endif %}
+  <!-- OVERLAY -->
+  <div class="overlay" data-toggle="#navbar-menu, #overlay-navbar, body" data-toggle-classname="navbar-expanded" id="overlay-navbar"></div>
 
-	{% if do_debug_zone %}
-	<!-- DEBUG ZONE -->
-	<div class="debug-zone">
-		<div class="debug-zone__item debug-zone__item--bp"></div>
-	</div>
-	{% endif %}
+  {% if do_inlinesvg %}
+    <!-- INLINE SVG -->
+    <div class="inline-svg">
+      {% include 'sprite.symbol.svg.twig' %}
+    </div>
+  {% endif %}
 
-	<!-- WP_FOOTER -->
-	{{ function('wp_footer') }}
+  {% if do_debug_zone %}
+    <!-- DEBUG ZONE -->
+    <div class="debug-zone">
+      <div class="debug-zone__item debug-zone__item--bp"></div>
+    </div>
+  {% endif %}
+
+  <!-- WP_FOOTER -->
+  {{ function('wp_footer') }}
 
 </body>
 </html>

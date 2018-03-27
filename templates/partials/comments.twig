@@ -1,13 +1,13 @@
 <section class="wrapper wrapper--comments container">
-    <div class="respond">
-        <h3 class="h2"> {{ post.get_comment_count() }} Comments </h3>
-        {{ post.comment_form() }}
-    </div>
-    {% if post.get_comment_count() %}
+  <div class="respond">
+    <h3 class="h2"> {{ post.get_comment_count() }} Comments </h3>
+    {{ post.comment_form() }}
+  </div>
+  {% if post.get_comment_count() %}
     <div class="responses">
-        {% for cmt in post.comments %}
-            {% include "comment.twig" with { comment:cmt } %}
-        {% endfor %}
+      {% for cmt in post.comments %}
+        {% include "comment.twig" with { comment:cmt } %}
+      {% endfor %}
     </div>
-    {% endif %}   
+  {% endif %}   
 </section>

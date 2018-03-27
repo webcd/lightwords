@@ -1,42 +1,41 @@
 <nav class="navbar" role="navigation">
-	<div class="bar-wrapper container container--fluid">
+  <div class="bar-wrapper container container--fluid">
 
-		<div class="navbar-header">
-			<a class="navbar-logo" href="{{site.url}}" rel="home">
-				<svg class="logo logo--mobile" viewBox="0 0 540 123">
-					<use xlink:href="#logo-mobile"></use>
-				</svg>
-				<svg class="logo logo--desktop" viewBox="0 0 413 264">
-					<use xlink:href="#logo-desktop"></use>
-				</svg>
-				{# <span class="site-name">{{site.name}}</span> #}
-			</a>
-		</div>
+    <div class="navbar-header">
+      <a class="navbar-logo" href="{{site.url}}" rel="home">
+        <svg class="logo logo--mobile" viewBox="0 0 540 123">
+          <use xlink:href="#logo-mobile"></use>
+        </svg>
+        <svg class="logo logo--desktop" viewBox="0 0 413 264">
+          <use xlink:href="#logo-desktop"></use>
+        </svg>
+      </a>
+    </div>
 
-		<div class="bar-filler"></div>
+    <div class="bar-filler"></div>
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="navbar-menu" id="navbar-menu">
-			<ul class="menu-primary nav">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="navbar-menu" id="navbar-menu">
+      <ul class="menu-primary nav">
 
-				{% include 'menu.twig' %}
+        {% include 'menu.twig' %}
 
-			</ul>
-		</div><!-- /.navbar-collapse -->
+      </ul>
+    </div>
 
-		<div class="navbar-footer">
-			<button type="button" class="btn-toggle topbar-toggle--search hidden-expanded" data-toggle="#topbar, body" data-toggle-classname="topbar-expanded" aria-expanded="false">
-				<span class="sr-only">Toggle search</span>
-				<i class="fa fa-lg fa-search"></i>
-			</button>
+    <div class="navbar-footer">
+      <button type="button" class="btn-toggle topbar-toggle--search hidden-expanded" data-toggle="#topbar, body" data-toggle-classname="topbar-expanded" aria-expanded="false">
+        <span class="sr-only">Toggle search</span>
+        <i class="fa fa-lg fa-search"></i>
+      </button>
 
-			<button type="button" class="btn-toggle navbar-toggle hidden-expanded" data-toggle="#navbar-menu, #overlay-navbar, body" data-toggle-classname="navbar-expanded" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<div class="hamburger-wrapper">
-					<div class="hamburger"></div>
-				</div>
-			</button>
-		</div>
+      <button type="button" class="btn-toggle navbar-toggle hidden-expanded" data-toggle="#navbar-menu, #overlay-navbar, body" data-toggle-classname="navbar-expanded" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <div class="hamburger-wrapper">
+          <div class="hamburger"></div>
+        </div>
+      </button>
+    </div>
 
-	</div><!-- /.container -->
+  </div><!-- /.container -->
 </nav>
