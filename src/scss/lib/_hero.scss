@@ -1,0 +1,30 @@
+/* HERO */
+
+.hero {
+  position: relative;
+}
+
+.hero__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  text-align: center;
+  width: 90%;
+
+  @include bp('sm') {
+    width: 75%;
+  }
+
+  @include bp('md') {
+    width: 50%;
+  }
+}
+
+.hero__slogan {
+  @extend .h1;
+  color: white;
+}
+
+.hero__btn {
+}

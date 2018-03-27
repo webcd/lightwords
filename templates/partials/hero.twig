@@ -1,18 +1,30 @@
 <section class="wrapper wrapper--hero">
   <div class="hero">
-  <img
-    src="{{ post.thumbnail.src|resize(1920) }}"
-    srcset="
-      {{ post.thumbnail.src|resize(1920) }} 1920w,
-      {{ post.thumbnail.src|resize(1200) }} 1200w,
-      {{ post.thumbnail.src|resize(768) }} 768w,
-      {{ post.thumbnail.src|resize(480) }} 480w,
-      {{ post.thumbnail.src|resize(220) }} 220w
-    "
-    sizes="
-      100vw
-    "
-    itemprop="image"
-    alt="{{ post.thumbnail.alt }}" />
+    <img class="hero__img"
+      src="{{ post.thumbnail.src|resize(1920) }}"
+      srcset="
+        {{ post.thumbnail.src|resize(1920) }} 1920w,
+        {{ post.thumbnail.src|resize(1200) }} 1200w,
+        {{ post.thumbnail.src|resize(768) }} 768w,
+        {{ post.thumbnail.src|resize(480) }} 480w,
+        {{ post.thumbnail.src|resize(220) }} 220w
+      "
+      sizes="
+        100vw
+      "
+      itemprop="image"
+      alt="{{ post.thumbnail.alt }}" />
+
+    {% if fn('is_front_page') %}
+      <div class="hero__content">
+        <div class="hero__slogan">
+          {{ site.description }}
+        </div>
+        <div class="hero__btn">
+          <a href="#" class="btn btn-lg btn-primary btn-wrap">Découvrir nos produits</a>
+        </div>
+      </div>
+    {% endif %}
+    
   </div>
 </section>

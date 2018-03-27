@@ -35,6 +35,11 @@ body,
   margin-top: $gutter-double;
 }
 
+// Homepage title is only for SEO
+.main-title--hidden {
+  display: none;
+}
+
 // ALIGNEMENT HELPERS
 
 .text-center {
