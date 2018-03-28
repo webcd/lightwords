@@ -44,21 +44,21 @@ a {
 h1,
 .h1 {
   margin-bottom: $gutter-double;
-  font-size: $font-size-h1;
+  font-size: $font-size-h1 * 3 / 4;
   line-height: $line-height-smaller;
   font-weight: $font-weight-h1;
   font-family: $font-family-h1;
 }
 h2,
 .h2 {
-  font-size: $font-size-h2;
+  font-size: $font-size-h2 * 3 / 4;
   line-height: $line-height-smaller;
   font-weight: $font-weight-h2;
   font-family: $font-family-h2;
 }
 h3,
 .h3 {
-  font-size: $font-size-h3;
+  font-size: $font-size-h3 * 3 / 4;
   line-height: $line-height-small;
   font-weight: $font-weight-h3;
   font-family: $font-family-h3;
@@ -81,6 +81,42 @@ h6,
   font-size: $font-size-h6;
   font-weight: $font-weight-h6;
   font-family: $font-family-h6;
+}
+
+@include bp('xs') {
+  h1,
+  .h1 {
+    margin-bottom: $gutter-double;
+    font-size: $font-size-h1 * 7 / 8;
+  }
+  h2,
+  .h2 {
+    font-size: $font-size-h2 * 7 / 8;
+    line-height: $line-height-smaller;
+  }
+  h3,
+  .h3 {
+    font-size: $font-size-h3 * 7 / 8;
+    line-height: $line-height-small;
+  }
+}
+
+@include bp('sm') {
+  h1,
+  .h1 {
+    margin-bottom: $gutter-double;
+    font-size: $font-size-h1;
+  }
+  h2,
+  .h2 {
+    font-size: $font-size-h2;
+    line-height: $line-height-smaller;
+  }
+  h3,
+  .h3 {
+    font-size: $font-size-h3;
+    line-height: $line-height-small;
+  }
 }
 
 // Reset all margin top

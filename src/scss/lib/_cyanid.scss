@@ -15,6 +15,16 @@
   overflow: initial;
 }
 
+// Mobile full-width container
+
+.container:not(.container--fluid) {
+  @include bp($expanded, true) {
+    width: auto !important;
+    margin-right: $gutter-half !important;
+    margin-left: $gutter-half !important;
+  }
+}
+
 // VISIBILITY HELPERS
 
 @each $breakpoint-name, $breakpoint-width in $breakpoints {
