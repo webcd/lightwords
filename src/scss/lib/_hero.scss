@@ -46,10 +46,30 @@
   text-shadow: 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.5);
 }
 
-@include bp('md') {
-  .hero__btn {
+.hero__btn {
+  @include bp('md') {
     // @extend .btn-lg;
     padding: ($gutter-eighth * 3) ($gutter-quarter * 3);
     font-size: $font-size-big;
+  }
+}
+
+.hero__scroll-down {
+  $scroll-down-size: $gutter-double;
+
+  width: $scroll-down-size;
+  height: $scroll-down-size;
+  // !important needed to override .ripple styling
+  position: absolute !important;
+  bottom: $gutter-double;
+  left: 50%;
+  transform: translate3d(-50%, 50%, 0);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.25s;
+
+  &:hover {
+    width: $scroll-down-size * 1.25;
+    height: $scroll-down-size * 1.25;
   }
 }

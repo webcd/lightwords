@@ -14,7 +14,7 @@ window.CONFIG = {
   stickyHeader: true,
 
   rippleEffect: true,
-  rippleSelector: '.btn'
+  rippleSelector: '.btn, .hero__scroll-down'
 }
 
 console.log(CONFIG)

@@ -34,6 +34,7 @@ global.config = {
 
     'src/js/lib/configure.js',
     'src/js/lib/toggler.js',
+    'src/js/lib/scroller.js',
     'src/js/lib/ripple.js',
     'src/js/lib/search.js',
     'src/js/lib/select2.js',
