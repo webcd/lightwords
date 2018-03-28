@@ -26,5 +26,10 @@
   color: white;
 }
 
-.hero__btn {
+@include bp('md') {
+  .hero__btn {
+    // @extend .btn-lg;
+    padding: ($gutter-eighth * 3) ($gutter-quarter * 3);
+    font-size: $font-size-big;
+  }
 }
