@@ -49,21 +49,24 @@
   // the <!-- more --> thing changes nothing in markup
   // So we made the very first paragraph of content highlighted!
   > p:first-child {
-    font-size: 2rem;
+    font-size: $font-size-big;
   }
 }
 
-@include bp(sm) {
-  .hero-title {
-    $parallax-security-size: $gutter;
-    position: absolute;
-    top: $parallax-security-size; //hack
-    left: 0;
-    transform: translate3d(0, -100%, 0);
-    margin: 0;
-    padding: $gutter-quarter $gutter-half;
-    padding-bottom: $gutter-quarter + $parallax-security-size;
-    background-color: white;
+// Move the page title over the hero image
+.hero-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  // 99% to avoid black bottom line (pixel rounding issue probably)
+  transform: translate3d(0, -99%, 0);
+  margin: 0;
+  padding: $gutter-quarter $gutter-half;
+  background-color: white;
+
+  @include bp($expanded) {
+    padding: $gutter-half;
+    left: -$gutter-half;
   }
 }
 

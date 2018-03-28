@@ -13,7 +13,6 @@ window.CONFIG = {
   breadcrumbs: true,
   stickyHeader: true,
 
-  parallaxHero: true,
   rippleEffect: true,
   rippleSelector: '.btn'
 }

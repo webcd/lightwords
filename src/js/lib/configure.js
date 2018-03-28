@@ -46,10 +46,6 @@
       $body.addClass('sticky-header')
       bodyClasses.push('sticky-header')
     }
-    if (Lightwords.CONFIG.parallaxHero) {
-      $body.addClass('parallax-hero')
-      bodyClasses.push('parallax-hero')
-    }
 
     console.log('Configuring body classes', bodyClasses)
   })

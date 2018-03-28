@@ -1,5 +1,7 @@
 <section class="wrapper wrapper--hero">
   <div class="hero">
+    <img class="hero__img" style="background-image: url('{{ post.thumbnail.src|resize(1920) }}');">
+    {#
     <img class="hero__img"
       src="{{ post.thumbnail.src|resize(1920) }}"
       srcset="
@@ -14,6 +16,7 @@
       "
       itemprop="image"
       alt="{{ post.thumbnail.alt }}" />
+    #}
 
     {% if fn('is_front_page') %}
       <div class="hero__content">
