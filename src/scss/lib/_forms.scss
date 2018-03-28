@@ -104,7 +104,7 @@ label {
   // margin-bottom: $gutter;
 }
 
-input[type='submit'].gform_button {
+input[type='submit'] {
   @extend .btn;
   @extend .btn-primary;
   // @extend .btn;
