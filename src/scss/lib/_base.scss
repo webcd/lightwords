@@ -1,12 +1,5 @@
 /* BASE */
 
-// Pain point : overflow hidden keeps vertical gutter with container nice but breaks overflowing elements
-// This resets Cyanid styles
-// TODO: find a solution to this!
-.container {
-  overflow: initial;
-}
-
 *,
 *::before,
 *::after {

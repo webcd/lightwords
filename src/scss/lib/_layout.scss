@@ -53,32 +53,3 @@ body,
 .text-right {
   text-align: right;
 }
-
-// VISIBILITY HELPERS
-// TODO: move this
-
-@each $breakpoint-name, $breakpoint-width in $breakpoints {
-  .visible-#{$breakpoint-name} {
-    @include bp($breakpoint-name) {
-      display: initial;
-    }
-  }
-
-  .hidden-#{$breakpoint-name} {
-    @include bp($breakpoint-name) {
-      display: none;
-    }
-  }
-}
-
-.hidden-collapsed {
-  @include bp($expanded, true) {
-    display: none;
-  }
-}
-
-.hidden-expanded {
-  @include bp($expanded) {
-    display: none;
-  }
-}
