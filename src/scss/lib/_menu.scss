@@ -1,34 +1,56 @@
 /* MENU */
 
+$caret-size: $font-size-base / 3;
+$caret-color: $text-color-base;
+
 /////////////////////////////////////////////////////////////////////////////
 // COMMON STYLES
 
 .menu-primary,
 .menu-secondary {
-  // Menu items are common dy default
-
   .menu-item {
     > .menu-item-link {
+      // Debug
+      // background: $gray-lighter;
+      color: $gray-darker;
+      transition: all 0.25s;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $gray-darkest;
+        background: $gray-lighter;
+      }
+
       display: block;
       min-height: 4.4rem;
       padding-left: $gutter-half;
       padding-right: $gutter-half;
       cursor: pointer;
 
-      // Flex overkill vertical center
+      // Flex vertical center
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      align-items: center;
+      justify-content: space-between; // For carets on mobile
 
-      // Extra span for advanced styling (aka vertical center)
-      span:first-child {
-        // don't catch submenus carret span
-        flex: 0 0 auto;
-        line-height: 1;
+      // don't catch submenus carret span
+      > span:not(.caret) {
+        line-height: 1; // In case of multi-line
         padding: $gutter-quarter 0;
+      }
+
+      > .caret {
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: $caret-size $caret-size 0 $caret-size;
+        border-color: $caret-color transparent transparent transparent;
+        transition: all 0.5s $ease-bump;
       }
     }
 
+    // Active item
     &.current-menu-item {
       > .menu-item-link {
         color: $color-secondary;
@@ -48,70 +70,66 @@
         }
       }
     }
+
+    &.active {
+      > .menu-item-link {
+        > .caret {
+          transform: rotateZ(180deg);
+        }
+      }
+    }
   }
 }
 
 /////////////////////////////////////////////////////////////////////////////
 // MOBILE MENU
 
-.navbar-menu {
-  // MOBILE MENU
+// Pain in the ass to reset mobile navbar styles on larger screens
+// So for once, we allow MOBILE ONLY styles max-width @mq here!
+@include bp($expanded, true) {
+  //No secondary menu on mobile (hidden and merged into primary one)
+  .menu-primary {
+    padding-top: $gutter-half;
+    padding-left: $gutter-quarter;
+    padding-right: $gutter-quarter;
 
-  // Pain in the ass to reset mobile navbar styles on larger screens
-  // So for once, we allow MOBILE ONLY styles max-width @mq here!
-  @include bp($expanded, true) {
-    display: block !important;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: $navbar-menu-mobile-width * 2;
-    padding-right: $navbar-menu-mobile-width;
-    height: 100vh;
-    padding-top: $navbar-height-mobile;
-    transform: translate3d(100%, $navbar-height-mobile, 0);
-    transition: transform 0.5s $ease-bump, box-shadow 0.5s;
-    background-color: $header-color-bg; // TODO remove or smarter color
-
-    &.navbar-expanded {
-      // Move the navbar into viewport
-      transform: translate3d(50%, $topbar-height-mobile, 0);
-
-      @include shadow(5);
-    }
-
-    > .menu-primary {
-      margin: $gutter-half 0;
-
-      .menu-item:not(.dropdown),
-      .dropdown-toggle {
-        // Space between items when stacked
-        margin-bottom: $gutter-quarter;
-      }
-    }
-
-    // Generated label
-    &:before {
-      content: 'MENU';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding-left: $gutter-quarter * 3;
-      line-height: $navbar-height-mobile;
-      font-weight: bold;
-      color: $gray-light;
-      @include shadow(1);
+    .menu-item:not(.dropdown),
+    .dropdown-toggle {
+      // Space between items when stacked
+      margin-bottom: $gutter-quarter;
     }
   }
+  // Hide and show sub-menus
+  .dropdown-menu {
+    display: none;
 
-  /////////////////////////////////////////////////////////////////////////////
-  //DESKTOP MENU
+    .dropdown.active & {
+      display: block;
+    }
+  }
+}
 
-  // Desktop ONLY styles
-  @include bp($expanded) {
+/////////////////////////////////////////////////////////////////////////////
+//DESKTOP MENU
+
+@include bp($expanded) {
+  .menu-primary {
+    margin-right: -$gutter-half;
     margin-left: $gutter-half;
+  }
 
+  .menu-secondary {
+  }
+
+  .menu-primary,
+  .menu-secondary {
     .menu-item {
+      margin-left: $gutter-quarter;
+      > .menu-item-link {
+        > .caret {
+          margin-left: $gutter-quarter;
+        }
+      }
     }
 
     // Hide and show dropdown submenu
@@ -125,7 +143,6 @@
         left: 0;
         width: 20vw;
         padding-top: $gutter-quarter;
-        padding-bottom: $gutter-quarter;
 
         display: flex;
         flex-direction: column;
@@ -134,8 +151,13 @@
         @include shadow(1);
         transform: scale3d(1, 0, 1);
         transform-origin: 50% 0 0;
-        overflow: hidden;
         transition: transform 0.5s $ease-bump;
+        overflow: hidden;
+
+        > .menu-item {
+          margin: $gutter-quarter;
+          margin-top: 0;
+        }
       }
     }
 

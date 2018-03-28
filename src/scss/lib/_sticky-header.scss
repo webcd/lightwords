@@ -8,6 +8,7 @@
     width: 100%;
     @include shadow(1);
     z-index: 20000; // TODO: better!
+    background-color: $header-color-bg;
   }
 
   // ADMIN BAR

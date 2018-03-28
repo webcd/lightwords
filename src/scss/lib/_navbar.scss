@@ -1,13 +1,5 @@
 /* NAVBAR */
 
-.site-header {
-  background-color: $header-color-bg;
-
-  a {
-    color: $gray-darker;
-  }
-}
-
 ///////////////////////////////////////////////////////////////////////////////
 // BAR WRAPPERS
 
@@ -19,22 +11,10 @@
   // Gives flexbox behavious to bars
   display: flex;
   flex-wrap: wrap;
-  > * {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: auto;
-  }
 
-  a {
-    &:hover {
-      text-decoration: none;
-    }
+  .topbar & {
+    justify-content: flex-end;
   }
-}
-
-// A movable div that pushes neighbors on the sides
-.bar-filler {
-  flex: 1;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -43,16 +23,14 @@
 .topbar {
   overflow: hidden;
   height: $topbar-height-mobile;
-  // border-top: $topbar-height-mobile solid $header-color-bg;
-  // padding-top: $topbar-height-mobile;
-  transition: height 0.5s $ease-bump; // TODO: use accellerated transform
 
   .topbar-menu {
-    margin-right: $gutter-half;
   }
 
   .topbar-search {
     flex-basis: 100%;
+    margin-left: $gutter-half;
+
     @include bp($expanded) {
       flex-basis: auto;
     }
@@ -73,15 +51,11 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-// NAVBAR
-
-// .navbar {}
-
-///////////////////////////////////////////////////////////////////////////////
 // NAVBAR HEADER
 
 .navbar-header {
   margin-left: -$gutter-half;
+  flex-grow: 1;
 }
 
 @include bp($expanded) {
@@ -106,46 +80,49 @@
   display: flex;
 }
 
-///////////////////////////////////////////////////////////////////////////////
-// SECONDARY MENU
+// MOBILE MENU
 
-.menu-secondary {
-  @include bp($expanded) {
-    // By default, same as .menu-primary
-  }
-}
-
-///////////////////////////////////////////////////////////////////////////////
-// OVERLAY
-
+// Pain in the ass to reset mobile navbar styles on larger screens
+// So for once, we allow MOBILE ONLY styles max-width @mq here!
 @include bp($expanded, true) {
-  body.navbar-expanded {
-    overflow: hidden;
-  }
-
-  .overlay {
+  // Mobile menu panel
+  .navbar-menu {
+    display: block !important;
     position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    background-image: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 3px,
-        rgba(0, 0, 0, 0.5) 3px,
-        rgba(0, 0, 0, 0.5) 6px
-      ),
-      linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25));
-
-    transform: translate3d(-100%, 0, 0);
-    opacity: 0;
-    transition: opacity 0.5s, transform 0.25s;
+    top: 0;
+    width: $navbar-menu-mobile-width * 2;
+    padding-right: $navbar-menu-mobile-width;
+    height: 100vh;
+    padding-top: $navbar-height-mobile;
+    transform: translate3d(100%, $navbar-height-mobile, 0);
+    transition: transform 0.5s $ease-bump, box-shadow 0.5s;
+    background-color: $header-color-bg; // TODO remove or smarter color
 
     &.navbar-expanded {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
+      // Move the navbar into viewport
+      transform: translate3d(50%, $topbar-height-mobile, 0);
+      @include shadow(5);
     }
+
+    // Generated label
+    &:before {
+      content: 'MENU';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-left: $gutter-quarter * 3;
+      line-height: $navbar-height-mobile;
+      font-weight: bold;
+      color: $gray-light;
+      @include shadow(1);
+    }
+  }
+
+  .menu-primary {
+    // Allow mobile menu scroll
+    max-height: calc(100vh - 6rem);
+    overflow: auto;
   }
 }
