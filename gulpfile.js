@@ -32,6 +32,8 @@ global.config = {
 
     'src/js/config.js',
 
+    'src/js/lib/modal.js', // Borrowed from Bootstrap
+
     'src/js/lib/configure.js',
     'src/js/lib/toggler.js',
     'src/js/lib/scroller.js',
