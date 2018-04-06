@@ -61,7 +61,7 @@
 @include bp($expanded) {
   .container:not(.container--fluid) {
     .navbar-menu {
-      margin-right: -$gutter;
+      margin-right: -$gutter-half;
     }
     .topbar-search {
       margin-right: -$gutter-half;
