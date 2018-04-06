@@ -2,21 +2,24 @@
 
 ## Urgent
 
+* Fix breadcrumb on transparent header
+* Fix some button colors (focus, disabled...)
 * Forms styling
   * Finalize common form styles
-  * Prevent Gravity Forms css's (4 stylesheets) from loading
   * Style radios and checkboxes
   * File upload?
-* Modals
 
 ## Later
 
-* Element in viewport detection on scroll (like Waypoints) + animation helper lib
+* Element in viewport detection on scroll (like Waypoints)
+  * animation helper lib
+  * 'back to top' button
 * Page template for archive listing ALL the posts (not only a category)
 * Disable features from config:
   * topbar
 * Move from Gulp to Webpack build process (or fix Mix build)
 * WooCommerce support
+* Move all .php files at projet root into a sub-folder (.htaccess redirection?)
 
 ## Probably not
 
