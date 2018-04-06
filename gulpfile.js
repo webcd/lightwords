@@ -40,6 +40,7 @@ global.config = {
     'src/js/lib/ripple.js',
     'src/js/lib/search.js',
     'src/js/lib/select2.js',
+    'src/js/lib/header-compress.js',
 
     'src/js/main.js'
   ]

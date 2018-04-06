@@ -45,6 +45,10 @@
     if (Lightwords.CONFIG.stickyHeader) {
       $body.addClass('sticky-header')
       bodyClasses.push('sticky-header')
+      if (Lightwords.CONFIG.compressHeader) {
+        $body.addClass('compressible-header')
+        bodyClasses.push('compressible-header')
+      }
     }
 
     console.log('Configuring body classes', bodyClasses)

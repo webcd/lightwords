@@ -11,7 +11,9 @@ window.CONFIG = {
 
   search: true,
   breadcrumbs: true,
+
   stickyHeader: true,
+  compressHeader: true,
 
   rippleEffect: true,
   rippleSelector: '.btn, .hero__scroll-down'

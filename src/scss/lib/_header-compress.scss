@@ -1,0 +1,29 @@
+/* HEADER COMPRESS */
+
+.topbar-toggle--compress {
+  display: none;
+}
+
+/*html*/
+.sticky-header.compressible-header {
+  .site-header {
+    transition: all 0.25s $ease-bump;
+  }
+  .logo--desktop {
+    transition: all 0.25s $ease-bump;
+  }
+
+  &.header-compressed:not(.header-uncompressed) {
+    .site-header {
+      top: -$topbar-height-desktop;
+      transition: all 0.25s $ease-bump;
+    }
+    .logo--desktop {
+      height: $navbar-logo-height;
+      top: 0;
+    }
+    .topbar-toggle--compress {
+      display: initial;
+    }
+  }
+}
