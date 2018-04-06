@@ -5,10 +5,10 @@
   padding-left: 0;
 
   > li {
-    padding-top: $gutter-quarter;
-    padding-bottom: $gutter-quarter;
-
     > a {
+      display: inline-block;
+      padding-top: $gutter-quarter;
+      padding-bottom: $gutter-quarter;
       color: $gray;
       transition: all 0.25s;
 
