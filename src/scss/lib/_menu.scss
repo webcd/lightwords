@@ -19,7 +19,7 @@ $caret-color: $text-color-base;
       &:active,
       &:focus {
         color: $gray-darkest;
-        background: $gray-lighter;
+        background: rgba(0, 0, 0, 0.125);
       }
 
       display: block;
