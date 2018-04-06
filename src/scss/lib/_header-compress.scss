@@ -9,7 +9,8 @@
 .sticky-header.compressible-header {
   // Add transitiotns to modified elements
   .site-header {
-    transition: top 0.25s $ease-bump, background-color 0.5s;
+    transition: top 0.25s $ease-bump, background-color 0.5s,
+      transform 0.25s $ease-bump;
   }
   .logo--desktop {
     transition: all 0.25s $ease-bump;
