@@ -7,7 +7,8 @@
   // Full height hero
   /*body*/
   .home & {
-    min-height: calc(100vh - $navbar-height-mobile);
+    // min-height: calc(100vh - $navbar-height-mobile);
+    min-height: calc(100vh - 6rem);
   }
   .transparent-header.home & {
     min-height: 100vh;
