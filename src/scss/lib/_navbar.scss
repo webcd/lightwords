@@ -29,10 +29,10 @@
 
   .topbar-search {
     flex-basis: 100%;
-    margin-left: $gutter-half;
 
     @include bp($expanded) {
       flex-basis: auto;
+      margin-left: $gutter-half;
     }
   }
 }
