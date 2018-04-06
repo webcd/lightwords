@@ -64,18 +64,23 @@ $header-color-bg: white;
 
 $navbar-menu-mobile-width: 15em !default;
 
-$adminbar-height-mobile: 4.6rem !default;
-$adminbar-height-desktop: 3.2rem !default;
-
+// Navbar height
 $navbar-height-mobile: 6rem !default;
 $navbar-height-desktop: $navbar-height-mobile !default;
+// Topbar height
 $topbar-height-mobile: 6rem !default;
 $topbar-height-desktop: $topbar-height-mobile !default;
 
+// Navbar buttons
 $navbar-btn-size: 4.4rem !default;
 $navbar-btn-padding: 1rem !default;
 $navbar-btn-color: $gray-light !default;
 $navbar-btn-color-hover: $gray-darker !default;
+
+// WordPress admin bar
+$wp-adminbar-height-mobile: 4.6rem !default;
+$wp-adminbar-height-desktop: 3.2rem !default;
+$wp-adminbar-bp: 782px;
 
 // Logo
 $navbar-logo-height: $navbar-btn-size !default;

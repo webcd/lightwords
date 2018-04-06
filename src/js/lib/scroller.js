@@ -14,8 +14,8 @@
         var headerHeight = 0
         if ($('body').hasClass('sticky-header')) {
           // TODO: shouldn't take hidden topbar into account on mobile
-          headerHeight = $('.site-header').height()
-          console.log('header height', headerHeight)
+          headerHeight = $('.site-header').height() / 2
+          console.log('header height (half)', headerHeight)
         }
         $('html, body').animate(
           { scrollTop: $scrollTarget.offset().top - headerHeight },

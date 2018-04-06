@@ -48,6 +48,10 @@
       if (Lightwords.CONFIG.compressHeader) {
         $body.addClass('compressible-header')
         bodyClasses.push('compressible-header')
+        if (Lightwords.CONFIG.transparentHeader) {
+          $body.addClass('transparent-header')
+          bodyClasses.push('transparent-header')
+        }
       }
     }
 

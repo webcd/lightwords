@@ -38,7 +38,7 @@
         $body.removeClass('header-compressed')
         $body.removeClass('header-uncompressed')
       }
-    }, 250)
+    }, 50)
 
     $(window).scroll(updateHeader)
 

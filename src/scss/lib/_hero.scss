@@ -12,6 +12,11 @@
       min-height: calc(100vh - 6rem);
     }
   }
+  .transparent-header & {
+    @include bp($expanded, true) {
+      min-height: 100vh;
+    }
+  }
 }
 
 .hero__img {

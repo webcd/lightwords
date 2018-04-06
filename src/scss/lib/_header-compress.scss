@@ -1,29 +1,69 @@
 /* HEADER COMPRESS */
 
 .topbar-toggle--compress {
+  // Hide the "+" button by default
   display: none;
 }
 
 /*html*/
 .sticky-header.compressible-header {
+  // Add transitiotns to modified elements
   .site-header {
-    transition: all 0.25s $ease-bump;
+    transition: top 0.25s $ease-bump, background-color 0.5s;
   }
   .logo--desktop {
     transition: all 0.25s $ease-bump;
   }
 
-  &.header-compressed:not(.header-uncompressed) {
+  @include bp($expanded) {
+    &.header-compressed:not(.header-uncompressed) {
+      .site-header {
+        // Hide the topbar above the viewport
+        top: -$topbar-height-desktop;
+      }
+      .logo--desktop {
+        // Use mobile logo height
+        height: $navbar-logo-height;
+        // Move it back to bottom of the navbar
+        top: 0;
+      }
+      .topbar-toggle--compress {
+        // Display the "+" button when compressed
+        display: initial;
+      }
+    }
+
+    // Wordpress admin bar
+    &.admin-bar {
+      &.header-compressed:not(.header-uncompressed) {
+        .site-header {
+          @media screen and (min-width: $wp-adminbar-bp) {
+            top: $wp-adminbar-height-desktop - $topbar-height-desktop;
+          }
+        }
+      }
+    }
+  }
+
+  &.transparent-header {
     .site-header {
-      top: -$topbar-height-desktop;
-      transition: all 0.25s $ease-bump;
+      @include shadow(0);
+      background-color: transparent;
     }
-    .logo--desktop {
-      height: $navbar-logo-height;
-      top: 0;
+
+    &.header-compressed {
+      .site-header {
+        background-color: $header-color-bg;
+        @include shadow(1);
+      }
     }
-    .topbar-toggle--compress {
-      display: initial;
+
+    .site-content {
+      padding-top: 0;
+
+      @include bp($expanded) {
+        padding-top: 0;
+      }
     }
   }
 }
