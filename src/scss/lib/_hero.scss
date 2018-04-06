@@ -5,17 +5,12 @@
   min-height: 56.25vw; // 16:9 ratio
 
   // Full height hero
-  // min-height: calc(100vh - $navbar-height-mobile)
   /*body*/
   .home & {
-    @include bp($expanded, true) {
-      min-height: calc(100vh - 6rem);
-    }
+    min-height: calc(100vh - $navbar-height-mobile);
   }
-  .transparent-header & {
-    @include bp($expanded, true) {
-      min-height: 100vh;
-    }
+  .transparent-header.home & {
+    min-height: 100vh;
   }
 }
 
@@ -66,7 +61,7 @@
   height: $scroll-down-size;
   // !important needed to override .ripple styling
   position: absolute !important;
-  bottom: $gutter-double;
+  bottom: $gutter-quad;
   left: 50%;
   transform: translate3d(-50%, 50%, 0);
   border-radius: 50%;

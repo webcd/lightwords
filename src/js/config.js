@@ -14,7 +14,7 @@ window.CONFIG = {
 
   stickyHeader: true,
   compressHeader: true,
-  // transparentHeader: true,
+  transparentHeader: true,
 
   rippleEffect: true,
   rippleSelector: '.btn, .hero__scroll-down'
