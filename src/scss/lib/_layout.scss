@@ -19,6 +19,13 @@ body,
   flex-grow: 1;
 }
 
+// ARTICLE CONTENT
+
+.article-content {
+  padding-top: $gutter-double;
+  padding-bottom: $gutter-double;
+}
+
 // CENTERED MOBILE FOOTER
 
 .site-footer {
