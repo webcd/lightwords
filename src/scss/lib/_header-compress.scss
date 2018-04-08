@@ -66,5 +66,21 @@
         padding-top: 0;
       }
     }
+
+    // TEMPORARY HACKS!
+
+    .wrapper--breadcrumb {
+      // TODO: find a solution!
+      // Hide breadcrumbs
+      display: none;
+    }
+
+    .main-title:not(.hero-title) {
+      margin-top: $navbar-height-mobile;
+
+      @include bp($expanded) {
+        margin-top: $navbar-height-desktop + $topbar-height-desktop;
+      }
+    }
   }
 }
