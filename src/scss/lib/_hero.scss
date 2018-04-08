@@ -9,6 +9,10 @@
   .home & {
     // min-height: calc(100vh - $navbar-height-mobile);
     min-height: calc(100vh - 6rem);
+
+    @include bp($expanded) {
+      min-height: calc(100vh - 12rem);
+    }
   }
   .transparent-header.home & {
     min-height: 100vh;
