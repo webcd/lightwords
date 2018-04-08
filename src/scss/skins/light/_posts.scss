@@ -7,6 +7,10 @@
   line-height: 2;
   padding-bottom: $gutter-quarter;
   border-bottom: 1px dotted;
+
+  > .btn {
+    margin-bottom: 0;
+  }
 }
 
 .publish {
