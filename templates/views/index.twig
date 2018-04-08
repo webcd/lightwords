@@ -2,16 +2,23 @@
 
 {% block content %}
 
-  <div class="container">
-    <h1 class="h1 main-title">{{ title }}</h1>
+  <article class="index">
 
-    <section class="posts row">
+    <section class="wrapper wrapper--article-content">
+      <div class="article-content container">
 
-      {% for post in posts %}
-        {% include "tile-post.twig" %}
-      {% endfor %}
+        <h1 class="h1 main-title">{{ title }}</h1>
 
+        <section class="posts row">
+
+          {% for post in posts %}
+            {% include "tile-post.twig" %}
+          {% endfor %}
+
+        </section>
+      </div>
     </section>
-  </div>
+
+  </article>
 
 {% endblock %}
