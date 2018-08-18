@@ -36,13 +36,15 @@
 ///////////////////////////////////////////////////////////////////////////////
 // POST(S)
 
-// SINGLE
-
 .article-content {
   position: relative;
+}
 
-  .metas {
-    margin-bottom: $gutter;
+.metas {
+  margin-bottom: $gutter;
+
+  .posts & {
+    margin-bottom: 0;
   }
 }
 
