@@ -59,7 +59,7 @@ class StarterSite extends \TimberSite
         $context['site'] = $this;
 
         // MENUS
-        $context['menu']     = new \TimberMenu();
+        $context['menu_main'] = new \TimberMenu('menu-main');
         $context['menu_top'] = new \TimberMenu('menu-top');
 
         // BREADCRUMB
