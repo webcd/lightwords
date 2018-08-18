@@ -1,9 +1,33 @@
 /* TYPE */
 
+// Reset all margin top
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+p,
+ul,
+blockquote {
+  margin-top: 0;
+}
+
 // PARAGRAPHS
 
 p {
   margin-bottom: $gutter;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .small {
@@ -117,26 +141,6 @@ h6,
     font-size: $font-size-h3;
     line-height: $line-height-small;
   }
-}
-
-// Reset all margin top
-
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6,
-p,
-ul,
-blockquote {
-  margin-top: 0;
 }
 
 // MISC

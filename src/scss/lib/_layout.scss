@@ -24,6 +24,11 @@ body,
 .article-content {
   padding-top: $gutter-double;
   padding-bottom: $gutter-double;
+
+  .page-template-tpl-fullwidth & {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
 
 // CENTERED MOBILE FOOTER

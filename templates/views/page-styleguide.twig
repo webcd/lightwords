@@ -300,13 +300,46 @@
             </form>
           </div>
 
-
-
-          <!-- End styleguide content -->
-
         </div>
 
       </div>
+
+      {# COLORS #}
+
+      {% set colors = ['primary', 'secondary', 'ternary'] %}
+      {% set shades = ['-darkest', '-darker', '-dark', '', '-light', '-lighter', '-lightest'] %}
+
+      {% for color in colors %}
+        <section class="wrapper wrapper--padding bg-{{ color }} color-white">
+          <div class="container">
+            <h3>Color: {{ color }}</h3>
+            <div class="row row--auto-size">
+              {% for shade in shades %}
+                <article class="color-block bg-{{ color }}{{ shade }}" style="min-height: 12rem;">
+                  <div style="position: absolute;">{{ color }}{{ shade }}</div>
+                </article>
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+      {% endfor %}
+
+      {% set shades = ['black', 'gray-darkest', 'gray-darker', 'gray-dark', 'gray', 'gray-light', 'gray-lighter', 'gray-lightest', 'white'] %}
+
+      <section class="wrapper wrapper--padding bg-gray color-white">
+        <div class="container">
+          <h3>Color: gray</h3>
+          <div class="row row--auto-size">
+            {% for shade in shades %}
+              <article class="color-block bg-{{ shade }}" style="min-height: 12rem;">
+                <div style="position: absolute;">{{ shade }}</div>
+              </article>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <!-- End styleguide content -->
 
     </section>
 

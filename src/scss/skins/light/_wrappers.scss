@@ -50,3 +50,19 @@
 
 .article {
 } // TODO: wrapper for an article main content?
+
+// Wrapper utilities
+
+.wrapper--padding {
+  padding-top: $gutter-double;
+  padding-bottom: $gutter-double;
+}
+.wrapper--padding-half {
+  padding-top: $gutter;
+  padding-bottom: $gutter;
+}
+.wrapper--padding-double {
+  padding-top: $gutter-quad;
+  padding-bottom: $gutter-quad;
+}
+
