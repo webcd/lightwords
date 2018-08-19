@@ -11,6 +11,7 @@ window.CONFIG = {
 
   search: true,
   breadcrumbs: true,
+  breadcrumbsInContent: true,
 
   stickyHeader: true,
   compressHeader: true,

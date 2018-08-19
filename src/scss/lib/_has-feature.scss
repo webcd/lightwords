@@ -22,4 +22,24 @@
   .wrapper--breadcrumb {
     display: none;
   }
+
+  .breadcrumb {
+    display: none;
+  }
+}
+
+.has-breadcrumbs-in-header {
+  .breadcrumb {
+    display: none;
+  }
+
+  .wrapper--breadcrumb .breadcrumb {
+    display: block;
+  }
+}
+
+.has-breadcrumbs-in-content {
+  .wrapper--breadcrumb {
+    display: none;
+  }
 }

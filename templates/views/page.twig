@@ -15,6 +15,11 @@
           {{ post.title }}
         </h1>
 
+        {% if not fn('is_front_page') %}
+          {# native walker: % include "breadcrumb.twig" %#}
+          {{ breadcrumb }}
+        {% endif %}
+
         {% if not fullwidth_content %}
           <div class="article-content-body">
             {{ post.content }}
@@ -30,6 +35,10 @@
       {% endif %}
 
     </section>
+
+    {% if post.comment_status != 'closed' %}
+      {% include 'comments.twig' %}
+    {% endif %}
 
   </article>
 

@@ -15,13 +15,25 @@
           {{ post.title }}
         </h1>
 
+        {# native walker: % include "breadcrumb.twig" %#}
+        {{ breadcrumb }}
+
         {% include "metas.twig" %}
 
+        {% if not fullwidth_content %}
+          <div class="article-content-body">
+            {{ post.content }}
+          </div>
+        {% endif %}
+
+      </div>
+
+      {% if fullwidth_content %}
         <div class="article-content-body">
           {{ post.content }}
         </div>
+      {% endif %}
 
-      </div>
     </section>
 
     {% if post.comment_status != 'closed' %}

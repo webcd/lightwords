@@ -11,3 +11,15 @@
     }
   }
 }
+
+// :not(.page-template)
+
+// .main-title:not(.hero-title) + .breadcrumb {
+//   margin-top: -$gutter-double;
+//   margin-bottom: $gutter-double;
+// }
+
+.main-title + .breadcrumb {
+  margin-top: -$gutter-double;
+  margin-bottom: $gutter-double;
+}

@@ -9,6 +9,9 @@
 
         <h1 class="h1 main-title">{{ title }}</h1>
 
+        {# native walker: % include "breadcrumb.twig" %#}
+        {{ breadcrumb }}
+
         <section class="posts row">
 
           {% for post in posts %}

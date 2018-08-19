@@ -22,11 +22,9 @@
 
     if (Lightwords.CONFIG.debug) {
       $body.addClass('debug')
-      bodyClasses.push('debug')
 
       if (Lightwords.CONFIG.debuggers) {
         Lightwords.CONFIG.debuggers.forEach(function(debug) {
-          $body.addClass('debug--' + debug)
           bodyClasses.push('debug--' + debug)
         })
       }
@@ -35,26 +33,31 @@
     // Has feature
 
     if (!Lightwords.CONFIG.search) {
-      $body.addClass('has-no-search')
       bodyClasses.push('has-no-search')
     }
     if (!Lightwords.CONFIG.breadcrumbs) {
-      $body.addClass('has-no-breadcrumbs')
       bodyClasses.push('has-no-breadcrumbs')
+    } else {
+      if (Lightwords.CONFIG.breadcrumbsInContent) {
+        bodyClasses.push('has-breadcrumbs-in-content')
+      } else {
+        bodyClasses.push('has-breadcrumbs-in-header')
+      }
     }
     if (Lightwords.CONFIG.stickyHeader) {
-      $body.addClass('sticky-header')
       bodyClasses.push('sticky-header')
       if (Lightwords.CONFIG.compressHeader) {
-        $body.addClass('compressible-header')
         bodyClasses.push('compressible-header')
         if (Lightwords.CONFIG.transparentHeader) {
-          $body.addClass('transparent-header')
           bodyClasses.push('transparent-header')
         }
       }
     }
 
     console.log('Configuring body classes', bodyClasses)
+
+    for (var i = 0; i < bodyClasses.length; i++) {
+      $body.addClass(bodyClasses[i])
+    }
   })
 })(jQuery)
