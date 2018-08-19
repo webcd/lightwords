@@ -14,12 +14,12 @@
 * Element in viewport detection on scroll (like Waypoints)
   * animation helper lib
   * 'back to top' button
-* Page template for archive listing ALL the posts (not only a category)
 * Disable features from config:
   * topbar
 * Move from Gulp to Webpack build process (or fix Mix build)
 * WooCommerce support
 * Move all .php files at projet root into a sub-folder (.htaccess redirection?)
+* Bug: Latest posts add sticky posts to max count
 
 ## Probably not
 
@@ -28,6 +28,7 @@
 * admin theme options?
 * Get rid off jQuery?
 * i18n / translate ALL text?
+* Header menus: more than 2 level of deepness
 
 # KNOWN BUGS
 

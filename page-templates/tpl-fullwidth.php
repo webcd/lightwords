@@ -13,6 +13,8 @@ if ( ! class_exists( 'Timber' ) ) {
 	return;
 }
 
+// TODO: use page.php with a $fullwidth_content variable and keep it DRY
+
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
@@ -28,7 +30,7 @@ $templates = array(
 if (is_front_page()) {
 
   $args = array(
-    'posts_per_page' => 4,
+    'posts_per_page' => 6,
     'orderby' => 'date'
    );
   $context['latest_posts'] = Timber::get_posts($args);

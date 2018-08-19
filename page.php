@@ -39,7 +39,7 @@ $templates = array(
 if (is_front_page()) {
 
   $args = array(
-    'posts_per_page' => 4,
+    'posts_per_page' => 6,
     'orderby' => 'date'
    );
   $context['latest_posts'] = Timber::get_posts($args);

@@ -78,6 +78,14 @@ $caret-color: $text-color-base;
         }
       }
     }
+
+    &.highlight {
+      background-color: $color-primary;
+
+      > .menu-item-link {
+        color: white;
+      }
+    }
   }
 }
 
