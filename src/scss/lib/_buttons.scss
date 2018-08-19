@@ -92,6 +92,16 @@
   }
 }
 
+.btn-white {
+  background-color: white;
+  color: $gray;
+
+  &:hover:not(:disabled) {
+    // background-color: $color-ternary-dark;
+    color: $gray-darkest;
+  }
+}
+
 // HOLLOW BUTTONS
 
 .btn-hollow {
@@ -136,6 +146,15 @@
     &:hover:not(:disabled) {
       background-color: $color-ternary;
       color: white;
+    }
+  }
+  &.btn-white {
+    color: white;
+    border-color: white;
+
+    &:hover:not(:disabled) {
+      background-color: white;
+      color: $gray-darker;
     }
   }
 }
