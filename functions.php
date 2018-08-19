@@ -22,7 +22,20 @@
   // Run classes App
   new App\StarterSite();
 
+	// TODO: TO MOVE!!!
+
 	// TODO: move this into /core/StarterSite.php (and make it work)
 	// See: https://developer.wordpress.org/reference/functions/add_theme_support/#post-thumbnails
  	// add_theme_support( 'post-thumbnails' ); // Should be enough
  	add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );
+
+	// WOOCOMMERCE
+	// TODO: move this elsewhere
+
+	add_action( 'after_setup_theme', function() {
+    add_theme_support( 'woocommerce' );
+	} );
+
+	if ( class_exists( 'WooCommerce' ) ) {
+    Timber\Integrations\WooCommerce\WooCommerce::init();
+	}
