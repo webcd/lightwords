@@ -2,9 +2,10 @@
 
 // Macro-wrappers
 
-// .site-wrapper {         background-color: white; }
-// .site-header {          background-color: white; }
-// .site-content {         background-color: white; }
+.site-wrapper {}
+
+.site-header {}
+.site-content {}
 .site-footer {
   background-color: $gray-lightest;
   @include shadow(2);
@@ -12,57 +13,38 @@
 
 // Micro-wrappers
 
-.wrapper--pre-header {
-}
-.wrapper--header {
-}
-.wrapper--post-header {
-}
+.wrapper--pre-header {}
+.wrapper--header {}
+.wrapper--post-header {}
 
-.wrapper--pre-footer {
-}
+.wrapper--pre-footer {}
 .wrapper--footer {
-  padding-top: $gutter-double;
-  padding-bottom: $gutter-double;
+  @extend .wrapper--padding;
 }
-.wrapper--post-footer {
-}
+.wrapper--post-footer {}
 
-.wrapper--content {
-}
+.wrapper--content {}
 
 // Nano-wrappers
 
-.wrapper--hero {
-}
-.wrapper--article-content {
-}
+.wrapper--hero {}
+
+.wrapper--article-content {}
+
 .wrapper--posts {
-  padding-top: $gutter-double;
-  padding-bottom: $gutter-double;
-  background-color: $gray-lightest;
+  @extend .wrapper--padding;
+  background-color: $gray-darker;
+  color: $gray-light;
 }
+
 .wrapper--breadcrumb {
-  padding-top: $gutter-quarter;
-  padding-bottom: $gutter-quarter;
+  @extend .wrapper--padding-eigth;
   background-color: $gray-lightest;
 }
 
-.article {
-} // TODO: wrapper for an article main content?
-
-// Wrapper utilities
-
-.wrapper--padding {
-  padding-top: $gutter-double;
-  padding-bottom: $gutter-double;
-}
-.wrapper--padding-half {
-  padding-top: $gutter;
-  padding-bottom: $gutter;
-}
-.wrapper--padding-double {
-  padding-top: $gutter-quad;
-  padding-bottom: $gutter-quad;
+.wrapper--comments {
+  @extend .wrapper--padding;
+  background-color: $gray-dark;
+  color: $gray-lighter;
 }
 
