@@ -15,11 +15,20 @@
           {{ post.title }}
         </h1>
 
+        {% if not fullwidth_content %}
+          <div class="article-content-body">
+            {{ post.content }}
+          </div>
+        {% endif %}
+
+      </div>
+
+      {% if fullwidth_content %}
         <div class="article-content-body">
           {{ post.content }}
         </div>
+      {% endif %}
 
-      </div>
     </section>
 
     {% include 'latest-posts.twig' %}

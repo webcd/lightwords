@@ -52,7 +52,7 @@
   // TODO : didn't find how to make a real excerpt in WP
   // the <!-- more --> thing changes nothing in markup
   // So we made the very first paragraph of content highlighted!
-  > p:first-child {
+  p:first-child {
     font-size: $font-size-big;
   }
 }
