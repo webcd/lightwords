@@ -1,5 +1,10 @@
 /* TYPE */
 
+@mixin reset-list() {
+  list-style-type: none;
+  padding-left: 0;
+}
+
 // Reset all margin top
 
 h1,

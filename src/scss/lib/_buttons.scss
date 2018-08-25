@@ -18,7 +18,8 @@
   transition: all 0.25s;
   color: $text-color-base;
 
-  &:hover {
+  &:hover,
+  &:focus {
     @include shadow(2);
     color: $text-color-base;
   }
@@ -92,6 +93,24 @@
   }
 }
 
+.btn-black {
+  background-color: black;
+  color: $gray;
+
+  &:hover:not(:disabled) {
+    // background-color: $color-ternary-dark;
+    color: $gray-lighter;
+  }
+}
+.btn-gray {
+  background-color: $gray;
+  color: $gray-darker;
+
+  &:hover:not(:disabled) {
+    // background-color: $color-ternary-dark;
+    color: $gray-darkest;
+  }
+}
 .btn-white {
   background-color: white;
   color: $gray;
@@ -146,6 +165,24 @@
     &:hover:not(:disabled) {
       background-color: $color-ternary;
       color: white;
+    }
+  }
+  &.btn-black {
+    color: black;
+    border-color: black;
+
+    &:hover:not(:disabled) {
+      background-color: black;
+      color: $gray-lighter;
+    }
+  }
+  &.btn-gray {
+    color: $gray;
+    border-color: $gray;
+
+    &:hover:not(:disabled) {
+      background-color: $gray;
+      color: $gray-darkest;
     }
   }
   &.btn-white {

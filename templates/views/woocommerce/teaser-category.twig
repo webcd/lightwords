@@ -1,0 +1,22 @@
+<div {{ fn('post_class', ['list-item', 'teaser', 'teaser--category'] ) }}
+  onclick="window.location.href = '{{ category.link }}'"
+>
+	{# <div class="teaser-image-container">
+		<a class="teaser-image-link" href="{{ category.link }}">
+			<img class="teaser-image" src="{% do action('display_category_image', category) %}')" />
+		</a>
+	</div> #}
+
+	<div class="teaser-content">
+
+		<h3 class="teaser-title">
+			<a class="teaser-link" href="{{ category.link }}">{{ category.name }} ({{ category.count }})</a>
+		</h3>
+
+    <img src="{% do action('display_category_image', category) %}')">
+
+    <div class="teaser-description">
+      {{ category.description }}
+    </div>
+	</div>
+</div>
