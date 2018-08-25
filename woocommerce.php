@@ -37,6 +37,29 @@ if ( is_singular( 'product' ) ) {
 
 		$context['title'] = single_term_title( '', false );
 
+		if ( is_product_category() ){
+			// Get category image URL
+
+			global $wp_query;
+			$cat = $wp_query->get_queried_object();
+			$thumbnail_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
+			$image = wp_get_attachment_url( $thumbnail_id );
+			if ( $image ) {
+				// echo '<img class="term-image" src="' . $image . '" alt="' . $cat->name . '" />';
+				$context['category_image'] = $image;
+			}
+
+			// Get category description
+			
+			$term_object = get_queried_object();
+			$description = $term_object->description;
+
+			if ( $description ) {
+				$context['category_description'] = $description;
+			}
+		}
+
+
 		// echo '<pre>' , var_dump($context['categories'][0]) , '</pre>';
 		// die();
 	}
