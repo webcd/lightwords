@@ -17,6 +17,7 @@
 
 * title (+ image + description) when at shop root
 * categories won't show up when at shop root
+* display "N results per page" select
 
 ### Dynamize (default) theme options
 
@@ -35,6 +36,7 @@
 * Move from Gulp to Webpack build process (or fix Mix build)
 * Move all .php files at projet root into a sub-folder (.htaccess redirection?)
 * Bug: Latest posts add sticky posts to max count
+* JS handler for resize and scroll events
 
 ## Probably not
 

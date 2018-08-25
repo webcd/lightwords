@@ -1,0 +1,58 @@
+/* FILTERS */
+
+.widget_layered_nav_filters ul,
+.yith-wcan-list,
+.woocommerce-widget-layered-nav-list {
+  @include reset-list();
+
+  > li {
+    display: inline-block;
+    position: relative;
+    margin-right: $gutter-quarter;
+
+    > * {
+
+    }
+
+    > a {
+      @extend .btn;
+      @extend .btn-xs;
+      @extend .btn-primary;
+      margin-bottom: $gutter-quarter;
+    }
+    
+    &.chosen {
+      
+      > a {
+        @extend .btn-default;
+      }
+    }
+    
+    > .count {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: $gutter-eighth $gutter-quarter;
+      font-size: $font-size-small;
+      vertical-align: middle;
+    }
+  }
+}
+
+.woocommerce-widget-layered-nav-list {
+  > li {
+    > a {
+      padding-right: $gutter;
+    }
+  }
+}
+
+.button {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .btn-wrap;
+}
+
+.yith-wcan-reset-navigation {
+  @extend .btn-xs;
+}

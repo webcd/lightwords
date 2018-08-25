@@ -22,7 +22,7 @@
 			</div>
 		</section>
 
-		<section class="wrapper bg-product-img">
+		<section class="wrapper bg-product-img wrapper--padding-half">
 			<div class="container">
 				<div class="woo-archive-description">
 					{#
@@ -33,7 +33,6 @@
 						#}
 					{% do action('woocommerce_archive_description') %}
 				</div>
-
 			</div>
 		</section>
 
@@ -52,77 +51,93 @@
 			</div>
 		</section>
 
-		<section class="wrapper wrapper--padding-half">
+		<section class="wrapper wrapper--woo-content">
 			<div class="container">
 
-				{# SUB-CATEGORIES #}
-	
-				{% if subcategories and (subcategories|length > 0) %}{# WTF??? #}
-					{# <h2>{{ subcategories|length }} catégories</h2> #}
-					<div class="woo-list woo-list--categories">
-						{% for category in subcategories %}
-							<li class="woo-item">
-								{% include 'woocommerce/teaser-category.twig' %}
-							</li>
-						{% endfor %}
-					</div>
-				{% endif %}
+				<article class="woo-content">
+					{% if widgets_woo_sidebar_1 %}
+						<aside class="woo-content-sidebar">
+							<h2>Filtres</h2>
+							{# <button class="btn btn-hollow">Ouvrir</button> #}
+							<section class="woo-content-sidebar-widgets">
+								{{ widgets_woo_sidebar_1 }}
+							</section>
+						</aside>
+					{% endif %}
 
-				{# PRODUCTS #}
+					<main class="woo-content-main">
 
-				{% if posts %}
-					{# <h2>{{ posts|length }} produits</h2> #}
-					<ul class="woo-list woo-list--products">
-						{% do fn('woocommerce_product_subcategories') %}
+						{# SUB-CATEGORIES #}
+			
+						{% if subcategories and (subcategories|length > 0) %}{# WTF??? #}
+							<h2>{{ subcategories|length }} catégories</h2>
+							<div class="woo-list woo-list--categories">
+								{% for category in subcategories %}
+									<li class="woo-item">
+										{% include 'woocommerce/teaser-category.twig' %}
+									</li>
+								{% endfor %}
+							</div>
+						{% endif %}
+
+						{# PRODUCTS #}
+
+						{% if posts %}
+							<h2>{{ posts|length }} produits</h2>
+							<ul class="woo-list woo-list--products">
+								{% do fn('woocommerce_product_subcategories') %}
+
+								{##
+									# Depending on your WooCommerce display settings, the `woocommerce_product_subcategories` function
+									# might reset the $wp_query global. By calling `have_posts()`, we check if there are posts we can
+									# display.
+									#}
+								{% for post in posts if fn('have_posts') %}
+									<li class="woo-item">
+										{% include 'woocommerce/teaser-product.twig' %}
+									</li>
+								{% endfor %}
+							</ul>
+
+						{% elseif not fn('woocommerce_product_subcategories', [{
+							before: fn('woocommerce_product_loop_start', false),
+							after: fn('woocommerce_product_loop_end', false)
+						}]) %}
+							{##
+								# woocommerce_no_products_found hook.
+								#
+								# @hooked wc_no_products_found - 10
+								#}
+							{% do action('woocommerce_no_products_found') %}
+
+						{% endif %}
 
 						{##
-							# Depending on your WooCommerce display settings, the `woocommerce_product_subcategories` function
-							# might reset the $wp_query global. By calling `have_posts()`, we check if there are posts we can
-							# display.
+							# woocommerce_after_shop_loop hook.
+							#
+							# @hooked woocommerce_pagination - 10
 							#}
-						{% for post in posts if fn('have_posts') %}
-							<li class="woo-item">
-								{% include 'woocommerce/teaser-product.twig' %}
-							</li>
-						{% endfor %}
-					</ul>
+						{% do action('woocommerce_after_shop_loop') %}
 
-				{% elseif not fn('woocommerce_product_subcategories', [{
-					before: fn('woocommerce_product_loop_start', false),
-					after: fn('woocommerce_product_loop_end', false)
-				}]) %}
-					{##
-						# woocommerce_no_products_found hook.
-						#
-						# @hooked wc_no_products_found - 10
-						#}
-					{% do action('woocommerce_no_products_found') %}
+						{##
+							# woocommerce_after_main_content hook.
+							#
+							# @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+							#}
+						{% do action('woocommerce_after_main_content') %}
 
-				{% endif %}
+						{#
+							# woocommerce_sidebar hook.
+							#
+							# @hooked woocommerce_get_sidebar - 10
+							#}
+						{# {% do_action('woocommerce_sidebar') %} #}
 
-				{##
-					# woocommerce_after_shop_loop hook.
-					#
-					# @hooked woocommerce_pagination - 10
-					#}
-				{% do action('woocommerce_after_shop_loop') %}
-
-				{##
-					# woocommerce_after_main_content hook.
-					#
-					# @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-					#}
-				{% do action('woocommerce_after_main_content') %}
-
-				{#
-					# woocommerce_sidebar hook.
-					#
-					# @hooked woocommerce_get_sidebar - 10
-					#}
-				{# {% do_action('woocommerce_sidebar') %} #}
+					</main>
+				</article>
 
 			</div>
-		</section>
+		</div>
 
 	</article>
 

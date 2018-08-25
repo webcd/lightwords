@@ -1,0 +1,80 @@
+// PRODUCTS LIST
+
+/*ul*/.woo-list {
+  padding-left: 0;
+  list-style-type: none;
+
+  @include row();
+
+  > .woo-item {
+    // height: 100%;
+
+    // @include bp('xs') { flex-basis: 50%; }
+    // @include bp('sm') { flex-basis: 33.33%; }
+    // @include bp('md') { flex-basis: 25%; }
+    // @include bp('lg') { flex-basis: 20%; }
+    @extend .col-xs-6;
+    @extend .col-sm-4;
+    @extend .col-md-6;
+    @extend .col-lg-4;
+    @extend .col-xl-3;
+  }
+}
+
+.woocommerce-pagination {
+
+  > ul {
+    @include reset-list();
+    display: flex;
+    justify-content: center;
+
+    > li {
+      display: block;
+      
+      > span,
+      > a {
+        display: inline-block;
+        padding: $gutter-quarter $gutter-half;
+        margin: $gutter-eighth;
+        background-color: $gray-lightest;
+      }
+
+      > span {
+        background-color: $gray-light;
+      }
+
+      > a {
+
+      }
+    }
+  }
+}
+
+.woo-products-header {
+  @extend .row;
+  margin-top: 0;
+  margin-bottom: 0;
+  align-items: center;
+
+  > * {
+    display: block;
+    @extend .col-xs-6;
+    margin: 0;
+  }
+
+  @include bp($bp-woo-sidebar) {
+    padding-top: $gutter-half;
+    padding-bottom: $gutter-half;
+  }
+}
+
+.woo-archive-description {
+
+  > .term-image {
+    width: 12rem;
+  }
+
+  > .term-description {
+
+  }
+}

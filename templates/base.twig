@@ -22,9 +22,10 @@
     <section class="site-content">
 
       <!-- MAIN -->
-      <main class="wrapper wrapper--content" role="main">
+      <main class="site-main-content wrapper wrapper--content" role="main">
+
+        <!-- BREADCRUMB -->
         {% if not fn('is_front_page') %}
-          <!-- BREADCRUMB -->
           <section class="wrapper wrapper--breadcrumb">
             <div class="container">
               {# native walker: % include "breadcrumb.twig" %#}
@@ -41,13 +42,6 @@
         {% endblock %}
 
       </main>
-
-      {% if sidebar %}
-        <!-- SIDEBAR -->
-        <aside class="site-aside">
-          {{ sidebar }}
-        </aside>
-      {% endif %}
 
     </section><!-- end .site-content -->
 

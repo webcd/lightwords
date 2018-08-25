@@ -1,0 +1,88 @@
+/*.product*/.teaser {
+  height: 100%;
+  
+  > .teaser-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: $product-img-bg;
+    border: 0.1rem solid $gray-lighter;
+    transition: all 0.25s;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      @include shadow(2);
+    }
+
+    > img {
+      display: block;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .teaser-title {
+      flex-grow: 1;
+      margin-bottom: 0;
+
+      > .teaser-link {
+        display: block;
+        padding: $gutter-half;
+        @extend .h2;
+        color: $gray;
+        text-align: center;
+      }
+    }
+
+    > .button {
+      display: block;
+      margin: $gutter-half;
+      text-align: center;
+
+      @extend .btn;
+      // @extend .btn-default;
+      // @extend .btn-gray;
+      // @extend .btn-hollow;
+      @extend .btn-wrap;
+      line-height: 1;
+    }
+
+    > .teaser-description {
+      padding: $gutter-half;
+      text-align: center;
+    }
+  }
+}
+
+.onsale {
+  position: absolute;
+  display: inline-block;
+  padding: $gutter-eighth $gutter-half;
+  top: 0;
+  right: 0;
+  background-color: $color-primary;
+  color: white;
+  font-weight: 500;
+}
+
+.price {
+  display: block;
+  padding: $gutter-half;
+  text-align: center;
+  color: $color-secondary;
+  @extend .h3;
+  font-weight: normal;
+  
+  > del {
+    font-size: $font-size-base;
+    color: $gray-light;
+  }
+  
+  > span,
+  > ins {
+    font-size: $font-size-big;
+    text-decoration: none;
+  }
+}
+

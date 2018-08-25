@@ -1,0 +1,68 @@
+// WOO COMMERCE LAYOUT
+
+.wrapper--woo-content {
+  background-color: $gray-light;
+
+  @include bp($bp-woo-sidebar) {
+    background: linear-gradient(to right, $bg-woo-sidebar 0%,$bg-woo-sidebar 50%,$bg-woo-main 50%,$bg-woo-main 100%);
+  }
+}
+
+.woo-content {
+  margin-bottom: -$gutter;
+
+  @include bp($bp-woo-sidebar) {
+    display: flex;
+    align-items: stretch;
+  }
+}
+
+.woo-content-sidebar {
+  background-color: $bg-woo-sidebar;
+  color: $color-woo-sidebar;
+  margin: 0 (-$gutter-half);
+  padding: $gutter $gutter-half;
+  padding-bottom: 0;
+
+
+  > h2 {
+    margin-bottom: 0;
+  }
+
+  h3.widget-title {
+    @extend .h4;
+  }
+
+  @include bp($bp-woo-sidebar) {
+    flex-basis: $width-woo-sidebar;
+    min-width: $width-woo-sidebar;
+    margin-right: 0;
+    padding-top: $gutter;
+  }
+}
+
+.woo-content-sidebar-widgets {
+  @extend .row;
+  align-items: flex-start;
+
+  > .widget {
+    @extend .col-xs-6;
+    @extend .col-sm-4;
+    @extend .col-md-12;
+    margin-bottom: 0;
+  }
+}
+
+.woo-content-main {
+  padding-top: $gutter;
+  padding-bottom: $gutter;
+  background-color: $bg-woo-main;
+  color: $color-woo-main;
+
+  @include bp($bp-woo-sidebar) {
+    flex-grow: 1;
+    padding-left: $gutter;
+    padding-right: $gutter-half;
+    margin-right: -$gutter-half;
+  }
+}

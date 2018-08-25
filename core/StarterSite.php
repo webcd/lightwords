@@ -73,6 +73,9 @@ class StarterSite extends \TimberSite
         $context['do_debug_zone'] = WP_DEBUG;
         
         // WIDGETS AREAS
+        $context['widgets_woo_sidebar_1'] = \Timber::get_widgets('woo-sidebar-1');
+        $context['widgets_woo_sidebar_2'] = \Timber::get_widgets('woo-sidebar-2');
+
         $context['widgets_footer_1'] = \Timber::get_widgets('footer1');
         $context['widgets_footer_2'] = \Timber::get_widgets('footer2');
         $context['widgets_footer_3'] = \Timber::get_widgets('footer3');

@@ -1,0 +1,93 @@
+// WITHOUT woocommerce.php
+
+// // PRODUCTS LIST
+
+// /*ul*/.products {
+//   padding-left: 0;
+//   list-style-type: none;
+
+//   @include row();
+
+//   > * {
+//     @include bp('xs') { flex-basis: 50%; }
+//     @include bp('sm') { flex-basis: 33.33%; }
+//     @include bp('md') { flex-basis: 25%; }
+//     @include bp('lg') { flex-basis: 20%; }
+//   }
+// }
+
+// .columns-4 {}
+
+// // PRODUCT TILE
+
+// .product {
+//   display: block;
+//   position: relative;
+//   background-clip: content-box;
+
+//   &:hover,
+//   &:focus {
+//     @include shadow(2);
+//   }
+
+//   > a:first-child {
+//     display: block;
+//     padding-bottom: $gutter-half;
+//     background-color: $product-img-bg;
+//     color: white;
+
+//     > img {
+//       display: block;
+//       max-width: 100%;
+//       margin: 0 auto;
+//       margin-bottom: $gutter-half;
+//     }
+
+//     > * {
+//       display: block;
+//       text-align: center;
+//     }
+
+//     > h2/*.woocommerce-loop-product__title*/ {
+//       color: $gray-dark;
+//       @extend .h2;
+//     }
+
+//     > .price {
+//       font-weight: 500;
+//       color: $color-secondary;
+//       @extend .h3;
+      
+//       > del {
+//         font-size: $font-size-base;
+//         color: $gray;
+//       }
+      
+//       > span,
+//       > ins {
+//         text-decoration: none;
+//         font-weight: normal;
+//       }
+//     }
+//   }
+
+//   > .button {
+//     display: block;
+//     border: $gutter-half solid $product-img-bg;
+//     text-align: center;
+
+//     @extend .btn;
+//     // @extend .btn-dark;
+//   }
+
+//   .onsale {
+//     position: absolute;
+//     display: inline-block;
+//     padding: $gutter-eighth $gutter-half;
+//     top: 0;
+//     right: 0;
+//     background-color: $color-primary;
+//     color: white;
+//   }
+// }
+

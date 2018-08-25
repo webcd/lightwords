@@ -59,6 +59,26 @@ class SiteAdmin extends \App\Lib\SiteCore
     public function register_widget_areas()
     {
         register_sidebar(array(
+            'name' => 'Woo Sidebar 1',
+            'id' => 'woo-sidebar-1',
+            'description' => 'The first WooCommerce sidebar widget zone',
+            'before_widget' => '<article id="%1$s" class="widget %2$s">',
+            'after_widget' => '</article>',
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>',
+        ));
+
+        register_sidebar(array(
+            'name' => 'Woo Sidebar 2',
+            'id' => 'woo-sidebar-2',
+            'description' => 'The second WooCommerce sidebar widget zone',
+            'before_widget' => '<article id="%1$s" class="widget %2$s">',
+            'after_widget' => '</article>',
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>',
+        ));
+
+        register_sidebar(array(
             'name' => 'Footer 1',
             'id' => 'footer1',
             'description' => 'The first footer widget zone',
