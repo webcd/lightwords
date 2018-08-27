@@ -46,9 +46,23 @@
 	// WooCommerce default hooks
 	// (See: https://businessbloomer.com/woocommerce-visual-hook-guide-single-product-page/#tab-additional_information)
 
-	// Remove related products from single product page
-	// We display them "by hand"
+	// SINGLE PRODUCT PAGE
+	// Removing things we display "by hand" (in templates files)
+
+	// Remove title
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+	// Remove rating
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
+	// Remove price(s)
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+	// Remove price(s)
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+	// Remove metas
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+	
+	// Remove related products
 	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+	
 
 	// Fix context for products in the loop
 	// See: https://github.com/timber/timber/blob/master/docs/guides/woocommerce.md#tease-product
@@ -58,6 +72,12 @@
     if ( is_woocommerce() ) {
         $product = wc_get_product( $post->ID );
     }
+	}
+
+	function ddump( $what ) {
+		echo '<pre>';
+		var_dump( $what );
+		echo '</pre>';
 	}
 
  	// Display category image on category archive item
