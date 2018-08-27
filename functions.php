@@ -46,6 +46,20 @@
 	// WooCommerce default hooks
 	// (See: https://businessbloomer.com/woocommerce-visual-hook-guide-single-product-page/#tab-additional_information)
 
+	// Remove related products from single product page
+	// We display them "by hand"
+	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+
+	// Fix context for products in the loop
+	// See: https://github.com/timber/timber/blob/master/docs/guides/woocommerce.md#tease-product
+	function timber_set_product( $post ) {
+    global $product;
+    
+    if ( is_woocommerce() ) {
+        $product = wc_get_product( $post->ID );
+    }
+	}
+
  	// Display category image on category archive item
 	add_action( 'display_category_image', 'display_category_image');
 	function display_category_image($category) {

@@ -1,6 +1,9 @@
 <div {{ fn('post_class', ['list-item', 'teaser', 'teaser--product'] ) }}
 	onclick="window.location.href = '{{ post.link }}'"
 >
+
+	{{ fn('timber_set_product', post) }}
+
 	{# THUMBNAIL IMAGE #}
 	{# <div class="teaser-image-container">
 		{% if post.thumbnail %}

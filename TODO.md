@@ -23,7 +23,7 @@
 
 ### Single product page
 
-* Similar products: use product teaser template
+* Fix stock display
 
 ### Dynamize (default) theme options
 

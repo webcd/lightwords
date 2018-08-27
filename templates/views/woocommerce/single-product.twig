@@ -84,6 +84,24 @@
       </div>
     </section>
 
+    {% if related_products %}
+    <section class="wrapper wrapper--padding bg-gray-light">
+      <div class="container">
+
+        <h2>Produits similaires</h2>
+        <ul class="woo-list woo-list--products">
+
+          {% for product in related_products %}
+            <li class="woo-item">
+              {% include 'partials/woocommerce/teaser-product.twig' with { post: product } %}
+            </li>
+          {% endfor %}
+        </ul>
+
+      </div>
+    </section>
+    {% endif %}
+
   </article>
 
 {% endblock %}
