@@ -70,13 +70,13 @@
   display: block;
   padding: $gutter-half;
   text-align: center;
-  color: $color-secondary;
+  color: $color-price;
   @extend .h3;
   font-weight: normal;
   
   > del {
     font-size: $font-size-base;
-    color: $gray-light;
+    color: $color-price-old;
   }
   
   > span,

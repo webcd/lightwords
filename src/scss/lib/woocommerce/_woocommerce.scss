@@ -1,6 +1,9 @@
 $product-img-bg: #EAEFF3;
 .bg-product-img { background-color: $product-img-bg; }
 
+$color-price: $color-secondary;
+$color-price-old: $gray-light;
+
 $bp-woo-sidebar: 'md';
 $width-woo-sidebar: 28rem;
 
@@ -13,6 +16,10 @@ $color-woo-main: $gray-darker;
 @import './archive';
 @import './filters';
 @import './teaser';
+@import './single-product';
+
+/* Hide woocommerce breadcrumb */
+// We use native breadcrumb instead
 
 .woocommerce-breadcrumb {
   display: none;

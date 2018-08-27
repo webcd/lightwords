@@ -1,12 +1,14 @@
 // PRODUCTS LIST
 
-/*ul*/.woo-list {
+/*ul*/.woo-list,
+  .products {
   padding-left: 0;
   list-style-type: none;
 
   @include row();
 
-  > .woo-item {
+  > .woo-item,
+    .product {
     // height: 100%;
 
     // @include bp('xs') { flex-basis: 50%; }

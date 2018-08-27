@@ -2,6 +2,7 @@
 
 ## Urgent
 
+* All post/page/product image MUST use srcset
 * Fix breadcrumb on transparent header
 * Fix some button colors (focus, disabled...)
 * Forms styling
@@ -12,12 +13,17 @@
 ## Woocommerce
 
 * Config string for "products" (URL, breadcrumb, page title...)
+* Display products availability ('en stock')
 
 ### Products archive
 
 * title (+ image + description) when at shop root
 * categories won't show up when at shop root
 * display "N results per page" select
+
+### Single product page
+
+* Similar products: use product teaser template
 
 ### Dynamize (default) theme options
 

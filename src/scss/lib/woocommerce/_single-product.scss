@@ -1,0 +1,174 @@
+
+.product-images {
+
+  .woocommerce-product-gallery {
+    text-align: center;
+  }
+  
+  .woocommerce-product-gallery__wrapper {
+    @extend .row;
+  }
+  
+  .woocommerce-product-gallery__image {
+    @extend .col-4;
+    
+    > a {
+      display: block;
+      
+      > img {
+        object-fit: contain;
+        width: auto !important;
+        height: auto !important;
+      }
+    }
+  
+    &:first-child {
+      @extend .col--full;
+    }
+  }
+}
+
+.product-content {
+
+  @include bp('lg') {
+    padding-left: $gutter-double;
+  }
+
+  .product-summary {
+
+    .price {
+      margin-top: -$gutter;
+      margin-bottom: $gutter;
+      text-align: left;
+      padding: 0;
+      color: $color-price;
+      
+      > del {
+        font-size: $font-size-big;
+      }
+      
+      > ins {
+        font-size: $font-size-bigger;
+        // font-weight: $font-weight-semibold;
+      }
+    }
+  }
+
+  form.cart {
+    .single_add_to_cart_button {
+      @extend .btn-block;
+      @extend .btn-black;
+      @extend .btn-hollow;
+    }
+  }
+
+}
+
+h1.product_title {
+  display: none;
+}
+
+.woocommerce-product-details__short-description {
+  margin-bottom: $gutter-double;
+  font-size: $font-size-big;
+}
+
+table.variations {
+  width: 100%;
+
+  tr {
+    @extend .row;
+
+    td.label,
+    td.value {
+      @extend .col-xs-6;
+    }
+    td.value {
+      margin-left: -1px;
+    }
+  }
+}
+  
+.quantity {
+  @extend .row;
+  margin-bottom: $gutter !important;
+  padding-right: $gutter-half;
+
+  > * {
+    @extend .col-xs-6;
+  }
+
+  > label {
+    // text-align: right;
+  }
+}
+
+.product_meta {
+  margin-top: $gutter;
+
+  > *:not(:last-child) {
+    &::after {
+      content: " /";
+    }
+  }
+
+  a {
+    @extend .btn;
+    @extend .btn-xs;
+    // @extend .btn-black;
+    // @extend .btn-hollow;
+    vertical-align: baseline;
+  }
+}
+
+.woocommerce-tabs {
+  margin-bottom: $gutter-double;
+  // display: flex;
+  @extend .row;
+
+  > * {
+  }
+
+  > ul.tabs {
+    // @include reset-list();
+    list-style-type: none;
+    @extend .col-sm-4;
+    @extend .col-md-6;
+    @extend .col-lg-5;
+    @extend .col-xl-4;
+
+    > li {
+      display: block;
+
+      > a {
+        display: block;
+        padding: $gutter-quarter 0;
+        @extend .h4;
+      }
+
+      &.active {
+        > a::before {
+          content: "› ";
+        }
+      }
+    }
+  }
+
+  > .panel {
+    @extend .col-sm-8;
+    @extend .col-md-6;
+    @extend .col-lg-7;
+    @extend .col-xl-8;
+
+    @include bp('lg') {
+      padding-left: $gutter-double;
+    }
+  }
+}
+
+.related.products {
+
+  > h2 {
+    text-align: center;
+  }
+}

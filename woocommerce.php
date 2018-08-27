@@ -12,6 +12,9 @@ if ( is_singular( 'product' ) ) {
 	$product = Timber::get_post();
 	$context['post'] = $product;
 	  
+	// echo '<pre>' , var_dump($context['post']) , '</pre>';
+	// die();
+
 	Timber::render( 'views/woocommerce/single-product.twig', $context );
 	
 } else { 

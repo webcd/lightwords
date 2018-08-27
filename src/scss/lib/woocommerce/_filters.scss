@@ -49,7 +49,7 @@
 
 .button {
   @extend .btn;
-  @extend .btn-primary;
+  // @extend .btn-default;
   @extend .btn-wrap;
 }
 

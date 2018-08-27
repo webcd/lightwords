@@ -43,6 +43,9 @@
 	// Don't load WooCommerce default CSS
 	add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
+	// WooCommerce default hooks
+	// (See: https://businessbloomer.com/woocommerce-visual-hook-guide-single-product-page/#tab-additional_information)
+
  	// Display category image on category archive item
 	add_action( 'display_category_image', 'display_category_image');
 	function display_category_image($category) {
