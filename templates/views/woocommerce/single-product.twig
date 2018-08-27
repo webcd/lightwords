@@ -7,18 +7,22 @@
     <section class="wrapper wrapper--article-content">
       <div class="article-content">
 
-        <div class="container">
-          <div id="product-{{ post.id }}" {{ fn('post_class', ['product', 'product--' ~ post.product.get_type()]) }}>
+        <div id="product-{{ post.id }}" {{ fn('post_class', ['product', 'product--' ~ post.product.get_type()]) }}>
+
+          <section class="wrapper bg-secondary color-white">
+            <div class="container">
+              {##
+                # woocommerce_before_single_product hook.
+                #
+                # @hooked wc_print_notices - 10
+                #}
+              {% do action('woocommerce_before_single_product') %}
+            </div>
+          </section>
+
+          <div class="container">
             <div class="row">
-
               <div class="col-sm-4 col-md-6 col-lg-5 col-xl-4 product-images">
-                {##
-                  # woocommerce_before_single_product hook.
-                  #
-                  # @hooked wc_print_notices - 10
-                  #}
-                {% do action('woocommerce_before_single_product') %}
-
                 {##
                   # woocommerce_before_single_product_summary hook.
                   #
@@ -30,7 +34,6 @@
                 {# {% if post.thumbnail %}
                     <img src="{{ post.thumbnail.src('thumbnail') }}">
                 {% endif %} #}
-
               </div>
 
               <div class="col-sm-8 col-md-6 col-lg-7 col-xl-8 product-content">
