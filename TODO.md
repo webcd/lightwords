@@ -2,6 +2,7 @@
 
 ## Urgent
 
+* SCSS row/col and buttons: @mixin instead of @extend
 * All post/page/product image MUST use srcset
 * Fix breadcrumb on transparent header
 * Fix some button colors (focus, disabled...)
@@ -24,6 +25,7 @@
 ### Single product page
 
 * Fix stock display
+* Fix metas (ratings, reviews + term links)
 
 ### Dynamize (default) theme options
 

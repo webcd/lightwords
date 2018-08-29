@@ -63,7 +63,13 @@
 	// Remove related products
 	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 	
+	// CART PAGE
 
+	add_action( 'woocommerce_before_cart_table', 'display_cart_product_list_title', 1);
+	function display_cart_product_list_title() {
+		echo '<h2>Produits</h2>';
+	}
+	
 	// Fix context for products in the loop
 	// See: https://github.com/timber/timber/blob/master/docs/guides/woocommerce.md#tease-product
 	function timber_set_product( $post ) {

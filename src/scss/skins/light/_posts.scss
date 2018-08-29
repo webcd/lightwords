@@ -53,7 +53,8 @@
   // the <!-- more --> thing changes nothing in markup
   // So we made the very first paragraph of content highlighted!
   p:first-child {
-    font-size: $font-size-big;
+    // TODO: limit to simple article (woocommerce conflicts)
+    // font-size: $font-size-big;
   }
 }
 

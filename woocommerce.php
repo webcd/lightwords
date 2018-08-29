@@ -17,15 +17,15 @@ if ( is_singular( 'product' ) ) {
 	$related_ids                 = wc_get_related_products( $context['post']->id, $related_limit );
 	$context['related_products'] =  Timber::get_posts( $related_ids );
 
+	// Restore the context and loop back to the main query loop.
+	wp_reset_postdata();
+
 	// Get product categories and tags
 	$context['categories'] = get_the_terms( $post->ID, 'product_cat' );
 	$context['tags'] = get_the_terms( $post->ID, 'product_tag' );
 	
 	// echo '<pre>' , var_dump($terms) , '</pre>';
 	// die();
-
-	// Restore the context and loop back to the main query loop.
-	wp_reset_postdata();
 
 	Timber::render( 'views/woocommerce/single-product.twig', $context );
 	

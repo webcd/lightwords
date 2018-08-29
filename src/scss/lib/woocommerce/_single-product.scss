@@ -1,5 +1,4 @@
 .woocommerce-message {
-
   .button {
     vertical-align: baseline;
     margin-bottom: 0;
@@ -7,28 +6,30 @@
 }
 
 .product-images {
-
   .woocommerce-product-gallery {
     text-align: center;
   }
-  
+
   .woocommerce-product-gallery__wrapper {
     @extend .row;
+    justify-content: flex-start;
   }
-  
+
   .woocommerce-product-gallery__image {
-    @extend .col-4;
-    
+    // @extend .col--fit;
+    flex-basis: calc(100px + 3rem);
+    background-color: $product-img-bg;
+
     > a {
       display: block;
-      
+
       > img {
         object-fit: contain;
         width: auto !important;
         height: auto !important;
       }
     }
-  
+
     &:first-child {
       @extend .col--full;
     }
@@ -36,24 +37,22 @@
 }
 
 .product-content {
-
-  @include bp('lg') {
+  @include bp("lg") {
     padding-left: $gutter-double;
   }
 
   .product-summary {
-
     .price {
       margin-top: -$gutter;
       margin-bottom: $gutter;
       text-align: left;
       padding: 0;
       color: $color-price;
-      
+
       > del {
         font-size: $font-size-big;
       }
-      
+
       > ins {
         font-size: $font-size-bigger;
         // font-weight: $font-weight-semibold;
@@ -68,12 +67,26 @@
       @extend .btn-hollow;
     }
   }
-
 }
 
-h1.product_title {
-  // display: none;
+.single {
+
+  .quantity {
+    @extend .row;
+    margin-bottom: $gutter !important;
+    padding-right: $gutter-half;
+  
+    > * {
+      @extend .col-xs-6;
+    }
+  
+    > label.screen-reader-text {
+      display: block;
+      // text-align: right;
+    }
+  }
 }
+
 
 .woocommerce-product-details__short-description {
   margin-bottom: $gutter-double;
@@ -93,20 +106,6 @@ table.variations {
     td.value {
       margin-left: -1px;
     }
-  }
-}
-  
-.quantity {
-  @extend .row;
-  margin-bottom: $gutter !important;
-  padding-right: $gutter-half;
-
-  > * {
-    @extend .col-xs-6;
-  }
-
-  > label {
-    // text-align: right;
   }
 }
 
@@ -167,14 +166,13 @@ table.variations {
     @extend .col-lg-7;
     @extend .col-xl-8;
 
-    @include bp('lg') {
+    @include bp("lg") {
       padding-left: $gutter-double;
     }
   }
 }
 
 .related.products {
-
   > h2 {
     text-align: center;
   }

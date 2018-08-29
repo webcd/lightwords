@@ -17,6 +17,7 @@ $color-woo-main: $gray-darker;
 @import './filters';
 @import './teaser';
 @import './single-product';
+@import './cart';
 
 /* Hide woocommerce breadcrumb */
 // We use native breadcrumb instead
@@ -25,3 +26,18 @@ $color-woo-main: $gray-darker;
   display: none;
 }
 
+
+// Quantity
+
+.quantity {
+
+  > input {
+    width: 7rem;
+    text-align: right;
+  }
+}
+
+.checkout-button {
+  @extend .btn-primary;
+  @extend .btn-block;
+}
