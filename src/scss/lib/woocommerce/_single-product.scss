@@ -16,7 +16,6 @@
   }
 
   .woocommerce-product-gallery__image {
-    // @extend .col--fit;
     flex-basis: calc(100px + 3rem);
     background-color: $product-img-bg;
 
@@ -31,7 +30,7 @@
     }
 
     &:first-child {
-      @extend .col--full;
+      @include column('full');
     }
   }
 }
@@ -76,7 +75,7 @@
     padding-right: $gutter-half;
   
     > * {
-      @extend .col-xs-6;
+      @include col('xs', 6);
     }
   
     > label.screen-reader-text {
@@ -100,7 +99,7 @@ table.variations {
 
     td.label,
     td.value {
-      @extend .col-xs-6;
+      @include col('xs', 6);
     }
     td.value {
       margin-left: -1px;
@@ -136,10 +135,10 @@ table.variations {
   > ul.tabs {
     // @include reset-list();
     list-style-type: none;
-    @extend .col-sm-4;
-    @extend .col-md-6;
-    @extend .col-lg-5;
-    @extend .col-xl-4;
+    @include col('sm', 4);
+    @include col('md', 6);
+    @include col('lg', 5);
+    @include col('xl', 4);
 
     > li {
       display: block;
@@ -159,10 +158,10 @@ table.variations {
   }
 
   > .panel {
-    @extend .col-sm-8;
-    @extend .col-md-6;
-    @extend .col-lg-7;
-    @extend .col-xl-8;
+    @include col('sm', 8);
+    @include col('md', 6);
+    @include col('lg', 7);
+    @include col('xl', 8);
 
     @include bp("lg") {
       padding-left: $gutter-double;

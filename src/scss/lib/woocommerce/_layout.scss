@@ -51,9 +51,9 @@
   align-items: flex-start;
 
   > .widget {
-    @extend .col-xs-6;
-    @extend .col-sm-4;
-    @extend .col-md-12;
+    @include col('xs', 6);
+    @include col('sm', 4);
+    @include col('md', 12);
     margin-bottom: 0;
   }
 }

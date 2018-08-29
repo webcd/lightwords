@@ -30,23 +30,23 @@ $n-children-max: 12 !default; // Max number of columns
 		@if 		$mod == "" { 									display: flex; flex-wrap: wrap; 
 																					margin: $gutter-half (-$gutter-half);
 			
-																					& > * { @include col(); @include col("full"); }
+																					& > * { @include column(); @include column("full"); }
 																					& & { margin-top: -$gutter-half; margin-bottom: -$gutter-half; } // row in a row
 																					& + & { margin-top: -$gutter-half; } // row after row
 		}
 		@elseif $mod == "no-gutter" {					margin: 0;
-																					& > * { @include col("no-gutter"); }
+																					& > * { @include column("no-gutter"); }
 																					& + & { margin-top: 0; }
 		}
 		@elseif $mod == "no-wrap" {						flex-wrap: nowrap;
-																					& > * { @include col("no-wrap"); } }
+																					& > * { @include column("no-wrap"); } }
 		@elseif $mod == "auto-size" {					
-																					& > * { @include col("auto-size"); } }
+																					& > * { @include column("auto-size"); } }
 
-		@elseif $mod == "fit" { 							& > * {	@include col("fit"); } }
-		@elseif $mod == "fill" { 							& > *	{ @include col("fill"); } }
-		@elseif $mod == "full" { 							& > * {	@include col("full"); } }
-		@elseif $mod == "responsive" { 				& > * {	@include col("full"); } } // copy
+		@elseif $mod == "fit" { 							& > * {	@include column("fit"); } }
+		@elseif $mod == "fill" { 							& > *	{ @include column("fill"); } }
+		@elseif $mod == "full" { 							& > * {	@include column("full"); } }
+		@elseif $mod == "responsive" { 				& > * {	@include column("full"); } } // copy
 
 		@elseif $mod == "vertical" {					flex-direction: column; }
 
@@ -68,7 +68,7 @@ $n-children-max: 12 !default; // Max number of columns
 }
 
 // COL
-@mixin col($mods: "") {
+@mixin column($mods: "") {
 	@each $mod in $mods {
 
 		@if 		$mod == "" { 									padding: $gutter-half; }
@@ -84,7 +84,7 @@ $n-children-max: 12 !default; // Max number of columns
 		@elseif $mod == "full" { 							flex-basis: 100%;	}	
 
 		@else {
-			@error "ERROR in mixin col(): unknown modifier `#{$mod}`";
+			@error "ERROR in mixin column(): unknown modifier `#{$mod}`";
 		}
 	}
 }
@@ -92,6 +92,12 @@ $n-children-max: 12 !default; // Max number of columns
 // COLSIZE
 @mixin colSize($total, $size: 1) {
 	flex-basis: fraktion($total, $size);
+}
+
+@mixin col($bp, $size) {
+	@include bp($bp) { 
+		@include colSize($n-children-max, $size);
+	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -107,12 +113,12 @@ $mods: "vertical", "no-gutter", "no-wrap", "auto-size", "top", "middle", "bottom
 }
 
 /* COL */
-.col { @include col(); }
+.col { @include column(); }
 
 $mods: "top", "middle", "bottom", "fit", "fill", "full";
 
 @each $mod in $mods {
-	.col--#{$mod} { @include col($mod); }
+	.col--#{$mod} { @include column($mod); }
 }
 
 @for $i from 1 through $n-children-max {
@@ -120,12 +126,8 @@ $mods: "top", "middle", "bottom", "fit", "fill", "full";
 }
 
 @each $breakpoint-name, $breakpoint-width in $breakpoints {
-
-	@media (min-width: $breakpoint-width) {
-	// @include bp($breakpoint-name) { 
-		@for $i from 1 through $n-children-max {
-			.col-#{$breakpoint-name}-#{$i} { @include colSize($n-children-max, $i); }
-		}
+	@for $i from 1 through $n-children-max {
+		.col-#{$breakpoint-name}-#{$i} { @include col($breakpoint-name, $i); }
 	}
 }
 

@@ -15,11 +15,11 @@
     // @include bp('sm') { flex-basis: 33.33%; }
     // @include bp('md') { flex-basis: 25%; }
     // @include bp('lg') { flex-basis: 20%; }
-    @extend .col-xs-6;
-    @extend .col-sm-4;
-    @extend .col-md-6;
-    @extend .col-lg-4;
-    @extend .col-xl-3;
+    @include col('xs', 6);
+    @include col('sm', 4);
+    @include col('md', 6);
+    @include col('lg', 4);
+    @include col('xl', 3);
   }
 }
 
@@ -60,7 +60,7 @@
 
   > * {
     display: block;
-    @extend .col-xs-6;
+    @include col('xs', 6);
     margin: 0;
   }
 

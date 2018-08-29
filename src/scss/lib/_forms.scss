@@ -97,7 +97,7 @@ label {
 
 .gf_left_half,
 .gf_right_half {
-  @extend .col-sm-6;
+  @include col('sm', 6);
 }
 
 .gfield {

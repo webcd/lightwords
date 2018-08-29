@@ -35,6 +35,31 @@
       }
     }
 
+    @elseif $mod == "default" {
+      background-color: $gray-lighter;
+      color: $text-color-base;
+    
+      &:hover:not(:disabled) {
+        background-color: $gray-light;
+        color: $text-color-base;
+      }
+    }
+
+    @elseif $mod == "block" {
+      display: block;
+      width: 100%;
+    }
+
+    @elseif $mod == "round" {
+      border-radius: 100rem;
+    }
+
+    @elseif $mod == "wrap" {
+      white-space: normal !important;
+    }
+
+    // SIZES
+
     @elseif $mod == "xs" {
       padding: $gutter-eighth $gutter-quarter;
       font-size: $font-size-small;
@@ -54,15 +79,7 @@
       font-size: $font-size-big;
     }
 
-    @elseif $mod == "default" {
-      background-color: $gray-lighter;
-      color: $text-color-base;
-    
-      &:hover:not(:disabled) {
-        background-color: $gray-light;
-        color: $text-color-base;
-      }
-    }
+    // COLORS
 
     @elseif $mod == "primary" {
       background-color: $color-primary;
@@ -122,18 +139,6 @@
         // background-color: $color-ternary-dark;
         color: $gray-darkest;
       }
-    }
-
-    @elseif $mod == "block" {
-      display: block;
-      width: 100%;
-    }
-
-    @elseif $mod == "round" {
-      border-radius: 100rem;
-    }
-
-    @elseif $mod == "" {
     }
 
     @elseif $mod == "" {
@@ -266,6 +271,4 @@ input[type='button'] {
 
 // WRAP BUTTONS (multiline)
 
-.btn-wrap {
-  white-space: normal;
-}
+.btn-wrap { @include btn('wrap'); }

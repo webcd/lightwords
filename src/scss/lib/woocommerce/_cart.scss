@@ -31,11 +31,11 @@ $width-woo-cart-thumbnail-large: 10rem !default;
   @include row();
 
   > .woocommerce-cart-form {
-    @extend .col-md-8;
+    @include col('md', 8);
   }
 
   > .cart-collaterals {
-    @extend .col-md-4;
+    @include col('md', 4);
     background-color: $gray-lightest;
   }
 }
@@ -231,7 +231,6 @@ button[type="submit"][name="update_cart"] {
     .shipping-calculator-button,
     button[type="submit"] {
       @include btn('wrap');
-      // @include btn('sm');
       @include btn('block');
     }
 
