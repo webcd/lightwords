@@ -35,7 +35,7 @@
   }
 
   h3.widget-title {
-    @extend .h4;
+    @include h(4);
   }
 
   @include bp($bp-woo-sidebar) {
@@ -47,7 +47,7 @@
 }
 
 .woo-content-sidebar-widgets {
-  @extend .row;
+  @include row();
   align-items: flex-start;
 
   > .widget {

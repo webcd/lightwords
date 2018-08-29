@@ -11,7 +11,7 @@
   }
 
   .woocommerce-product-gallery__wrapper {
-    @extend .row;
+    @include row();
     justify-content: flex-start;
   }
 
@@ -62,9 +62,8 @@
 
   form.cart {
     .single_add_to_cart_button {
-      @extend .btn-block;
-      @extend .btn-black;
-      @extend .btn-hollow;
+      @include btn('block');
+      @include btn('black');
     }
   }
 }
@@ -72,7 +71,7 @@
 .single {
 
   .quantity {
-    @extend .row;
+    @include row();
     margin-bottom: $gutter !important;
     padding-right: $gutter-half;
   
@@ -97,7 +96,7 @@ table.variations {
   width: 100%;
 
   tr {
-    @extend .row;
+    @include row();
 
     td.label,
     td.value {
@@ -119,10 +118,9 @@ table.variations {
   }
 
   a {
-    @extend .btn;
-    @extend .btn-xs;
-    // @extend .btn-black;
-    // @extend .btn-hollow;
+    @include btn();
+    @include btn('xs');
+    // @include btn('black');
     vertical-align: baseline;
   }
 }
@@ -130,7 +128,7 @@ table.variations {
 .woocommerce-tabs {
   // margin-bottom: $gutter-double;
   // display: flex;
-  @extend .row;
+  @include row();
 
   > * {
   }
@@ -149,7 +147,7 @@ table.variations {
       > a {
         display: block;
         padding: $gutter-quarter 0;
-        @extend .h4;
+        @include h(4);
       }
 
       &.active {

@@ -38,6 +38,6 @@ $color-woo-main: $gray-darker;
 }
 
 .checkout-button {
-  @extend .btn-primary;
-  @extend .btn-block;
+  @include btn('primary');
+  @include btn('block');
 }

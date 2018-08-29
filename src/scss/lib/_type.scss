@@ -70,83 +70,80 @@ a {
 
 // HEADINGS
 
-h1,
-.h1 {
-  margin-bottom: $gutter-double;
-  font-size: $font-size-h1 * 3 / 4;
-  line-height: $line-height-smaller;
-  font-weight: $font-weight-h1;
-  font-family: $font-family-h1;
-}
-h2,
-.h2 {
-  font-size: $font-size-h2 * 3 / 4;
-  line-height: $line-height-smaller;
-  font-weight: $font-weight-h2;
-  font-family: $font-family-h2;
-}
-h3,
-.h3 {
-  font-size: $font-size-h3 * 3 / 4;
-  line-height: $line-height-small;
-  font-weight: $font-weight-h3;
-  font-family: $font-family-h3;
-}
-h4,
-.h4 {
-  font-size: $font-size-h4;
-  line-height: $line-height-small;
-  font-weight: $font-weight-h4;
-  font-family: $font-family-h4;
-}
-h5,
-.h5 {
-  font-size: $font-size-h5;
-  font-weight: $font-weight-h5;
-  font-family: $font-family-h5;
-}
-h6,
-.h6 {
-  font-size: $font-size-h6;
-  font-weight: $font-weight-h6;
-  font-family: $font-family-h6;
+@mixin h($level) {
+  @if $level == 1 {
+    margin-bottom: $gutter-double;
+    font-size: $font-size-h1 * 3 / 4;
+    line-height: $line-height-smaller;
+    font-weight: $font-weight-h1;
+    font-family: $font-family-h1;
+  
+    @include bp('xs') {
+      margin-bottom: $gutter-double;
+      font-size: $font-size-h1 * 7 / 8;
+    }
+  
+    @include bp('sm') {
+      margin-bottom: $gutter-double;
+      font-size: $font-size-h1;
+    }
+
+  } @elseif $level == 2 {
+    font-size: $font-size-h2 * 3 / 4;
+    line-height: $line-height-smaller;
+    font-weight: $font-weight-h2;
+    font-family: $font-family-h2;
+  
+    @include bp('xs') {
+      font-size: $font-size-h2 * 7 / 8;
+      line-height: $line-height-smaller;
+    }
+  
+    @include bp('sm') {
+      font-size: $font-size-h2;
+      line-height: $line-height-smaller;
+    }
+
+  } @elseif $level == 3 {
+    font-size: $font-size-h3 * 3 / 4;
+    line-height: $line-height-small;
+    font-weight: $font-weight-h3;
+    font-family: $font-family-h3;
+  
+    @include bp('xs') {
+      font-size: $font-size-h3 * 7 / 8;
+      line-height: $line-height-small;
+    }
+  
+    @include bp('sm') {
+      font-size: $font-size-h3;
+      line-height: $line-height-small;
+    }
+
+  } @elseif $level == 4 {
+    font-size: $font-size-h4;
+    line-height: $line-height-small;
+    font-weight: $font-weight-h4;
+    font-family: $font-family-h4;
+
+  } @elseif $level == 5 {
+    font-size: $font-size-h5;
+    font-weight: $font-weight-h5;
+    font-family: $font-family-h5;
+
+  } @elseif $level == 6 {
+    font-size: $font-size-h6;
+    font-weight: $font-weight-h6;
+    font-family: $font-family-h6;
+  }
 }
 
-@include bp('xs') {
-  h1,
-  .h1 {
-    margin-bottom: $gutter-double;
-    font-size: $font-size-h1 * 7 / 8;
-  }
-  h2,
-  .h2 {
-    font-size: $font-size-h2 * 7 / 8;
-    line-height: $line-height-smaller;
-  }
-  h3,
-  .h3 {
-    font-size: $font-size-h3 * 7 / 8;
-    line-height: $line-height-small;
-  }
-}
-
-@include bp('sm') {
-  h1,
-  .h1 {
-    margin-bottom: $gutter-double;
-    font-size: $font-size-h1;
-  }
-  h2,
-  .h2 {
-    font-size: $font-size-h2;
-    line-height: $line-height-smaller;
-  }
-  h3,
-  .h3 {
-    font-size: $font-size-h3;
-    line-height: $line-height-small;
-  }
-}
+h1, .h1 { @include h(1); }
+h2, .h2 { @include h(2); }
+h3, .h3 { @include h(3); }
+h4, .h4 { @include h(4); }
+h5, .h5 { @include h(5); }
+h6, .h6 { @include h(6); }
 
 // MISC
 

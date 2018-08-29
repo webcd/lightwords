@@ -50,13 +50,13 @@
 
 //     > h2/*.woocommerce-loop-product__title*/ {
 //       color: $gray-dark;
-//       @extend .h2;
+//       @include h(2);
 //     }
 
 //     > .price {
 //       font-weight: 500;
 //       color: $color-secondary;
-//       @extend .h3;
+//       @include h(3);
       
 //       > del {
 //         font-size: $font-size-base;
@@ -76,8 +76,8 @@
 //     border: $gutter-half solid $product-img-bg;
 //     text-align: center;
 
-//     @extend .btn;
-//     // @extend .btn-dark;
+//     @include btn();
+//     // @include btn('black');
 //   }
 
 //   .onsale {

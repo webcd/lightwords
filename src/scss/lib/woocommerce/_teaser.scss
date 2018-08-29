@@ -29,7 +29,7 @@
       > .teaser-link {
         display: block;
         padding: $gutter-half;
-        @extend .h2;
+        @include h(2);
         color: $gray;
         text-align: center;
       }
@@ -40,11 +40,10 @@
       margin: $gutter-half;
       text-align: center;
 
-      @extend .btn;
-      // @extend .btn-default;
-      // @extend .btn-gray;
-      // @extend .btn-hollow;
-      @extend .btn-wrap;
+      @include btn();
+      // @include btn('default');
+      // @include btn('gray');
+      @include btn('wrap');
       line-height: 1;
     }
 
@@ -71,7 +70,7 @@
   padding: $gutter-half;
   text-align: center;
   color: $color-price;
-  @extend .h3;
+  @include h(3);
   font-weight: normal;
   
   > del {

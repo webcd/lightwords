@@ -107,8 +107,8 @@ $zindex-modal-background: 5000;
 }
 // Close icon
 .modal-header .close {
-  @extend .btn;
-  @extend .btn-default;
+  @include btn();
+  @include btn('default');
   margin-bottom: 0;
 }
 
@@ -117,7 +117,7 @@ $zindex-modal-background: 5000;
   margin: 0;
   margin-top: $gutter-quarter;
   flex-grow: 1;
-  @extend .h3;
+  @include h(3);
 }
 
 // Footer

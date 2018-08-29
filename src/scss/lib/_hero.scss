@@ -46,14 +46,14 @@
 }
 
 .hero__slogan {
-  @extend .h1;
+  @include h(1);
   color: white;
   text-shadow: 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.5);
 }
 
 .hero__btn {
   @include bp('md') {
-    // @extend .btn-lg;
+    // @include btn('lg');
     padding: ($gutter-eighth * 3) ($gutter-quarter * 3);
     font-size: $font-size-big;
   }

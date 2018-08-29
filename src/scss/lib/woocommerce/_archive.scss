@@ -53,7 +53,7 @@
 }
 
 .woo-products-header {
-  @extend .row;
+  @include row();
   margin-top: 0;
   margin-bottom: 0;
   align-items: center;

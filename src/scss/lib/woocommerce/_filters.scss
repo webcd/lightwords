@@ -15,16 +15,16 @@
     }
 
     > a {
-      @extend .btn;
-      @extend .btn-xs;
-      @extend .btn-primary;
+      @include btn();
+      @include btn('xs');
+      @include btn('primary');
       margin-bottom: $gutter-quarter;
     }
     
     &.chosen {
       
       > a {
-        @extend .btn-default;
+        @include btn('default');
       }
     }
     
@@ -48,11 +48,11 @@
 }
 
 .button {
-  @extend .btn;
-  // @extend .btn-default;
-  @extend .btn-wrap;
+  @include btn();
+  // @include btn('default');
+  @include btn('wrap');
 }
 
 .yith-wcan-reset-navigation {
-  @extend .btn-xs;
+  @include btn('xs');
 }

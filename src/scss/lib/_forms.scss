@@ -92,7 +92,7 @@ label {
 .gform_fields {
   list-style-type: none;
   padding-left: 0;
-  @extend .row;
+  @include row();
 }
 
 .gf_left_half,
@@ -105,9 +105,8 @@ label {
 }
 
 input[type='submit'] {
-  @extend .btn;
-  @extend .btn-primary;
-  // @extend .btn;
+  @include btn();
+  @include btn('primary');
 }
 
 .gfield_required {

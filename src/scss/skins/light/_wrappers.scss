@@ -19,7 +19,8 @@
 
 .wrapper--pre-footer {}
 .wrapper--footer {
-  @extend .wrapper--padding;
+  padding-top: $gutter-double;
+  padding-bottom: $gutter-double;
 }
 .wrapper--post-footer {}
 
@@ -32,18 +33,21 @@
 .wrapper--article-content {}
 
 .wrapper--posts {
-  @extend .wrapper--padding;
+  padding-top: $gutter-double;
+  padding-bottom: $gutter-double;
   background-color: $gray-darker;
   color: $gray-light;
 }
 
 .wrapper--breadcrumb {
-  @extend .wrapper--padding-eigth;
+  padding-top: $gutter-quarter;
+  padding-bottom: $gutter-quarter;
   background-color: $gray-lightest;
 }
 
 .wrapper--comments {
-  @extend .wrapper--padding;
+  padding-top: $gutter-double;
+  padding-bottom: $gutter-double;
   background-color: $gray-dark;
   color: $gray-lighter;
 }

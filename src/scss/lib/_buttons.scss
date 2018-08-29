@@ -1,125 +1,171 @@
 /* BUTTONS */
 
-.btn {
-  display: inline-block;
-  margin-bottom: $gutter-half; // For input.btn
-  font-weight: $btn-font-weight;
-  text-align: center;
-  vertical-align: middle;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: none;
-  white-space: nowrap;
-  text-transform: $btn-text-transform;
-  // height: 4.4rem; // Recommanded touch size
-  background-color: transparent;
-  padding: 1rem $gutter-half;
-  transition: all 0.25s;
-  color: $text-color-base;
+@mixin btn($mods: "") {
 
-  &:hover,
-  &:focus {
-    @include shadow(2);
-    color: $text-color-base;
-  }
+  @each $mod in $mods {
+    @if $mod == "" {
+      display: inline-block;
+      margin-bottom: $gutter-half; // For input.btn
+      font-weight: $btn-font-weight;
+      text-align: center;
+      vertical-align: middle;
+      touch-action: manipulation;
+      cursor: pointer;
+      background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+      border: none;
+      white-space: nowrap;
+      text-transform: $btn-text-transform;
+      // height: 4.4rem; // Recommanded touch size
+      background-color: transparent;
+      padding: 1rem $gutter-half;
+      transition: all 0.25s;
+      color: $text-color-base;
+    
+      &:hover, &:focus {
+        @include shadow(2);
+        color: $text-color-base;
+      }
+    
+      // TODO : focus, active, disabled
+    
+      &:disabled {
+        @include shadow(0);
+        opacity: 0.75;
+        cursor: not-allowed;
+      }
+    }
 
-  // TODO : focus, active, disabled
+    @elseif $mod == "xs" {
+      padding: $gutter-eighth $gutter-quarter;
+      font-size: $font-size-small;
+    }
 
-  &:disabled {
-    @include shadow(0);
-    opacity: 0.75;
-    cursor: not-allowed;
+    @elseif $mod == "sm" {
+      padding: $gutter-eighth $gutter-half;
+    }
+
+    @elseif $mod == "lg" {
+      padding: ($gutter-eighth * 3) ($gutter-quarter * 3);
+      font-size: $font-size-big;
+    }
+
+    @elseif $mod == "xl" {
+      padding: ($gutter-eighth * 5) $gutter;
+      font-size: $font-size-big;
+    }
+
+    @elseif $mod == "default" {
+      background-color: $gray-lighter;
+      color: $text-color-base;
+    
+      &:hover:not(:disabled) {
+        background-color: $gray-light;
+        color: $text-color-base;
+      }
+    }
+
+    @elseif $mod == "primary" {
+      background-color: $color-primary;
+      color: white;
+    
+      &:hover:not(:disabled) {
+        background-color: $color-primary-dark;
+        color: white;
+      }
+    }
+
+    @elseif $mod == "secondary" {
+      background-color: $color-secondary;
+      color: white;
+    
+      &:hover:not(:disabled) {
+        background-color: $color-secondary-dark;
+        color: white;
+      }
+    }
+
+    @elseif $mod == "ternary" {
+      background-color: $color-ternary;
+      color: white;
+    
+      &:hover:not(:disabled) {
+        background-color: $color-ternary-dark;
+        color: white;
+      }
+        }
+
+    @elseif $mod == "black" {
+      background-color: black;
+      color: $gray;
+    
+      &:hover:not(:disabled) {
+        // background-color: $color-ternary-dark;
+        color: $gray-lighter;
+      }
+    }
+
+    @elseif $mod == "gray" {
+      background-color: $gray;
+      color: $gray-darker;
+    
+      &:hover:not(:disabled) {
+        // background-color: $color-ternary-dark;
+        color: $gray-darkest;
+      }
+    }
+
+    @elseif $mod == "white" {
+      background-color: white;
+      color: $gray;
+    
+      &:hover:not(:disabled) {
+        // background-color: $color-ternary-dark;
+        color: $gray-darkest;
+      }
+    }
+
+    @elseif $mod == "block" {
+      display: block;
+      width: 100%;
+    }
+
+    @elseif $mod == "round" {
+      border-radius: 100rem;
+    }
+
+    @elseif $mod == "" {
+    }
+
+    @elseif $mod == "" {
+    }
+
+    @elseif $mod == "" {
+    }
   }
 }
+
+// BUTTON CLASSES
+
+.btn { @include btn(); }
 
 // BUTTON SIZES
 
-.btn-xs {
-  padding: $gutter-eighth $gutter-quarter;
-  font-size: $font-size-small;
-}
-
-.btn-sm {
-  padding: $gutter-eighth $gutter-half;
-}
-
-.btn-lg {
-  padding: ($gutter-eighth * 3) ($gutter-quarter * 3);
-  font-size: $font-size-big;
-}
-
-.btn-xl {
-  padding: ($gutter-eighth * 5) $gutter;
-  font-size: $font-size-big;
-}
+.btn-xs { @include btn('xs'); }
+.btn-sm { @include btn('sm'); }
+.btn-lg { @include btn('lg'); }
+.btn-xl { @include btn('xl'); }
 
 // BUTTONS COLORS
 
-.btn-default {
-  background-color: $gray-lighter;
-  color: $text-color-base;
+.btn-default { @include btn('default'); }
 
-  &:hover:not(:disabled) {
-    background-color: $gray-light;
-    color: $text-color-base;
-  }
-}
-.btn-primary {
-  background-color: $color-primary;
-  color: white;
+.btn-primary { @include btn('primary'); }
+.btn-secondary { @include btn('secondary'); }
+.btn-ternary { @include btn('ternary'); }
 
-  &:hover:not(:disabled) {
-    background-color: $color-primary-dark;
-    color: white;
-  }
-}
-.btn-secondary {
-  background-color: $color-secondary;
-  color: white;
-
-  &:hover:not(:disabled) {
-    background-color: $color-secondary-dark;
-    color: white;
-  }
-}
-.btn-ternary {
-  background-color: $color-ternary;
-  color: white;
-
-  &:hover:not(:disabled) {
-    background-color: $color-ternary-dark;
-    color: white;
-  }
-}
-
-.btn-black {
-  background-color: black;
-  color: $gray;
-
-  &:hover:not(:disabled) {
-    // background-color: $color-ternary-dark;
-    color: $gray-lighter;
-  }
-}
-.btn-gray {
-  background-color: $gray;
-  color: $gray-darker;
-
-  &:hover:not(:disabled) {
-    // background-color: $color-ternary-dark;
-    color: $gray-darkest;
-  }
-}
-.btn-white {
-  background-color: white;
-  color: $gray;
-
-  &:hover:not(:disabled) {
-    // background-color: $color-ternary-dark;
-    color: $gray-darkest;
-  }
-}
+.btn-black { @include btn('black'); }
+.btn-gray { @include btn('gray'); }
+.btn-white { @include btn('white'); }
 
 // HOLLOW BUTTONS
 
@@ -198,16 +244,11 @@
 
 // ROUNDED BUTTONS
 
-.btn-round {
-  border-radius: 100rem;
-}
+.btn-round { @include btn('round'); }
 
 // BLOCK BUTTONS
 
-.btn-block {
-  display: block;
-  width: 100%;
-}
+.btn-block { @include btn('block'); }
 
 // Vertically space out multiple block buttons
 // .btn-block + .btn-block {

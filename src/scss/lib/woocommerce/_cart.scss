@@ -28,7 +28,7 @@ $width-woo-cart-thumbnail-large: 10rem !default;
 // LAYOUT
 
 .woocommerce-cart .woocommerce {
-  @extend .row;
+  @include row();
 
   > .woocommerce-cart-form {
     @extend .col-md-8;
@@ -62,7 +62,7 @@ $width-woo-cart-thumbnail-large: 10rem !default;
         width: 50px;
 
         > a {
-          @extend .btn;
+          @include btn();
           margin-bottom: 0;
 
           &:hover,
@@ -164,8 +164,8 @@ $width-woo-cart-thumbnail-large: 10rem !default;
       }
 
       > button[type="submit"] {
-        @extend .btn-default;
-        // @extend .btn-xs;
+        @include btn('default');
+        // @include btn('xs');
         margin-bottom: $gutter-half;
       }
 
@@ -188,7 +188,7 @@ $width-woo-cart-thumbnail-large: 10rem !default;
   
 
 button[type="submit"][name="update_cart"] {
-  // @extend .btn-primary;
+  // @include btn('primary');
 }
 
 .checkout-button {
@@ -230,14 +230,14 @@ button[type="submit"][name="update_cart"] {
 
     .shipping-calculator-button,
     button[type="submit"] {
-      @extend .btn-wrap;
-      // @extend .btn-sm;
-      @extend .btn-block;
+      @include btn('wrap');
+      // @include btn('sm');
+      @include btn('block');
     }
 
     .shipping-calculator-button {
-      @extend .btn;
-      @extend .btn-default;
+      @include btn();
+      @include btn('default');
       line-height: 1.125;
       margin-top: $gutter;
       margin-bottom: 0;
@@ -252,7 +252,7 @@ button[type="submit"][name="update_cart"] {
     }
 
     button[type="submit"] {
-      @extend .btn-primary;
+      @include btn('primary');
       margin-bottom: 0;
     }
   }
