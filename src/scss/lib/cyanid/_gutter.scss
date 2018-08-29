@@ -1,0 +1,32 @@
+/******************************************************************************
+ * CYANID - GUTTER
+ * Depends on : nothing
+ ******************************************************************************/
+
+////////////////////////////////////////////////////////////////////////////////
+// VARIABLES
+
+$gutter: 3rem !default; // Gutter base size
+
+////////////////////////////////////////////////////////////////////////////////
+// FUNCTIONS
+
+// GUTTER
+// Return multiples or fraction of the gutter
+@function gutter($ratio, $gutter: $gutter) {
+  @return $gutter * $ratio;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// COMPUTED VARIABLES
+
+$gutter-half: gutter(1 / 2);
+$gutter-double: gutter(2);
+$gutter-third: gutter(1 / 3);
+$gutter-triple: gutter(3);
+$gutter-quarter: gutter(1 / 4);
+$gutter-quad: gutter(4);
+$gutter-eighth: gutter(1 / 8);
+$gutter-octo: gutter(8);
+
+$gutter-and-half: gutter(1.5);

@@ -24,12 +24,19 @@
 /*****************************************************************************
  * CYANID
  *****************************************************************************/
-@import '../../node_modules/cyanid/src/css/gutter';
-@import '../../node_modules/cyanid/src/css/breakpoints';
-@import '../../node_modules/cyanid/src/css/units-tools';
-@import '../../node_modules/cyanid/src/css/container';
-@import '../../node_modules/cyanid/src/css/grid';
-@import '../../node_modules/cyanid/src/css/debug';
+// @import '../../node_modules/cyanid/src/css/gutter';
+// @import '../../node_modules/cyanid/src/css/breakpoints';
+// @import '../../node_modules/cyanid/src/css/units-tools';
+// @import '../../node_modules/cyanid/src/css/container';
+// @import '../../node_modules/cyanid/src/css/grid';
+// @import '../../node_modules/cyanid/src/css/debug';
+
+@import 'lib/cyanid/gutter';
+@import 'lib/cyanid/breakpoints';
+@import 'lib/cyanid/units-tools';
+@import 'lib/cyanid/container';
+@import 'lib/cyanid/grid';
+@import 'lib/cyanid/debug';
 
 // @import 'lib/cyanid';
 

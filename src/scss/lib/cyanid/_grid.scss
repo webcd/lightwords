@@ -1,0 +1,131 @@
+/******************************************************************************
+ * CYANID - GRID
+ * Depends on : Gutter, Breakpoints
+ ******************************************************************************/
+
+////////////////////////////////////////////////////////////////////////////////
+// VARIABLES
+
+$n-children-max: 12 !default; // Max number of columns
+
+////////////////////////////////////////////////////////////////////////////////
+// FUNCTIONS
+
+// FRAKTION
+// How many % is one seventh? or three fifth?
+@function fraktion($t, $f: 1) {
+	@if $t > 0 {
+		@return (100% * $f / $t);
+	} @else {
+		@warn "ERROR in function fraktion(): fraction denominator must be an integer greater than zero";
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// MIXINS
+
+// ROW
+@mixin row($mods: "") {
+	@each $mod in $mods {
+		@if 		$mod == "" { 									display: flex; flex-wrap: wrap; 
+																					margin: $gutter-half (-$gutter-half);
+			
+																					& > * { @include col(); @include col("full"); }
+																					& & { margin-top: -$gutter-half; margin-bottom: -$gutter-half; } // row in a row
+																					& + & { margin-top: -$gutter-half; } // row after row
+		}
+		@elseif $mod == "no-gutter" {					margin: 0;
+																					& > * { @include col("no-gutter"); }
+																					& + & { margin-top: 0; }
+		}
+		@elseif $mod == "no-wrap" {						flex-wrap: nowrap;
+																					& > * { @include col("no-wrap"); } }
+		@elseif $mod == "auto-size" {					
+																					& > * { @include col("auto-size"); } }
+
+		@elseif $mod == "fit" { 							& > * {	@include col("fit"); } }
+		@elseif $mod == "fill" { 							& > *	{ @include col("fill"); } }
+		@elseif $mod == "full" { 							& > * {	@include col("full"); } }
+		@elseif $mod == "responsive" { 				& > * {	@include col("full"); } } // copy
+
+		@elseif $mod == "vertical" {					flex-direction: column; }
+
+		@elseif $mod == "top" { 							align-items: flex-start; }
+		@elseif $mod == "middle" { 						align-items: center; }
+		@elseif $mod == "bottom" { 						align-items: flex-end; }
+
+		@elseif $mod == "left" { 							justify-content: flex-start; }
+		@elseif $mod == "center" { 						justify-content: center; }
+		@elseif $mod == "right" { 						justify-content: flex-end; }
+		@elseif $mod == "space-between" { 		justify-content: space-between; }
+		@elseif $mod == "space-around" { 			justify-content: space-around; }
+		@elseif $mod == "space-evenly" { 			justify-content: space-evenly; }
+
+		@else {
+			@error "ERROR in mixin row(): unknown modifier `#{$mod}`";
+		}
+	}
+}
+
+// COL
+@mixin col($mods: "") {
+	@each $mod in $mods {
+
+		@if 		$mod == "" { 									padding: $gutter-half; }
+		@elseif $mod == "no-gutter" { 				padding: 0; }
+		@elseif $mod == "no-wrap" { 					overflow-x: hidden; }
+		@elseif $mod == "auto-size" { 				flex-basis: auto; flex-grow: 1; }
+
+		@elseif $mod == "top" { 							align-self: flex-start; }
+		@elseif $mod == "middle" { 						align-self: center; }
+		@elseif $mod == "bottom" { 						align-self: flex-end; }
+		@elseif $mod == "fit" { 							flex-grow: 0; }	
+		@elseif $mod == "fill" { 							flex-grow: 1; }
+		@elseif $mod == "full" { 							flex-basis: 100%;	}	
+
+		@else {
+			@error "ERROR in mixin col(): unknown modifier `#{$mod}`";
+		}
+	}
+}
+
+// COLSIZE
+@mixin colSize($total, $size: 1) {
+	flex-basis: fraktion($total, $size);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// CLASSES
+
+/* ROW */
+.row { @include row(); }
+
+$mods: "vertical", "no-gutter", "no-wrap", "auto-size", "top", "middle", "bottom",	"left", "center", "right", "space-between", "space-around", "space-evenly", "fit", "fill", "full";
+
+@each $mod in $mods {
+	.row--#{$mod} { @include row($mod); }
+}
+
+/* COL */
+.col { @include col(); }
+
+$mods: "top", "middle", "bottom", "fit", "fill", "full";
+
+@each $mod in $mods {
+	.col--#{$mod} { @include col($mod); }
+}
+
+@for $i from 1 through $n-children-max {
+	.col-#{$i} { @include colSize($n-children-max, $i); }
+}
+
+@each $breakpoint-name, $breakpoint-width in $breakpoints {
+
+	@media (min-width: $breakpoint-width) {
+	// @include bp($breakpoint-name) { 
+		@for $i from 1 through $n-children-max {
+			.col-#{$breakpoint-name}-#{$i} { @include colSize($n-children-max, $i); }
+		}
+	}
+}
+
