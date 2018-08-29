@@ -54,6 +54,10 @@
       }
     }
 
+    if (Lightwords.CONFIG.woocommerce) {
+      bodyClasses.push('has-woocommerce-support')
+    }
+
     console.log('Configuring body classes', bodyClasses)
 
     for (var i = 0; i < bodyClasses.length; i++) {

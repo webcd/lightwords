@@ -17,6 +17,8 @@ window.CONFIG = {
   compressHeader: true,
   transparentHeader: false,
 
+  woocommerce: true,
+
   rippleEffect: true,
   rippleSelector: '.btn, .hero__scroll-down'
 }
