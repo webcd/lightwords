@@ -177,6 +177,7 @@ $caret-color: $text-color-base;
       &.menu-item--dropdown {
         position: relative;
         transition: all 0.25s ease;
+        flex-wrap: nowrap;
 
         // // Make caret visually closer to its menu item 
         // .dropdown-toggle {
