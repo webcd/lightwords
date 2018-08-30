@@ -17,6 +17,11 @@ window.CONFIG = {
   compressHeader: true,
   transparentHeader: false,
 
+  fixedWidthContainers: false,
+  fixedWidthHeader: true,
+  fixedWidthFooter: true,
+  fixedWidthContent: true,
+
   woocommerce: true,
 
   rippleEffect: true,

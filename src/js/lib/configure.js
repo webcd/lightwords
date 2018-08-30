@@ -54,6 +54,20 @@
       }
     }
 
+    if (Lightwords.CONFIG.fixedWidthContainers) {
+      bodyClasses.push('has-fixed-width-containers')
+    } else {
+      if (Lightwords.CONFIG.fixedWidthHeader) {
+        bodyClasses.push('has-fixed-width-header')
+      } 
+      if (Lightwords.CONFIG.fixedWidthFooter) {
+        bodyClasses.push('has-fixed-width-footer')
+      } 
+      if (Lightwords.CONFIG.fixedWidthContent) {
+        bodyClasses.push('has-fixed-width-content')
+      } 
+    }
+
     if (Lightwords.CONFIG.woocommerce) {
       bodyClasses.push('has-woocommerce-support')
     }
