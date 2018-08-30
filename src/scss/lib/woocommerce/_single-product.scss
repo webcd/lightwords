@@ -6,6 +6,15 @@
 }
 
 .product-images {
+  position: relative;
+  margin-top: -$gutter-half;
+
+  .onsale {
+    position: absolute;
+    top: $gutter;
+    right: 0;
+  }
+
   .woocommerce-product-gallery {
     text-align: center;
   }

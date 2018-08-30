@@ -35,6 +35,12 @@
       }
     }
 
+    > .star-rating {
+      padding-left: $gutter-half;
+      padding-right: $gutter-half;
+      text-align: center;
+    }
+
     > .button {
       display: block;
       margin: $gutter-half;
@@ -52,14 +58,17 @@
       text-align: center;
     }
   }
+
+  .onsale {
+    position: absolute;
+    top: -0.1rem;
+    right: -0.1rem;
+  }
 }
 
 .onsale {
-  position: absolute;
   display: inline-block;
   padding: $gutter-eighth $gutter-half;
-  top: 0;
-  right: 0;
   background-color: $color-primary;
   color: white;
   font-weight: 500;

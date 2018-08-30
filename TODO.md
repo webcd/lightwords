@@ -3,12 +3,9 @@
 ## Urgent
 
 * All post/page/product image MUST use srcset
-* Fix breadcrumb on transparent header
+* Fix breadcrumb on transparent header (or only use inner breadcrumb?)
 * Fix some button colors (focus, disabled...)
-* Forms styling
-  * Finalize common form styles
-  * Style radios and checkboxes
-  * File upload?
+* Forms styling: debug checkbox and radio
 
 ## Woocommerce
 
@@ -39,8 +36,6 @@
 * Element in viewport detection on scroll (like Waypoints)
   * animation helper lib
   * 'back to top' button
-* Disable features from config:
-  * topbar
 * Move from Gulp to Webpack build process (or fix Mix build)
 * Move all .php files at projet root into a sub-folder (.htaccess redirection?)
 * Bug: Latest posts add sticky posts to max count
@@ -53,7 +48,6 @@
 * admin theme options?
 * Get rid off jQuery?
 * i18n / translate ALL text?
-* Header menus: more than 2 level of deepness
 
 # KNOWN BUGS
 
@@ -61,8 +55,4 @@
 
 ## To be confirmed bugs
 
-* still an issue with file_exists on the SVG twig template (/lib/timber.php)
-* fixed-positioned elements aren't fixed!
 * js sourcemaps must be fixed
-* dual topbar sometimes renders 'stacked' (on resize it seems)
-* parallax needs security offset in the settings
