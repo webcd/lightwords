@@ -38,6 +38,11 @@
         $body.removeClass('header-compressed')
         $body.removeClass('header-uncompressed')
       }
+      if (scroll > 400) {
+        $body.addClass('has-scroll-top-active')
+      } else {
+        $body.removeClass('has-scroll-top-active')
+      }
     }, 50)
 
     $(window).scroll(updateHeader)

@@ -72,6 +72,10 @@
       bodyClasses.push('has-woocommerce-support')
     }
 
+    if (Lightwords.CONFIG.hasScrollTop) {
+      bodyClasses.push('has-scroll-top')
+    }
+
     console.log('Configuring body classes', bodyClasses)
 
     for (var i = 0; i < bodyClasses.length; i++) {

@@ -17,9 +17,9 @@
           headerHeight = $('.site-header').height() / 2
           console.log('header height (half)', headerHeight)
         }
-        $('html, body').animate(
-          { scrollTop: $scrollTarget.offset().top - headerHeight },
-          500
+        $('html, body').animate({
+            scrollTop: $scrollTarget.offset().top - headerHeight
+          },500
         )
       }
     })

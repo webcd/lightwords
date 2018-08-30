@@ -60,21 +60,59 @@
 }
 
 .hero__scroll-down {
-  $scroll-down-size: $gutter-double;
-
-  width: $scroll-down-size;
-  height: $scroll-down-size;
   // !important needed to override .ripple styling
   position: absolute !important;
-  bottom: $gutter-quad;
+  bottom: $gutter-double;
   left: 50%;
-  transform: translate3d(-50%, 50%, 0);
+}
+
+/* SCROLL BUTTONS */
+
+.scroll-btn {
+  $scroll-btn-size: $gutter-double;
+
+  width: $scroll-btn-size;
+  height: $scroll-btn-size;
   border-radius: 50%;
   cursor: pointer;
-  transition: all 0.25s;
+  transition: all 0.5s $ease-bump;
+  @include shadow(1);
+  transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1) rotateZ(0);
 
-  &:hover {
-    width: $scroll-down-size * 1.25;
-    height: $scroll-down-size * 1.25;
+  &:hover,
+  &:focus {
+    @include shadow(2);
+    transform: translate3d(-50%, 0, 0) scale3d(1.25, 1.25, 1) rotateZ(0);
+  }
+
+  &.scroll-btn-up {
+    transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1) rotateZ(0.5turn);
+
+    &:hover,
+    &:focus {
+      transform: translate3d(-50%, 0, 0) scale3d(1.25, 1.25, 1) rotateZ(0.5turn);
+    }
+  }
+}
+
+#site-scroll-top {
+  display: none;
+
+  body.has-scroll-top & {
+    display: block;
+    position: fixed;
+    left: 50%;
+    bottom: $gutter;
+    transform: translate3d(-50%, 200%, 0) scale3d(1, 1, 1) rotateZ(0.5turn);
+  
+  }
+
+  body.has-scroll-top-active & {
+    transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1) rotateZ(0.5turn);
+
+    &:hover,
+    &:focus {
+      transform: translate3d(-50%, 0, 0) scale3d(1.25, 1.25, 1) rotateZ(0.5turn);
+    }
   }
 }

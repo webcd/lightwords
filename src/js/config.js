@@ -17,6 +17,8 @@ window.CONFIG = {
   compressHeader: true,
   transparentHeader: false,
 
+  hasScrollTop: true,
+
   fixedWidthContainers: false,
   fixedWidthHeader: true,
   fixedWidthFooter: true,
@@ -25,7 +27,7 @@ window.CONFIG = {
   woocommerce: true,
 
   rippleEffect: true,
-  rippleSelector: '.btn, .hero__scroll-down'
+  rippleSelector: '.btn, .scroll-btn'
 }
 
 console.log(CONFIG)
