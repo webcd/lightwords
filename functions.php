@@ -69,6 +69,14 @@
 	function display_cart_product_list_title() {
 		echo '<h2>Produits</h2>';
 	}
+
+	// CHECKOUT PAGE
+
+	add_action( 'woocommerce_review_order_before_payment', 'display_checkout_billing_title', 1);
+	function display_checkout_billing_title() {
+		echo '<h3 class="payment-title">Paiement</h3>';
+	}
+	
 	
 	// Fix context for products in the loop
 	// See: https://github.com/timber/timber/blob/master/docs/guides/woocommerce.md#tease-product

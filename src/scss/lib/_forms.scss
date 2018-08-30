@@ -122,3 +122,69 @@ input[type='submit'] {
     color: $color-error;
   }
 }
+
+// FORM: STYLED RADIO INPUTS
+
+$size-checkradio: $gutter-quarter * 3;
+
+input[type="checkbox"],
+input[type="radio"] {
+
+  &:not(:checked),
+  &:checked {
+    position: absolute;
+    left: -9999px;
+  }
+
+  & + label {
+    position: relative;
+    background: red;
+    padding-left: $size-checkradio * 2;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      left: $size-checkradio;
+      transition: 0.125s;
+    }
+
+    &::before {
+      width: $size-checkradio;
+      height: $size-checkradio;
+      border: 0.2rem solid;
+    }
+
+    &::after {
+      width: $size-checkradio / 2;
+      height: $size-checkradio / 2;
+      background-color: $color-primary;
+      opacity: 0;
+      transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 1);
+    }
+  }
+  
+  &:checked + label {
+    
+    &::after {
+      opacity: 1;
+      transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+    }
+  }
+}
+
+input[type="radio"] {
+
+  & + label {
+
+    &::before {
+      border-radius: 1000rem;
+    }
+    &::after {
+      border-radius: 1000rem;
+    }
+  }
+}
