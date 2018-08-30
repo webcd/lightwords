@@ -207,3 +207,51 @@ ul.wc_payment_methods {
   }
 }
 
+/*h3*/#ship-to-different-address {
+  > label {
+
+    > input[type="checkbox"] {
+
+    }
+
+    > span {
+      display: inline-block;
+      position: relative;
+      padding-left: $size-checkradio + $gutter-half;
+      font-weight: $font-weight-semibold;
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        left: $gutter-half;
+        transition: 0.125s;
+      }
+  
+      &::before {
+        width: $size-checkradio;
+        height: $size-checkradio;
+        border: 0.2rem solid;
+      }
+  
+      &::after {
+        width: $size-checkradio / 2;
+        height: $size-checkradio / 2;
+        background-color: $color-primary;
+        opacity: 0;
+        transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 1);
+      }
+    }
+
+    > input[type="checkbox"]:checked + span {
+
+      &::after {
+        opacity: 1;
+        transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+      }
+    }
+  }
+}
