@@ -1,8 +1,11 @@
 {% if (item.has_child_class()) %}
-  <span class="menu-item-link dropdown-toggle">
+  <a href="{{item.get_link}}" class="menu-item-link">
     <span>{{item.title}}</span>
+  </a>
+  <span class="menu-item-link dropdown-toggle">
     <span class="caret"></span>
   </span>
+
   <ul class="dropdown-menu">
     {% for item_child in item.get_children %}
       <li class="{{item_child.classes | join(' ')}}">

@@ -102,6 +102,7 @@ $line-height-smaller: 1.125;
 $font-size-bigger: (floor($font-size-base * 1.5 * 10) / 10);
 $font-size-big: (floor($font-size-base * 1.25 * 10) / 10);
 $font-size-small: (floor($font-size-base * 0.9 * 10) / 10);
+$font-size-smaller: (floor($font-size-base * 0.75 * 10) / 10);
 
 $font-weight-normal: normal;
 $font-weight-bold: bold;
