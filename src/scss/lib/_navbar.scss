@@ -21,7 +21,7 @@
 // TOPBAR
 
 .topbar {
-  overflow: hidden;
+  // overflow: hidden; // Needed?
   height: $topbar-height-mobile;
 
   .topbar-menu {

@@ -40,43 +40,12 @@ $caret-color: $text-color-base;
         line-height: 1; // In case of multi-line
         padding: $gutter-quarter 0;
       }
-
-      > .caret {
-        display: block;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: $caret-size $caret-size 0 $caret-size;
-        border-color: $caret-color transparent transparent transparent;
-        transition: all 0.5s $ease-bump;
-      }
     }
 
     // Active item
     &.current-menu-item {
       > .menu-item-link {
         color: $color-secondary;
-      }
-    }
-
-    > .dropdown-menu {
-      // reset lists
-      @include reset-list();
-
-      .menu-item {
-        > .menu-item-link {
-          @include bp($expanded, true) {
-            padding-left: $gutter;
-          }
-        }
-      }
-    }
-
-    &.active {
-      > .menu-item-link {
-        > .caret {
-          transform: rotateZ(180deg);
-        }
       }
     }
 
@@ -88,9 +57,38 @@ $caret-color: $text-color-base;
       }
     }
 
-    &.dropdown {
+    &.menu-item--dropdown {
       display: flex;
       flex-wrap: wrap;
+
+      .menu-item-link:first-child {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+.dropdown-menu {
+  // reset lists
+  @include reset-list();
+}
+
+.dropdown-toggle {
+  margin-left: $gutter-eighth;
+
+  > .caret {
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: $caret-size $caret-size 0 $caret-size;
+    border-color: $caret-color transparent transparent transparent;
+    transition: all 0.5s $ease-bump;
+  }
+
+  &.active {
+    > .caret {
+      transform: rotateZ(180deg);
     }
   }
 }
@@ -104,43 +102,52 @@ $caret-color: $text-color-base;
   //No secondary menu on mobile (hidden and merged into primary one)
   .menu-primary {
     padding-top: $gutter-half;
+    padding-bottom: $gutter-half;
     padding-left: $gutter-quarter;
     padding-right: $gutter-quarter;
 
-    .menu-item:not(.dropdown),
+    .menu-item,
     .dropdown-toggle {
       // Space between items when stacked
       margin-bottom: $gutter-quarter;
     }
   }
-  // Hide and show sub-menus
-  .dropdown {
-    margin-bottom: $gutter-quarter;
 
-    .menu-item-link:first-child {
-      flex-grow: 1;
-    }
+  // Sub-menus
+  .menu-item--dropdown {
 
     .dropdown-toggle {
-      margin-left: $gutter-quarter;
       margin-bottom: 0;
     }
 
     .dropdown-menu {
       margin-top: $gutter-quarter;
       flex-basis: 100%;
+      display: none;
 
-      .menu-item:last-child {
-        margin-bottom: 0;
+      &.active {
+        display: block;
       }
-    }
-  }
 
-  .dropdown-menu {
-    display: none;
+      .menu-item {
+        
+        > .menu-item-link:first-child {
+          padding-left: $gutter;
+        }
 
-    .dropdown.active & {
-      display: block;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .dropdown-menu & {
+        .menu-item {
+        
+          > .menu-item-link:first-child {
+            padding-left: $gutter-and-half;
+          }
+        }
+      }
     }
   }
 }
@@ -160,55 +167,67 @@ $caret-color: $text-color-base;
   .menu-primary,
   .menu-secondary {
     .menu-item {
-      margin-left: $gutter-quarter;
+      margin-left: $gutter-eighth * 3;
+
+      &.hidden-expanded {
+        display: none; // Needed for submenus with flex display
+      }
 
       // Hide and show dropdown submenu
-      &.dropdown {
+      &.menu-item--dropdown {
         position: relative;
         transition: all 0.25s ease;
 
-        .menu-item-link:first-child {
-          padding-left: $gutter-quarter;
-          padding-right: $gutter-quarter;
-        }
-    
-        .dropdown-toggle {
-        }
+        // // Make caret visually closer to its menu item 
+        // .dropdown-toggle {
+
+        //   > .caret {
+        //     position: relative;
+        //     left: -$gutter-quarter;
+        //   }
+
+        //   &.active {
+        //     > .caret {
+        //       left: 0;
+        //     }
+        //   }
+        // }
 
         .dropdown-menu {
           background-color: $header-color-bg;
           position: absolute;
-          // top: $navbar-height-desktop;
           bottom: 0;
           left: 0;
           width: 20vw;
           padding-top: $gutter-quarter;
 
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          box-shadow: none;
           @include shadow(1);
           transform: scale3d(1, 0, 1) translateY(100%);
           transform-origin: 50% 0 0;
           opacity: 0;
           transition: all 0.5s $ease-bump;
-          overflow: hidden;
+          // overflow: hidden;
+          z-index: +10;
 
           > .menu-item {
             margin: $gutter-quarter;
             margin-top: 0;
+          }
+
+          &.active {
+            opacity: 1;
+            transform: scale3d(1, 1, 1) translateY(100%);
+          }
+
+          .dropdown-menu & {
+            // z-index: +1000;
+            overflow: hidden;
           }
         }
 
         &.active {
           @include shadow(1);
           margin-bottom: 0;
-    
-          .dropdown-menu {
-            opacity: 1;
-            transform: scale3d(1, 1, 1) translateY(calc(100% - 0.1rem));
-          }
         }
       }
     }

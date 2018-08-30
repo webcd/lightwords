@@ -1,5 +1,5 @@
 {% for item in menu %}
-  <li class="{{item.classes | join(' ')}} {{ (item.has_child_class) ? 'dropdown' : null }}"	data-toggle>
+  <li class="{{item.classes | join(' ')}} {{ (item.has_child_class) ? 'menu-item--dropdown' : null }}">
     {% include 'menu-item.twig' %}
   </li>
 {% endfor %}
@@ -11,7 +11,7 @@
 <li class="divider"></li>
 
 {% for item in menu_top %}
-  <li class="hidden-expanded {{item.classes | join(' ')}} {{ (item.has_child_class) ? 'dropdown' : null }}"	data-toggle>
+  <li class="{{item.classes | join(' ')}} {{ (item.has_child_class) ? 'menu-item--dropdown' : null }} hidden-expanded">
     {% include 'menu-item.twig' %}
   </li>
 {% endfor %}
