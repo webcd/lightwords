@@ -31,11 +31,11 @@ $width-woo-cart-thumbnail-large: 10rem !default;
   @include row();
 
   > .woocommerce-cart-form {
-    @include col('md', 8);
+    @include col('lg', 8);
   }
 
   > .cart-collaterals {
-    @include col('md', 4);
+    @include col('lg', 4);
     background-color: $gray-lightest;
   }
 }

@@ -13,6 +13,7 @@ $bg-woo-main: $gray-light;
 $color-woo-main: $gray-darker;
 
 @import './layout';
+@import './navbar';
 @import './archive';
 @import './filters';
 @import './teaser';

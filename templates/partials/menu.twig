@@ -4,6 +4,10 @@
   </li>
 {% endfor %}
 
+{% if is_woocommerce_active == true %}
+  {% include './woocommerce/menu-item-my-account.twig' %}
+{% endif %}
+
 <li class="divider"></li>
 
 {% for item in menu_top %}

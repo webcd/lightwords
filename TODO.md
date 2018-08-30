@@ -12,6 +12,7 @@
 
 ## Woocommerce
 
+* Rating, "my account" pages
 * Config string for "products" (URL, breadcrumb, page title...)
 * Display products availability ('en stock')
 
@@ -34,7 +35,7 @@
 
 ## Later
 
-* Inject author datas (ex: avatar) into post templates (single and archive)
+* Inject author datas (ex: avatar) into post templates (single and archive) + comments
 * Element in viewport detection on scroll (like Waypoints)
   * animation helper lib
   * 'back to top' button

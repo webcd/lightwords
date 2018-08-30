@@ -76,8 +76,7 @@
 	function display_checkout_billing_title() {
 		echo '<h3 class="payment-title">Paiement</h3>';
 	}
-	
-	
+		
 	// Fix context for products in the loop
 	// See: https://github.com/timber/timber/blob/master/docs/guides/woocommerce.md#tease-product
 	function timber_set_product( $post ) {
@@ -88,6 +87,22 @@
     }
 	}
 
+	// Show cart contents / total Ajax
+	// See: https://docs.woocommerce.com/document/show-cart-contents-total/
+	add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
+
+	function woocommerce_header_add_to_cart_fragment( $fragments ) {
+		global $woocommerce;
+		ob_start();
+		?>
+		<!-- <a class="cart-customlocation" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e('View your shopping cart', 'woothemes'); ?>"><?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?> - <?php echo $woocommerce->cart->get_cart_total(); ?></a> -->
+		<span class="btn-cart-counter"><?php echo $woocommerce->cart->cart_contents_count ?></span>
+		<?php
+		$fragments['span.btn-cart-counter'] = ob_get_clean();
+		return $fragments;
+	}
+
+	// Shameless debug function
 	function ddump( $what ) {
 		echo '<pre>';
 		var_dump( $what );

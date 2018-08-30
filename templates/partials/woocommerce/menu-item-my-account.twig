@@ -1,0 +1,21 @@
+<li class="menu-item menu-item--my-account">
+  {% if user %}
+    <a href="{{ my_account_link }}" class="menu-item-link">
+      <span class="my-account-avatar">
+        <img src="{{ user.avatar }}" alt="{{ user.name }}'s avatar">
+      </span>
+      {# <span>{{ fn('_e', 'My Account', 'woothemes') }} </span> #}
+      {# <span class="my-account-name">{{ user.name }}</span> #}
+      <span class="my-account-name">
+        {{ user.first_name }}
+        {# {{ user.last_name }} #}
+      </span>
+    </a>
+  {% else %}
+    <a href="{{ my_account_link }}" class="menu-item-link">
+      {# <span>{{ fn('_e', 'My Account', 'woothemes') }}</span> #}
+      <span>Mon compte</span>
+    </a>
+  {% endif %}  
+</li>
+

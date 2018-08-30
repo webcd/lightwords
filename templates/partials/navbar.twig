@@ -27,6 +27,10 @@
         <i class="fa fa-lg fa-search"></i>
       </button>
 
+      {% if is_woocommerce_active == true %}
+        {% include './woocommerce/menu-item-cart.twig' %}
+      {% endif %}
+
       <button type="button" class="btn-toggle navbar-toggle hidden-expanded" data-toggle="#navbar-menu, #overlay-navbar, body" data-toggle-classname="navbar-expanded" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <div class="hamburger-wrapper">

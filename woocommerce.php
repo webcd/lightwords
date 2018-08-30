@@ -5,8 +5,15 @@ if ( ! class_exists( 'Timber' ) ){
 	return;
 }
 
-$context            = Timber::get_context();
+$context = Timber::get_context();
+
 $context['sidebar'] = Timber::get_widgets( 'shop-sidebar' );
+
+// TODO: don't send all the cart (huge datas)
+$context['cart'] = $woocommerce->cart;
+
+// echo '<pre>', var_dump($context['cart']) , '</pre>';
+// die();
 
 if ( is_singular( 'product' ) ) {
 	$product = Timber::get_post();
@@ -24,9 +31,6 @@ if ( is_singular( 'product' ) ) {
 	$context['categories'] = get_the_terms( $post->ID, 'product_cat' );
 	$context['tags'] = get_the_terms( $post->ID, 'product_tag' );
 	
-	// echo '<pre>' , var_dump($terms) , '</pre>';
-	// die();
-
 	Timber::render( 'views/woocommerce/single-product.twig', $context );
 	
 } else { 
@@ -35,6 +39,7 @@ if ( is_singular( 'product' ) ) {
 	$context['post'] = $posts;
 
 	if ( is_product_category() ) {
+
 		$queried_object = get_queried_object();
 		$term_id = $queried_object->term_id;
 
@@ -50,11 +55,13 @@ if ( is_singular( 'product' ) ) {
 		  'parent' => $category->ID
 		));
 
+		// Title
+		// TODO: fix empty title when at shop root
 		$context['title'] = single_term_title( '', false );
 
 		if ( is_product_category() ){
-			// Get category image URL
 
+			// Get category image URL
 			global $wp_query;
 			$cat = $wp_query->get_queried_object();
 			$thumbnail_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
@@ -65,7 +72,6 @@ if ( is_singular( 'product' ) ) {
 			}
 
 			// Get category description
-			
 			$term_object = get_queried_object();
 			$description = $term_object->description;
 
@@ -73,10 +79,6 @@ if ( is_singular( 'product' ) ) {
 				$context['category_description'] = $description;
 			}
 		}
-
-
-		// echo '<pre>' , var_dump($context['categories'][0]) , '</pre>';
-		// die();
 	}
 
 	Timber::render( 'views/woocommerce/archive-product.twig', $context );
