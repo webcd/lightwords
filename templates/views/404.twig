@@ -9,19 +9,19 @@
     {% endif %}
 
     <section class="wrapper wrapper--article-content">
-      <div class="article-content container">
+      <div class="article-content">
 
-        <h1 class="h1 main-title">{{ title }}</h1>
-
-        {# native walker: % include "breadcrumb.twig" %#}
-        {{ breadcrumb }}
+        {% include "article-content-header.twig" %}
 
         <div class="article-content-body">
-          <p class="lead">La page demandée n'existe pas, ou a été supprimée.</p>
-          <p>
-            <a href="/" class="btn btn-default">Retourner à l'accueil</a>
-          </p>
+          <div class="container">
+            <p class="lead">La page demandée n'existe pas, ou a été supprimée.</p>
+            <p>
+              <a href="/" class="btn btn-default">Retourner à l'accueil</a>
+            </p>
+          </div>
         </div>
+        
       </div>
     </section>
 

@@ -1,0 +1,22 @@
+<div class="article-content-header">
+  <div class="container">
+
+    <h1 class="h1 main-title 
+      {% if post.get_thumbnail %}hero-title{% endif %}
+      {% if fn('is_front_page') %}main-title--hidden{% endif %}
+    ">
+      {{ title }}
+    </h1>
+
+    {% if not fn('is_front_page') %}
+      {# native walker: % include "breadcrumb.twig" %#}
+      {{ breadcrumb }}
+    {% endif %}
+
+    {% if fn('is_single') %}
+      {% include "metas.twig" %}
+    {% endif %}
+
+  </div>
+</div>
+

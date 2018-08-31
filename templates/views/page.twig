@@ -1,45 +1,6 @@
-{% extends "base.twig" %}
+{# If you need to customize page template, 
+   replace this with single.twig content 
+   as a starter point.
+ #}
 
-{% block content %}
-
-  <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-
-    {% if post.get_thumbnail %}
-      {% include "hero.twig" %}
-    {% endif %}
-
-    <section class="wrapper wrapper--article-content">
-      <div class="article-content container">
-
-        <h1 class="h1 main-title {% if post.get_thumbnail %}hero-title{% endif %}">
-          {{ post.title }}
-        </h1>
-
-        {% if not fn('is_front_page') %}
-          {# native walker: % include "breadcrumb.twig" %#}
-          {{ breadcrumb }}
-        {% endif %}
-
-        {% if not fullwidth_content %}
-          <div class="article-content-body">
-            {{ post.content }}
-          </div>
-        {% endif %}
-
-      </div>
-
-      {% if fullwidth_content %}
-        <div class="article-content-body">
-          {{ post.content }}
-        </div>
-      {% endif %}
-
-    </section>
-
-    {% if post.comment_status != 'closed' %}
-      {% include 'comments.twig' %}
-    {% endif %}
-
-  </article>
-
-{% endblock %}
+{% extends "single.twig" %}

@@ -46,41 +46,42 @@
     }
   }
 
-  &.transparent-header {
-    .site-header {
-      @include shadow(0);
-      background-color: transparent;
-    }
+  // // TODO: revamp transparent header
+  // &.transparent-header {
+  //   .site-header {
+  //     @include shadow(0);
+  //     background-color: transparent;
+  //   }
 
-    &.header-compressed {
-      .site-header {
-        background-color: $header-color-bg;
-        @include shadow(1);
-      }
-    }
+  //   &.header-compressed {
+  //     .site-header {
+  //       background-color: $header-color-bg;
+  //       @include shadow(1);
+  //     }
+  //   }
 
-    .site-content {
-      padding-top: 0;
+  //   .site-content {
+  //     padding-top: 0;
 
-      @include bp($expanded) {
-        padding-top: 0;
-      }
-    }
+  //     @include bp($expanded) {
+  //       padding-top: 0;
+  //     }
+  //   }
 
-    // TEMPORARY HACKS!
+  //   // TEMPORARY HACKS!
 
-    .wrapper--breadcrumb {
-      // TODO: find a solution!
-      // Hide breadcrumbs
-      display: none;
-    }
+  //   .wrapper--breadcrumb {
+  //     // TODO: find a solution!
+  //     // Hide breadcrumbs
+  //     display: none;
+  //   }
 
-    .main-title:not(.hero-title) {
-      margin-top: $navbar-height-mobile;
+  //   .main-title:not(.hero-title) {
+  //     margin-top: $navbar-height-mobile;
 
-      @include bp($expanded) {
-        margin-top: $navbar-height-desktop + $topbar-height-desktop;
-      }
-    }
-  }
+  //     @include bp($expanded) {
+  //       margin-top: $navbar-height-desktop + $topbar-height-desktop;
+  //     }
+  //   }
+  // }
 }

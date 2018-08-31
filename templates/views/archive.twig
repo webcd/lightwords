@@ -5,19 +5,24 @@
   <article class="archive">
 
     <section class="wrapper wrapper--article-content">
-      <div class="article-content container">
+      <div class="article-content">
 
-        <h1 class="h1 main-title">{{ title }}</h1>
+        {% include "article-content-header.twig" %}
 
-        {{ breadcrumb }}
+        <div class="article-content-body">
+          <div class="container">
 
-        <section class="posts row">
+            <section class="posts row">
 
-          {% for post in posts %}
-            {% include "tile-post.twig" %}
-          {% endfor %}
+              {% for post in posts %}
+                {% include "tile-post.twig" %}
+              {% endfor %}
 
-        </section>
+            </section>
+
+          </div>
+        </div>
+
       </div>
     </section>
 

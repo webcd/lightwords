@@ -4,413 +4,403 @@
 
   <article class="post-type-styleguide" id="post-{{post.ID}}">
 
-    <section class="wrapper wrapper--article-content">
-      <div class="article-content container">
+    {% include 'base-content.twig' %}
 
-        <h1 class="h1 main-title">Styleguide</h1>
+    <section class="wrapper wrapper--padding">
+      <div class="container">
 
-        {# native walker: % include "breadcrumb.twig" %#}
-        {{ breadcrumb }}
+        <!-- Styleguide content -->
 
-        <div class="article-content-body">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-modal data-modal-target="#myModal">
+          Launch demo modal
+        </button>
 
-          <!-- Styleguide content -->
-
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-modal data-modal-target="#myModal">
-            Launch demo modal
-          </button>
-
-          <!-- Modal -->
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet suscipit rerum quam est illum, earum quae voluptates fugit accusamus sit iusto corrupti deleniti iste amet quaerat omnis? Quae aliquid quasi est eos ex minima, ab voluptate, itaque saepe commodi nemo explicabo unde, laboriosam laudantium enim adipisci! Tempore repellendus eaque ea....
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet suscipit rerum quam est illum, earum quae voluptates fugit accusamus sit iusto corrupti deleniti iste amet quaerat omnis? Quae aliquid quasi est eos ex minima, ab voluptate, itaque saepe commodi nemo explicabo unde, laboriosam laudantium enim adipisci! Tempore repellendus eaque ea....
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <h1>Heading 1</h1>
+            <h1>Heading 1
+              <br>on two lines</h1>
+            <h2>Heading 2</h2>
+            <h2>Heading 2
+              <br>on two lines</h2>
+            <h3>Heading 3</h3>
+            <h3>Heading 3
+              <br>on two lines</h3>
+          </div>
+          <div class="col-sm-6">
+            <h4>Heading 4</h4>
+            <h4>Heading 4
+              <br>on two lines</h4>
+            <h5>Heading 5</h5>
+            <h5>Heading 5
+              <br>on two lines</h5>
+            <h6>Heading 6</h6>
+            <h6>Heading 6
+              <br>on two lines</h6>
+          </div>
+        </div>
+
+        <hr>
+
+        <p class="big">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt,
+          aspernatur. A provident error, molestias dolore quos facilis, doloribus eaque tempora voluptas, voluptatem animi
+          commodi libero dicta qui enim laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem
+          molestias praesentium voluptate. Magni at, provident culpa minima ex porro ipsum ut dignissimos nam commodi quis
+          qui dolorum saepe perferendis beatae alias facere assumenda voluptatem eum suscipit architecto! Ea.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt,
+          aspernatur. A provident error, molestias dolore quos facilis, doloribus eaque tempora voluptas, voluptatem animi
+          commodi libero dicta qui enim laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem
+          molestias praesentium voluptate. Magni at, provident culpa minima ex porro ipsum ut dignissimos nam commodi quis
+          qui dolorum saepe perferendis beatae alias facere assumenda voluptatem eum suscipit architecto! Ea.</p>
+
+        <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt,
+          aspernatur. A provident error, molestias dolore quos facilis, doloribus eaque tempora voluptas, voluptatem animi
+          commodi libero dicta qui enim laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem
+          molestias praesentium voluptate. Magni at, provident culpa minima ex porro ipsum ut dignissimos nam commodi quis
+          qui dolorum saepe perferendis beatae alias facere assumenda voluptatem eum suscipit architecto! Ea.</p>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <h3>Colors</h3>
+            <button class="btn btn-default">.btn-default</button>
+            <button class="btn btn-primary">.btn-primary</button>
+            <button class="btn btn-secondary">.btn-secondary</button>
+            <button class="btn btn-ternary">.btn-ternary</button>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <h3>Rounded</h3>
+            <button class="btn btn-default btn-round">.btn-round</button>
+            <button class="btn btn-primary btn-round">.btn-round</button>
+            <button class="btn btn-secondary btn-round">.btn-round</button>
+            <button class="btn btn-ternary btn-round">.btn-round</button>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <h3>Hollow</h3>
+            <button class="btn btn-default btn-hollow">.btn-hollow</button>
+            <button class="btn btn-primary btn-hollow">.btn-hollow</button>
+            <button class="btn btn-secondary btn-hollow">.btn-hollow</button>
+            <button class="btn btn-ternary btn-hollow">.btn-hollow</button>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <h3>Sizes</h3>
+            <button class="btn btn-primary btn-xs">.btn-xs</button>
+            <button class="btn btn-primary btn-sm">.btn-sm</button>
+            <button class="btn btn-primary">.btn</button>
+            <a href="#" class="btn btn-primary btn-lg">.btn-lg</a>
+            <button class="btn btn-primary btn-xl">.btn-xl</button>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <h3>Layout</h3>
+            <button class="btn btn-primary btn-block">.btn-block</button>
+            <button class="btn btn-primary btn-wrap">.btn-wrap very very long button multi-line content</button>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <h3>Disabled</h3>
+            <button class="btn btn-default" disabled>disabled</button>
+            <button class="btn btn-primary btn-round" disabled>disabled</button>
+            <button class="btn btn-secondary btn-hollow" disabled>disabled</button>
+          </div>
+        </div>
+
+        <hr>
+          <h3>Static form inputs</h3>
 
           <div class="row">
-            <div class="col-sm-6">
-              <h1>Heading 1</h1>
-              <h1>Heading 1
-                <br>on two lines</h1>
-              <h2>Heading 2</h2>
-              <h2>Heading 2
-                <br>on two lines</h2>
-              <h3>Heading 3</h3>
-              <h3>Heading 3
-                <br>on two lines</h3>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+              <p>
+                <input type="checkbox" id="check01" checked><label for="check01">Label checkbox 1</label>
+              </p>
+              <p>
+                <input type="checkbox" id="check02"><label for="check02">Label checkbox 2</label>
+              </p>
+              <p>
+                <input type="checkbox" id="check03"><label for="check03">Label checkbox 3</label>
+              </p>
             </div>
-            <div class="col-sm-6">
-              <h4>Heading 4</h4>
-              <h4>Heading 4
-                <br>on two lines</h4>
-              <h5>Heading 5</h5>
-              <h5>Heading 5
-                <br>on two lines</h5>
-              <h6>Heading 6</h6>
-              <h6>Heading 6
-                <br>on two lines</h6>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+              <p>
+                <input type="radio" id="radio01" name="radios" checked><label for="radio01">Label radio 1</label>
+              </p>
+              <p>
+                <input type="radio" id="radio02" name="radios"><label for="radio02">Label radio 2</label>
+              </p>
+              <p>
+                <input type="radio" id="radio03" name="radios"><label for="radio03">Label radio 3</label>
+              </p>
             </div>
           </div>
+        <hr>
 
-          <hr>
-
-          <p class="big">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt,
-            aspernatur. A provident error, molestias dolore quos facilis, doloribus eaque tempora voluptas, voluptatem animi
-            commodi libero dicta qui enim laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem
-            molestias praesentium voluptate. Magni at, provident culpa minima ex porro ipsum ut dignissimos nam commodi quis
-            qui dolorum saepe perferendis beatae alias facere assumenda voluptatem eum suscipit architecto! Ea.</p>
-
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt,
-            aspernatur. A provident error, molestias dolore quos facilis, doloribus eaque tempora voluptas, voluptatem animi
-            commodi libero dicta qui enim laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem
-            molestias praesentium voluptate. Magni at, provident culpa minima ex porro ipsum ut dignissimos nam commodi quis
-            qui dolorum saepe perferendis beatae alias facere assumenda voluptatem eum suscipit architecto! Ea.</p>
-
-          <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt,
-            aspernatur. A provident error, molestias dolore quos facilis, doloribus eaque tempora voluptas, voluptatem animi
-            commodi libero dicta qui enim laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem
-            molestias praesentium voluptate. Magni at, provident culpa minima ex porro ipsum ut dignissimos nam commodi quis
-            qui dolorum saepe perferendis beatae alias facere assumenda voluptatem eum suscipit architecto! Ea.</p>
-
-          <hr>
-
-          <div class="row">
-            <div class="col-xs-6 col-sm-4 col-md-3">
-              <h3>Colors</h3>
-              <button class="btn btn-default">.btn-default</button>
-              <button class="btn btn-primary">.btn-primary</button>
-              <button class="btn btn-secondary">.btn-secondary</button>
-              <button class="btn btn-ternary">.btn-ternary</button>
+        <div class="gf_browser_chrome gform_wrapper" id="gform_wrapper_1">
+          <form method="post" enctype="multipart/form-data" id="gform_1" action="/contact/">
+            <div class="gform_heading">
+              <span class="gform_description">La description du formulaire se place ici.</span>
             </div>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-              <h3>Rounded</h3>
-              <button class="btn btn-default btn-round">.btn-round</button>
-              <button class="btn btn-primary btn-round">.btn-round</button>
-              <button class="btn btn-secondary btn-round">.btn-round</button>
-              <button class="btn btn-ternary btn-round">.btn-round</button>
+            <div class="gform_body">
+              <ul id="gform_fields_1" class="gform_fields top_label form_sublabel_below description_below">
+                <li id="field_1_1" class="gfield gf_left_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
+                  <label class="gfield_label" for="input_1_1">Nom
+                    <span class="gfield_required">*</span>
+                  </label>
+                  <div class="ginput_container ginput_container_text">
+                    <input name="input_1" id="input_1_1" type="text" value="" class="medium" tabindex="1" aria-required="true"
+                      aria-invalid="false" placeholder="Votre nom">
+                  </div>
+                </li>
+                <li id="field_1_2" class="gfield gf_right_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
+                  <label class="gfield_label" for="input_1_2">Prénom
+                    <span class="gfield_required">*</span>
+                  </label>
+                  <div class="ginput_container ginput_container_text">
+                    <input name="input_2" id="input_1_2" type="text" value="" class="medium" tabindex="2" aria-required="true"
+                      aria-invalid="false">
+                  </div>
+                </li>
+                <li id="field_1_3" class="gfield gf_left_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
+                  <label class="gfield_label" for="input_1_3">Adresse email
+                    <span class="gfield_required">*</span>
+                  </label>
+                  <div class="ginput_container ginput_container_text">
+                    <input name="input_3" id="input_1_3" type="email" value="" class="medium" tabindex="3" aria-required="true"
+                      aria-invalid="false">
+                  </div>
+                </li>
+                <li id="field_1_4" class="gfield gf_right_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
+                  <label class="gfield_label" for="input_1_4">Je suis
+                    <span class="gfield_required">*</span>
+                  </label>
+                  <div class="ginput_container ginput_container_select">
+                    <select name="input_4" id="input_1_4" class="medium gfield_select" tabindex="4" aria-required="true" aria-invalid="false"
+                      data-placeholder="Choisissez votre statut">
+                      <option value="Un particulier">Un particulier</option>
+                      <option value="Un professionnel">Un professionnel</option>
+                    </select>
+                  </div>
+                </li>
+                <li id="field_1_5" class="gfield full-input gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
+                  <label class="gfield_label" for="input_1_5">Sujet
+                    <span class="gfield_required">*</span>
+                  </label>
+                  <div class="ginput_container ginput_container_text">
+                    <input name="input_5" id="input_1_5" type="text" value="" class="large" tabindex="5" aria-required="true"
+                      aria-invalid="false">
+                  </div>
+                </li>
+                <li id="field_1_6" class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
+                  <label class="gfield_label" for="input_1_6">Votre message
+                    <span class="gfield_required">*</span>
+                  </label>
+                  <div class="ginput_container ginput_container_textarea">
+                    <textarea name="input_6" id="input_1_6" class="textarea medium" tabindex="6" aria-required="true" aria-invalid="false"
+                      rows="10" cols="50"></textarea>
+                  </div>
+                </li>
+              </ul>
             </div>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-              <h3>Hollow</h3>
-              <button class="btn btn-default btn-hollow">.btn-hollow</button>
-              <button class="btn btn-primary btn-hollow">.btn-hollow</button>
-              <button class="btn btn-secondary btn-hollow">.btn-hollow</button>
-              <button class="btn btn-ternary btn-hollow">.btn-hollow</button>
+            <div class="gform_footer top_label">
+              <input type="submit" id="gform_submit_button_1" class="gform_button button" value="Envoyer" tabindex="7" onclick="if(window[&quot;gf_submitting_1&quot;]){return false;}  window[&quot;gf_submitting_1&quot;]=true;  "
+                onkeypress="if( event.keyCode == 13 ){ if(window[&quot;gf_submitting_1&quot;]){return false;} window[&quot;gf_submitting_1&quot;]=true;  jQuery(&quot;#gform_1&quot;).trigger(&quot;submit&quot;,[true]); }">
+              <input type="hidden" class="gform_hidden" name="is_submit_1" value="1">
+              <input type="hidden" class="gform_hidden" name="gform_submit" value="1">
+
+              <input type="hidden" class="gform_hidden" name="gform_unique_id" value="">
+              <input type="hidden" class="gform_hidden" name="state_1" value="WyJbXSIsIjI3ZGFiMzk3MmVkZWMzNTMxY2FmM2MxMDZiNDUxMDU2Il0=">
+              <input type="hidden" class="gform_hidden" name="gform_target_page_number_1" id="gform_target_page_number_1" value="0">
+              <input type="hidden" class="gform_hidden" name="gform_source_page_number_1" id="gform_source_page_number_1" value="1">
+              <input type="hidden" name="gform_field_values" value="">
+
             </div>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-              <h3>Sizes</h3>
-              <button class="btn btn-primary btn-xs">.btn-xs</button>
-              <button class="btn btn-primary btn-sm">.btn-sm</button>
-              <button class="btn btn-primary">.btn</button>
-              <a href="#" class="btn btn-primary btn-lg">.btn-lg</a>
-              <button class="btn btn-primary btn-xl">.btn-xl</button>
+          </form>
+        </div>
+
+        <hr>
+
+        <div class="gf_browser_chrome gform_wrapper gform_validation_error" id="gform_wrapper_1">
+          <form method="post" enctype="multipart/form-data" id="gform_1" action="/contact/">
+            <div class="gform_heading">
+              <span class="gform_description"></span>
             </div>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-              <h3>Layout</h3>
-              <button class="btn btn-primary btn-block">.btn-block</button>
-              <button class="btn btn-primary btn-wrap">.btn-wrap very very long button multi-line content</button>
+            <div class="validation_error">Le formulaire ne semble pas correctement rempli. Les erreurs ont été mises en surbrillance plus bas.</div>
+            <div class="gform_body">
+              <ul id="gform_fields_1" class="gform_fields top_label form_sublabel_below description_below">
+                <li id="field_1_1" class="gfield gfield_error gf_left_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
+                  <label class="gfield_label" for="input_1_1">Nom
+                    <span class="gfield_required">*</span>
+                  </label>
+                  <div class="ginput_container ginput_container_text">
+                    <input name="input_1" id="input_1_1" type="text" value="" class="medium" tabindex="1" aria-required="true"
+                      aria-invalid="true">
+                  </div>
+                  <div class="gfield_description validation_message">Ce champ est nécessaire</div>
+                </li>
+                <li id="field_1_2" class="gfield gfield_error gf_right_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
+                  <label class="gfield_label" for="input_1_2">Prénom
+                    <span class="gfield_required">*</span>
+                  </label>
+                  <div class="ginput_container ginput_container_text">
+                    <input name="input_2" id="input_1_2" type="text" value="" class="medium" tabindex="2" aria-required="true"
+                      aria-invalid="true">
+                  </div>
+                  <div class="gfield_description validation_message">Ce champ est nécessaire</div>
+                </li>
+                <li id="field_1_3" class="gfield gfield_error gf_left_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
+                  <label class="gfield_label" for="input_1_3">Adresse email
+                    <span class="gfield_required">*</span>
+                  </label>
+                  <div class="ginput_container ginput_container_text">
+                    <input name="input_3" id="input_1_3" type="text" value="" class="medium" tabindex="3" aria-required="true"
+                      aria-invalid="true">
+                  </div>
+                  <div class="gfield_description validation_message">Ce champ est nécessaire</div>
+                </li>
+                <li id="field_1_4" class="gfield gf_right_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
+                  <label class="gfield_label" for="input_1_4">Je suis
+                    <span class="gfield_required">*</span>
+                  </label>
+                  <div class="ginput_container ginput_container_select">
+                    <select name="input_4" id="input_1_444" class="medium gfield_select" tabindex="4" aria-required="true" aria-invalid="false"
+                      data-placeholder="Choisissez votre statut">
+                      <option value="Un particulier">Un particulier</option>
+                      <option value="Un professionnel">Un professionnel</option>
+                    </select>
+                  </div>
+                </li>
+                <li id="field_1_5" class="gfield gfield_error full-input gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
+                  <label class="gfield_label" for="input_1_5">Sujet
+                    <span class="gfield_required">*</span>
+                  </label>
+                  <div class="ginput_container ginput_container_text">
+                    <input name="input_5" id="input_1_5" type="text" value="" class="large" tabindex="5" aria-required="true"
+                      aria-invalid="true">
+                  </div>
+                  <div class="gfield_description validation_message">Ce champ est nécessaire</div>
+                </li>
+                <li id="field_1_6" class="gfield gfield_error gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
+                  <label class="gfield_label" for="input_1_6">Votre message
+                    <span class="gfield_required">*</span>
+                  </label>
+                  <div class="ginput_container ginput_container_textarea">
+                    <textarea name="input_6" id="input_1_6" class="textarea medium" tabindex="6" aria-required="true" aria-invalid="true"
+                      rows="10" cols="50"></textarea>
+                  </div>
+                  <div class="gfield_description validation_message">Ce champ est nécessaire</div>
+                </li>
+              </ul>
             </div>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-              <h3>Disabled</h3>
-              <button class="btn btn-default" disabled>disabled</button>
-              <button class="btn btn-primary btn-round" disabled>disabled</button>
-              <button class="btn btn-secondary btn-hollow" disabled>disabled</button>
+            <div class="gform_footer top_label">
+              <input type="submit" id="gform_submit_button_1" class="gform_button button" value="Envoyer" tabindex="7" onclick="if(window[&quot;gf_submitting_1&quot;]){return false;}  window[&quot;gf_submitting_1&quot;]=true;  "
+                onkeypress="if( event.keyCode == 13 ){ if(window[&quot;gf_submitting_1&quot;]){return false;} window[&quot;gf_submitting_1&quot;]=true;  jQuery(&quot;#gform_1&quot;).trigger(&quot;submit&quot;,[true]); }">
+              <input type="hidden" class="gform_hidden" name="is_submit_1" value="1">
+              <input type="hidden" class="gform_hidden" name="gform_submit" value="1">
+
+              <input type="hidden" class="gform_hidden" name="gform_unique_id" value="5ab62d094a294">
+              <input type="hidden" class="gform_hidden" name="state_1" value="WyJbXSIsIjI3ZGFiMzk3MmVkZWMzNTMxY2FmM2MxMDZiNDUxMDU2Il0=">
+              <input type="hidden" class="gform_hidden" name="gform_target_page_number_1" id="gform_target_page_number_1" value="0">
+              <input type="hidden" class="gform_hidden" name="gform_source_page_number_1" id="gform_source_page_number_1" value="1">
+              <input type="hidden" name="gform_field_values" value="">
+
             </div>
-          </div>
-
-          <hr>
-            <h3>Static form inputs</h3>
-
-            <div class="row">
-              <div class="col-xs-6 col-sm-4 col-md-3">
-                <p>
-                  <input type="checkbox" id="check01" checked><label for="check01">Label checkbox 1</label>
-                </p>
-                <p>
-                  <input type="checkbox" id="check02"><label for="check02">Label checkbox 2</label>
-                </p>
-                <p>
-                  <input type="checkbox" id="check03"><label for="check03">Label checkbox 3</label>
-                </p>
-              </div>
-              <div class="col-xs-6 col-sm-4 col-md-3">
-                <p>
-                  <input type="radio" id="radio01" name="radios" checked><label for="radio01">Label radio 1</label>
-                </p>
-                <p>
-                  <input type="radio" id="radio02" name="radios"><label for="radio02">Label radio 2</label>
-                </p>
-                <p>
-                  <input type="radio" id="radio03" name="radios"><label for="radio03">Label radio 3</label>
-                </p>
-              </div>
-            </div>
-          <hr>
-
-          <div class="gf_browser_chrome gform_wrapper" id="gform_wrapper_1">
-            <form method="post" enctype="multipart/form-data" id="gform_1" action="/contact/">
-              <div class="gform_heading">
-                <span class="gform_description">La description du formulaire se place ici.</span>
-              </div>
-              <div class="gform_body">
-                <ul id="gform_fields_1" class="gform_fields top_label form_sublabel_below description_below">
-                  <li id="field_1_1" class="gfield gf_left_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                    <label class="gfield_label" for="input_1_1">Nom
-                      <span class="gfield_required">*</span>
-                    </label>
-                    <div class="ginput_container ginput_container_text">
-                      <input name="input_1" id="input_1_1" type="text" value="" class="medium" tabindex="1" aria-required="true"
-                        aria-invalid="false" placeholder="Votre nom">
-                    </div>
-                  </li>
-                  <li id="field_1_2" class="gfield gf_right_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                    <label class="gfield_label" for="input_1_2">Prénom
-                      <span class="gfield_required">*</span>
-                    </label>
-                    <div class="ginput_container ginput_container_text">
-                      <input name="input_2" id="input_1_2" type="text" value="" class="medium" tabindex="2" aria-required="true"
-                        aria-invalid="false">
-                    </div>
-                  </li>
-                  <li id="field_1_3" class="gfield gf_left_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                    <label class="gfield_label" for="input_1_3">Adresse email
-                      <span class="gfield_required">*</span>
-                    </label>
-                    <div class="ginput_container ginput_container_text">
-                      <input name="input_3" id="input_1_3" type="email" value="" class="medium" tabindex="3" aria-required="true"
-                        aria-invalid="false">
-                    </div>
-                  </li>
-                  <li id="field_1_4" class="gfield gf_right_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                    <label class="gfield_label" for="input_1_4">Je suis
-                      <span class="gfield_required">*</span>
-                    </label>
-                    <div class="ginput_container ginput_container_select">
-                      <select name="input_4" id="input_1_4" class="medium gfield_select" tabindex="4" aria-required="true" aria-invalid="false"
-                        data-placeholder="Choisissez votre statut">
-                        <option value="Un particulier">Un particulier</option>
-                        <option value="Un professionnel">Un professionnel</option>
-                      </select>
-                    </div>
-                  </li>
-                  <li id="field_1_5" class="gfield full-input gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                    <label class="gfield_label" for="input_1_5">Sujet
-                      <span class="gfield_required">*</span>
-                    </label>
-                    <div class="ginput_container ginput_container_text">
-                      <input name="input_5" id="input_1_5" type="text" value="" class="large" tabindex="5" aria-required="true"
-                        aria-invalid="false">
-                    </div>
-                  </li>
-                  <li id="field_1_6" class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                    <label class="gfield_label" for="input_1_6">Votre message
-                      <span class="gfield_required">*</span>
-                    </label>
-                    <div class="ginput_container ginput_container_textarea">
-                      <textarea name="input_6" id="input_1_6" class="textarea medium" tabindex="6" aria-required="true" aria-invalid="false"
-                        rows="10" cols="50"></textarea>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div class="gform_footer top_label">
-                <input type="submit" id="gform_submit_button_1" class="gform_button button" value="Envoyer" tabindex="7" onclick="if(window[&quot;gf_submitting_1&quot;]){return false;}  window[&quot;gf_submitting_1&quot;]=true;  "
-                  onkeypress="if( event.keyCode == 13 ){ if(window[&quot;gf_submitting_1&quot;]){return false;} window[&quot;gf_submitting_1&quot;]=true;  jQuery(&quot;#gform_1&quot;).trigger(&quot;submit&quot;,[true]); }">
-                <input type="hidden" class="gform_hidden" name="is_submit_1" value="1">
-                <input type="hidden" class="gform_hidden" name="gform_submit" value="1">
-
-                <input type="hidden" class="gform_hidden" name="gform_unique_id" value="">
-                <input type="hidden" class="gform_hidden" name="state_1" value="WyJbXSIsIjI3ZGFiMzk3MmVkZWMzNTMxY2FmM2MxMDZiNDUxMDU2Il0=">
-                <input type="hidden" class="gform_hidden" name="gform_target_page_number_1" id="gform_target_page_number_1" value="0">
-                <input type="hidden" class="gform_hidden" name="gform_source_page_number_1" id="gform_source_page_number_1" value="1">
-                <input type="hidden" name="gform_field_values" value="">
-
-              </div>
-            </form>
-          </div>
-
-          <hr>
-
-          <div class="gf_browser_chrome gform_wrapper gform_validation_error" id="gform_wrapper_1">
-            <form method="post" enctype="multipart/form-data" id="gform_1" action="/contact/">
-              <div class="gform_heading">
-                <span class="gform_description"></span>
-              </div>
-              <div class="validation_error">Le formulaire ne semble pas correctement rempli. Les erreurs ont été mises en surbrillance plus bas.</div>
-              <div class="gform_body">
-                <ul id="gform_fields_1" class="gform_fields top_label form_sublabel_below description_below">
-                  <li id="field_1_1" class="gfield gfield_error gf_left_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                    <label class="gfield_label" for="input_1_1">Nom
-                      <span class="gfield_required">*</span>
-                    </label>
-                    <div class="ginput_container ginput_container_text">
-                      <input name="input_1" id="input_1_1" type="text" value="" class="medium" tabindex="1" aria-required="true"
-                        aria-invalid="true">
-                    </div>
-                    <div class="gfield_description validation_message">Ce champ est nécessaire</div>
-                  </li>
-                  <li id="field_1_2" class="gfield gfield_error gf_right_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                    <label class="gfield_label" for="input_1_2">Prénom
-                      <span class="gfield_required">*</span>
-                    </label>
-                    <div class="ginput_container ginput_container_text">
-                      <input name="input_2" id="input_1_2" type="text" value="" class="medium" tabindex="2" aria-required="true"
-                        aria-invalid="true">
-                    </div>
-                    <div class="gfield_description validation_message">Ce champ est nécessaire</div>
-                  </li>
-                  <li id="field_1_3" class="gfield gfield_error gf_left_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                    <label class="gfield_label" for="input_1_3">Adresse email
-                      <span class="gfield_required">*</span>
-                    </label>
-                    <div class="ginput_container ginput_container_text">
-                      <input name="input_3" id="input_1_3" type="text" value="" class="medium" tabindex="3" aria-required="true"
-                        aria-invalid="true">
-                    </div>
-                    <div class="gfield_description validation_message">Ce champ est nécessaire</div>
-                  </li>
-                  <li id="field_1_4" class="gfield gf_right_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                    <label class="gfield_label" for="input_1_4">Je suis
-                      <span class="gfield_required">*</span>
-                    </label>
-                    <div class="ginput_container ginput_container_select">
-                      <select name="input_4" id="input_1_444" class="medium gfield_select" tabindex="4" aria-required="true" aria-invalid="false"
-                        data-placeholder="Choisissez votre statut">
-                        <option value="Un particulier">Un particulier</option>
-                        <option value="Un professionnel">Un professionnel</option>
-                      </select>
-                    </div>
-                  </li>
-                  <li id="field_1_5" class="gfield gfield_error full-input gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                    <label class="gfield_label" for="input_1_5">Sujet
-                      <span class="gfield_required">*</span>
-                    </label>
-                    <div class="ginput_container ginput_container_text">
-                      <input name="input_5" id="input_1_5" type="text" value="" class="large" tabindex="5" aria-required="true"
-                        aria-invalid="true">
-                    </div>
-                    <div class="gfield_description validation_message">Ce champ est nécessaire</div>
-                  </li>
-                  <li id="field_1_6" class="gfield gfield_error gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                    <label class="gfield_label" for="input_1_6">Votre message
-                      <span class="gfield_required">*</span>
-                    </label>
-                    <div class="ginput_container ginput_container_textarea">
-                      <textarea name="input_6" id="input_1_6" class="textarea medium" tabindex="6" aria-required="true" aria-invalid="true"
-                        rows="10" cols="50"></textarea>
-                    </div>
-                    <div class="gfield_description validation_message">Ce champ est nécessaire</div>
-                  </li>
-                </ul>
-              </div>
-              <div class="gform_footer top_label">
-                <input type="submit" id="gform_submit_button_1" class="gform_button button" value="Envoyer" tabindex="7" onclick="if(window[&quot;gf_submitting_1&quot;]){return false;}  window[&quot;gf_submitting_1&quot;]=true;  "
-                  onkeypress="if( event.keyCode == 13 ){ if(window[&quot;gf_submitting_1&quot;]){return false;} window[&quot;gf_submitting_1&quot;]=true;  jQuery(&quot;#gform_1&quot;).trigger(&quot;submit&quot;,[true]); }">
-                <input type="hidden" class="gform_hidden" name="is_submit_1" value="1">
-                <input type="hidden" class="gform_hidden" name="gform_submit" value="1">
-
-                <input type="hidden" class="gform_hidden" name="gform_unique_id" value="5ab62d094a294">
-                <input type="hidden" class="gform_hidden" name="state_1" value="WyJbXSIsIjI3ZGFiMzk3MmVkZWMzNTMxY2FmM2MxMDZiNDUxMDU2Il0=">
-                <input type="hidden" class="gform_hidden" name="gform_target_page_number_1" id="gform_target_page_number_1" value="0">
-                <input type="hidden" class="gform_hidden" name="gform_source_page_number_1" id="gform_source_page_number_1" value="1">
-                <input type="hidden" name="gform_field_values" value="">
-
-              </div>
-            </form>
-          </div>
-
+          </form>
         </div>
 
       </div>
+    </section>
 
-      {# COLORS #}
+    {# COLORS #}
 
-      {% set colors = ['primary', 'secondary', 'ternary'] %}
-      {% set shades = ['-darkest', '-darker', '-dark', '', '-light', '-lighter', '-lightest'] %}
+    {% set colors = ['primary', 'secondary', 'ternary'] %}
+    {% set shades = ['-darkest', '-darker', '-dark', '', '-light', '-lighter', '-lightest'] %}
 
-      {% for color in colors %}
-        <section class="wrapper wrapper--padding bg-{{ color }} color-white">
-          <div class="container">
-            <h3>Color: {{ color }}</h3>
-            <div class="row row--auto-size">
-              {% for shade in shades %}
-                <article class="color-block bg-{{ color }}{{ shade }}" style="min-height: 12rem;">
-                  <div style="position: absolute;">{{ color }}{{ shade }}</div>
-                </article>
-              {% endfor %}
-            </div>
-          </div>
-        </section>
-      {% endfor %}
-
-      {% set shades = ['black', 'gray-darkest', 'gray-darker', 'gray-dark', 'gray', 'gray-light', 'gray-lighter', 'gray-lightest', 'white'] %}
-
-      <section class="wrapper wrapper--padding bg-gray color-white">
+    {% for color in colors %}
+      <section class="wrapper wrapper--padding bg-{{ color }} color-white">
         <div class="container">
-          <h3>Color: gray</h3>
+          <h3>Color: {{ color }}</h3>
           <div class="row row--auto-size">
             {% for shade in shades %}
-              <article class="color-block bg-{{ shade }}" style="min-height: 12rem;">
-                <div style="position: absolute;">{{ shade }}</div>
+              <article class="color-block bg-{{ color }}{{ shade }}" style="min-height: 12rem;">
+                <div style="position: absolute;">{{ color }}{{ shade }}</div>
               </article>
             {% endfor %}
           </div>
         </div>
       </section>
+    {% endfor %}
 
-      <section class="wrapper wrapper--padding bg-gray-dark color-white">
-        <div class="container">
+    {% set shades = ['black', 'gray-darkest', 'gray-darker', 'gray-dark', 'gray', 'gray-light', 'gray-lighter', 'gray-lightest', 'white'] %}
 
-          <h2>Parallax effect</h2>
-
-          <div class="row row--quarter-gutter">
-            <div class="col-sm-6">
-              <!-- Background Image Parallax -->
-              <div class="jarallax" data-jarallax data-speed="0.5">
-                <img class="jarallax-img" src="https://picsum.photos/800/600/?random" alt="">
-                <h1 class="color-white" style="padding: 12rem 3rem;">Your content here...</h1>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <!-- Alternate: Background Image Parallax -->
-              <div class="jarallax" style="background-image: url('https://picsum.photos/801/600/?random');" data-jarallax data-speed="-0.2">
-                <h1 class="color-white" style="padding: 12rem 3rem;">Content here...</h1>
-              </div>
-            </div>
-            <div class="col-sm-8">
-              <!-- Background YouTube Parallax -->
-              <div class="jarallax" data-jarallax-video="https://www.youtube.com/watch?v=ab0TSkLe-E0" data-jarallax data-speed="0.8">
-                <h1 class="color-white" style="padding: 12rem 3rem;">Your video content here...</h1>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <!-- Element will be parallaxed on 250 pixels from the screen center by Y axis and on -100 pixels from the screen center by X axis -->
-              <div data-jarallax-element="0 -100">
-                <h1 style="padding: 12rem 3rem;">Your content here...</h1>
-              </div>
-            </div>
-          </div>
-
+    <section class="wrapper wrapper--padding bg-gray color-white">
+      <div class="container">
+        <h3>Color: gray</h3>
+        <div class="row row--auto-size">
+          {% for shade in shades %}
+            <article class="color-block bg-{{ shade }}" style="min-height: 12rem;">
+              <div style="position: absolute;">{{ shade }}</div>
+            </article>
+          {% endfor %}
         </div>
-      </section>
-
-      <!-- End styleguide content -->
-
+      </div>
     </section>
 
-    {% include 'latest-posts.twig' %}
+    <section class="wrapper wrapper--padding bg-gray-dark color-white">
+      <div class="container">
+
+        <h2>Parallax effect</h2>
+
+        <div class="row row--quarter-gutter">
+          <div class="col-sm-6">
+            <!-- Background Image Parallax -->
+            <div class="jarallax" data-jarallax data-speed="0.5">
+              <img class="jarallax-img" src="https://picsum.photos/800/600/?random" alt="">
+              <h1 class="color-white" style="padding: 12rem 3rem;">Your content here...</h1>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <!-- Alternate: Background Image Parallax -->
+            <div class="jarallax" style="background-image: url('https://picsum.photos/801/600/?random');" data-jarallax data-speed="-0.2">
+              <h1 class="color-white" style="padding: 12rem 3rem;">Content here...</h1>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <!-- Background YouTube Parallax -->
+            <div class="jarallax" data-jarallax-video="https://www.youtube.com/watch?v=ab0TSkLe-E0" data-jarallax data-speed="0.8">
+              <h1 class="color-white" style="padding: 12rem 3rem;">Your video content here...</h1>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <!-- Element will be parallaxed on 250 pixels from the screen center by Y axis and on -100 pixels from the screen center by X axis -->
+            <div data-jarallax-element="0 -100">
+              <h1 style="padding: 12rem 3rem;">Your content here...</h1>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- End styleguide content -->
 
   </article>
 

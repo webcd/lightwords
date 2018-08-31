@@ -56,7 +56,6 @@ if ( is_singular( 'product' ) ) {
 		));
 
 		// Title
-		// TODO: fix empty title when at shop root
 		$context['title'] = single_term_title( '', false );
 
 		if ( is_product_category() ){
@@ -79,6 +78,11 @@ if ( is_singular( 'product' ) ) {
 				$context['category_description'] = $description;
 			}
 		}
+	}
+
+	// TODO: fix empty title when at shop root
+	if ( $context['title'] == '') {
+		$context['title'] = 'Produits';
 	}
 
 	Timber::render( 'views/woocommerce/archive-product.twig', $context );

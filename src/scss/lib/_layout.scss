@@ -19,18 +19,6 @@ body,
   flex-grow: 1;
 }
 
-// ARTICLE CONTENT
-
-.article-content {
-  padding-top: $gutter-double;
-  padding-bottom: $gutter-double;
-
-  .page-template-tpl-fullwidth & {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-}
-
 // CENTERED MOBILE FOOTER
 
 .site-footer {
@@ -39,13 +27,6 @@ body,
   @include bp('sm') {
     text-align: left;
   }
-}
-
-// MAIN PAGE TITLE
-
-// Homepage title is only for SEO
-.main-title--hidden {
-  display: none;
 }
 
 // ALIGNEMENT HELPERS

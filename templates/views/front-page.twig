@@ -4,32 +4,7 @@
 
   <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 
-    {% if post.get_thumbnail %}
-      {% include "hero.twig" %}
-    {% endif %}
-
-    <section class="wrapper wrapper--article-content">
-      <div class="article-content container">
-
-        <h1 class="h1 main-title main-title--hidden {% if post.get_thumbnail %}hero-title{% endif %}">
-          {{ post.title }}
-        </h1>
-
-        {% if not fullwidth_content %}
-          <div class="article-content-body">
-            {{ post.content }}
-          </div>
-        {% endif %}
-
-      </div>
-
-      {% if fullwidth_content %}
-        <div class="article-content-body">
-          {{ post.content }}
-        </div>
-      {% endif %}
-
-    </section>
+    {% include 'base-content.twig' %}
 
     {% include 'latest-posts.twig' %}
 

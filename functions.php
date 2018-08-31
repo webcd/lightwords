@@ -63,8 +63,17 @@
 	// Remove related products
 	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 	
+	// PRODUCT ARCHIVE PAGE
+
+	// Remove content wrapper divs
+	remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+	remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper', 10 );
+	// Remove woocommerce breadcrumb (we use global Yoast breadcrumb instead)
+	remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+
 	// CART PAGE
 
+	// Add a title to the product table
 	add_action( 'woocommerce_before_cart_table', 'display_cart_product_list_title', 1);
 	function display_cart_product_list_title() {
 		echo '<h2>Produits</h2>';
