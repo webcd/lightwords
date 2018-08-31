@@ -1,0 +1,38 @@
+/* CSS HERO PARALLAX */
+
+// WARNING: Work in progress!
+// DON'T USE THIS!!!
+
+// For css parallax to work, you need to extract .site-header outside of .site-wrapper
+// However, any background content can't be selected/clicked
+// There's also a vertical sizing issue
+
+@supports ((perspective: 1px) and (not (-webkit-overflow-scrolling: touch))) {
+  /* ... parallax styles ... */
+
+  .site-wrapper {
+    perspective: 1px;
+    transform-style: preserve-3d;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  .wrapper--hero {
+    z-index: -1;
+    transform: translateZ(-1px) scale(2);
+    // height: 100vh;  
+    position: relative;
+    background-color: black;
+  }
+
+  .wrapper--article-content {
+    background-color: white;
+    z-index: 1;
+  }
+
+}
+
+.site-header {
+  background-color: white;
+}
