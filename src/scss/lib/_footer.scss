@@ -1,22 +1,28 @@
 /* FOOTER */
 
+.site-footer {
+
+  a {
+    color: $gray;
+    transition: all 0.25s;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $gray-darkest;
+      text-decoration: underline;
+    }
+  }
+}
+
 .widget_nav_menu ul {
-  list-style-type: none;
-  padding-left: 0;
+  @include reset-list();
 
   > li {
     > a {
       display: inline-block;
       padding-top: $gutter-quarter;
       padding-bottom: $gutter-quarter;
-      color: $gray;
-      transition: all 0.25s;
-
-      &:hover,
-      &:active,
-      &:focus {
-        color: $gray-darkest;
-      }
     }
   }
 }
