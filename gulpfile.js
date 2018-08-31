@@ -30,6 +30,10 @@ global.config = {
   filesJs: [
     'node_modules/select2/dist/js/select2.js',
 
+    'node_modules/jarallax/dist/jarallax.min.js',
+    'node_modules/jarallax/dist/jarallax-video.min.js',
+    'node_modules/jarallax/dist/jarallax-element.min.js',
+
     'src/js/config.js',
 
     'src/js/lib/modal.js', // Borrowed from Bootstrap

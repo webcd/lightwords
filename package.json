@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "cyanid": "git+https://github.com/Chmood/cyanid.git",
+    "jarallax": "^1.10.4",
     "jquery-parallax.js": "^1.5.0",
     "normalize.css": "^8.0.0",
     "select2": "^4.0.6-rc.1"

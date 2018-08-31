@@ -1,6 +1,8 @@
 <section class="wrapper wrapper--hero">
   <div class="hero">
-    <img class="hero__img" style="background-image: url('{{ category_image }}');">
+    <div class="hero__img jarallax" style="background-image: url('{{ category_image }}');"
+      data-jarallax data-speed="0.25"
+    >
     {#
     <img class="hero__img"
       src="{{ post.thumbnail.src|resize(1920) }}"
@@ -18,19 +20,20 @@
       alt="{{ post.thumbnail.alt }}" />
     #}
 
-    <div class="hero__content">
-      <div class="hero__slogan">
-        {{ category_description }}
+      <div class="hero__content">
+        <div class="hero__slogan" data-jarallax-element="300 0">
+          {{ category_description }}
+        </div>
+        {# <div class="hero__btn">
+          <a href="#" class="btn btn-white btn-lg btn-hollow btn-wrap">Call to ACTION!</a>
+        </div> #}
       </div>
-      {# <div class="hero__btn">
-        <a href="#" class="btn btn-white btn-lg btn-hollow btn-wrap">Call to ACTION!</a>
-      </div> #}
-    </div>
 
-    <div class="hero__scroll-down" data-scroll=".wrapper--article-content">
-      <svg class="scroll-down" viewBox="0 0 71 71">
-        <use xlink:href="#scroll-down"></use>
-      </svg>
+      <div class="hero__scroll-down" data-scroll=".wrapper--article-content">
+        <svg class="scroll-down" viewBox="0 0 71 71">
+          <use xlink:href="#scroll-down"></use>
+        </svg>
+      </div>
     </div>
     
   </div>

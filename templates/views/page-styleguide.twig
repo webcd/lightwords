@@ -370,6 +370,42 @@
         </div>
       </section>
 
+      <section class="wrapper wrapper--padding bg-gray-dark color-white">
+        <div class="container">
+
+          <h2>Parallax effect</h2>
+
+          <div class="row row--quarter-gutter">
+            <div class="col-sm-6">
+              <!-- Background Image Parallax -->
+              <div class="jarallax" data-jarallax data-speed="0.5">
+                <img class="jarallax-img" src="https://picsum.photos/800/600/?random" alt="">
+                <h1 class="color-white" style="padding: 12rem 3rem;">Your content here...</h1>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <!-- Alternate: Background Image Parallax -->
+              <div class="jarallax" style="background-image: url('https://picsum.photos/801/600/?random');" data-jarallax data-speed="-0.2">
+                <h1 class="color-white" style="padding: 12rem 3rem;">Content here...</h1>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <!-- Background YouTube Parallax -->
+              <div class="jarallax" data-jarallax-video="https://www.youtube.com/watch?v=ab0TSkLe-E0" data-jarallax data-speed="0.8">
+                <h1 class="color-white" style="padding: 12rem 3rem;">Your video content here...</h1>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <!-- Element will be parallaxed on 250 pixels from the screen center by Y axis and on -100 pixels from the screen center by X axis -->
+              <div data-jarallax-element="0 -100">
+                <h1 style="padding: 12rem 3rem;">Your content here...</h1>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <!-- End styleguide content -->
 
     </section>
