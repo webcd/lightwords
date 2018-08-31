@@ -34,6 +34,16 @@ $n-children-max: 12 !default; // Max number of columns
 																					& & { margin-top: -$gutter-half; margin-bottom: -$gutter-half; } // row in a row
 																					& + & { margin-top: -$gutter-half; } // row after row
 		}
+		@elseif $mod == "half-gutter" {				margin: $gutter-quarter (-$gutter-quarter);
+																					& > * { @include column("half-gutter"); }
+																					& & { margin-top: -$gutter-quarter; margin-bottom: -$gutter-quarter; } // row in a row
+																					& + & { margin-top: -$gutter-quarter; }
+		}
+		@elseif $mod == "quarter-gutter" {		margin: $gutter-eighth (-$gutter-eighth);
+																					& > * { @include column("quarter-gutter"); }
+																					& & { margin-top: -$gutter-eighth; margin-bottom: -$gutter-eighth; } // row in a row
+																					& + & { margin-top: -$gutter-eighth; }
+		}
 		@elseif $mod == "no-gutter" {					margin: 0;
 																					& > * { @include column("no-gutter"); }
 																					& + & { margin-top: 0; }
@@ -72,6 +82,8 @@ $n-children-max: 12 !default; // Max number of columns
 	@each $mod in $mods {
 
 		@if 		$mod == "" { 									padding: $gutter-half; }
+		@elseif $mod == "half-gutter" { 			padding: $gutter-quarter; }
+		@elseif $mod == "quarter-gutter" { 		padding: $gutter-eighth; }
 		@elseif $mod == "no-gutter" { 				padding: 0; }
 		@elseif $mod == "no-wrap" { 					overflow-x: hidden; }
 		@elseif $mod == "auto-size" { 				flex-basis: auto; flex-grow: 1; }
@@ -106,7 +118,7 @@ $n-children-max: 12 !default; // Max number of columns
 /* ROW */
 .row { @include row(); }
 
-$mods: "vertical", "no-gutter", "no-wrap", "auto-size", "top", "middle", "bottom",	"left", "center", "right", "space-between", "space-around", "space-evenly", "fit", "fill", "full";
+$mods: "vertical", "half-gutter", "quarter-gutter", "no-gutter", "no-wrap", "auto-size", "top", "middle", "bottom",	"left", "center", "right", "space-between", "space-around", "space-evenly", "fit", "fill", "full";
 
 @each $mod in $mods {
 	.row--#{$mod} { @include row($mod); }
