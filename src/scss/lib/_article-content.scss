@@ -1,17 +1,13 @@
 // ARTICLE CONTENT
 
-.article-content {
-
-  // .page-template-tpl-fullwidth & {
-  //   padding-top: 0;
-  //   padding-bottom: 0;
-  // }
-}
+.article-content {}
 
 // Debug
 
-.article-content-header { background: gray; }
-.article-content-header { background: lightgray; }
+// .article-content-header { background: gray; }
+// .article-content-header { background: lightgray; }
+
+// Article header
 
 .article-content-header {
   padding-top: $gutter-double;
@@ -32,6 +28,8 @@
     }
   }
 }
+
+// Article body
 
 .article-content-body {
   padding-top: $gutter;

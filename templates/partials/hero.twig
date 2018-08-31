@@ -1,6 +1,6 @@
 <section class="wrapper wrapper--hero">
   <div class="hero">
-    <div class="hero__img jarallax" style="background-image: url('{{ post.thumbnail.src|resize(1920) }}');"
+    <div class="hero__img jarallax" style="background-image: url('{{ img|resize(1920) }}');"
       data-jarallax data-speed="0.5"
     >
     {#
@@ -20,14 +20,25 @@
       alt="{{ post.thumbnail.alt }}" />
     #}
 
-      {% if fn('is_front_page') %}
+      {% if fn('is_front_page') or slogan %}
         <div class="hero__content">
-          <div class="hero__slogan" data-jarallax-element="300 0">
-            {{ site.description }}
+          <div class="jarallax-wrapper" data-jarallax-element="300 0">
+
+            {% if slogan %}
+              <div class="hero__slogan">
+                {{ slogan }}
+              </div>
+            {% endif %}
+
+            {% if fn('is_front_page') %}
+              <div class="hero__btn">
+                <a href="#" class="btn btn-white btn-lg btn-hollow btn-wrap">Call to ACTION!</a>
+              </div>
+            {% endif %}
+
           </div>
-          <div class="hero__btn" data-jarallax-element="300 0">
-            <a href="#" class="btn btn-white btn-lg btn-hollow btn-wrap">Call to ACTION!</a>
-          </div>
+
+
         </div>
 
         <div class="hero__scroll-down scroll-btn scroll-btn-down" data-scroll=".wrapper--article-content">

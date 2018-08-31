@@ -1,5 +1,7 @@
 {% if post.get_thumbnail %}
-  {% include "hero.twig" %}
+  
+  {% include "hero.twig" with { 'img': post.thumbnail.src } %}
+
 {% endif %}
 
 <section class="wrapper wrapper--article-content">

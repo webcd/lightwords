@@ -5,7 +5,13 @@
   <article class="archive">
 
     {% if category_image %}
-      {% include "partials/woocommerce/archive-hero.twig" %}
+      {# {% include "partials/woocommerce/archive-hero.twig" %} #}
+
+      {% include "hero.twig" with {
+				'img': category_image, 
+				'slogan': category_description
+			} %}
+
     {% endif %}
 
 		<section class="wrapper wrapper--article-content">
