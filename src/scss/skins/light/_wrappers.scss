@@ -22,7 +22,11 @@
   padding-top: $gutter-double;
   padding-bottom: $gutter-double;
 }
-.wrapper--post-footer {}
+.wrapper--post-footer {
+  padding-top: $gutter-double;
+  padding-bottom: $gutter-double;
+  background-color: $gray-lighter;
+}
 
 .wrapper--content {}
 

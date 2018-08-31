@@ -121,6 +121,7 @@ class SiteAdmin extends \App\Lib\SiteCore
         register_nav_menus(array(
             'menu-main' => 'The main, primary navbar',
             'menu-top' => 'The top, secondary navbar',
+            'menu-legal' => 'The post-footer, legal links',
         ));
     }
 

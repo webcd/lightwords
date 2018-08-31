@@ -61,6 +61,7 @@ class StarterSite extends \TimberSite
         // MENUS
         $context['menu_main'] = new \TimberMenu('menu-main');
         $context['menu_top'] = new \TimberMenu('menu-top');
+        $context['menu_legal'] = new \TimberMenu('menu-legal');
 
         // BREADCRUMB
         // From: https://github.com/timber/timber/issues/719

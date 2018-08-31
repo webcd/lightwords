@@ -27,12 +27,21 @@
 
     <div class="footer-copyright">
       <div class="footer-copyright__copyright">Copyright {{ site.name }} &copy; {{"now"|date('Y')}}</div>
-      <div class="footer-copyright__legal">
-        <a href="/mentions-legales/">Mentions légales</a>
-      </div>
+      <ul class="footer-copyright__legal-menu">
+
+        {% for item in menu_legal.get_items %}
+          <li class="{{item.classes | join(' ')}}">
+            <a href="{{item.get_link}}" class="menu-item-link">
+              {{item.title}}
+            </a>
+          </li>
+        {% endfor %}
+
+      </ul>
     </div>
     <div class="footer-made-by">
-      Design et réalisation <a href="https://www.webcd.fr" target="_blank" class="maker-link">Webcd<svg viewBox="0 0 633 156"><use xlink:href="#logo-webcd"></use></svg></a>
+      <span>Design et réalisation</span>
+      <a href="https://www.webcd.fr" target="_blank" class="maker-link">Webcd<svg viewBox="0 0 633 156"><use xlink:href="#logo-webcd"></use></svg></a>
     </div>
 
   </div>
