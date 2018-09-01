@@ -50,38 +50,48 @@
 /*****************************************************************************
  * LIGHTWORDS STYLES
  *****************************************************************************/
-@import 'lib/cdn-imports';
+ 
+/* LIGHTWORDS - FX */
+// @import 'lib/fx/css-parallax';
+@import 'lib/fx/animation';
+@import 'lib/fx/jarallax';
+@import 'lib/fx/ripple';
+@import 'lib/fx/shadows';
 
-@import 'lib/tools';
-@import 'lib/shadows';
-@import 'lib/base';
-@import 'lib/type';
-@import 'lib/buttons';
-@import 'lib/forms';
-@import 'lib/animation';
-@import 'lib/wrappers';
-@import 'lib/fixed-ratio';
-@import 'lib/layout';
-@import 'lib/article-content';
-@import 'lib/sticky-header';
-@import 'lib/header-compress';
-@import 'lib/nav';
-@import 'lib/navbar';
-@import 'lib/hamburger';
-@import 'lib/menu';
-@import 'lib/breadcrumb';
-@import 'lib/logo';
-@import 'lib/search';
-@import 'lib/hero';
-@import 'lib/footer';
-@import 'lib/modal';
-@import 'lib/ripple';
-@import 'lib/jarallax';
-@import 'lib/has-feature';
+/* LIGHTWORDS - BASE */
+@import 'lib/base/cdn-imports';
+@import 'lib/base/has-feature';
+@import 'lib/base/tools';
+@import 'lib/base//base';
+@import 'lib/base/type';
+@import 'lib/base/buttons';
+@import 'lib/base/forms';
 
+/* LIGHTWORDS - COMPONENTS */
+@import 'lib/components/breadcrumb';
+@import 'lib/components/nav';
+@import 'lib/components/logo';
+@import 'lib/components/menu';
+@import 'lib/components/hero';
+@import 'lib/components/hamburger';
+@import 'lib/components/search';
+@import 'lib/components/modal';
+@import 'lib/components/article-content';
+@import 'lib/components/navbar';
+@import 'lib/components/footer';
+
+/* LIGHTWORDS - LAYOUT */
+@import 'lib/layout/fixed-ratio';
+@import 'lib/layout/wrappers';
+@import 'lib/layout/layout';
+@import 'lib/layout/sticky-header';
+@import 'lib/layout/header-compress';
+
+/* LIGHTWORDS - DEBUG */
+@import 'lib/debug/debug';
+
+/* LIGHTWORDS - WOOCOMMERCE */
 @import 'lib/woocommerce/woocommerce';
-
-@import 'lib/debug';
 
 /*****************************************************************************
  * LIGHTWORDS SKIN

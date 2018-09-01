@@ -43,7 +43,7 @@ $color-variation-ratio-more: 20% !default;
 $color-variation-ratio-most: 30% !default;
 
 // Computed colors
-@import 'lib/colors';
+@import 'lib/base/colors';
 
 $color-error: red !default;
 $color-warning: orange !default;
