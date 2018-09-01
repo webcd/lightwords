@@ -2,8 +2,6 @@
 
 ## PHP
 
-### PHP WordPress
-
 * [PHP] Insert body tag configuration classes (from JSON config) via PHP, then remove configure.js
 * [PHP] Move all .php files at projet root into a 'controller' (or something) sub-folder (.htaccess redirection?)
 * [PHP] Vast amount of PHP code (only) works in functions.php. Move/plit this elsewhere!
@@ -25,12 +23,12 @@
 
 #### At shop root
 
-* [PHP] title (from global string) (+ image + description)
-* [PHP][Bug] categories won't show up
+* [PHP] title and description (from global config strings) (get page content as description?)
+* [PHP][Bug] Shop page thumbail image
 
 #### Products archive
 
-* [PHP] Display "N results per page" select
+* [PHP] Display "N results per page" selector (hook probably)
 
 #### Single product page
 
@@ -43,8 +41,9 @@
 * [PHP] "Choisir ce qui sera affiché sur les pages de catégories de produits." (products and/or categories)
 * [PHP] N products per line & N lines per page ? (non-responsive / desktop 3-4-6 choices + interpolation?)
 
-## CSS Base
+## CSS
 
+* [CSS][JS] Improve / config for scroll up/down buttons
 * [TPL] All post/page/product image MUST use srcset
 * [CSS] Fix some button colors (focus, disabled...)
 * [CSS][Bug]"transparent header" option is plain broken
@@ -56,6 +55,7 @@
 
 ## JS
 
+* [JS] Compressed header: track for up & down scroll, not only absolute value
 * [JS] Handler (throttle/debounce) for resize and scroll events
 
 ## Probably not

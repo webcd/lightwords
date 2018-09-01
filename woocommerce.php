@@ -47,36 +47,18 @@ if ( is_singular( 'product' ) ) {
 	$posts = Timber::get_posts();
 	$context['post'] = $posts;
 
-	// Default title
-	// TODO: Use the magic shop string ("produits" / "boutique" / whatever)
-	$context['title'] = 'Produits';
+	// CATEGORY ARCHIVE
 
-	// Category archive
-	if ( is_product_category() ) {
+	if ( ! is_product_category() ) {
 
-		// Current category
-		$category = new TimberTerm();
-		$context['category'] = $category;
+		// Default title and description
+		// TODO: Use the magic shop strings ("produits" / "boutique" / whatever)
+		$context['title'] = 'Produits';
+		$context['category_description'] = 'Découvrez nos produits&nbsp;!';
 
-		// Category title
-		$context['title'] = single_term_title( '', false );
-		// Queried object
-		$queried_object = get_queried_object();
-
-		// CATEGORY
-
-		// Get category image URL
-		global $wp_query;
-		$cat = $wp_query->get_queried_object();
-		$thumbnail_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
-		$image = wp_get_attachment_url( $thumbnail_id );
-
-		if ( $image ) {
-			$context['category_image'] = $image;
-		}
-
-		// Get category description
-		$context['category_description'] = $queried_object->description;;
+		// TODO: get the shop page thumbnail
+		$image = get_the_post_thumbnail_url();
+		$context['category_image'] = $image;
 
 		// SUB-CATEGORIES
 
@@ -87,6 +69,32 @@ if ( is_singular( 'product' ) ) {
 		  'parent' => $category->ID
 		));
 
+	// CATEGORY ARCHIVE
+
+	} else {
+
+		// Current category
+		$category = new TimberTerm();
+		$context['category'] = $category;
+
+		// Category title
+		$context['title'] = single_term_title( '', false );
+		// Queried object
+		$queried_object = get_queried_object();
+
+		// Category image
+		// Get category image URL
+		global $wp_query;
+		$cat = $wp_query->get_queried_object();
+		$thumbnail_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
+		$image = wp_get_attachment_url( $thumbnail_id );
+
+		if ( $image ) {
+			$context['category_image'] = $image;
+		}
+
+		// Category description
+		$context['category_description'] = $queried_object->description;;
 	}
 
 	Timber::render( 'views/woocommerce/archive-product.twig', $context );

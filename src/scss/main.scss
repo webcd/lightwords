@@ -21,9 +21,9 @@
 /*****************************************************************************
  * SELECT2
  *****************************************************************************/
- @import '../../node_modules/select2/dist/css/select2';
+@import '../../node_modules/select2/dist/css/select2';
 
- /*****************************************************************************
+/*****************************************************************************
  * JARALLAX
  *****************************************************************************/
 @import '../../node_modules/jarallax/dist/jarallax';
@@ -96,17 +96,20 @@
 /*****************************************************************************
  * LIGHTWORDS SKIN
  *****************************************************************************/
+
+/* LIGHTWORDS - SKIN FEATURES */
 @import 'skins/animated-links';
 @import 'skins/post-footer';
+@import 'skins/hero-title';
 
+/* LIGHTWORDS - SKIN WRAPPERS */
 @import 'skins/light/wrappers';
 // @import 'skins/dark/wrappers';
 
+/* LIGHTWORDS - SKIN TILE-POST */
 @import 'skins/tile-post';
-@import 'skins/light/tile-post';
-// @import 'skins/dark/tile-post';
-
-@import 'skins/hero-title';
+// @import 'skins/light/tile-post';
+@import 'skins/dark/tile-post';
 
 /*****************************************************************************
  * APP 
