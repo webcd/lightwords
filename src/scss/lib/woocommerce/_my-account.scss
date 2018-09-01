@@ -1,0 +1,198 @@
+/* MY ACCOUNT PAGE */
+
+/*body*/.woocommerce-account.logged-in {
+  .article-content-body {
+    .woocommerce {
+      @include row();
+
+      .woocommerce-MyAccount-navigation {
+        // background: gray;
+
+        @include col("md", 4);
+        @include col("lg", 3);
+
+        @include bp("md") {
+          padding-right: $gutter;
+        }
+        @include bp("lg") {
+          padding-right: $gutter-double;
+        }
+
+        > ul {
+          @include reset-list();
+          margin-bottom: 0;
+
+          > li {
+            display: block;
+
+            @include bp("xs") {
+              display: inline-block;
+            }
+            @include bp("md") {
+              display: block;
+            }
+
+            &:not(:last-child) {
+              margin-bottom: $gutter-quarter;
+            }
+
+            > a {
+              display: block;
+              padding: $gutter-quarter;
+              color: $navbar-btn-color;
+              font-weight: $font-weight-semibold;
+
+              &:hover,
+              &:focus {
+                background-color: $navbar-btn-bg-hover;
+              }
+            }
+
+            &.is-active {
+              > a {
+                background-color: $color-primary;
+                color: white;
+
+                &::before {
+                  content: "» ";
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .woocommerce-MyAccount-content {
+        padding-top: $gutter;
+        border-top: 0.1rem solid $input-border-color;
+        // background: lightgray;
+
+        @include col("md", 8);
+        @include col("lg", 9);
+
+        @include bp("md") {
+          border-top: none;
+          border-left: 0.1rem solid $input-border-color;
+          padding-left: $gutter;
+          padding-top: $gutter-half; // restores initial
+        }
+        @include bp("lg") {
+          padding-left: $gutter-double;
+        }
+      }
+    }
+  }
+}
+
+// ADDRESSES
+
+.addresses > *,
+.woocommerce-order-details {
+  padding: $gutter-half;
+  border: .1rem solid $navbar-btn-bg-hover;
+  margin-bottom: $gutter;
+}
+
+.woocommerce-Address {
+
+  .edit {
+    @include btn();
+    @include btn("xs");
+    @include btn("default");
+  }
+}
+
+// DETAILS FORM
+
+
+/*body*/.woocommerce-edit-account {
+
+  /*form*/.edit-account/*.woocommerce-EditAccountForm*/ {
+    @include row();
+
+    .woocommerce-form-row {
+      // background: lightgray;
+      @include col("sm", 6);
+    }
+
+    .clear {
+      display: none;
+    }
+  }
+}
+
+// ORDERS
+
+.woocommerce-orders-table {
+  td, th {
+    background-color: $navbar-btn-bg-hover;
+
+    .button {
+      @include btn("default");
+      @include btn("xs");
+      @include btn("block");
+      text-align: left;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+/* LOGIN / FORGOT-PASSWORD PAGES */
+
+// LOGIN FORM PAGE
+
+/*body*/.woocommerce-account:not(.logged-in),
+/*body*/.woocommerce-lost-password {
+
+  h2 {
+    text-align: center;
+  }
+
+  /*form*/.woocommerce-form-login,
+  /*form*/.woocommerce-ResetPassword {
+    padding: $gutter;
+    // background: $gray-lighter;
+    @include shadow(1);
+
+    @include bp("md") {
+      max-width: 48rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    button[type="submit"] {
+      @include btn("primary");
+      @include btn("block");
+      margin-top: $gutter-half;
+      margin-bottom: $gutter;
+    }
+  }
+}
+
+/*body*/.woocommerce-account:not(.logged-in) {
+
+  .woocommerce-form-login {
+
+
+
+    .lost_password {
+      text-align: right;
+    }
+  }
+
+}
+
+// FORGOTTEN PASSWORD PAGE
+
+/*body*/.woocommerce-lost-password {
+
+  /*form*/.woocommerce-ResetPassword {
+
+    p:first-child {
+      font-style: italic;
+    }
+  }
+}

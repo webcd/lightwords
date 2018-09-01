@@ -41,7 +41,7 @@ select {
 
 label {
   display: block;
-  font-weight: bold;
+  font-weight: $font-weight-semibold;
   margin-bottom: $gutter-quarter;
 }
 
@@ -187,9 +187,11 @@ input[type="radio"] {
     left: -9999px;
   }
 
-  & + label {
+  // The label can follow the input,
+  // but if can also wrap the input and a span for instance
+  & + /*label*/* {
     position: relative;
-    padding-left: $size-checkradio * 2;
+    padding-left: $size-checkradio + $gutter-half;
 
     &::before,
     &::after {
@@ -198,7 +200,7 @@ input[type="radio"] {
       position: absolute;
       top: 50%;
       transform: translate3d(-50%, -50%, 0);
-      left: $size-checkradio;
+      left: $size-checkradio / 2;
       transition: 0.125s;
     }
 
@@ -217,7 +219,7 @@ input[type="radio"] {
     }
   }
   
-  &:checked + label {
+  &:checked + /*label*/* {
     
     &::before {
       border-color: currentColor;
@@ -232,7 +234,7 @@ input[type="radio"] {
 
 input[type="radio"] {
 
-  & + label {
+  & + /*label*/* {
 
     &::before {
       border-radius: 1000rem;

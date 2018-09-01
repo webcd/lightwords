@@ -4,6 +4,12 @@
 
   <article class="archive">
 
+		{% if post.get_thumbnail %}
+			
+			{% include "hero.twig" with { 'img': post.thumbnail.src } %}
+
+		{% endif %}
+
     {% if category_image %}
       {# {% include "partials/woocommerce/archive-hero.twig" %} #}
 

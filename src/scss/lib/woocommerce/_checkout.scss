@@ -108,44 +108,43 @@
   }
 }
 
-.form-row {
-  @include row();
-  margin-bottom: $gutter-quarter;
+// TODO: too wide!
 
-  > * {
-  }
+// .form-row {
+//   @include row();
+//   margin-bottom: $gutter-quarter;
 
-  > label {
-    font-weight: $font-weight-semibold;
-    line-height: 1.25;
-    @include col('sm', 4);
+//   > label {
+//     font-weight: $font-weight-semibold;
+//     line-height: 1.25;
+//     @include col('sm', 4);
 
-    @include bp('sm', true) {
-      padding-bottom: 0;
-    }
+//     @include bp('sm', true) {
+//       padding-bottom: 0;
+//     }
 
-    @include bp('sm') {
-      // text-align: right;
-      padding-top: $gutter-half + $gutter-quarter;
-      margin-bottom: 0;
-    }
-  }
+//     @include bp('sm') {
+//       // text-align: right;
+//       padding-top: $gutter-half + $gutter-quarter;
+//       margin-bottom: 0;
+//     }
+//   }
 
-  > .woocommerce-input-wrapper {
-    @include col('sm', 8);
+//   > .woocommerce-input-wrapper {
+//     @include col('sm', 8);
 
-    @include bp('sm', true) {
-      padding-top: 0;
-      // margin-top: 0;
-    }
+//     @include bp('sm', true) {
+//       padding-top: 0;
+//       // margin-top: 0;
+//     }
 
-    @include bp('sm') {
-      &:first-child {
-        margin-left: 33.32%;
-      }
-    }
-  }
-}
+//     @include bp('sm') {
+//       &:first-child {
+//         margin-left: 33.32%;
+//       }
+//     }
+//   }
+// }
 
 .woocommerce-shipping-fields {
   > h3 {

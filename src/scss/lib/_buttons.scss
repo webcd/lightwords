@@ -173,6 +173,7 @@
 .btn-white { @include btn('white'); }
 
 // HOLLOW BUTTONS
+// TODO: into the mixin too!!!
 
 .btn-hollow {
   background-color: transparent;

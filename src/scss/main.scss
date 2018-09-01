@@ -7,7 +7,7 @@
  *****************************************************************************/
 @import 'variables';
 
-@import 'skins/dark/variables';
+// @import 'skins/dark/variables';
 
 /*****************************************************************************
  * VENDOR LIBS
@@ -89,8 +89,8 @@
 @import 'skins/animated-links';
 @import 'skins/post-footer';
 
-// @import 'skins/light/wrappers';
-@import 'skins/dark/wrappers';
+@import 'skins/light/wrappers';
+// @import 'skins/dark/wrappers';
 
 @import 'skins/tile-post';
 @import 'skins/light/tile-post';

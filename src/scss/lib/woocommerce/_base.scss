@@ -1,0 +1,14 @@
+// Quantity
+
+.quantity {
+
+  > input {
+    width: 7rem;
+    text-align: right;
+  }
+}
+
+.checkout-button {
+  @include btn('primary');
+  @include btn('block');
+}

@@ -1,57 +1,67 @@
 # TODO
 
-## Urgent
+## PHP
 
-* All post/page/product image MUST use srcset
-* Fix breadcrumb on transparent header (or only use inner breadcrumb?)
-* Fix some button colors (focus, disabled...)
-* Forms styling: debug checkbox and radio
+### PHP WordPress
 
-## Woocommerce
+* [PHP][Bug]: Latest posts add sticky posts to max count
+* [PHP] Insert body tag configuration classes (from JSON config) via PHP, then remove configure.js
+* [PHP] Move all .php files at projet root into a sub-folder (.htaccess redirection?)
+* [PHP] Vast amount of PHP code (only) works in functions.php. Move/plit this elsewhere!
+* [PHP] Inject author datas (ex: avatar) into post templates (single and archive) + comments
+* [PHP] Simple breadcrumbs (no YoastSEO) (see: https://gist.github.com/tinotriste/5387124)
 
-* Rating, "my account" pages
-* Config string for "products" (URL, breadcrumb, page title...)
-* Display products availability ('en stock')
+### PHP Woocommerce
 
-### Products archive
+* [PHP][Bug] Display products availability ('en stock')
+* [PHP] Global config string/slug for "products" (URL, breadcrumb, page title...)
 
-* title (+ image + description) when at shop root
-* categories won't show up when at shop root
-* display "N results per page" select
+#### At shop root
 
-### Single product page
+* [PHP] title (+ image + description)
+* [PHP][Bug] categories won't show up
 
-* Fix stock display
-* Fix metas (ratings, reviews + term links)
+#### Products archive
 
-### Dynamize (default) theme options
+* [PHP] Display "N results per page" select
 
-* "Choisir ce qui sera affiché sur la page principale de la boutique." (products and/or categories)
-* "Choisir ce qui sera affiché sur les pages de catégories de produits." (products and/or categories)
-* N products per line & N lines per page ? (non-responsive / desktop 3-4-6 choices + interpolation?)
+#### Single product page
 
-## Later
+* [PHP][Bug] Fix stock display
+* [PHP][Bug] Fix metas (ratings, reviews + term links)
 
-* Inject author datas (ex: avatar) into post templates (single and archive) + comments
-* Element in viewport detection on scroll (like Waypoints)
-  * animation helper lib
-  * 'back to top' button
-* Move from Gulp to Webpack build process (or fix Mix build)
-* Move all .php files at projet root into a sub-folder (.htaccess redirection?)
-* Bug: Latest posts add sticky posts to max count
-* JS handler for resize and scroll events
+#### Dynamize (default) theme options
+
+* [PHP] "Choisir ce qui sera affiché sur la page principale de la boutique." (products and/or categories)
+* [PHP] "Choisir ce qui sera affiché sur les pages de catégories de produits." (products and/or categories)
+* [PHP] N products per line & N lines per page ? (non-responsive / desktop 3-4-6 choices + interpolation?)
+
+### Twig templates needed
+
+* [PHP][TPL] All account pages / login and forgotten password forms
+
+## CSS Base
+
+* [TPL] All post/page/product image MUST use srcset
+* [CSS] Fix some button colors (focus, disabled...)
+
+## Build
+
+* [Build] Move from Gulp to Webpack build process (or fix Mix build)
+
+## JS
+
+* [JS] JS handler for resize and scroll events
 
 ## Probably not
 
-* CSS parallax
-* Simple breadcrumbs (no YoastSEO) (see: https://gist.github.com/tinotriste/5387124)
 * admin theme options?
 * Get rid off jQuery?
-* i18n / translate ALL text?
+* i18n / translate ALL text? (_e() function?)
 
 # KNOWN BUGS
 
-* add_theme_support( 'post-thumbnails' ) only works in functions.php
+* [CSS][Bug]"transparent header" option is plain broken
 
 ## To be confirmed bugs
 

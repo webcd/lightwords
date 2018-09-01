@@ -6,7 +6,7 @@
 
 .site-header {}
 .site-content {}
-.site-footer {}
+.site-footer { background-color: $gray-lightest; }
 
 // Micro-wrappers
 
@@ -16,7 +16,7 @@
 
 .wrapper--pre-footer {}
 .wrapper--footer { @include v-padding($gutter-double); }
-.wrapper--post-footer { @include v-padding($gutter-double); background-color: $gray-lighter; }
+.wrapper--post-footer { @include v-padding($gutter-double); }
 
 .wrapper--content {}
 

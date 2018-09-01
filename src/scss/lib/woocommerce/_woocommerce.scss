@@ -12,6 +12,7 @@ $color-woo-sidebar: $gray-lighter;
 $bg-woo-main: $gray-light;
 $color-woo-main: $gray-darker;
 
+@import './base';
 @import './layout';
 @import './navbar';
 @import './archive';
@@ -20,26 +21,5 @@ $color-woo-main: $gray-darker;
 @import './single-product';
 @import './cart';
 @import './checkout';
+@import './my-account';
 
-/* Hide woocommerce breadcrumb */
-// We use native breadcrumb instead
-
-.woocommerce-breadcrumb {
-  display: none;
-}
-
-
-// Quantity
-
-.quantity {
-
-  > input {
-    width: 7rem;
-    text-align: right;
-  }
-}
-
-.checkout-button {
-  @include btn('primary');
-  @include btn('block');
-}
