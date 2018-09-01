@@ -6,10 +6,7 @@
 
 .site-header {}
 .site-content {}
-.site-footer {
-  background-color: $gray-lightest;
-  @include shadow(2);
-}
+.site-footer {}
 
 // Micro-wrappers
 
@@ -18,40 +15,27 @@
 .wrapper--post-header {}
 
 .wrapper--pre-footer {}
-.wrapper--footer {
-  padding-top: $gutter-double;
-  padding-bottom: $gutter-double;
-}
-.wrapper--post-footer {
-  padding-top: $gutter-double;
-  padding-bottom: $gutter-double;
-  background-color: $gray-lighter;
-}
+.wrapper--footer { @include v-padding($gutter-double); }
+.wrapper--post-footer { @include v-padding($gutter-double); background-color: $gray-lighter; }
 
 .wrapper--content {}
 
 // Nano-wrappers
 
 .wrapper--hero {}
-
 .wrapper--article-content {}
 
 .wrapper--posts {
-  padding-top: $gutter-double;
-  padding-bottom: $gutter-double;
   background-color: $gray-darker;
   color: $gray-light;
 }
 
 .wrapper--breadcrumb {
-  padding-top: $gutter-quarter;
-  padding-bottom: $gutter-quarter;
   background-color: $gray-lightest;
 }
 
-.wrapper--comments {
-  padding-top: $gutter-double;
-  padding-bottom: $gutter-double;
+.wrapper--comments { @include v-padding($gutter-double);
+
   background-color: $gray-dark;
   color: $gray-lighter;
 }

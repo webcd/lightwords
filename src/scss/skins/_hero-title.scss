@@ -1,0 +1,34 @@
+.container-article-content-header {
+  position: relative;
+}
+
+// Move the page title over the hero image
+.article-content-header--hero {
+  margin-bottom: -$gutter-double;
+
+  .main-title {
+    position: absolute;
+    top: -$gutter-double;
+    left: 0;
+    margin: 0;
+    transform: translate3d(0, calc(-100% + 1px), 0);
+    padding: $gutter-quarter $gutter-half;
+    background-color: $body-color-base;
+  
+    @include bp($expanded) {
+      padding: $gutter-half;
+      left: -$gutter-half;
+    }
+  }
+
+  .breadcrumb,
+  .metas {
+      position: relative;
+    top: -$gutter-double;
+    margin-left: $gutter-half;
+
+    @include bp($expanded) {
+      margin-left: 0;
+    }
+  }
+}

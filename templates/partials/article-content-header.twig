@@ -1,8 +1,9 @@
-<div class="article-content-header">
-  <div class="container">
+<div class="article-content-header
+  {% if post.get_thumbnail %}article-content-header--hero{% endif %}
+">
+  <div class="container container-article-content-header">
 
     <h1 class="h1 main-title 
-      {% if post.get_thumbnail %}hero-title{% endif %}
       {% if fn('is_front_page') %}main-title--hidden{% endif %}
     ">
       {{ title }}

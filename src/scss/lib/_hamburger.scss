@@ -8,7 +8,7 @@
   min-width: $navbar-btn-size;
   height: $navbar-btn-size;
   font-size: 1.6rem;
-  background-color: transparent;
+  background-color: $navbar-btn-bg;
   color: $navbar-btn-color;
   transition: color 0.25s;
   vertical-align: top;
@@ -17,6 +17,7 @@
   &:active,
   &:focus {
     color: $navbar-btn-color-hover;
+    background-color: $navbar-btn-bg-hover;
   }
 
   &:focus {

@@ -3,15 +3,15 @@ $size-woo-menu-avatar: 3.2rem !default;
 
 .btn-toggle--cart {
   position: relative;
+  color: $navbar-btn-color;
+
+  &:hover,
+  &:focus {
+    background-color: $navbar-btn-bg-hover;
+  }
 
   @include bp($expanded) {
     margin-left: $gutter-half + $gutter-quarter;
-    color: $gray;
-
-    &:hover,
-    &:focus {
-      background-color: $gray-lighter; // Variable for this?
-    }
   }
 }
 
@@ -57,7 +57,6 @@ $size-woo-menu-avatar: 3.2rem !default;
         left: 50%;
         transform: translate3d(-50%, -50%, 0);
         width: $size-woo-menu-avatar;
-        // display: none;
       }
     }
   }

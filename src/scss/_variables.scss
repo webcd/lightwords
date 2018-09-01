@@ -3,7 +3,7 @@
 
 // GUTTER
 
-$gutter: 3rem;
+$gutter: 3rem !default;
 
 // BREAKPOINTS
 
@@ -30,7 +30,7 @@ $breakpoints: (
 ) !default;
 
 // The breakpoint at which starts the desktop layout
-$expanded: 'md';
+$expanded: 'md' !default;
 
 // COLORS
 
@@ -45,22 +45,22 @@ $color-variation-ratio-most: 30% !default;
 // Computed colors
 @import 'lib/colors';
 
-$color-error: red;
-$color-warning: orange;
-$color-info: blue;
-$color-success: green;
+$color-error: red !default;
+$color-warning: orange !default;
+$color-info: blue !default;
+$color-success: green !default;
 
 // Site wide
 
-$text-color-base: $gray-darker;
-$body-color-base: white;
+$text-color-base: $gray-darker !default;
+$body-color-base: white !default;
 
-$link-color: $color-secondary;
-$link-color-active: $color-secondary-darker;
+$link-color: $color-secondary !default;
+$link-color-active: $color-secondary-darker !default;
 
 // NAVBAR CONFIGURATION
 
-$header-color-bg: white;
+$header-color-bg: white !default;
 
 $navbar-menu-mobile-width: 18em !default;
 
@@ -74,8 +74,10 @@ $topbar-height-desktop: $topbar-height-mobile !default;
 // Navbar buttons
 $navbar-btn-size: 4.4rem !default;
 $navbar-btn-padding: 1rem !default;
-$navbar-btn-color: $gray-light !default;
+$navbar-btn-color: $gray !default;
 $navbar-btn-color-hover: $gray-darker !default;
+$navbar-btn-bg: transparent !default;
+$navbar-btn-bg-hover: rgba(0,0,0,0.0625) !default;
 
 // WordPress admin bar
 $wp-adminbar-height-mobile: 4.6rem !default;
@@ -89,63 +91,64 @@ $navbar-logo-height-desktop: $navbar-btn-size * 2 !default;
 // TYPOGRAPHY
 
 $font-family-sans-serif: 'Work Sans', 'Helvetica Neue', Helvetica, Arial,
-  sans-serif;
-$font-family-serif: 'Lora', Georgia, 'Times New Roman', Times, serif;
-$font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
-$font-family-base: $font-family-sans-serif;
+  sans-serif !default;
+$font-family-serif: 'Lora', Georgia, 'Times New Roman', Times, serif !default;
+$font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace !default;
+$font-family-base: $font-family-sans-serif !default;
 
-$font-size-base: 1.6rem;
-$line-height-base: 1.5;
-$line-height-small: 1.25;
-$line-height-smaller: 1.125;
+$font-size-base: 1.6rem !default;
+$line-height-base: 1.5 !default;
+$line-height-small: 1.25 !default;
+$line-height-smaller: 1.125 !default;
 
-$font-size-bigger: (floor($font-size-base * 1.5 * 10) / 10);
-$font-size-big: (floor($font-size-base * 1.25 * 10) / 10);
-$font-size-small: (floor($font-size-base * 0.9 * 10) / 10);
-$font-size-smaller: (floor($font-size-base * 0.75 * 10) / 10);
+$font-size-bigger: (floor($font-size-base * 1.5 * 10) / 10) !default;
+$font-size-big: (floor($font-size-base * 1.25 * 10) / 10) !default;
+$font-size-small: (floor($font-size-base * 0.9 * 10) / 10) !default;
+$font-size-smaller: (floor($font-size-base * 0.75 * 10) / 10) !default;
 
-$font-weight-normal: normal;
-$font-weight-bold: bold;
-$font-weight-semibold: 500;
+$font-weight-normal: normal !default;
+$font-weight-bold: bold !default;
+$font-weight-semibold: 500 !default;
 
 // Headings
 
-$font-size-h1: (floor($font-size-base * 2.6 * 10) / 10);
-$font-size-h2: (floor($font-size-base * 2.15 * 10) / 10);
-$font-size-h3: (floor($font-size-base * 1.7 * 10) / 10);
-$font-size-h4: (floor($font-size-base * 1.25 * 10) / 10);
-$font-size-h5: $font-size-base;
-$font-size-h6: (floor($font-size-base * 0.9 * 10) / 10);
+$font-size-h1: (floor($font-size-base * 2.6 * 10) / 10) !default;
+$font-size-h2: (floor($font-size-base * 2.15 * 10) / 10) !default;
+$font-size-h3: (floor($font-size-base * 1.7 * 10) / 10) !default;
+$font-size-h4: (floor($font-size-base * 1.25 * 10) / 10) !default;
+$font-size-h5: $font-size-base !default;
+$font-size-h6: (floor($font-size-base * 0.9 * 10) / 10) !default;
 
-$font-weight-h1: $font-weight-bold;
-$font-weight-h2: $font-weight-normal;
-$font-weight-h3: $font-weight-semibold;
-$font-weight-h4: $font-weight-normal;
-$font-weight-h5: $font-weight-bold;
-$font-weight-h6: $font-weight-normal;
+$font-weight-h1: $font-weight-bold !default;
+$font-weight-h2: $font-weight-normal !default;
+$font-weight-h3: $font-weight-semibold !default;
+$font-weight-h4: $font-weight-normal !default;
+$font-weight-h5: $font-weight-bold !default;
+$font-weight-h6: $font-weight-normal !default;
 
-$font-family-h1: $font-family-serif;
-$font-family-h2: $font-family-serif;
-$font-family-h3: $font-family-sans-serif;
-$font-family-h4: $font-family-sans-serif;
-$font-family-h5: $font-family-sans-serif;
-$font-family-h6: $font-family-sans-serif;
+$font-family-h1: $font-family-serif !default;
+$font-family-h2: $font-family-serif !default;
+$font-family-h3: $font-family-sans-serif !default;
+$font-family-h4: $font-family-sans-serif !default;
+$font-family-h5: $font-family-sans-serif !default;
+$font-family-h6: $font-family-sans-serif !default;
 
 // Border radiuses
 
-$border-radius-base: 0;
-$border-radius-large: 1.4142 * $border-radius-base;
-$border-radius-small: 2 * $border-radius-base;
+$border-radius-base: 0 !default;
+$border-radius-large: 1.4142 * $border-radius-base !default;
+$border-radius-small: 2 * $border-radius-base !default;
 
 // Buttons
 
-$btn-font-weight: 700;
-$btn-text-transform: uppercase;
+$btn-font-weight: 700 !default;
+$btn-text-transform: uppercase !default;
 
 // FORMS
 
-$input-bg: #fff;
-$input-border-color: #ccc;
-// $input-color-placeholder: #999;
+$input-bg: $body-color-base !default;
+$input-color: $text-color-base !default;
+$input-border-color: $gray !default;
+$input-color-placeholder: $gray !default;
 
 $size-checkradio: $font-size-base * 1.5 !default;

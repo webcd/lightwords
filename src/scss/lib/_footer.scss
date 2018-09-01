@@ -1,7 +1,7 @@
 /* FOOTER */
 
 .site-footer {
-
+  // De-colorize all links in footer
   a {
     color: $gray;
     transition: all 0.25s;
@@ -13,81 +13,48 @@
       text-decoration: underline;
     }
   }
-}
 
-.widget_nav_menu ul {
-  @include reset-list();
-
-  > li {
-    > a {
-      display: inline-block;
-      padding-top: $gutter-quarter;
-      padding-bottom: $gutter-quarter;
-    }
-  }
-}
-
-.footer-copyright,
-.footer-made-by {
-  text-align: center;
-  color: $gray;
-}
-
-
-
-.footer-copyright {
-
-  > * {
-    margin-bottom: $gutter;
-  }
-
-  .footer-copyright__copyright {
-  }
-
-  .footer-copyright__legal-menu {
+  // Reset all lists in footer
+  // And make links bigger enough
+  ul {
     @include reset-list();
-    margin-bottom: $gutter;
-    text-align: center;
-  }
-
-  @include bp('sm') {
-    display: flex;
-    justify-content: center;
-
-    > * {
-      flex-basis: 50%;
-    }
-
-    .footer-copyright__copyright {
-      padding-right: $gutter-half;
-      border-right: 0.1rem solid currentColor;
-      text-align: right;
-    }
-
-    .footer-copyright__legal-menu {
-      padding-left: $gutter-half;
-      text-align: left;
-    }
-  }
- 
-  @include bp('lg') {
-    .footer-copyright__legal-menu {
-      // display: flex;
-
-      > .menu-item {
+    > li {
+      > a {
         display: inline-block;
-
-        &:not(:last-child)::after {
-          content: " / ";
-          color: $gray-light;
-        }
+        @include v-padding($gutter-quarter);
       }
     }
   }
 }
 
-.footer-made-by {
+// Post-footer content
 
+.footer-copyright,
+.footer-made-by {
+  text-align: center;
+}
+
+.footer-copyright__copyright,
+.footer-copyright__legal-menu {
+  margin-bottom: $gutter-half;
+}
+
+.footer-copyright__copyright {
+}
+
+.footer-copyright__legal-menu {
+  > li {
+    display: inline-block;
+    
+    &:not(:last-child)::after {
+      content: " | ";
+    }
+  }
+}
+
+// Made by US!
+
+.footer-made-by {
   > span {
     font-style: italic;
   }
@@ -97,10 +64,13 @@
   font-size: 0;
   opacity: 0.8;
   transition: all 0.25s;
+
   > svg {
     height: 2rem;
     position: relative;
     top: 0.5rem;
+
+    //TODO: style inside the SVG
   }
 
   &:hover {

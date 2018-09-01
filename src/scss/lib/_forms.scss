@@ -5,20 +5,32 @@ input[type='number'],
 input[type='email'],
 input[type='password'],
 input[type='tel'],
-input[type='url'] {
+input[type='url'],
+textarea
+ {
   display: block;
   width: 100%;
   border: 0.1rem solid $input-border-color;
-  padding: 0 $gutter-half;
+  padding-left: $gutter-half;
+  padding-right: $gutter-half;
+
+  background-color: $input-bg;
+  color: $input-color;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='email'],
+input[type='password'],
+input[type='tel'],
+input[type='url'] {
+  @include v-padding(0);
   height: 4.4rem;
   line-height: 4.4rem;
 }
 
 textarea {
-  display: block;
-  width: 100%;
-  border: 0.1rem solid $input-border-color;
-  padding: $gutter-half;
+  @include v-padding($gutter-half);
   line-height: $line-height-base;
 }
 
@@ -32,6 +44,8 @@ label {
   font-weight: bold;
   margin-bottom: $gutter-quarter;
 }
+
+// TODO: placeholder
 
 // SELECT2 OVERRIDES
 
@@ -49,6 +63,45 @@ label {
 .select2-selection__arrow {
   height: 4.4rem !important;
 }
+
+// Colors
+
+.select2-container--default {
+  .select2-selection--single {
+    background-color: $input-bg;
+
+    .select2-selection__rendered {
+      color: $input-color;
+    }
+  }
+
+  .select2-results__option {
+    background-color: $input-bg;
+    color: $input-color;
+
+    &[aria-selected] {
+    }
+
+    &[aria-selected=true] {
+      background-color: $color-primary;
+      color: white;
+  }
+
+    &.select2-results__option--highlighted { // aka hover
+        
+      &[aria-selected] {
+        background-color: $input-color;
+        color: $input-bg;
+      }
+
+      &[aria-selected=true] {
+        background-color: $color-primary;
+        color: white;
+      }
+    }
+  }
+}
+
 
 // GRAVITY FORMS OVERRIDES (WIP)
 
@@ -152,7 +205,7 @@ input[type="radio"] {
     &::before {
       width: $size-checkradio;
       height: $size-checkradio;
-      border: 0.2rem solid;
+      border: 0.2rem solid $input-border-color;
     }
 
     &::after {
@@ -166,6 +219,10 @@ input[type="radio"] {
   
   &:checked + label {
     
+    &::before {
+      border-color: currentColor;
+    }
+
     &::after {
       opacity: 1;
       transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);

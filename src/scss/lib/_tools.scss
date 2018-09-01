@@ -1,0 +1,19 @@
+// VERTICAL PADDING HELPER
+
+@mixin v-padding($value) {
+  padding-top: $value;
+  padding-bottom: $value;
+}
+
+// TEXT ALIGNEMENT HELPERS
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+// OVERFLOW
+
+.overflow-hidden {
+  overflow: hidden;
+}
+

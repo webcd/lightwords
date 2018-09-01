@@ -1,7 +1,7 @@
 /* MENU */
 
 $caret-size: $font-size-base / 3;
-$caret-color: $text-color-base;
+$caret-color: $navbar-btn-color;
 
 /////////////////////////////////////////////////////////////////////////////
 // COMMON STYLES
@@ -14,14 +14,15 @@ $caret-color: $text-color-base;
     > .menu-item-link {
       // Debug
       // background: $gray-lightest;
-      color: $gray-darker;
+      color: $navbar-btn-color;
+      background-color: $navbar-btn-bg;
       transition: all 0.25s;
 
       &:hover,
       &:active,
       &:focus {
-        color: $gray-darkest;
-        background: rgba(0, 0, 0, 0.125);
+        color: $navbar-btn-color-hover;
+        background-color: $navbar-btn-bg-hover;
       }
 
       display: block;

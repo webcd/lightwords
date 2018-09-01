@@ -29,34 +29,6 @@ body,
   }
 }
 
-// MISC
-
-.site-header { @include shadow(1); }
-.site-footer { @include shadow(3); }
-
-.wrapper--footer {
-  padding-top: $gutter;
-  padding-bottom: $gutter;
-}
-.wrapper--post-footer {
-  padding-top: $gutter;
-  padding-bottom: $gutter;
-}
-
-// ALIGNEMENT HELPERS
-
-.text-center {
-  text-align: center;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-right {
-  text-align: right;
-}
-
 // OVERLAY
 
 @include bp($expanded, true) {

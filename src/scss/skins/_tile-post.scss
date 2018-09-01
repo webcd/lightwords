@@ -3,6 +3,14 @@
 ///////////////////////////////////////////////////////////////////////////////
 // METAS
 
+.metas {
+  margin-bottom: $gutter;
+
+  .posts & {
+    margin-bottom: 0;
+  }
+}
+
 .terms {
   line-height: 2;
   padding-bottom: $gutter-quarter;
@@ -15,39 +23,18 @@
 
 .publish {
   font-style: italic;
-  color: $gray-light;
   margin-top: $gutter-quarter;
   padding-top: $gutter-eighth;
 }
 
 .tag-link {
   text-transform: none;
-  background-color: transparent;
-  border-color: transparent;
-  color: $color-secondary;
-
-  &:hover {
-    background-color: transparent;
-    border-color: transparent;
-    color: lighten($color-secondary, 20%);
-  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 // POST(S)
 
-.article-content {
-  position: relative;
-}
-
-.metas {
-  margin-bottom: $gutter;
-
-  .posts & {
-    margin-bottom: 0;
-  }
-}
-
+// BIGGER FIRST PARAGRAPH
 .article-content-body {
   // TODO : didn't find how to make a real excerpt in WP
   // the <!-- more --> thing changes nothing in markup
@@ -55,23 +42,6 @@
   p:first-child {
     // TODO: limit to simple article (woocommerce conflicts)
     // font-size: $font-size-big;
-  }
-}
-
-// Move the page title over the hero image
-.hero-title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  // 99% to avoid black bottom line (pixel rounding issue probably)
-  transform: translate3d(0, -99%, 0);
-  margin: 0;
-  padding: $gutter-quarter $gutter-half;
-  background-color: white;
-
-  @include bp($expanded) {
-    padding: $gutter-half;
-    left: -$gutter-half;
   }
 }
 
@@ -131,10 +101,8 @@
   bottom: 0;
   margin: 0;
   padding: $gutter-quarter $gutter-half;
-  background-color: rgba(0, 0, 0, 0.5);
 
   a {
-    color: white;
     font-weight: 300;
   }
 }
@@ -142,7 +110,6 @@
 .tile__body {
   margin-top: $gutter-half;
   margin-bottom: $gutter-half;
-  color: white;
 
   .read-more {
     display: block;
@@ -159,9 +126,9 @@
   }
 }
 
-// Posts tiles are dark
 .tile-post {
   .tile__content {
-    background-color: $gray-darkest;
+    background-color: white;
   }
 }
+
