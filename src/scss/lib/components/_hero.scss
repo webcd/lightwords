@@ -1,20 +1,8 @@
-/* HERO */
-
 .hero {
   position: relative;
   min-height: 56.25vw; // 16:9 ratio
   overflow: hidden;
 
-  // Full height hero
-  /*body*/
-  .home & {
-    // min-height: calc(100vh - $navbar-height-mobile);
-    min-height: calc(100vh - 6rem);
-
-    @include bp($expanded) {
-      min-height: calc(100vh - 12rem);
-    }
-  }
   .transparent-header.home & {
     min-height: 100vh;
   }
@@ -54,7 +42,6 @@
 
 .hero__btn {
   @include bp('md') {
-    // @include btn('lg');
     padding: ($gutter-eighth * 3) ($gutter-quarter * 3);
     font-size: $font-size-big;
   }
@@ -67,53 +54,3 @@
   left: 50%;
 }
 
-/* SCROLL BUTTONS */
-
-.scroll-btn {
-  $scroll-btn-size: $gutter-double;
-
-  width: $scroll-btn-size;
-  height: $scroll-btn-size;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.5s $ease-bump;
-  @include shadow(1);
-  transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1) rotateZ(0);
-
-  &:hover,
-  &:focus {
-    @include shadow(2);
-    transform: translate3d(-50%, 0, 0) scale3d(1.25, 1.25, 1) rotateZ(0);
-  }
-
-  &.scroll-btn-up {
-    transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1) rotateZ(0.5turn);
-
-    &:hover,
-    &:focus {
-      transform: translate3d(-50%, 0, 0) scale3d(1.25, 1.25, 1) rotateZ(0.5turn);
-    }
-  }
-}
-
-#site-scroll-top {
-  display: none;
-
-  body.has-scroll-top & {
-    display: block;
-    position: fixed;
-    left: 50%;
-    bottom: $gutter;
-    transform: translate3d(-50%, 200%, 0) scale3d(1, 1, 1) rotateZ(0.5turn);
-  
-  }
-
-  body.has-scroll-top-active & {
-    transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1) rotateZ(0.5turn);
-
-    &:hover,
-    &:focus {
-      transform: translate3d(-50%, 0, 0) scale3d(1.25, 1.25, 1) rotateZ(0.5turn);
-    }
-  }
-}

@@ -1,0 +1,13 @@
+.hero {
+  margin-top: $gutter-double;
+
+  @include container();
+  @include bp($expanded) {
+
+    @each $breakpoint-name, $breakpoint-width in $breakpoints {
+      @media (min-width: $breakpoint-width) {
+        @include container-size($breakpoint-width);
+      }
+    }
+  }
+}

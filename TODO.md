@@ -44,6 +44,7 @@
 
 ## CSS
 
+* [CSS] Jarallax causes horizontal scrolling (overflow hidden needed)
 * [CSS][JS] Improve / config for scroll up/down buttons
 * [TPL] All post/page/product image MUST use srcset
 * [CSS] Fix some button colors (focus, disabled...)
