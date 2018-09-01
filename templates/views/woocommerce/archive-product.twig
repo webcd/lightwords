@@ -45,10 +45,10 @@
 										{#
 											# woocommerce_archive_description hook.
 											#
-											# @hooked woocommerce_taxonomy_archive_description - 10
-											# @hooked woocommerce_product_archive_description - 10
+											# REMOVED @hooked woocommerce_taxonomy_archive_description - 10
+											# REMOVED @hooked woocommerce_product_archive_description - 10
 											#}
-										{# {% do action('woocommerce_archive_description') %} #}
+										{% do action('woocommerce_archive_description') %}
 										{{ category_description }}
 									</div>
 								</div>
@@ -150,7 +150,6 @@
 
 							</div>
 						</section>
-
 
 						{##
 							# woocommerce_after_main_content hook.

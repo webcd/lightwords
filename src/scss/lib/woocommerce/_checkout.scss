@@ -162,11 +162,19 @@ ul.wc_payment_methods {
   > li {
     display: block;
     margin-bottom: $gutter-half;
+
+    > label,
+    > .payment_box {
+      margin-right: $gutter-half;
+      transform: translateX($gutter-half);
+      transition: all 0.25s;
+    }
     
     > label {
       margin-bottom: 0;
-      padding-top: $gutter-half;
-      padding-bottom: $gutter-half;
+      @include v-padding($gutter-half);
+      // margin-left: $gutter-half;
+      // margin-right: $gutter-half;
       background: white;
       font-weight: $font-weight-semibold;
       transition: all 0.25s;
@@ -175,19 +183,26 @@ ul.wc_payment_methods {
         @include shadow(3);
       }
     }
-    input:checked + label {
-      box-shadow: none;
-      // @include shadow(3);
-      border-top: 0.4rem solid $color-primary;
-    }
 
-    .payment_box {
+    > .payment_box {
       padding-bottom: $gutter;
       padding-left: $size-checkradio * 2;
       padding-right: $gutter;
       background: white;
       font-style: italic;
     }
+
+    input:checked + label,
+    input:checked + label + .payment_box {
+      transform: translateX(0);
+    }
+
+    input:checked + label {
+      box-shadow: none;
+      // @include shadow(3);
+      border-top: 0.4rem solid $color-primary;
+    }
+
     input:checked + label + .payment_box {
     }
   }

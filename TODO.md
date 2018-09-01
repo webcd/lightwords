@@ -13,7 +13,7 @@
 
 ### Twig templates needed
 
-* [PHP][TPL] Cart, checkout and order validation page
+* [PHP][TPL] Cart, checkout and order validation page (the whole funnel)
 * [PHP][TPL] All account pages / login and forgotten password forms
 
 ### PHP Woocommerce
