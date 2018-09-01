@@ -17,10 +17,10 @@ $context['cart'] = $woocommerce->cart;
 // echo '<pre>', var_dump($context['cart']) , '</pre>';
 // die();
 
-// SINGLE PRODUCT
-
 if ( is_singular( 'product' ) ) {
-
+	
+	// SINGLE PRODUCT
+	
 	// The product
 	$product = Timber::get_post();
 	$context['post'] = $product;
@@ -40,17 +40,30 @@ if ( is_singular( 'product' ) ) {
 	
 	Timber::render( 'views/woocommerce/single-product.twig', $context );
 
-// ARCHIVE PRODUCT
-
 } else { 
-	   
+	
+	// ARCHIVE PRODUCT
+	
 	$posts = Timber::get_posts();
 	$context['post'] = $posts;
 
-	// CATEGORY ARCHIVE
+	// Sub-categories
+	if (is_product_category() ) {
+		$category = new TimberTerm();
+	}
 
+	$context['subcategories'] = Timber::get_terms( array(
+		'taxonomy' => 'product_cat',
+		'orderby' => 'term_id',
+		'hide_empty' => true,
+		'parent' => $category->ID
+	));
+
+	// Shop root or category?
 	if ( ! is_product_category() ) {
-
+		
+		// SHOP ROOT ARCHIVE
+	
 		// Default title and description
 		// TODO: Use the magic shop strings ("produits" / "boutique" / whatever)
 		$context['title'] = 'Produits';
@@ -60,21 +73,11 @@ if ( is_singular( 'product' ) ) {
 		$image = get_the_post_thumbnail_url();
 		$context['category_image'] = $image;
 
-		// SUB-CATEGORIES
-
-		$context['subcategories'] = Timber::get_terms( array(
-		  'taxonomy' => 'product_cat',
-		  'orderby' => 'term_id',
-		  'hide_empty' => false,
-		  'parent' => $category->ID
-		));
-
-	// CATEGORY ARCHIVE
-
 	} else {
-
+		
+		// CATEGORY ARCHIVE
+	
 		// Current category
-		$category = new TimberTerm();
 		$context['category'] = $category;
 
 		// Category title
