@@ -28,6 +28,7 @@
 
 #### Products archive
 
+* [PHP][Bug] Sub-categories teaser product count (ex: 'Hoodies')
 * [PHP] Display "N results per page" selector (hook probably)
 
 #### Single product page
