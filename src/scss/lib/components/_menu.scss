@@ -203,6 +203,11 @@ $caret-color: $navbar-btn-color;
           width: 20vw;
           padding-top: $gutter-quarter;
 
+          &.dropdown-menu--right {
+            left: auto;
+            right: 0;
+          }
+
           @include shadow(1);
           transform: scale3d(1, 0, 1) translateY(100%);
           transform-origin: 50% 0 0;

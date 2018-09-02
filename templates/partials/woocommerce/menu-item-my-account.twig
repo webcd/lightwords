@@ -1,4 +1,8 @@
-<li class="menu-item menu-item--my-account">
+{% set menu_account_dropdown = true %}
+
+<li class="menu-item menu-item--my-account
+  {% if menu_account_dropdown %}menu-item-has-children menu-item--dropdown{% endif %}
+">
   {% if user %}
     <a href="{{ my_account_link }}" class="menu-item-link">
       <span class="my-account-avatar">
@@ -11,6 +15,40 @@
         {# {{ user.last_name }} #}
       </span>
     </a>
+
+    {% if menu_account_dropdown %}
+
+      {# TODO #}
+    
+      <span class="menu-item-link dropdown-toggle" data-dropdown="">
+        <span class="caret"></span>
+      </span>
+
+      <ul class="dropdown-menu dropdown-menu--right">
+        <li class="menu-item">
+          <a href="" class="menu-item-link">
+            <span>TODO</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="" class="menu-item-link">
+            <span>My account</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="" class="menu-item-link">
+            <span>Endpoints</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="" class="menu-item-link">
+            <span>...go here!</span>
+          </a>
+        </li>
+      </ul>
+    
+    {% endif %}
+
   {% else %}
     <a href="{{ my_account_link }}" class="menu-item-link">
       {# <span>{{ fn('_e', 'My Account', 'woothemes') }}</span> #}
@@ -18,4 +56,5 @@
     </a>
   {% endif %}  
 </li>
+
 

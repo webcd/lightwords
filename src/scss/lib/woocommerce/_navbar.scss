@@ -34,8 +34,9 @@ $size-woo-menu-avatar: 3.2rem !default;
 
 .menu-item--my-account {
   
+  // Hides the "my account" menu item from topbar
   .topbar & {
-    display: none;
+    display: none !important;
   }
   
   > a.menu-item-link {
