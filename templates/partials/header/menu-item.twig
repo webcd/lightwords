@@ -12,7 +12,7 @@
       <li class="{{item_child.classes | join(' ')}} {{ (item.has_child_class) ? 'menu-item--dropdown' : null }}">
 
         {# Recursivity! #}
-        {% include 'menu-item.twig' with {'item': item_child} %}
+        {% include 'header/menu-item.twig' with {'item': item_child} %}
 
       </li>
     {% endfor %}
