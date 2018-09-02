@@ -1,0 +1,24 @@
+{# The mobile menu AND the primary desktop menu #}
+
+{# Primary menu, always visible #}
+
+{% include 'header/menu-loop.twig' with {
+  'items': menu_main.get_items
+} %}
+
+{# WooCommerce "My account" menu item #}
+
+{% if is_woocommerce_active == true %}
+
+  {% include './woocommerce/menu-item-my-account.twig' %}
+
+{% endif %}
+
+{# Secondary menu for mobile only #}
+
+<li class="divider hidden-expanded"></li>
+
+{% include 'header/menu-loop.twig' with {
+  'items': menu_top.get_items,
+  'hidden_expanded': true
+} %}

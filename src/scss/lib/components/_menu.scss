@@ -112,6 +112,12 @@ $caret-color: $navbar-btn-color;
       // Space between items when stacked
       margin-bottom: $gutter-quarter;
     }
+
+    .divider {
+      margin-bottom: $gutter-quarter;
+      height: 0.2rem;
+      background-color: $navbar-btn-bg-hover;
+    }
   }
 
   // Sub-menus

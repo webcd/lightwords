@@ -27,13 +27,7 @@
   // border-radius: 100rem;
 }
 
-
 .menu-item--my-account {
-  
-  // Hides the "my account" menu item from topbar
-  .topbar & {
-    display: none !important;
-  }
   
   > a.menu-item-link {
 

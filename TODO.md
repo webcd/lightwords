@@ -62,6 +62,9 @@
 
 ## Probably not
 
+* Landing page model (no header or footer)
+* Woocommerce mega-dropdown-menu
+
 
 ## To be confirmed bugs
 
