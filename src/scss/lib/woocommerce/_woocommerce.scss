@@ -1,16 +1,8 @@
-$product-img-bg: #EAEFF3;
-.bg-product-img { background-color: $product-img-bg; }
+/*****************************************************************************
+ * WOOCOMMERCE
+ *****************************************************************************/
 
-$color-price: $color-secondary;
-$color-price-old: $gray-light;
-
-$bp-woo-sidebar: 'md';
-$width-woo-sidebar: 28rem;
-
-$bg-woo-sidebar: $gray-darker;
-$color-woo-sidebar: $gray-lighter;
-$bg-woo-main: $gray-light;
-$color-woo-main: $gray-darker;
+@import './variables';
 
 @import './base';
 @import './layout';

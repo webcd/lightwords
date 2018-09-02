@@ -1,8 +1,32 @@
-// VERTICAL PADDING HELPER
+// PADDING HELPER
 
-@mixin v-padding($value) {
-  padding-top: $value;
-  padding-bottom: $value;
+@mixin v-padding($top, $bottom: $top) {
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
+
+@mixin h-padding($left, $right: $left) {
+  padding-left: $left;
+  padding-right: $right;
+}
+
+// MARGIN HELPER
+
+@mixin v-margin($top, $bottom: $top) {
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+
+@mixin h-margin($left, $right: $left) {
+  margin-left: $left;
+  margin-right: $right;
+}
+
+// SIZE HELPER
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
 }
 
 // TEXT ALIGNEMENT HELPERS

@@ -1,3 +1,5 @@
+{# The mobile menu AND the primary desktop menu #}
+
 {% for item in menu %}
   <li class="{{item.classes | join(' ')}} {{ (item.has_child_class) ? 'menu-item--dropdown' : null }}">
     {% include 'menu-item.twig' %}
