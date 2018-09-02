@@ -1,6 +1,9 @@
-<a href="{{ fn('wc_get_cart_url') }}" class="btn-toggle btn-toggle--cart"
+<a href="{{ fn('wc_get_cart_url') }}" class="menu-item-link"
   title="{{ fn('_e', 'View your shopping cart') }}">
+
   <span class="sr-only">Cart</span>
-  <i class="fa fa-lg fa-shopping-cart"></i>
+  <i class="fa fa-fw fa-lg fa-shopping-cart"></i>
+
   <span class="btn-cart-counter">{{ cart.get_cart_contents_count }}</span>
+
 </a>

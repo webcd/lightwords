@@ -1,36 +1,4 @@
-/* HAMBURGER (and other navbar-footer buttons) */
-
-// NAVBAR BUTTONS
-
-.btn-toggle {
-  padding: 1rem;
-  border: 0;
-  min-width: $navbar-btn-size;
-  height: $navbar-btn-size;
-  font-size: 1.6rem;
-  background-color: $navbar-btn-bg;
-  color: $navbar-btn-color;
-  transition: color 0.25s;
-  vertical-align: top;
-
-  &:hover,
-  &:active,
-  &:focus {
-    color: $navbar-btn-color-hover;
-    background-color: $navbar-btn-bg-hover;
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  // Gutter between buttons + left spacing
-  margin-left: $gutter-quarter;
-
-  // Bring toggle btns back to foreground (in case of overlay/offscreen panel)
-  position: relative;
-  z-index: +1;
-}
+/* HAMBURGER ANIMATED BUTTON */
 
 // HAMBURGER BUTTON
 

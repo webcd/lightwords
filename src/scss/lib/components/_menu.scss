@@ -6,16 +6,35 @@ $caret-color: $navbar-btn-color;
 /////////////////////////////////////////////////////////////////////////////
 // COMMON STYLES
 
+// MENUS
+
+.menu-buttons {
+  @include reset-list;
+  margin-bottom: 0;
+  display: flex;
+}
+
 .menu-primary,
-.menu-secondary {
-
+.menu-secondary,
+.menu-buttons {
   .menu-item {
-
     > .menu-item-link {
-      // Debug
-      // background: $gray-lightest;
+      display: block;
+      min-height: $navbar-btn-size;
+      padding-left: $gutter-half;
+      padding-right: $gutter-half;
       color: $navbar-btn-color;
       background-color: $navbar-btn-bg;
+      
+      // Debug
+      background: $gray-lightest;
+
+      // Flex vertical center
+      display: flex;
+      align-items: center;
+      justify-content: space-between; // For carets on mobile
+      
+      cursor: pointer;
       transition: all 0.25s;
 
       &:hover,
@@ -23,18 +42,7 @@ $caret-color: $navbar-btn-color;
       &:focus {
         color: $navbar-btn-color-hover;
         background-color: $navbar-btn-bg-hover;
-      }
-
-      display: block;
-      min-height: 4.4rem;
-      padding-left: $gutter-half;
-      padding-right: $gutter-half;
-      cursor: pointer;
-
-      // Flex vertical center
-      display: flex;
-      align-items: center;
-      justify-content: space-between; // For carets on mobile
+      }  
 
       // don't catch submenus carret span
       > span:not(.caret) {
@@ -42,6 +50,27 @@ $caret-color: $navbar-btn-color;
         padding: $gutter-quarter 0;
       }
     }
+
+    &.menu-item--button {
+      > .menu-item-link {
+        position: relative;
+        margin-left: $gutter-quarter;
+        min-width: $navbar-btn-size;
+        // Gutter between buttons + left spacing
+        @include h-padding(1rem);
+        border: 0;
+        vertical-align: top;
+        
+        // Bring toggle btns back to foreground (in case of overlay/offscreen panel)
+        z-index: +1;
+        transition: color 0.25s;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
 
     // Active item
     &.current-menu-item {
@@ -66,6 +95,7 @@ $caret-color: $navbar-btn-color;
         flex-grow: 1;
       }
     }
+
   }
 }
 
@@ -122,7 +152,6 @@ $caret-color: $navbar-btn-color;
 
   // Sub-menus
   .menu-item--dropdown {
-
     .dropdown-toggle {
       margin-bottom: 0;
     }
@@ -137,7 +166,6 @@ $caret-color: $navbar-btn-color;
       }
 
       .menu-item {
-        
         > .menu-item-link:first-child {
           padding-left: $gutter;
         }
@@ -149,7 +177,6 @@ $caret-color: $navbar-btn-color;
 
       .dropdown-menu & {
         .menu-item {
-        
           > .menu-item-link:first-child {
             padding-left: $gutter-and-half;
           }
@@ -164,7 +191,7 @@ $caret-color: $navbar-btn-color;
 
 @include bp($expanded) {
   .menu-primary {
-    margin-right: -$gutter-half;
+    // margin-right: -$gutter-half;
     margin-left: $gutter-half;
   }
 
@@ -186,7 +213,7 @@ $caret-color: $navbar-btn-color;
         transition: all 0.25s ease;
         flex-wrap: nowrap;
 
-        // // Make caret visually closer to its menu item 
+        // // Make caret visually closer to its menu item
         // .dropdown-toggle {
 
         //   > .caret {

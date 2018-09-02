@@ -1,6 +1,6 @@
 /* HEADER COMPRESS */
 
-.topbar-toggle--compress {
+.menu-item--compress {
   // Hide the "+" button by default
   display: none;
 }
@@ -28,7 +28,7 @@
         // Move it back to bottom of the navbar
         top: 0;
       }
-      .topbar-toggle--compress {
+      .menu-item--compress {
         // Display the "+" button when compressed
         display: initial;
       }

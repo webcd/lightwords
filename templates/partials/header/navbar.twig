@@ -16,51 +16,25 @@
 
     {# MAIN MENU #}
 
-    <div class="navbar-menu" id="navbar-menu">
+    <nav class="navbar-menu" id="navbar-menu">
       <ul class="menu-primary nav">
 
         {% include 'header/menu-main.twig' %}
 
       </ul>
-    </div>
+    </nav>
 
     {# ACTION BUTTONS #}
     {# Show up in the mobile topbar, aligned right (think hamburger) #}
     {# Can also be visible on desktop, at the right of the main menu #}
 
     <div class="navbar-footer">
+      <ul class="menu-buttons">
 
-      {# Search button (mobile only) #}
+        {% include 'header/menu-buttons.twig' %}
 
-      <button type="button" class="btn-toggle topbar-toggle--search hidden-expanded" data-toggle="#topbar, body" data-toggle-classname="topbar-expanded" aria-expanded="false">
-        <span class="sr-only">Toggle search</span>
-        <i class="fa fa-lg fa-search"></i>
-      </button>
-
-      {# WooCommerce cart menu-item/button (desktop AND mobile) #}
-
-      {% if is_woocommerce_active == true %}
-
-        {% include './woocommerce/menu-item-cart.twig' %}
-        
-      {% endif %}
-
-      {# Hamburger button (mobile only) #}
-
-      <button type="button" class="btn-toggle navbar-toggle hidden-expanded" data-toggle="#navbar-menu, #overlay-navbar, body" data-toggle-classname="navbar-expanded" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <div class="hamburger-wrapper">
-          <div class="hamburger"></div>
-        </div>
-      </button>
-
-      {# Toggle topbar on (collapsed) desktop navbar (desktop only) #}
-
-      <button type="button" class="btn-toggle topbar-toggle--compress visible-expanded" data-toggle="body" data-toggle-classname="header-uncompressed" aria-expanded="false">
-        <span class="sr-only">Toggle topbar</span>
-        <i class="fa fa-lg fa-plus"></i>
-      </button>
+      </ul>
     </div>
 
-  </div><!-- /.container -->
+  </div><!-- End .container -->
 </nav>

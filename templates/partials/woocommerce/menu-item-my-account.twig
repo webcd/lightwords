@@ -1,7 +1,7 @@
 {% set menu_account_dropdown = true %}
 
 <li class="menu-item menu-item--my-account
-  {% if menu_account_dropdown %}menu-item-has-children menu-item--dropdown{% endif %}
+  {{ (menu_account_dropdown and user) ? 'menu-item-has-children menu-item--dropdown' }}
 ">
   {% if user %}
     <a href="{{ my_account_link }}" class="menu-item-link">
