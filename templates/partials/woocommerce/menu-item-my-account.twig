@@ -22,29 +22,25 @@
 
       <a href="{{ my_account_link }}" class="menu-item-link">
 
-        <span class="my-account-avatar">
-          <img src="{{ user.avatar }}" alt="{{ user.name }}'s avatar">
-        </span>
-
-        {# <span class="my-account-name">{{ user.name }}</span> #}
-        <span class="my-account-name">
-          {{ user.first_name }}
-          {# {{ user.last_name }} #}
-        </span>
-
-      </a>
-
     {# "MY ACCOUNT" DROPDOWN MENU #}
 
     {% else %}
 
-      {# TODO #}
-    
-      <button class="menu-item-link dropdown-toggle" data-dropdown="">
+      <button class="menu-item-link dropdown-toggle" data-dropdown
+        data-panel-toggle data-panel-target="panel-my-account"
+      >
+
+    {% endif %}
+
+        {# Menu item link content (same for link and button) #}
+
+        {# AVATAR #}
 
         <span class="my-account-avatar">
           <img src="{{ user.avatar }}" alt="{{ user.name }}'s avatar">
         </span>
+
+        {# USER NAME #}
 
         {# <span class="my-account-name">{{ user.name }}</span> #}
         <span class="my-account-name">
@@ -52,9 +48,21 @@
           {# {{ user.last_name }} #}
         </span>
 
+    {% if not menu_account_dropdown %}
+
+      </a>
+
+    {% else %}
+
       </button>
 
-      <ul class="dropdown-menu dropdown-menu--right">
+    {% endif %}
+
+    {% if menu_account_dropdown %}
+
+    {# "MY ACCOUNT" DROPDOWN MENU CONTENT #}
+
+      <ul class="dropdown-menu dropdown-menu--right" id="panel-my-account">
         <li class="menu-item">
           <a href="{{ my_account_link }}" class="menu-item-link">
             <i class="fa fa-fw fa-user"></i>
@@ -63,7 +71,8 @@
         </li>
 
         {# ENDPOINTS GO HERE #}
-
+        {# TODO #}
+  
         <li class="menu-item">
           <a href="" class="menu-item-link">
             <span>My account...</span>

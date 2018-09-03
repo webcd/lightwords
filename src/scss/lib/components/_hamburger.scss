@@ -48,7 +48,7 @@ $hamburger-height: $navbar-btn-size - 2 * $navbar-btn-padding;
   }
 }
 
-.navbar-expanded {
+/*body*/.panel-menu-expanded {
   .hamburger-wrapper {
     &:hover {
       .hamburger {

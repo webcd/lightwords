@@ -1,0 +1,106 @@
+// MOBILE SIDE PANELS
+
+@mixin mobile-panel($label: "MENU") {
+  display: block !important;
+  position: fixed;
+  right: 0;
+  top: 0;
+
+  // Larger than necessary
+  // x2 to avoid gap when animated
+  width: $navbar-menu-mobile-width * 2;
+  padding-right: $navbar-menu-mobile-width;
+
+  @include bp('sm') {
+    width: 100%;
+    padding-right: 50%;
+  }
+
+  height: 100vh;
+  padding-top: $navbar-height-mobile;
+  transform: translate3d(100%, $navbar-height-mobile, 0);
+  transition: transform 0.5s $ease-bump, box-shadow 0.5s;
+  background-color: $header-color-bg;
+
+  // Generated label
+  &:before {
+    content: $label;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: $gutter-quarter * 3;
+    line-height: $navbar-height-mobile;
+    font-weight: bold;
+    color: $gray-light;
+    @include shadow(1);
+  }
+}
+
+@mixin mobile-panel-active() {
+  // Move the navbar into viewport
+  transform: translate3d(50%, $topbar-height-mobile, 0);
+  @include shadow(5);
+}
+
+// Pain in the ass to reset mobile navbar styles on larger screens
+// So for once, we allow MOBILE ONLY styles (max-width here)
+@include bp($expanded, true) {
+
+  // Mobile menu panels
+
+  // MAIN MENU PANEL
+
+  #panel-menu {
+    @include mobile-panel();
+
+    /*body*/.panel-menu-expanded & {
+      @include mobile-panel-active();
+    }
+  }
+
+  // Only for main navbar
+  
+  .menu-primary {
+    // Allow mobile menu scroll
+    max-height: calc(100vh - 6rem);
+    overflow: auto;
+  }
+
+  // WOOCOMMERCE EXTRA PANELS
+  // Comment the code below if not needed
+  // Or adapt it to make any dropdown menu item becomes a full sidebar panel!
+
+  // MY-ACCOUNT & CART BUTTON PANELS
+
+  #panel-cart {
+    @include mobile-panel("PANIER");
+
+    /*body*/.panel-cart-expanded & {
+      @include mobile-panel-active();
+    }
+  }
+  #panel-my-account {
+    @include mobile-panel("COMPTE");
+
+    /*body*/.panel-my-account-expanded & {
+      @include mobile-panel-active();
+    }
+  }
+
+  #panel-cart,
+  #panel-my-account {
+    margin-top: 0;
+    opacity: 1; // For cart dropdown menu
+    padding-top: $navbar-height-mobile + $gutter-half;
+    padding-bottom: $navbar-height-mobile + $gutter-half;
+    z-index: -1;
+
+    .menu-item > .menu-item-link:first-child {
+      padding-left: $gutter-half;
+    }
+  }
+
+  // TODO: scroll wrappers
+
+}

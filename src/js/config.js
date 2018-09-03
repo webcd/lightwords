@@ -13,6 +13,8 @@ window.CONFIG = {
   breadcrumbs: true,
   breadcrumbsInContent: true,
 
+  expandDropdownsOnHover: true,
+
   stickyHeader: true,
   compressHeader: true,
   transparentHeader: false,

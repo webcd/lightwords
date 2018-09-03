@@ -22,7 +22,9 @@
 
   {% else %}
 
-    <button class="menu-item-link dropdown-toggle" data-dropdown>
+    <button class="menu-item-link dropdown-toggle" data-dropdown
+      data-panel-toggle data-panel-target="panel-cart"
+    >
 
       <span class="sr-only">Cart</span>
       <i class="fa fa-fw fa-lg fa-shopping-cart"></i>
@@ -33,11 +35,7 @@
 
     </button>
 
-    {# <span class="menu-item-link">
-      <span class="caret"></span>
-    </span> #}
-
-    <ul class="dropdown-menu dropdown-menu--right" id="cartbar-menu">
+    <ul class="dropdown-menu dropdown-menu--right" id="panel-cart">
       <li class="menu-item">
         <a href="{{ fn('wc_get_cart_url') }}" class="menu-item-link">
           <i class="fa fa-fw fa-shopping-cart"></i>
@@ -46,7 +44,8 @@
       </li>
 
       {# CART ITEMS GO HERE #}
-
+      {# TODO #}
+    
       <li class="menu-item">
         <a href="" class="menu-item-link">
           <span>Cart...</span>

@@ -1,16 +1,12 @@
 {# BUTTONS MENU #}
 
-{# WooCommerce "My account" menu item #}
-
 {% if is_woocommerce_active == true %}
+
+  {# WooCommerce "My account" menu item #}
 
   {% include './woocommerce/menu-item-my-account.twig' %}
 
-{% endif %}
-
-{# WooCommerce cart menu-item/button (desktop AND mobile) #}
-
-{% if is_woocommerce_active == true %}
+  {# WooCommerce cart menu-item/button (desktop AND mobile) #}
 
   {% include './woocommerce/menu-item-cart.twig' %}
 
@@ -19,29 +15,41 @@
 {# Search button (mobile only) #}
 
 <li class="menu-item menu-item--button menu-item--search hidden-expanded">
-  <button type="button" class="menu-item-link" data-toggle="#topbar, body" data-toggle-classname="topbar-expanded" aria-expanded="false">
+
+  <button type="button" class="menu-item-link"
+    data-toggle="#topbar, body" data-toggle-classname="topbar-expanded"
+  >
     <span class="sr-only">Toggle search</span>
     <i class="fa fa-fw fa-lg fa-search"></i>
   </button>
+
 </li>
 
 {# Hamburger button (mobile only) #}
 
 <li class="menu-item menu-item--button menu-item--search hidden-expanded">
-  <button type="button" class="menu-item-link navbar-toggle" data-toggle="#navbar-menu, #overlay-navbar, body" data-toggle-classname="navbar-expanded" aria-expanded="false">
+
+  <button type="button" class="menu-item-link"
+    data-panel-toggle data-panel-target="panel-menu"
+  >
     <span class="sr-only">Toggle navigation</span>
     <div class="hamburger-wrapper">
       <div class="hamburger"></div>
     </div>
   </button>
+
 </li>
 
 {# Toggle topbar on (collapsed) desktop navbar (desktop only) #}
 
 <li class="menu-item menu-item--button menu-item--compress visible-expanded">
-  <button type="button" class="menu-item-link" data-toggle="body" data-toggle-classname="header-uncompressed" aria-expanded="false">
+
+  <button type="button" class="menu-item-link"
+    data-toggle="body" data-toggle-classname="header-uncompressed"
+  >
     <span class="sr-only">Toggle topbar</span>
     <i class="fa fa-fw fa-lg fa-plus"></i>
   </button>
+
 </li>
 

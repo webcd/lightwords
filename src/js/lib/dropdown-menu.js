@@ -14,25 +14,29 @@
     })
 
     // Mouse hover auto-opens submenus
+    // TODO: config for this
 
-    var $dropdowns = $('.menu-item--dropdown')
-
-    $dropdowns.on('mouseenter', function() {
-      var $this = $(this)
-      $this.addClass('active')
-      var $dropdownToggle = $this.children('.dropdown-toggle')
-      $dropdownToggle.addClass('active')
-      var $dropdownMenu = $this.children('.dropdown-menu')
-      $dropdownMenu.addClass('active')
-    })
-    $dropdowns.on('mouseleave', function() {
-      var $this = $(this)
-      $this.removeClass('active')
-      var $dropdownToggle = $this.children('.dropdown-toggle')
-      $dropdownToggle.removeClass('active')
-      var $dropdownMenu = $this.children('.dropdown-menu')
-      $dropdownMenu.removeClass('active')
-    })
+    if (CONFIG.expandDropdownsOnHover) {
+  
+      var $dropdowns = $('.menu-item--dropdown')
+  
+      $dropdowns.on('mouseenter', function() {
+        var $this = $(this)
+        $this.addClass('active')
+        var $dropdownToggle = $this.children('.dropdown-toggle')
+        $dropdownToggle.addClass('active')
+        var $dropdownMenu = $this.children('.dropdown-menu')
+        $dropdownMenu.addClass('active')
+      })
+      $dropdowns.on('mouseleave', function() {
+        var $this = $(this)
+        $this.removeClass('active')
+        var $dropdownToggle = $this.children('.dropdown-toggle')
+        $dropdownToggle.removeClass('active')
+        var $dropdownMenu = $this.children('.dropdown-menu')
+        $dropdownMenu.removeClass('active')
+      })
+    }
 
     console.log('dropdown-menu.js is loaded')
   })
