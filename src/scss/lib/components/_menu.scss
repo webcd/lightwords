@@ -6,6 +6,56 @@ $caret-color: $navbar-btn-color;
 /////////////////////////////////////////////////////////////////////////////
 // COMMON STYLES
 
+@mixin dropdown() {
+  position: relative;
+  transition: all 0.25s ease;
+  flex-wrap: nowrap;
+
+  .dropdown-menu {
+    background-color: $header-color-bg;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50vw;
+
+    @include bp($expanded) {
+      width: 25vw;
+    }
+    padding-top: $gutter-quarter;
+
+    &.dropdown-menu--right {
+      left: auto;
+      right: 0;
+    }
+
+    @include shadow(1);
+    transform: scale3d(1, 0, 1) translateY(100%);
+    transform-origin: 50% 0 0;
+    opacity: 0;
+    transition: all 0.5s $ease-bump;
+    z-index: +10;
+
+    > .menu-item {
+      margin: $gutter-quarter;
+      margin-top: 0;
+    }
+
+    &.active {
+      opacity: 1;
+      transform: scale3d(1, 1, 1) translateY(100%);
+    }
+
+    .dropdown-menu & {
+      overflow: hidden;
+    }
+  }
+
+  &.active {
+    @include shadow(1);
+    margin-bottom: 0;
+  }
+}
+
 // MENUS
 
 .menu-buttons {
@@ -25,15 +75,15 @@ $caret-color: $navbar-btn-color;
       padding-right: $gutter-half;
       color: $navbar-btn-color;
       background-color: $navbar-btn-bg;
-      
+
       // Debug
-      background: $gray-lightest;
+      // background: $gray-lightest;
 
       // Flex vertical center
       display: flex;
       align-items: center;
       justify-content: space-between; // For carets on mobile
-      
+
       cursor: pointer;
       transition: all 0.25s;
 
@@ -42,35 +92,40 @@ $caret-color: $navbar-btn-color;
       &:focus {
         color: $navbar-btn-color-hover;
         background-color: $navbar-btn-bg-hover;
-      }  
+      }
 
       // don't catch submenus carret span
-      > span:not(.caret) {
+      > span:not(.caret):not(.cart-counter) {
         line-height: 1; // In case of multi-line
         padding: $gutter-quarter 0;
       }
     }
 
     &.menu-item--button {
+      margin-left: $gutter-quarter;
+
       > .menu-item-link {
         position: relative;
-        margin-left: $gutter-quarter;
         min-width: $navbar-btn-size;
         // Gutter between buttons + left spacing
         @include h-padding(1rem);
         border: 0;
         vertical-align: top;
-        
+
         // Bring toggle btns back to foreground (in case of overlay/offscreen panel)
         z-index: +1;
         transition: color 0.25s;
+
+        // No caret for dropdown buttons
+        &.dropdown-toggle {
+          margin-left: 0;
+        }
 
         &:focus {
           outline: none;
         }
       }
     }
-
 
     // Active item
     &.current-menu-item {
@@ -87,6 +142,7 @@ $caret-color: $navbar-btn-color;
       }
     }
 
+    // Dropdown
     &.menu-item--dropdown {
       display: flex;
       flex-wrap: wrap;
@@ -94,8 +150,19 @@ $caret-color: $navbar-btn-color;
       .menu-item-link:first-child {
         flex-grow: 1;
       }
-    }
 
+      &.menu-item--dropdown-mobile {
+        > .dropdown-menu {
+          > .menu-item {
+            > .menu-item-link:first-child {
+              padding-left: $gutter-half;
+            }
+          }
+        }
+
+        @include dropdown();
+      }
+    }
   }
 }
 
@@ -151,6 +218,9 @@ $caret-color: $navbar-btn-color;
   }
 
   // Sub-menus
+
+  $width-nested-dropdown-indentation: $gutter-half;
+
   .menu-item--dropdown {
     .dropdown-toggle {
       margin-bottom: 0;
@@ -167,7 +237,7 @@ $caret-color: $navbar-btn-color;
 
       .menu-item {
         > .menu-item-link:first-child {
-          padding-left: $gutter;
+          padding-left: $gutter-half + $width-nested-dropdown-indentation;
         }
 
         &:last-child {
@@ -178,7 +248,8 @@ $caret-color: $navbar-btn-color;
       .dropdown-menu & {
         .menu-item {
           > .menu-item-link:first-child {
-            padding-left: $gutter-and-half;
+            padding-left: $gutter-half +
+              ($width-nested-dropdown-indentation * 2);
           }
         }
       }
@@ -199,7 +270,8 @@ $caret-color: $navbar-btn-color;
   }
 
   .menu-primary,
-  .menu-secondary {
+  .menu-secondary,
+  .menu-buttons {
     .menu-item {
       margin-left: $gutter-eighth * 3;
 
@@ -209,66 +281,7 @@ $caret-color: $navbar-btn-color;
 
       // Hide and show dropdown submenu
       &.menu-item--dropdown {
-        position: relative;
-        transition: all 0.25s ease;
-        flex-wrap: nowrap;
-
-        // // Make caret visually closer to its menu item
-        // .dropdown-toggle {
-
-        //   > .caret {
-        //     position: relative;
-        //     left: -$gutter-quarter;
-        //   }
-
-        //   &.active {
-        //     > .caret {
-        //       left: 0;
-        //     }
-        //   }
-        // }
-
-        .dropdown-menu {
-          background-color: $header-color-bg;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 20vw;
-          padding-top: $gutter-quarter;
-
-          &.dropdown-menu--right {
-            left: auto;
-            right: 0;
-          }
-
-          @include shadow(1);
-          transform: scale3d(1, 0, 1) translateY(100%);
-          transform-origin: 50% 0 0;
-          opacity: 0;
-          transition: all 0.5s $ease-bump;
-          // overflow: hidden;
-          z-index: +10;
-
-          > .menu-item {
-            margin: $gutter-quarter;
-            margin-top: 0;
-          }
-
-          &.active {
-            opacity: 1;
-            transform: scale3d(1, 1, 1) translateY(100%);
-          }
-
-          .dropdown-menu & {
-            // z-index: +1000;
-            overflow: hidden;
-          }
-        }
-
-        &.active {
-          @include shadow(1);
-          margin-bottom: 0;
-        }
+        @include dropdown();
       }
     }
   }

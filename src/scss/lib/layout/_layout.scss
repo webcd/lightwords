@@ -32,7 +32,8 @@ body,
 // OVERLAY
 
 @include bp($expanded, true) {
-  body.navbar-expanded {
+  body.navbar-expanded
+  body.cartbar-expanded {
     overflow: hidden;
   }
 
@@ -56,7 +57,8 @@ body,
     opacity: 0;
     transition: opacity 0.5s, transform 0.25s;
 
-    &.navbar-expanded {
+    &.navbar-expanded,
+    &.cartbar-expanded {
       opacity: 1;
       transform: translate3d(0, 0, 0);
     }

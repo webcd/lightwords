@@ -1,13 +1,19 @@
 {# BUTTONS MENU #}
 
+{# WooCommerce "My account" menu item #}
+
+{% if is_woocommerce_active == true %}
+
+  {% include './woocommerce/menu-item-my-account.twig' %}
+
+{% endif %}
+
 {# WooCommerce cart menu-item/button (desktop AND mobile) #}
 
 {% if is_woocommerce_active == true %}
-  <li class="menu-item menu-item--button menu-item--cart">
 
-    {% include './woocommerce/menu-item-cart.twig' %}
+  {% include './woocommerce/menu-item-cart.twig' %}
 
-  </li>
 {% endif %}
 
 {# Search button (mobile only) #}

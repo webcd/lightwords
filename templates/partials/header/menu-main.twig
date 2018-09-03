@@ -6,14 +6,6 @@
   'items': menu_main.get_items
 } %}
 
-{# WooCommerce "My account" menu item #}
-
-{% if is_woocommerce_active == true %}
-
-  {% include './woocommerce/menu-item-my-account.twig' %}
-
-{% endif %}
-
 {# Secondary menu for mobile only #}
 
 <li class="divider hidden-expanded"></li>

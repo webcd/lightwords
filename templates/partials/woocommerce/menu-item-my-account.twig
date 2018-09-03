@@ -1,44 +1,77 @@
 {% set menu_account_dropdown = true %}
 
-<li class="menu-item menu-item--my-account
-  {{ (menu_account_dropdown and user) ? 'menu-item-has-children menu-item--dropdown' }}
+<li class="menu-item menu-item--button menu-item--my-account
+  {{ (menu_account_dropdown and user) ? 'menu-item-has-children menu-item--dropdown menu-item--dropdown-mobile' }}
+  {{ user ? 'menu-item--my-account--logged-in' }}
 ">
-  {% if user %}
+
+  {# ANONYMOUS SIMPLE LINK #}
+
+  {% if not user %}
+
     <a href="{{ my_account_link }}" class="menu-item-link">
-      <span class="my-account-avatar">
-        <img src="{{ user.avatar }}" alt="{{ user.name }}'s avatar">
-      </span>
-      {# <span>{{ fn('_e', 'My Account', 'woothemes') }} </span> #}
-      {# <span class="my-account-name">{{ user.name }}</span> #}
-      <span class="my-account-name">
-        {{ user.first_name }}
-        {# {{ user.last_name }} #}
-      </span>
+      {# <span>{{ fn('_e', 'My Account', 'woothemes') }}</span> #}
+      <span>Mon compte</span>
     </a>
 
-    {% if menu_account_dropdown %}
+  {% else %}
+
+    {# "MY ACCOUNT" SIMPLE LINK #}
+
+    {% if not menu_account_dropdown %}
+
+      <a href="{{ my_account_link }}" class="menu-item-link">
+
+        <span class="my-account-avatar">
+          <img src="{{ user.avatar }}" alt="{{ user.name }}'s avatar">
+        </span>
+
+        {# <span class="my-account-name">{{ user.name }}</span> #}
+        <span class="my-account-name">
+          {{ user.first_name }}
+          {# {{ user.last_name }} #}
+        </span>
+
+      </a>
+
+    {# "MY ACCOUNT" DROPDOWN MENU #}
+
+    {% else %}
 
       {# TODO #}
     
-      <span class="menu-item-link dropdown-toggle" data-dropdown="">
-        <span class="caret"></span>
-      </span>
+      <button class="menu-item-link dropdown-toggle" data-dropdown="">
+
+        <span class="my-account-avatar">
+          <img src="{{ user.avatar }}" alt="{{ user.name }}'s avatar">
+        </span>
+
+        {# <span class="my-account-name">{{ user.name }}</span> #}
+        <span class="my-account-name">
+          {{ user.first_name }}
+          {# {{ user.last_name }} #}
+        </span>
+
+      </button>
 
       <ul class="dropdown-menu dropdown-menu--right">
         <li class="menu-item">
-          <a href="" class="menu-item-link">
+          <a href="{{ my_account_link }}" class="menu-item-link">
             <i class="fa fa-fw fa-user"></i>
-            <span>TODO</span>
+            <span>Mon compte</span>
+          </a>
+        </li>
+
+        {# ENDPOINTS GO HERE #}
+
+        <li class="menu-item">
+          <a href="" class="menu-item-link">
+            <span>My account...</span>
           </a>
         </li>
         <li class="menu-item">
           <a href="" class="menu-item-link">
-            <span>My account</span>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="" class="menu-item-link">
-            <span>Endpoints</span>
+            <span>...endpoints...</span>
           </a>
         </li>
         <li class="menu-item">
@@ -50,11 +83,6 @@
     
     {% endif %}
 
-  {% else %}
-    <a href="{{ my_account_link }}" class="menu-item-link">
-      {# <span>{{ fn('_e', 'My Account', 'woothemes') }}</span> #}
-      <span>Mon compte</span>
-    </a>
   {% endif %}  
 </li>
 

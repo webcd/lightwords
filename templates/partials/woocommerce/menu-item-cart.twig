@@ -1,9 +1,69 @@
-<a href="{{ fn('wc_get_cart_url') }}" class="menu-item-link"
-  title="{{ fn('_e', 'View your shopping cart') }}">
+{% set menu_cart_dropdown = true %}
 
-  <span class="sr-only">Cart</span>
-  <i class="fa fa-fw fa-lg fa-shopping-cart"></i>
+<li class="menu-item menu-item--button menu-item--cart
+  {{ (menu_cart_dropdown) ? 'menu-item-has-children menu-item--dropdown menu-item--dropdown-mobile' }}
+">
 
-  <span class="btn-cart-counter">{{ cart.get_cart_contents_count }}</span>
+  {# CART SIMPLE LINK #}
 
-</a>
+  {% if not menu_cart_dropdown %}
+
+    <a href="{{ fn('wc_get_cart_url') }}" class="menu-item-link"
+      title="{{ fn('_e', 'View your shopping cart') }}">
+
+      <span class="sr-only">Cart</span>
+      <i class="fa fa-fw fa-lg fa-shopping-cart"></i>
+
+      <span class="cart-counter">{{ cart.get_cart_contents_count }}</span>
+
+    </a>
+
+  {# CART DROPDOWN MENU #}
+
+  {% else %}
+
+    <button class="menu-item-link dropdown-toggle" data-dropdown>
+
+      <span class="sr-only">Cart</span>
+      <i class="fa fa-fw fa-lg fa-shopping-cart"></i>
+
+      <span class="cart-counter">
+        {{ cart.get_cart_contents_count }}
+      </span>
+
+    </button>
+
+    {# <span class="menu-item-link">
+      <span class="caret"></span>
+    </span> #}
+
+    <ul class="dropdown-menu dropdown-menu--right" id="cartbar-menu">
+      <li class="menu-item">
+        <a href="{{ fn('wc_get_cart_url') }}" class="menu-item-link">
+          <i class="fa fa-fw fa-shopping-cart"></i>
+          <span>{{ fn('_e', 'View your shopping cart') }}</span>
+        </a>
+      </li>
+
+      {# CART ITEMS GO HERE #}
+
+      <li class="menu-item">
+        <a href="" class="menu-item-link">
+          <span>Cart...</span>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="" class="menu-item-link">
+          <span>...items...</span>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="" class="menu-item-link">
+          <span>...go there!</span>
+        </a>
+      </li>
+    </ul>
+
+  {% endif %}
+
+</li>
