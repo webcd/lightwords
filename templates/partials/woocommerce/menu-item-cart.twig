@@ -115,7 +115,7 @@
       {% if cart.cart_contents|length > 0 %}
 
         <li class="menu-item highlight">
-          <a href="#" class="menu-item-link">
+          <a href="{{ cart.get_checkout_url }}" class="menu-item-link">
             <i class="fa fa-fw fa-arrow-circle-right"></i>
             <span>Passer commande</span>
           </a>

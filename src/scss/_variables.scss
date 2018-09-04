@@ -77,12 +77,11 @@ $navbar-btn-color: $gray !default;
 $navbar-btn-color-hover: $gray-darker !default;
 $navbar-btn-bg: transparent !default;
 $navbar-btn-bg-hover: rgba(0,0,0,0.0625) !default;
-
 $hamburger-height: $navbar-btn-size - 2 * 1rem !default;
-$caret-size: $gutter / 4;
-$caret-color: $navbar-btn-color;
 
 // Dropdown menus
+$caret-size: $gutter / 4;
+$caret-color: $navbar-btn-color;
 $width-nested-dropdown-indentation: $gutter / 2;
 
 // WordPress admin bar

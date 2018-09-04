@@ -22,7 +22,8 @@ global.config = {
     scss: 'scss/',
     js: 'js/',
     img: 'img/',
-    fonts: 'fonts/'
+    fonts: 'fonts/',
+    favicons: 'img/favicon/'
   },
 
   // Order-dependant javascript files static build
@@ -62,6 +63,7 @@ config.pathImages = [
   config.path.src + config.path.img + '*.*',
   '!' + config.pathSpritesSVG
 ]
+config.pathFavicons = config.path.src + config.path.favicons + '*.*'
 config.pathHtml = [config.path.src + '*.html', config.pathStyleguide + '*.html']
 config.pathTemplates = ['*.php', 'lib/**/*.php', 'templates/**/*.twig']
 
@@ -70,6 +72,7 @@ config.pathJsDest = config.path.dist + config.path.js
 config.pathCssDest = config.path.dist + config.path.css
 config.pathFontsDest = config.path.dist + config.path.fonts
 config.pathImagesDest = config.path.dist + config.path.img
+config.pathFaviconsDest = config.path.dist + config.path.favicons
 
 // Clean
 config.pathClean = [config.path.dist]
@@ -128,12 +131,18 @@ gulp.task('clean', function() {
 
 // Copy
 
-gulp.task('copy', ['copy-fonts'])
+gulp.task('copy', [/*'copy-fonts', */'copy-favicons'])
 
 gulp.task('copy-fonts', function() {
   return gulp
     .src(['node_modules/font-awesome/fonts/*'])
     .pipe(gulp.dest(config.pathFontsDest))
+})
+
+gulp.task('copy-favicons', function() {
+  return gulp
+    .src([config.pathFavicons])
+    .pipe(gulp.dest(config.pathFaviconsDest))
 })
 
 // IMAGES
@@ -287,7 +296,7 @@ gulp.task('graphics', ['images', 'sprites'])
 gulp.task('swatch', ['serve', 'watch'])
 
 gulp.task('build', function() {
-  runSequence('clean', ['compile', 'graphics'])
+  runSequence('clean', ['copy', 'compile', 'graphics'])
 })
 
 gulp.task('default', ['swatch'])
