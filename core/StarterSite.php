@@ -58,6 +58,81 @@ class StarterSite extends \TimberSite
     {
         $context['site'] = $this;
 
+        // JSON CONFIG
+
+        $config_JSON = file_get_contents(get_template_directory() . '/src/js/config.json');
+        $config = json_decode($config_JSON);
+        // $context['config_JSON'] = htmlspecialchars(json_encode($config_JSON), ENT_QUOTES, 'UTF-8');
+        $context['config_JSON'] = htmlspecialchars($config_JSON, ENT_QUOTES, 'UTF-8');
+        $context['CONFIG'] = $config;
+
+        // Body configuration classes
+
+        $body_class_config = '';
+
+        // Debug classes
+
+        if ($config->debug) {
+            $body_class_config .= 'debug ';
+    
+            if ($config->debuggers) {
+                foreach ($config->debuggers as $debugger){
+                    $body_class_config .= 'debug--' . $debugger . ' ';
+                }
+            }
+        }
+
+        // Has feature
+    
+        if (!$config->search) {
+            $body_class_config .= 'has-no-search ';
+        }
+        if (!$config->breadcrumbs) {
+            $body_class_config .= 'has-no-breadcrumbs ';
+        } else {
+            if ($config->breadcrumbsInContent) {
+                $body_class_config .= 'has-breadcrumbs-in-content ';
+            } else {
+                $body_class_config .= 'has-breadcrumbs-in-header ';
+            }
+        }
+        if ($config->stickyHeader) {
+            $body_class_config .= 'sticky-header ';
+            if ($config->compressHeader) {
+                $body_class_config .= 'compressible-header ';
+                if ($config->compressHeaderLogoSwap) {
+                    $body_class_config .= 'compressible-header-logo-swap ';
+                }
+                if ($config->transparentHeader) {
+                    $body_class_config .= 'transparent-header ';
+                }
+            }
+        }
+  
+        if ($config->fixedWidthContainers) {
+            $body_class_config .= 'has-fixed-width-containers ';
+        } else {
+            if ($config->fixedWidthHeader) {
+                $body_class_config .= 'has-fixed-width-header ';
+            } 
+            if ($config->fixedWidthFooter) {
+                $body_class_config .= 'has-fixed-width-footer ';
+            }
+            if ($config->fixedWidthContent) {
+                $body_class_config .= 'has-fixed-width-content ';
+            }
+        }
+
+        if ($config->woocommerce) {
+            $body_class_config .= 'has-woocommerce-support ';
+        }
+
+        if ($config->hasScrollTop) {
+            $body_class_config .= 'has-scroll-top ';
+        }
+  
+        $context['body_class_config'] = $body_class_config;
+
         // MENUS
         $context['menu_main'] = new \TimberMenu('menu-main');
         $context['menu_top'] = new \TimberMenu('menu-top');

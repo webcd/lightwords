@@ -14,9 +14,8 @@
     })
 
     // Mouse hover auto-opens submenus
-    // TODO: config for this
 
-    if (CONFIG.expandDropdownsOnHover) {
+    if (Lightwords.CONFIG.expandDropdownsOnHover) {
   
       var $dropdowns = $('.menu-item--dropdown')
   
@@ -36,6 +35,8 @@
         var $dropdownMenu = $this.children('.dropdown-menu')
         $dropdownMenu.removeClass('active')
       })
+
+      console.log('Dropdowns will auto-expand on mouse hover')
     }
 
     console.log('dropdown-menu.js is loaded')

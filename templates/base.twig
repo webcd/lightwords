@@ -6,7 +6,7 @@
 {% endblock %}
 
 <!-- BODY -->
-<body class="{{body_class}}" data-template="base.twig">
+<body class="{{ body_class }} {{ body_class_config }}" data-config="{{ config_JSON }}">
 
   <!-- SITE-WRAPPER -->
   <div class="site-wrapper">
@@ -23,7 +23,7 @@
 
       {# Ugly dump #}
       {# {% for item in cart.cart_contents %} #}
-        {# {{ fn('ddump', cart) }} #}
+        {# {{ fn('ddump', CONFIG) }} #}
       {# {% endfor %} #}
 
       <!-- MAIN -->

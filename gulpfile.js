@@ -29,16 +29,16 @@ global.config = {
   // Order-dependant javascript files static build
 
   filesJs: [
+    // Vendor
     'node_modules/select2/dist/js/select2.js',
 
     'node_modules/jarallax/dist/jarallax.min.js',
     'node_modules/jarallax/dist/jarallax-video.min.js',
     'node_modules/jarallax/dist/jarallax-element.min.js',
 
-    'src/js/config.js',
-
     'src/js/lib/modal.js', // Borrowed from Bootstrap
 
+    // Lib
     'src/js/lib/configure.js',
     'src/js/lib/toggler.js',
     'src/js/lib/dropdown-menu.js',

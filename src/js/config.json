@@ -1,0 +1,27 @@
+{
+  "debug": true,
+  "debuggers": ["breakpoints"],
+
+  "search": true,
+  "breadcrumbs": true,
+  "breadcrumbsInContent": true,
+
+  "expandDropdownsOnHover": true,
+
+  "stickyHeader": true,
+  "compressHeader": true,
+  "compressHeaderLogoSwap": true,
+  "transparentHeader": false,
+
+  "hasScrollTop": true,
+
+  "fixedWidthContainers": false,
+  "fixedWidthHeader": true,
+  "fixedWidthFooter": true,
+  "fixedWidthContent": true,
+
+  "woocommerce": true,
+
+  "rippleEffect": true,
+  "rippleSelector": ".btn, .scroll-btn"
+}
