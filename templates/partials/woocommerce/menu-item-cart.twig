@@ -1,12 +1,12 @@
-{% set menu_cart_dropdown = true %}
+{% set has_dropdown = CONFIG.menuCartDropdown %}
 
 <li class="menu-item menu-item--button menu-item--cart
-  {{ (menu_cart_dropdown) ? 'menu-item-has-children menu-item--dropdown menu-item--dropdown-mobile' }}
+  {{ (has_dropdown) ? 'menu-item-has-children menu-item--dropdown menu-item--dropdown-mobile' }}
 ">
 
   {# CART SIMPLE LINK #}
 
-  {% if not menu_cart_dropdown %}
+  {% if not has_dropdown %}
 
     <a href="{{ fn('wc_get_cart_url') }}" class="menu-item-link"
       title="{{ fn('_e', 'View your shopping cart') }}">

@@ -14,16 +14,18 @@
 
 {# Search button (mobile only) #}
 
-<li class="menu-item menu-item--button menu-item--search hidden-expanded">
+{% if CONFIG.search %}
+  <li class="menu-item menu-item--button menu-item--search hidden-expanded">
 
-  <button type="button" class="menu-item-link"
-    data-toggle="#topbar, body" data-toggle-classname="topbar-expanded"
-  >
-    <span class="sr-only">Toggle search</span>
-    <i class="fa fa-fw fa-lg fa-search"></i>
-  </button>
+    <button type="button" class="menu-item-link"
+      data-toggle="#topbar, body" data-toggle-classname="topbar-expanded"
+    >
+      <span class="sr-only">Toggle search</span>
+      <i class="fa fa-fw fa-lg fa-search"></i>
+    </button>
 
-</li>
+  </li>
+{% endif %}
 
 {# Hamburger button (mobile only) #}
 

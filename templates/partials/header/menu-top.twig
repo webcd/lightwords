@@ -18,11 +18,13 @@
 
     {# SEARCH #}
 
-    <div class="topbar-search">
-      
-      {% include 'header/search-form.twig' %}
+    {% if CONFIG.search %}
+      <div class="topbar-search">
+        
+        {% include 'header/search-form.twig' %}
 
-    </div>
+      </div>
+    {% endif %}
 
   </div><!-- /.container -->
 </div>

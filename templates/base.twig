@@ -21,7 +21,7 @@
     <!-- SITE-CONTENT -->
     <section class="site-content">
 
-      {# Ugly dump #}
+      {# Ugly dump, use with extreme shame #}
       {# {% for item in cart.cart_contents %} #}
         {# {{ fn('ddump', CONFIG) }} #}
       {# {% endfor %} #}
@@ -30,7 +30,7 @@
       <main class="site-main-content wrapper wrapper--content" role="main">
 
         <!-- BREADCRUMB -->
-        {% if not fn('is_front_page') %}
+        {% if CONFIG.breadcrumbs and not CONFIG.breadcrumbsInContent and not fn('is_front_page') %}
           <section class="wrapper wrapper--breadcrumb">
             <div class="container">
               {# native walker: % include "breadcrumb.twig" %#}

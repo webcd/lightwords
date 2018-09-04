@@ -20,7 +20,8 @@
   "fixedWidthFooter": true,
   "fixedWidthContent": true,
 
-  "woocommerce": true,
+  "menuCartDropdown": true,
+  "menuMyAccountDropdown": true,
 
   "rippleEffect": true,
   "rippleSelector": ".btn, .scroll-btn"

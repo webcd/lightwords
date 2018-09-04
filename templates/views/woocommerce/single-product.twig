@@ -77,7 +77,9 @@
 
                 <h1 class="h1 main-title" id="main-title">{{ post.title }}</h1>
 
-                {{ breadcrumb }}
+                {% if CONFIG.breadcrumbs and CONFIG.breadcrumbsInContent %}
+                  {{ breadcrumb }}
+                {% endif %}
 
                 <div class="product-summary">
 

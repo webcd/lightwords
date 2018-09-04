@@ -1,7 +1,7 @@
-{% set menu_account_dropdown = true %}
+{% set has_dropdown = CONFIG.menuMyAccountDropdown %}
 
 <li class="menu-item menu-item--button menu-item--my-account
-  {{ (menu_account_dropdown and user) ? 'menu-item-has-children menu-item--dropdown menu-item--dropdown-mobile' }}
+  {{ (has_dropdown and user) ? 'menu-item-has-children menu-item--dropdown menu-item--dropdown-mobile' }}
   {{ user ? 'menu-item--my-account--logged-in' }}
 ">
 
@@ -18,7 +18,7 @@
 
     {# "MY ACCOUNT" SIMPLE LINK #}
 
-    {% if not menu_account_dropdown %}
+    {% if not has_dropdown %}
 
       <a href="{{ my_account_link }}" class="menu-item-link">
 
@@ -48,7 +48,7 @@
           {# {{ user.last_name }} #}
         </span>
 
-    {% if not menu_account_dropdown %}
+    {% if not has_dropdown %}
 
       </a>
 
@@ -58,7 +58,7 @@
 
     {% endif %}
 
-    {% if menu_account_dropdown %}
+    {% if has_dropdown %}
 
     {# "MY ACCOUNT" DROPDOWN MENU CONTENT #}
 

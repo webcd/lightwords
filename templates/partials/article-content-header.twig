@@ -9,7 +9,7 @@
       {{ title }}
     </h1>
 
-    {% if not fn('is_front_page') %}
+    {% if CONFIG.breadcrumbs and CONFIG.breadcrumbsInContent and not fn('is_front_page') %}
       {# native walker: % include "breadcrumb.twig" %#}
       {{ breadcrumb }}
     {% endif %}

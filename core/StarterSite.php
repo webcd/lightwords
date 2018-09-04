@@ -53,6 +53,41 @@ class StarterSite extends \TimberSite
         add_filter('xmlrpc_enabled', '__return_false'); // Remove XML RPC
     }
 
+    // Body configuration classes
+    private function getBodyConfigurationClassesString($config)
+    {
+        $body_class_config = '';
+
+        // Debug classes
+
+        if ($config->debug) { $body_class_config .=                             'debug ';
+    
+            if ($config->debuggers) {
+                foreach ($config->debuggers as $debugger){ $body_class_config .= 'debug--' . $debugger . ' '; }
+            }
+        }
+
+        // Has feature
+    
+        if ($config->stickyHeader) { $body_class_config .=                      'sticky-header ';
+            if ($config->compressHeader) { $body_class_config .=                'compressible-header ';
+                if ($config->compressHeaderLogoSwap) { $body_class_config .=    'compressible-header-logo-swap '; }
+                if ($config->transparentHeader) { $body_class_config .=         'transparent-header '; }
+            }
+        }
+  
+        if ($config->fixedWidthContainers) { $body_class_config .=              'has-fixed-width-containers ';
+        } else {
+            if ($config->fixedWidthHeader) { $body_class_config .=              'has-fixed-width-header '; } 
+            if ($config->fixedWidthFooter) { $body_class_config .=              'has-fixed-width-footer '; }
+            if ($config->fixedWidthContent) { $body_class_config .=             'has-fixed-width-content '; }
+        }
+
+        if ($config->hasScrollTop) { $body_class_config .=                      'has-scroll-top '; }
+  
+        return $body_class_config;
+    }
+
     // Global context, available to all templates
     function add_to_context($context)
     {
@@ -66,72 +101,7 @@ class StarterSite extends \TimberSite
         $context['config_JSON'] = htmlspecialchars($config_JSON, ENT_QUOTES, 'UTF-8');
         $context['CONFIG'] = $config;
 
-        // Body configuration classes
-
-        $body_class_config = '';
-
-        // Debug classes
-
-        if ($config->debug) {
-            $body_class_config .= 'debug ';
-    
-            if ($config->debuggers) {
-                foreach ($config->debuggers as $debugger){
-                    $body_class_config .= 'debug--' . $debugger . ' ';
-                }
-            }
-        }
-
-        // Has feature
-    
-        if (!$config->search) {
-            $body_class_config .= 'has-no-search ';
-        }
-        if (!$config->breadcrumbs) {
-            $body_class_config .= 'has-no-breadcrumbs ';
-        } else {
-            if ($config->breadcrumbsInContent) {
-                $body_class_config .= 'has-breadcrumbs-in-content ';
-            } else {
-                $body_class_config .= 'has-breadcrumbs-in-header ';
-            }
-        }
-        if ($config->stickyHeader) {
-            $body_class_config .= 'sticky-header ';
-            if ($config->compressHeader) {
-                $body_class_config .= 'compressible-header ';
-                if ($config->compressHeaderLogoSwap) {
-                    $body_class_config .= 'compressible-header-logo-swap ';
-                }
-                if ($config->transparentHeader) {
-                    $body_class_config .= 'transparent-header ';
-                }
-            }
-        }
-  
-        if ($config->fixedWidthContainers) {
-            $body_class_config .= 'has-fixed-width-containers ';
-        } else {
-            if ($config->fixedWidthHeader) {
-                $body_class_config .= 'has-fixed-width-header ';
-            } 
-            if ($config->fixedWidthFooter) {
-                $body_class_config .= 'has-fixed-width-footer ';
-            }
-            if ($config->fixedWidthContent) {
-                $body_class_config .= 'has-fixed-width-content ';
-            }
-        }
-
-        if ($config->woocommerce) {
-            $body_class_config .= 'has-woocommerce-support ';
-        }
-
-        if ($config->hasScrollTop) {
-            $body_class_config .= 'has-scroll-top ';
-        }
-  
-        $context['body_class_config'] = $body_class_config;
+        $context['body_class_config'] = $this->getBodyConfigurationClassesString($config);
 
         // MENUS
         $context['menu_main'] = new \TimberMenu('menu-main');
@@ -145,6 +115,7 @@ class StarterSite extends \TimberSite
         } else {
             // TODO: stock WordPress breadcrumb
         }
+
         // DEBUG
         $context['do_debug_zone'] = WP_DEBUG;
         
@@ -156,9 +127,12 @@ class StarterSite extends \TimberSite
         $context['widgets_footer_2'] = \Timber::get_widgets('footer2');
         $context['widgets_footer_3'] = \Timber::get_widgets('footer3');
         $context['widgets_footer_4'] = \Timber::get_widgets('footer4');
+
         // Inline SVG
         $context['do_inlinesvg'] = file_exists(get_template_directory().'/dist/img/sprite.symbol.svg.twig');
 
+        // WOOCOMMERCE
+        // See also /woocommerce.php at theme root
         $context['is_woocommerce_active'] = class_exists( 'Timber' );
 
         $context['my_account_link'] = get_permalink( get_option('woocommerce_myaccount_page_id') );
