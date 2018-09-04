@@ -36,31 +36,93 @@
     </button>
 
     <ul class="dropdown-menu dropdown-menu--right" id="panel-cart">
-      <li class="menu-item">
-        <a href="{{ fn('wc_get_cart_url') }}" class="menu-item-link">
-          <i class="fa fa-fw fa-shopping-cart"></i>
-          <span>{{ fn('_e', 'View your shopping cart') }}</span>
-        </a>
-      </li>
 
       {# CART ITEMS GO HERE #}
       {# TODO #}
-    
+      {#
+      - empty cart message
+      - img alt
+      - 
+       #}
+
+      {% if not cart.cart_contents|length > 0 %}
+
+        <li class="menu-item menu-item--passive">
+          <div class="menu-item-link">
+            <span class=""><em>Aucun produit pour l'instant</em></span>
+          </div>
+        </li>
+
+      {% else %}
+
+        {% for item in cart.cart_contents %}
+
+        <li class="menu-item menu-item--product">
+          <a href="{{ fn('get_permalink', item.data.id) }}" class="menu-item-link item-product">
+
+            <span class="item-product__img">
+              <img src="{{ fn('get_the_post_thumbnail_url', item.data.id) }}" alt="{{ item.data.name }}"/>
+            </span>
+            {# {{ item.data.id }} #}
+            
+            <span class="item-product__name">{{ item.data.name }}</span>
+            {% if item.quantity > 1 %}
+              <span class="item-product__quantity">{{ item.quantity }}x</span>
+            {% endif %}
+            <span class="item-product__price">{{ fn('wc_price', item.data.price) }}</span>
+
+          </a>
+        </li>
+
+        {% endfor %}
+
+        {# CART TOTAL #}
+
+        <li class="divider"></li>
+
+        <li class="menu-item menu-item--product menu-item--passive">
+          <div class="menu-item-link item-product item-product--shipping">
+            <span class="item-product__shipping-label">Frais de port</span>
+            <span class="item-product__price item-product__price--shipping">
+              {{ fn('wc_price', cart.shipping_total) }}
+            </span>
+          </div>
+        </li>
+
+        <li class="menu-item menu-item--product menu-item--passive">
+          <div class="menu-item-link item-product item-product--total">
+            <span class="item-product__total-label">
+              Total <em>({{ cart.get_cart_contents_count }} produits)</em>
+            </span>
+            <span class="item-product__price item-product__price--total">
+              {{ fn('wc_price', cart.total) }}
+            </span>
+          </div>
+        </li>
+
+        <li class="divider"></li>
+
+      {% endif %}
+
       <li class="menu-item">
-        <a href="" class="menu-item-link">
-          <span>Cart...</span>
+        <a href="{{ fn('wc_get_cart_url') }}" class="menu-item-link">
+          <i class="fa fa-fw fa-shopping-cart"></i>
+          {# <span>{{ fn('_e', 'View your shopping cart') }}</span> #}
+          <span>Voir le panier</span>
         </a>
       </li>
-      <li class="menu-item">
-        <a href="" class="menu-item-link">
-          <span>...items...</span>
-        </a>
-      </li>
-      <li class="menu-item">
-        <a href="" class="menu-item-link">
-          <span>...go there!</span>
-        </a>
-      </li>
+
+      {% if cart.cart_contents|length > 0 %}
+
+        <li class="menu-item highlight">
+          <a href="#" class="menu-item-link">
+            <i class="fa fa-fw fa-arrow-circle-right"></i>
+            <span>Passer commande</span>
+          </a>
+        </li>
+
+      {% endif %}
+
     </ul>
 
   {% endif %}

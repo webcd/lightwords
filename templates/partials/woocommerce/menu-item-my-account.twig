@@ -36,7 +36,7 @@
 
         {# AVATAR #}
 
-        <span class="my-account-avatar">
+        <span class="avatar avatar--small my-account-avatar">
           <img src="{{ user.avatar }}" alt="{{ user.name }}'s avatar">
         </span>
 
@@ -63,31 +63,47 @@
     {# "MY ACCOUNT" DROPDOWN MENU CONTENT #}
 
       <ul class="dropdown-menu dropdown-menu--right" id="panel-my-account">
-        <li class="menu-item">
-          <a href="{{ my_account_link }}" class="menu-item-link">
-            <i class="fa fa-fw fa-user"></i>
-            <span>Mon compte</span>
-          </a>
+
+        {# DROPDOWN HEADER (user metas) #}
+
+        <li class="menu-item menu-item--passive menu-item--my-account-metas">
+          <div class="menu-item-link">
+
+            {# BIG AVATAR #}
+
+            <span class="avatar avatar--big my-account-avatar">
+              <img src="{{ user.avatar }}" alt="{{ user.name }}'s avatar">
+            </span>
+
+            {# USER NAME #}
+
+            <span class="my-account-metas__name">
+              {{ user.first_name }}
+              {{ user.last_name }}
+            </span>
+
+          </div>
         </li>
 
-        {# ENDPOINTS GO HERE #}
-        {# TODO #}
-  
-        <li class="menu-item">
-          <a href="" class="menu-item-link">
-            <span>My account...</span>
+        <li class="divider"></li>
+
+        {# MY-ACCOUNT LINKS #}
+
+        {% for my_account_item, my_account_name in my_account_items %}
+
+        <li class="menu-item
+          {{ my_account_item == 'dashboard' ? 'highlight' }}
+        ">
+
+          <a href="{{ fn('wc_get_account_endpoint_url', my_account_item) }}" class="menu-item-link">
+            <i class="fa fa-fw {{ fn('getMyAccountItemIcon', my_account_item) }}"></i>
+            <span>{{ my_account_name }}</span>
           </a>
+
         </li>
-        <li class="menu-item">
-          <a href="" class="menu-item-link">
-            <span>...endpoints...</span>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="" class="menu-item-link">
-            <span>...go here!</span>
-          </a>
-        </li>
+
+        {% endfor %}
+
       </ul>
     
     {% endif %}

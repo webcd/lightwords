@@ -2,14 +2,13 @@
 
 ## PHP
 
+* [PHP][Bug] Translation function _e() not working + use it everywhere (and add translation to the dictionary)
 * [PHP] Insert body tag configuration classes (from JSON config) via PHP, then remove configure.js
 * [PHP] Move all .php files at projet root into a 'controller' (or something) sub-folder (.htaccess redirection?)
 * [PHP] Vast amount of PHP code (only) works in functions.php. Move/plit this elsewhere!
 * [PHP][Bug][Never] Latest posts add sticky posts to max count
-* [PHP][Bug][Never] i18n / translate ALL text? (_e() function for stock text broken?)
 * [PHP][Never] Inject author datas (ex: avatar) into post templates (single and archive) + comments
 * [PHP][Never] Simple breadcrumbs (no YoastSEO) (see: https://gist.github.com/tinotriste/5387124)
-* [PHP][Never] Admin theme options?
 
 ### Twig templates needed
 
@@ -18,8 +17,7 @@
 
 ### PHP Woocommerce
 
-* [PHP] Global config string/slug for "products" (URL, breadcrumb, page title...)
-* [PHP][Bug] Display products availability ('en stock')
+* [PHP] Global config string/slug for "products" (singular/plurals, URL, breadcrumb, page title...)
 
 #### At shop root
 
@@ -28,7 +26,7 @@
 
 #### Products archive
 
-* [PHP][Bug] Sub-categories teaser product count (ex: 'Hoodies')
+* [PHP][Bug] Sub-categories teaser product count is broken sometimes (ex: 'Hoodies')
 * [PHP] Display "N results per page" selector (hook probably)
 
 #### Single product page
@@ -41,9 +39,12 @@
 * [PHP] "Choisir ce qui sera affiché sur la page principale de la boutique." (products and/or categories)
 * [PHP] "Choisir ce qui sera affiché sur les pages de catégories de produits." (products and/or categories)
 * [PHP] N products per line & N lines per page ? (non-responsive / desktop 3-4-6 choices + interpolation?)
+* [PHP][Never] Add new admin theme options?
 
 ## CSS
 
+* [CSS][Bug] Navbar dropdown buttons: shadow when in panel mode
+* [CSS][Bug] Panels / dropdowns: max-height + scroll wrapper
 * [CSS] Jarallax causes horizontal scrolling (overflow hidden needed)
 * [CSS][JS] Improve / config for scroll up/down buttons
 * [TPL] All post/page/product image MUST use srcset
@@ -63,7 +64,7 @@
 ## Probably not
 
 * Landing page model (no header or footer)
-* Woocommerce mega-dropdown-menu
+* Woocommerce mega-dropdown-menu (walking through the shop categories & products)
 
 
 ## To be confirmed bugs

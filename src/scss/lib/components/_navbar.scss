@@ -12,8 +12,9 @@
   display: flex;
   flex-wrap: wrap;
 
+  // Topbar item alignement
   .topbar & {
-    justify-content: flex-end;
+    justify-content: flex-end; // To right
   }
 }
 
@@ -24,8 +25,7 @@
   // overflow: hidden; // Needed?
   height: $topbar-height-mobile;
 
-  .topbar-menu {
-  }
+  .topbar-menu {}
 
   .topbar-search {
     flex-basis: 100%;
@@ -54,29 +54,18 @@
 // NAVBAR HEADER
 
 .navbar-header {
-  margin-left: -$gutter-half;
   flex-grow: 1;
 }
 
-@include bp($expanded) {
-  .container:not(.container--fluid) {
-    .navbar-menu {
-      margin-right: -$gutter-half;
-    }
-    .topbar-search {
-      // margin-right: -$gutter-half;
-    }
-    .topbar-menu {
-      margin-left: -$gutter-half;
-    }
-  }
-}
+///////////////////////////////////////////////////////////////////////////////
+// NAVBAR MENU
+
+.navbar-menu {}
 
 ///////////////////////////////////////////////////////////////////////////////
 // NAVBAR FOOTER
 
 .navbar-footer {
-  margin-left: $gutter-half;
   display: flex;
 }
 

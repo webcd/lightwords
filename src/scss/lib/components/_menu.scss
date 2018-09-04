@@ -1,10 +1,14 @@
 /* MENU */
 
-$caret-size: $font-size-base / 3;
-$caret-color: $navbar-btn-color;
-
 /////////////////////////////////////////////////////////////////////////////
 // COMMON STYLES
+
+.divider {
+  margin-bottom: $gutter-quarter;
+  height: 0.2rem;
+  background-color: $navbar-btn-bg-hover;
+}
+
 
 @mixin dropdown() {
   position: relative;
@@ -18,7 +22,11 @@ $caret-color: $navbar-btn-color;
     left: 0;
     width: 50vw;
 
+    // max-height: calc(100vh - 8rem);
+    // overflow-y: auto;
+
     @include bp($expanded) {
+      // max-height: calc(100vh - 19rem);
       width: 25vw;
     }
     padding-top: $gutter-quarter;
@@ -64,28 +72,52 @@ $caret-color: $navbar-btn-color;
   display: flex;
 }
 
-.menu-primary,
-.menu-secondary,
-.menu-buttons {
-  .menu-item {
+// ITEM LINK DEFAULT STYLES
+
+.menu-item-link {
+  display: block;
+  min-height: $navbar-btn-size;
+  @include h-padding($gutter-half);
+  line-height: 1; // In case of multi-line
+
+  color: $navbar-btn-color;
+  background-color: $navbar-btn-bg;
+  // Debug
+  // background: $gray-lightest;
+
+  // Flex vertical center
+  display: flex;
+  align-items: center;
+
+  transition: all 0.25s;
+
+  > .fa,
+  > .icon {
+    
+    & + * {
+      margin-left: $gutter-quarter;
+    }
+  }
+
+  em {
+    font-size: $font-size-small;
+  }
+
+  // Active item
+  .current-menu-item & {
+      color: $color-secondary;
+  }
+}
+
+// MENU ITEM
+
+.menu-item {
+
+  // Active items (default)
+  &:not(.menu-item--passive) {
+
     > .menu-item-link {
-      display: block;
-      min-height: $navbar-btn-size;
-      padding-left: $gutter-half;
-      padding-right: $gutter-half;
-      color: $navbar-btn-color;
-      background-color: $navbar-btn-bg;
-
-      // Debug
-      // background: $gray-lightest;
-
-      // Flex vertical center
-      display: flex;
-      align-items: center;
-      justify-content: space-between; // For carets on mobile
-
       cursor: pointer;
-      transition: all 0.25s;
 
       &:hover,
       &:active,
@@ -93,75 +125,62 @@ $caret-color: $navbar-btn-color;
         color: $navbar-btn-color-hover;
         background-color: $navbar-btn-bg-hover;
       }
+    }
+  }
 
-      // don't catch submenus carret span
-      > span:not(.caret):not(.cart-counter) {
-        line-height: 1; // In case of multi-line
-        padding: $gutter-quarter 0;
+  &.menu-item--button {
+    margin-left: $gutter-quarter;
+    
+    > .dropdown-toggle {
+      margin-left: 0;
+    }
+    
+    > .menu-item-link {
+      @include h-padding($gutter-quarter);
+      border: 0;
+      min-width: $navbar-btn-size;
+      transition: color 0.25s;
+      // Bring toggle btns back to foreground (in case of overlay/offscreen panel)
+      position: relative;
+      z-index: +1;
+
+      &:focus {
+        outline: none;
+        background-color: $navbar-btn-bg-hover;
       }
     }
 
-    &.menu-item--button {
-      margin-left: $gutter-quarter;
-
+    // Ugly hamburger exception
+    &.menu-item--hamburger {
       > .menu-item-link {
-        position: relative;
-        min-width: $navbar-btn-size;
-        // Gutter between buttons + left spacing
-        @include h-padding(1rem);
-        border: 0;
-        vertical-align: top;
-
-        // Bring toggle btns back to foreground (in case of overlay/offscreen panel)
-        z-index: +1;
-        transition: color 0.25s;
-
-        // No caret for dropdown buttons
-        &.dropdown-toggle {
-          margin-left: 0;
-        }
-
-        &:focus {
-          outline: none;
-        }
+        @include h-padding(($navbar-btn-size - $hamburger-height) / 2);
       }
     }
+  }
 
-    // Active item
-    &.current-menu-item {
-      > .menu-item-link {
-        color: $color-secondary;
-      }
-    }
+  // Highlighted item
+  &.highlight {
+    .site-header & {
 
-    &.highlight {
       background-color: $color-primary;
 
       > .menu-item-link {
         color: white;
       }
     }
+  }
 
-    // Dropdown
-    &.menu-item--dropdown {
-      display: flex;
-      flex-wrap: wrap;
+  // Dropdown
+  &.menu-item--dropdown {
+    display: flex;
+    flex-wrap: wrap;
 
-      .menu-item-link:first-child {
-        flex-grow: 1;
-      }
+    .menu-item-link:first-child {
+      flex-grow: 1;
+    }
 
-      &.menu-item--dropdown-mobile {
-        > .dropdown-menu {
-          > .menu-item {
-            > .menu-item-link:first-child {
-              padding-left: $gutter-half;
-            }
-          }
-        }
-
-        @include dropdown();
-      }
+    &.menu-item--dropdown-mobile {
+      @include dropdown();
     }
   }
 }
@@ -199,36 +218,23 @@ $caret-color: $navbar-btn-color;
 @include bp($expanded, true) {
   //No secondary menu on mobile (hidden and merged into primary one)
   .menu-primary {
-    padding-top: $gutter-half;
-    padding-bottom: $gutter-half;
-    padding-left: $gutter-quarter;
-    padding-right: $gutter-quarter;
+    @include v-padding($gutter-half);
+    @include h-padding($gutter-quarter);
 
-    .menu-item,
-    .dropdown-toggle {
+    .menu-item {
       // Space between items when stacked
       margin-bottom: $gutter-quarter;
-    }
-
-    .divider {
-      margin-bottom: $gutter-quarter;
-      height: 0.2rem;
-      background-color: $navbar-btn-bg-hover;
     }
   }
 
   // Sub-menus
 
-  $width-nested-dropdown-indentation: $gutter-half;
-
   .menu-item--dropdown {
-    .dropdown-toggle {
-      margin-bottom: 0;
-    }
 
     .dropdown-menu {
       margin-top: $gutter-quarter;
       flex-basis: 100%;
+      // TODO: animate hide/show
       display: none;
 
       &.active {
@@ -236,44 +242,50 @@ $caret-color: $navbar-btn-color;
       }
 
       .menu-item {
-        > .menu-item-link:first-child {
-          padding-left: $gutter-half + $width-nested-dropdown-indentation;
-        }
-
         &:last-child {
           margin-bottom: 0;
         }
       }
+    }
+  }
 
-      .dropdown-menu & {
+  // Nested dropdowns indentation
+
+  .dropdown-menu {
+
+    // First level
+    .menu-primary & {
+
+      .menu-item {
+        > .menu-item-link:first-child {
+          padding-left: $gutter-half + $width-nested-dropdown-indentation;
+        }
+      }
+    }
+
+    // Second (and other) level
+    .dropdown-menu & {
+      .menu-primary & {
         .menu-item {
           > .menu-item-link:first-child {
-            padding-left: $gutter-half +
-              ($width-nested-dropdown-indentation * 2);
+            padding-left: $gutter-half + ($width-nested-dropdown-indentation * 2);
           }
         }
       }
     }
   }
+
 }
 
 /////////////////////////////////////////////////////////////////////////////
 //DESKTOP MENU
 
 @include bp($expanded) {
-  .menu-primary {
-    // margin-right: -$gutter-half;
-    margin-left: $gutter-half;
-  }
-
-  .menu-secondary {
-  }
-
   .menu-primary,
   .menu-secondary,
   .menu-buttons {
     .menu-item {
-      margin-left: $gutter-eighth * 3;
+      margin-left: $gutter-quarter;
 
       &.hidden-expanded {
         display: none; // Needed for submenus with flex display

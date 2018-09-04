@@ -20,7 +20,12 @@
 
     <!-- SITE-CONTENT -->
     <section class="site-content">
-{# {{ fn('ddump', current_user) }} #}
+
+      {# Ugly dump #}
+      {# {% for item in cart.cart_contents %} #}
+        {# {{ fn('ddump', cart) }} #}
+      {# {% endfor %} #}
+
       <!-- MAIN -->
       <main class="site-main-content wrapper wrapper--content" role="main">
 

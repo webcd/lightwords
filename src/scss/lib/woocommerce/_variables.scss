@@ -23,7 +23,9 @@ $color-woo-main: $gray-darker;
 // MENU ITEMS
 
 $size-woo-menu-cart-counter: 2rem !default;
-$size-woo-menu-avatar: 3.2rem !default;
+
+$size-woo-menu-avatar: $size-avatar-small !default;
+$size-woo-menu-avatar-big: $size-avatar-big !default;
 
 // CART
 

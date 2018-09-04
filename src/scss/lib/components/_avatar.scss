@@ -1,0 +1,32 @@
+@mixin avatar($size: $size-avatar-base) {
+  
+  @include size($size);
+  display: inline-block;
+  position: relative;
+  background-color: gray;
+  border-radius: 100rem;
+  overflow: hidden;
+  margin-left: 0;
+  margin-right: 0;
+
+  > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: $size; // OK for square and portrait formats
+  }
+}
+
+.avatar {
+  @include avatar();
+}
+
+.avatar--small {
+  @include avatar($size-avatar-small);
+}
+
+.avatar--big {
+  @include avatar($size-avatar-big);
+}
+

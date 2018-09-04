@@ -84,9 +84,10 @@ class StarterSite extends \TimberSite
         // Inline SVG
         $context['do_inlinesvg'] = file_exists(get_template_directory().'/dist/img/sprite.symbol.svg.twig');
 
-        $context['my_account_link'] = get_permalink( get_option('woocommerce_myaccount_page_id') );
+        $context['is_woocommerce_active'] = class_exists( 'Timber' );
 
-        $context['is_woocommerce_active'] = true; // TODO: auto-detect
+        $context['my_account_link'] = get_permalink( get_option('woocommerce_myaccount_page_id') );
+        $context['my_account_items'] = wc_get_account_menu_items();
 
         return $context;
     }

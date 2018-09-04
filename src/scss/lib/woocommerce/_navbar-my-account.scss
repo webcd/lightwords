@@ -1,0 +1,43 @@
+/* MY ACCOUNT IN MENU */
+
+.menu-item--my-account {
+  &:not(.menu-item--my-account--logged-in) {
+    // Hide anonymous link on mobile (overide forcing)
+    @include bp($expanded, true) {
+      display: none;
+    }
+  }
+
+  > .menu-item-link {
+
+    > .my-account-name {
+      display: none;
+      margin-left: $gutter-quarter;
+
+      @include bp("sm") {
+        display: initial;
+      }
+    }
+  }
+
+  .menu-item--my-account-metas {
+    padding-bottom: $gutter-half;
+
+    > .menu-item-link {
+      flex-direction: column;
+    }
+
+    .my-account-metas__name {
+      font-style: italic;
+      // font-weight: $font-weight-semibold;
+    }
+
+    .avatar--big {
+      display: block;
+      margin-bottom: $gutter-half;
+      border: 0.4rem solid white;
+      @include shadow(1);
+    }
+  }
+
+}
