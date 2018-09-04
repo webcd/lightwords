@@ -47,12 +47,6 @@
   }
 }
 
-.button {
-  @include btn();
-  // @include btn('default');
-  @include btn('wrap');
-}
-
 .yith-wcan-reset-navigation {
   @include btn('xs');
 }

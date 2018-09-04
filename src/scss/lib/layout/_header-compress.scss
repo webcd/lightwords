@@ -9,11 +9,24 @@
 .sticky-header.compressible-header {
   // Add transitiotns to modified elements
   .site-header {
-    transition: top 0.25s $ease-bump, background-color 0.5s,
+    transition: 
+      top 0.25s $ease-bump,
+      background-color 0.5s,
       transform 0.25s $ease-bump;
   }
-  .logo--desktop {
+
+  .logo {
+    transform-origin: 50% 50%;
     transition: all 0.25s $ease-bump;
+  }
+
+  .logo--tablet {
+  
+    @include bp($expanded) {
+      display: block;
+      transform: scale3d(0, 0, 1);
+      position: absolute;
+    }
   }
 
   @include bp($expanded) {
@@ -22,15 +35,35 @@
         // Hide the topbar above the viewport
         top: -$topbar-height-desktop;
       }
+
+      .menu-item--compress {
+        // Display the "+" button when compressed
+        display: initial;
+      }
+    }
+
+    // DESKTOP LOGO SHRINK
+
+    &.header-compressed:not(.header-uncompressed) {
       .logo--desktop {
+        // Scale the desktop logo down to fit compressed header
         // Use mobile logo height
         height: $navbar-logo-height;
         // Move it back to bottom of the navbar
         top: 0;
       }
-      .menu-item--compress {
-        // Display the "+" button when compressed
-        display: initial;
+    }
+
+    // DESKTOP LOGO SWAP
+
+    &.header-compressed:not(.header-uncompressed).compressible-header-logo-swap {
+      .logo--desktop {
+        // Swap the desktop logo with the tablet logo
+        opacity: 0;
+      }
+
+      .logo--tablet {
+        transform: scale3d(1, 1, 1);
       }
     }
 

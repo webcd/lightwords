@@ -17,6 +17,7 @@ window.CONFIG = {
 
   stickyHeader: true,
   compressHeader: true,
+  compressHeaderLogoSwap: true,
   transparentHeader: false,
 
   hasScrollTop: true,

@@ -78,6 +78,7 @@
 
     a {
       @include btn();
+      @include btn('wrap');
       @include btn('default');
       margin-bottom: 0;
       vertical-align: baseline;

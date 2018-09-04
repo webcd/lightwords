@@ -34,8 +34,8 @@ $expanded: 'md' !default;
 
 // COLORS
 
-$color-primary: #428bca !default;
-$color-secondary: #f80 !default;
+$color-primary: #e25d5d !default;
+$color-secondary: #428bca !default;
 $color-ternary: #80f !default;
 
 $color-variation-ratio-base: 10% !default;
@@ -80,7 +80,7 @@ $navbar-btn-bg-hover: rgba(0,0,0,0.0625) !default;
 $hamburger-height: $navbar-btn-size - 2 * 1rem !default;
 
 // Dropdown menus
-$caret-size: $gutter / 4;
+$caret-size: $gutter / 6;
 $caret-color: $navbar-btn-color;
 $width-nested-dropdown-indentation: $gutter / 2;
 

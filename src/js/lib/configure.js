@@ -48,6 +48,9 @@
       bodyClasses.push('sticky-header')
       if (Lightwords.CONFIG.compressHeader) {
         bodyClasses.push('compressible-header')
+        if (Lightwords.CONFIG.compressHeaderLogoSwap) {
+          bodyClasses.push('compressible-header-logo-swap')
+        }
         if (Lightwords.CONFIG.transparentHeader) {
           bodyClasses.push('transparent-header')
         }

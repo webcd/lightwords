@@ -8,6 +8,12 @@
   }
 }
 
+.button {
+  @include btn();
+  // @include btn('default');
+  @include btn('wrap');
+}
+
 .checkout-button {
   @include btn('primary');
   @include btn('block');

@@ -1,16 +1,29 @@
 /* LOGO */
 
+$mq-mobile: 'xs' !default;
+
 .navbar-logo {
   display: block;
   height: $navbar-logo-height;
 }
 
-.logo {
-}
+.logo {}
 
 .logo--mobile {
   height: $navbar-logo-height;
 
+  @include bp($mq-mobile) {
+    display: none;
+  }
+}
+
+.logo--tablet {
+  height: $navbar-logo-height;
+  display: none;
+
+  @include bp($mq-mobile) {
+    display: inline-block;
+  }
   @include bp($expanded) {
     display: none;
   }
@@ -19,8 +32,11 @@
 .logo--desktop {
   height: $navbar-logo-height-desktop;
   display: none;
+
+  // Move the desktop logo up, over the topbar
+  // Hacky!
   position: relative;
-  top: -($topbar-height-desktop - 0.8rem); // TODO better
+  top: -($topbar-height-desktop - 0.8rem); // TODO better, magic value
 
   @include bp($expanded) {
     display: inline-block;
