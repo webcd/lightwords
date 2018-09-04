@@ -36,7 +36,8 @@ $mq-mobile: 'xs' !default;
   // Move the desktop logo up, over the topbar
   // Hacky!
   position: relative;
-  top: -($topbar-height-desktop - 0.8rem); // TODO better, magic value
+  // top: -($topbar-height-desktop - 0.8rem); // TODO better, magic value
+  top: $navbar-logo-padding-desktop - (($navbar-height-desktop - $navbar-btn-size) / 2 + $topbar-height-desktop);
 
   @include bp($expanded) {
     display: inline-block;

@@ -3,7 +3,6 @@
 ## PHP
 
 * [PHP][Bug] Translation function _e() not working + use it everywhere (and add translation to the dictionary)
-* [PHP] Insert body tag configuration classes (from JSON config) via PHP, then remove configure.js
 * [PHP] Move all .php files at projet root into a 'controller' (or something) sub-folder (.htaccess redirection?)
 * [PHP] Vast amount of PHP code (only) works in functions.php. Move/plit this elsewhere!
 * [PHP][Bug][Never] Latest posts add sticky posts to max count
@@ -21,8 +20,8 @@
 
 #### At shop root
 
-* [PHP] title and description (from global config strings) (get page content as description?)
 * [PHP][Bug] Shop page thumbail image
+* [PHP] Use dynamic title and description
 
 #### Products archive
 
@@ -43,6 +42,7 @@
 
 ## CSS
 
+* [CSS][Bug] Product tile images are stretched?!
 * [CSS][Bug] Navbar dropdown buttons: shadow when in panel mode
 * [CSS][Bug] Panels / dropdowns: max-height + scroll wrapper
 * [CSS] Jarallax causes horizontal scrolling (overflow hidden needed)
@@ -51,15 +51,16 @@
 * [CSS] Fix some button colors (focus, disabled...)
 * [CSS][Bug]"transparent header" option is plain broken
 
-## Build
-
-* [Build] Move from Gulp to Webpack build process (or fix Mix build)
-* [Build] Get rid off jQuery?
-
 ## JS
 
 * [JS] Compressed header: track for up & down scroll, not only absolute value
 * [JS] Handler (throttle/debounce) for resize and scroll events
+
+## Build
+
+* [Build][Bug] js sourcemaps must be fixed
+* [Build] Move from Gulp to Webpack build process (or fix Mix build)
+* [Build] Get rid off jQuery?
 
 ## Probably not
 
@@ -69,4 +70,3 @@
 
 ## To be confirmed bugs
 
-* js sourcemaps must be fixed

@@ -64,12 +64,12 @@ $header-color-bg: white !default;
 
 $navbar-menu-mobile-width: 20em !default;
 
-// Navbar height
-$navbar-height-mobile: 6rem !default;
-$navbar-height-desktop: $navbar-height-mobile !default;
 // Topbar height
 $topbar-height-mobile: 6rem !default;
 $topbar-height-desktop: $topbar-height-mobile !default;
+// Navbar height
+$navbar-height-mobile: 6rem !default;
+$navbar-height-desktop: $navbar-height-mobile * 1.5 !default;
 
 // Navbar buttons
 $navbar-btn-size: 4.4rem !default;
@@ -91,7 +91,8 @@ $wp-adminbar-bp: 782px;
 
 // Logo
 $navbar-logo-height: $navbar-btn-size !default;
-$navbar-logo-height-desktop: $navbar-btn-size * 2 !default;
+$navbar-logo-padding-desktop: $gutter / 2 !default;
+$navbar-logo-height-desktop: $topbar-height-desktop + $navbar-height-desktop - ($navbar-logo-padding-desktop * 2) !default;
 
 // TYPOGRAPHY
 

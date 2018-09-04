@@ -4,13 +4,27 @@
 // BAR WRAPPERS
 
 .bar-wrapper {
-  // Bar content gutter
-  padding-top: ($navbar-height-mobile - $navbar-btn-size) / 2;
-  padding-bottom: ($navbar-height-mobile - $navbar-btn-size) / 2;
-
   // Gives flexbox behavious to bars
   display: flex;
   flex-wrap: wrap;
+
+  .navbar & {
+    // Bar content gutter
+    @include v-padding(($navbar-height-mobile - $navbar-btn-size) / 2);
+
+    @include bp($expanded) {
+      @include v-padding(($navbar-height-desktop - $navbar-btn-size) / 2);
+    }
+  }
+
+  .topbar & {
+    // Bar content gutter
+    @include v-padding(($topbar-height-mobile - $navbar-btn-size) / 2);
+
+    @include bp($expanded) {
+      @include v-padding(($topbar-height-desktop - $navbar-btn-size) / 2);
+    }
+  }
 
   // Topbar item alignement
   .topbar & {
