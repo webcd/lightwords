@@ -21,7 +21,9 @@
   
       @include hocus {
         text-decoration: none;
-        color: white;
+        color: $text-color-base;
+        background-color: white;
+        @include shadow(2);
       }
   
       > .tag-link-count {

@@ -27,14 +27,21 @@
   }
 
   .widget {
-    margin-bottom: $gutter-double;
 
     > .widget-title {
       color: $color-primary;
-      border-bottom: 0.2rem solid $color-primary;
+
+      @include bp($expanded) {
+        border-bottom: 0.2rem solid $color-primary;
+      }
+
       // font-weight: $font-weight-normal;
       font-style: italic;
     }
+  }
+
+  .widget + .widget {
+    margin-top: $gutter;
   }
 }
 

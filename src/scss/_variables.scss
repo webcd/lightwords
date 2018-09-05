@@ -94,6 +94,8 @@ $navbar-logo-height: $navbar-btn-size !default;
 $navbar-logo-padding-desktop: $gutter / 2 !default;
 $navbar-logo-height-desktop: $topbar-height-desktop + $navbar-height-desktop - ($navbar-logo-padding-desktop * 2) !default;
 
+$footer-logo-width-max: 24rem;
+
 // TYPOGRAPHY
 
 $font-family-sans-serif: 'Work Sans', 'Helvetica Neue', Helvetica, Arial,

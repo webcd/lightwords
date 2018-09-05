@@ -44,15 +44,14 @@ $mq-mobile: 'xs' !default;
   }
 }
 
-// Extra footer logo
+// Footer logo
+
+.logo-footer-wrapper {
+
+  max-width: $footer-logo-width-max;
+  @include h-margin(auto);
+}
 
 .logo--footer {
-  max-width: 32rem;
-  margin-bottom: $gutter;
-  @include h-margin(auto);
-
-  @include bp('sm') {
-    @include h-margin(0, auto);
-  }
 }
 
