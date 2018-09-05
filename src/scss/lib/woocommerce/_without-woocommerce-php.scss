@@ -54,7 +54,7 @@
 //     }
 
 //     > .price {
-//       font-weight: 500;
+//       font-weight: $font-weight-semibold;
 //       color: $color-secondary;
 //       @include h(3);
       
@@ -66,7 +66,7 @@
 //       > span,
 //       > ins {
 //         text-decoration: none;
-//         font-weight: normal;
+//         font-weight: $font-weight-normal;
 //       }
 //     }
 //   }

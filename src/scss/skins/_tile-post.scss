@@ -103,7 +103,7 @@
   padding: $gutter-quarter $gutter-half;
 
   a {
-    font-weight: 300;
+    font-weight: $font-weight-light;
   }
 }
 
@@ -121,7 +121,7 @@
   text-align: right;
 
   .read-more {
-    font-weight: 900;
+    font-weight: font-weight-bold;
     text-transform: uppercase;
   }
 }

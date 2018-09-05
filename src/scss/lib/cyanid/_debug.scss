@@ -33,7 +33,7 @@ $debug-zone-text-color: chartreuse;
     color: $debug-zone-text-color;
 
     &:before {
-      font-weight: bold;
+      font-weight: $font-weight-bold;
       text-transform: uppercase;
     }
     &:after {

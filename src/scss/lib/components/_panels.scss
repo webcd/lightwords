@@ -31,7 +31,7 @@
     width: 100%;
     padding-left: $gutter-quarter * 3;
     line-height: $navbar-height-mobile;
-    font-weight: bold;
+    font-weight: $font-weight-bold;
     color: $gray-light;
     @include shadow(1);
   }

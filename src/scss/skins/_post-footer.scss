@@ -16,7 +16,7 @@
       &:not(:last-child)::after {
         content: " / ";
         color: $gray-light;
-        font-weight: bold;
+        font-weight: $font-weight-bold;
       }
     }
 }

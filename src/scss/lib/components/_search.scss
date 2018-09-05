@@ -18,7 +18,7 @@
     right: 0.1rem;
     border: 0;
     height: $navbar-btn-size - 0.2rem;
-    font-weight: normal;
+    font-weight: $font-weight-normal;
     text-transform: uppercase;
 
     &:hover {
