@@ -1,4 +1,4 @@
-{% if post.get_thumbnail %}
+{% if CONFIG.hero and post.get_thumbnail %}
   
   {% include "hero.twig" with { 'img': post.thumbnail.src } %}
 

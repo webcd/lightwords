@@ -42,6 +42,7 @@
 
 ## CSS
 
+* [CSS][Bug] Navbar active item not working for "products" and cart / my-account custom items
 * [CSS][Bug] Product tile images are stretched?!
 * [CSS][Bug] Navbar dropdown buttons: shadow when in panel mode
 * [CSS][Bug] Panels / dropdowns: max-height + scroll wrapper

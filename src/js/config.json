@@ -5,13 +5,13 @@
   "search": true,
   "breadcrumbs": true,
   "breadcrumbsInContent": true,
-
-  "expandDropdownsOnHover": true,
-
+  "hero": false,
+  
   "stickyHeader": true,
   "compressHeader": true,
   "compressHeaderLogoSwap": true,
   "transparentHeader": false,
+  "expandDropdownsOnHover": true,
 
   "hasScrollTop": true,
 

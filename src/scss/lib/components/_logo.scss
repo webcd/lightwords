@@ -50,6 +50,8 @@ $mq-mobile: 'xs' !default;
 
   max-width: $footer-logo-width-max;
   @include h-margin(auto);
+
+  margin-bottom: $gutter;
 }
 
 .logo--footer {

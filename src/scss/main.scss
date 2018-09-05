@@ -102,10 +102,13 @@
 /* LIGHTWORDS - SKIN FEATURES */
 @import 'skins/animated-links';
 @import 'skins/post-footer';
+
 // @import 'skins/hero-container';
 @import 'skins/hero-fullheight';
+
 @import 'skins/scroll-buttons';
 @import 'skins/hero-title';
+
 @import 'skins/navbar-link-animated-bg';
 @import 'skins/hover3d';
 @import 'skins/social-buttons';
@@ -113,11 +116,15 @@
 @import 'skins/tag-cloud';
 
 /* LIGHTWORDS - SKIN WRAPPERS */
+
+/* SKIN WRAPPERS */
+// XOR
 @import 'skins/light/wrappers';
 // @import 'skins/dark/wrappers';
 
 /* LIGHTWORDS - SKIN TILE-POST */
 @import 'skins/tile-post';
+// XOR
 // @import 'skins/light/tile-post';
 @import 'skins/dark/tile-post';
 
