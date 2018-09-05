@@ -133,23 +133,46 @@ class StarterSite extends \TimberSite
 
         // WOOCOMMERCE
         // See also /woocommerce.php at theme root
-        $context['is_woocommerce_active'] = class_exists( 'Timber' );
 
-        $context['my_account_link'] = get_permalink( get_option('woocommerce_myaccount_page_id') );
-        $context['my_account_items'] = wc_get_account_menu_items();
+        $has_woocommerce = true; // TODO: dynamic!
+        $context['is_woocommerce_active'] = $has_woocommerce;
+
+        if ($has_woocommerce) {
+            $context['my_account_link'] = get_permalink( get_option('woocommerce_myaccount_page_id') );
+            $context['my_account_items'] = wc_get_account_menu_items();
+        }
 
         return $context;
     }
 
-    // Demo Twig filter
-    // This filter doesn't work anymore, see below
-    // TODO: fix it or remove it
-    // function myfoo($text)
-    // {
-    //     $text .= ' <= Timber custom-filtered thing!';
+    // Phone number text formatting - Twig filter
+    function formatPhone($number, $separator = '.')
+    {
+        $result = 
+            substr($number, 0, 2) . $separator .
+            substr($number, 2, 2) . $separator .
+            substr($number, 4, 2) . $separator .
+            substr($number, 6, 2) . $separator .
+            substr($number, 8, 2);
 
-    //     return $text;
-    // }
+        return $result;
+    }
+
+    // Phone number link formatting - Twig filter
+    function formatPhoneLink($number)
+    {
+        $result = '033' . substr($number, 1);
+
+        return $result;
+    }
+
+    // Demo Twig filter
+    function myfoo($text)
+    {
+        $text .= ' <= Timber custom-filtered thing!';
+
+        return $text;
+    }
 
     // Pimp my Twig
     function add_to_twig($twig)
@@ -161,8 +184,11 @@ class StarterSite extends \TimberSite
         // See: https://twig.symfony.com/doc/2.x/functions/dump.html
         $twig->addExtension(new \Twig_Extension_Debug());
 
-        // This filter throw a 500 error
-        // $twig->addFilter('myfoo', new \Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
+        // Filters
+        // $twig->addFilter(new \Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
+        $twig->addFilter(new \Twig_SimpleFilter('formatPhone', array($this, 'formatPhone')));
+        $twig->addFilter(new \Twig_SimpleFilter('formatPhoneLink', array($this, 'formatPhoneLink')));
+
         return $twig;
     }
 

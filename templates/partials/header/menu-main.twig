@@ -14,3 +14,23 @@
   'items': menu_top.get_items,
   'hidden_expanded': true
 } %}
+
+{# SOCIAL LINKS #}
+{% if CONFIG.socialLinks and CONFIG.socialLinksTopbar %}
+  <li class="divider hidden-expanded"></li>
+
+  <li class="menu-item menu-item--passive">
+    <div class="menu-item-link">
+      <span>Suivez-nous&nbsp;!</span>
+    </div>
+  </li>
+
+  <div class="navbar-social-links hidden-expanded">
+
+    {% include "social-links.twig" with {
+      'bare': true,
+      'mini': true
+    } %}
+
+  </div>
+{% endif %}

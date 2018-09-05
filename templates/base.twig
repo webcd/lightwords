@@ -73,6 +73,10 @@
     <!-- INLINE SVG -->
     <div class="inline-svg">
       {% include 'sprite.symbol.svg.twig' %}
+
+      {% if CONFIG.socialLinks or CONFIG.socialButtons %}
+        {% include 'social-networks-svg.twig' %}
+      {% endif %}
     </div>
   {% endif %}
 

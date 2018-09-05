@@ -1,0 +1,53 @@
+// Post-footer content: 
+// - copyright text
+// - legal menu
+// - made-by link
+
+.footer-copyright,
+.footer-made-by {
+  text-align: center;
+}
+
+.footer-copyright__copyright,
+.footer-copyright__legal-menu {
+  margin-bottom: $gutter-half;
+}
+
+.footer-copyright__copyright {
+}
+
+.footer-copyright__legal-menu {
+  > li {
+    display: inline-block;
+    
+    &:not(:last-child)::after {
+      content: " | ";
+    }
+  }
+}
+
+// Made by US!
+
+.footer-made-by {
+  > span {
+    font-style: italic;
+  }
+}
+
+.maker-link {
+  font-size: 0;
+  opacity: 0.8;
+  transition: all 0.25s;
+
+  > svg {
+    height: 2rem;
+    position: relative;
+    top: 0.5rem;
+
+    //TODO: style inside the SVG
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}

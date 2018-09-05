@@ -1,0 +1,49 @@
+// Inline version
+
+.tagcloud {
+  text-align: center;
+  
+  > a {
+    display: inline-block;
+    margin-bottom: $gutter-eighth;
+    padding: $gutter-quarter;
+    text-transform: lowercase;
+
+    &::before { content: '#'; }
+  }
+
+  .site-footer & {
+    text-align: center;
+  
+    > a {
+      color: $gray-lightest;
+      background-color: $gray-darkest;
+  
+      @include hocus {
+        text-decoration: none;
+        color: white;
+      }
+  
+      > .tag-link-count {
+        font-weight: $font-weight-normal;
+        color: $color-secondary;
+      }
+    }
+  
+  }
+}
+
+// Flex version
+
+// .tagcloud {
+//   display: flex;
+//   flex-wrap: wrap;
+//   margin: -$gutter-eighth / 2;
+  
+//   > a {
+//     flex-grow: 1;
+//     display: block;
+//     margin: $gutter-eighth / 2;
+//   }
+// }
+

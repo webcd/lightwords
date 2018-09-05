@@ -26,5 +26,17 @@
       </div>
     {% endif %}
 
+    {# SOCIAL LINKS #}
+    {% if CONFIG.socialLinks and CONFIG.socialLinksTopbar %}
+      <div class="topbar-social-links hidden-collapsed">
+
+        {% include "social-links.twig" with {
+          'bare': true,
+          'mini': true
+        } %}
+
+      </div>
+    {% endif %}
+
   </div><!-- /.container -->
 </div>

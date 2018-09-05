@@ -2,7 +2,7 @@
 
 {% for item in items %}
 
-  <li class="
+  <li class="menu-item
     {{ item.classes | join(' ') }}
     {{ (item.has_child_class) ? 'menu-item--dropdown' }}
     {{ (hidden_expanded) ? 'hidden-expanded' }}

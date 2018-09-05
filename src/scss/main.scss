@@ -80,6 +80,7 @@
 @import 'lib/components/navbar';
 @import 'lib/components/panels';
 @import 'lib/components/footer';
+@import 'lib/components/footer-post';
 
 /* LIGHTWORDS - LAYOUT */
 @import 'lib/layout/fixed-ratio';
@@ -106,6 +107,9 @@
 @import 'skins/scroll-buttons';
 @import 'skins/hero-title';
 @import 'skins/navbar-link-animated-bg';
+@import 'skins/social-buttons';
+@import 'skins/contact-infos';
+@import 'skins/tag-cloud';
 
 /* LIGHTWORDS - SKIN WRAPPERS */
 @import 'skins/light/wrappers';

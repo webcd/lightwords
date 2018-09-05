@@ -10,12 +10,12 @@
 
 // Micro-wrappers
 
-.wrapper--pre-header {}
+.wrapper--pre-header { background-color: $gray-lightest; }
 .wrapper--header {}
 .wrapper--post-header {}
 
 .wrapper--pre-footer {}
-.wrapper--footer { @include v-padding($gutter-double); }
+.wrapper--footer { @include v-padding($gutter-double, $gutter); background-color: white; }
 .wrapper--post-footer { @include v-padding($gutter-double); }
 
 .wrapper--content {}

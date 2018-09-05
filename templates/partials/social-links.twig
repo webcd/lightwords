@@ -1,0 +1,36 @@
+{% set networks = ["Facebook", "Twitter", "GooglePlus", "Linkedin", "Youtube", "Viadeo", "Email", "Tumblr", "Reddit", "Pinterest", "Pocket", "Github"] %}
+
+{% if not bare%}
+
+  <div class="widget">
+    <h3 class="widget-title">Suivez-nous&nbsp;!</h3>
+
+{% endif %}
+
+    <section class="rrssb-buttons
+      {{ mini ? 'rrssb-buttons--mini' }}
+    ">
+
+      {% for network in networks %}
+        {% if CONFIG.socialLinks and attribute(CONFIG, "socialLinks#{network}") %}
+
+          <div class="rrssb-button ssb-small {{ network|lower }}">
+            <a href="{{ attribute(CONFIG, "socialLinks#{network}") }}" target="_blank" title="{{ network }}">
+              <span class="icon">
+                <svg>
+                  <use xlink:href="#icon-{{ network|lower }}" />
+                </svg>
+              </span>
+              {# <span class="text">{{ network }}</span> #}
+            </a>
+          </div>
+
+        {% endif %}
+      {% endfor %}
+    </section>
+
+{% if not bare%}
+
+  </div>
+
+{% endif %}

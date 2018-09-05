@@ -1,0 +1,117 @@
+<div class="widget">
+  <h3 class="widget-title">Contact</h3>
+
+  <div class="contact-infos">
+
+    {% if CONFIG.contactInfosLinkToContactPage %}
+      <div class="contact-infos-block contact-infos__link">
+        <a href="" class="btn btn-black btn-block btn-lg">
+          Nous contacter
+        </a>
+      </div>
+    {% endif %}
+
+    <address class="contact-infos-block contact-infos__address">
+
+      <h4>
+        <i class="fa fa-lg fa-fw fa-map-marker"></i>
+        {% if CONFIG.contactInfosAddressFirmName %}
+          {{ CONFIG.contactInfosAddressFirmName }}</h4>
+        {% else %}
+          {{ site.name }}
+        {% endif %}
+      </h4>
+
+      {% if CONFIG.contactInfosAddress1 %}
+        <div>{{ CONFIG.contactInfosAddress1 }}</div>
+      {% elseif is_woocommerce_active %}
+        <div>{{ fn('WC_Countries::get_base_address') }}</div>
+      {% endif %}
+      
+      {% if CONFIG.contactInfosAddress2 %}
+        <div>{{ CONFIG.contactInfosAddress2 }}</div>
+      {% elseif is_woocommerce_active %}
+        <div>{{ fn('WC_Countries::get_base_address_2') }}</div>
+      {% endif %}
+      
+      <div class="address_city">
+        {% if CONFIG.contactInfosAddressZipcode %}
+          <span>{{ CONFIG.contactInfosAddressZipcode }}</span>
+        {% elseif is_woocommerce_active %}
+          <span>{{ fn('WC_Countries::get_base_postcode') }}</span>
+        {% endif %}
+
+        {% if CONFIG.contactInfosAddressCity %}
+          <span>{{ CONFIG.contactInfosAddressCity }}</span>
+        {% elseif is_woocommerce_active %}
+          <span>{{ fn('WC_Countries::get_base_city') }}</span>
+        {% endif %}
+      </div>
+      
+      {% if CONFIG.contactInfosAddressCountry %}
+        <div>{{ CONFIG.contactInfosAddressCountry }}</div>
+      {% elseif is_woocommerce_active %}
+        <div>{{ fn('WC_Countries::get_base_country') }}</div>
+      {% endif %}
+
+    </address>
+
+    <div class="contact-infos-block contact-infos__phone-numbers">
+      {% if CONFIG.contactInfosPhone1 %}
+        <h4>
+          <i class="fa fa-lg fa-fw fa-phone"></i>
+          <a href="tel:{{ CONFIG.contactInfosPhone1|formatPhoneLink }}">
+            {{ CONFIG.contactInfosPhone1|formatPhone }}
+          </a>
+          </h4>
+      {% endif %}
+      {% if CONFIG.contactInfosPhone2 %}
+        <h4>
+          <i class="fa fa-lg fa-fw"></i>
+          <a href="tel:{{ CONFIG.contactInfosPhone2|formatPhoneLink }}">
+            {{ CONFIG.contactInfosPhone2|formatPhone }}
+          </a>
+        </h4>
+      {% endif %}
+      {% if CONFIG.contactInfosFax %}
+        <h4>
+          <i class="fa fa-lg fa-fw"></i>
+          <a href="tel:{{ CONFIG.contactInfosFax|formatPhoneLink }}">
+            {{ CONFIG.contactInfosFax|formatPhone }}
+          </a>
+          <em>(fax)</em>
+        </h4>
+      {% endif %}
+    </div>
+
+    {% if CONFIG.contactInfosOpening %}
+      <div class="contact-infos-block contact-infos__opening-hours">
+        <h4>
+          <i class="fa fa-lg fa-fw fa-clock-o"></i>
+          <span>Horaires</span>
+        </h4>
+        {% if CONFIG.contactInfosOpening1 %}
+          <div>{{ CONFIG.contactInfosOpening1 }}</div>
+        {% endif %}
+        {% if CONFIG.contactInfosOpening2 %}
+          <div>{{ CONFIG.contactInfosOpening2 }}</div>
+        {% endif %}
+        {% if CONFIG.contactInfosOpening3 %}
+          <div>{{ CONFIG.contactInfosOpening3 }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if CONFIG.contactInfosEmail %}
+      <div class="contact-infos-block contact-infos__email">
+        <h4>
+          <i class="fa fa-lg fa-fw fa-envelope-o"></i>
+          <a href="mailto:{{ CONFIG.contactInfosEmail }}">
+            {{ CONFIG.contactInfosEmail }}
+          </a>
+          </h4>
+      </div>
+    {% endif %}
+    
+  </div>
+</div>

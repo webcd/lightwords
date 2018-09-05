@@ -29,6 +29,21 @@
   height: $height;
 }
 
+// HOVER / FOCUS MIXIN
+
+@mixin hocus() {
+  &:hover,
+  a:focus {
+    @content;
+  }
+}
+
+// TEXT SIZE HELPERS
+
+.text-small { font-size: $font-size-small; }
+.text-big { font-size: $font-size-big; }
+.text-bigger { font-size: $font-size-bigger; }
+
 // TEXT ALIGNEMENT HELPERS
 
 .text-center { text-align: center; }

@@ -2,7 +2,7 @@
 
 .site-footer {
   // De-colorize all links in footer
-  a {
+  a:not(.btn) {
     color: $gray;
     transition: all 0.25s;
 
@@ -25,55 +25,16 @@
       }
     }
   }
-}
 
-// Post-footer content
+  .widget {
+    margin-bottom: $gutter-double;
 
-.footer-copyright,
-.footer-made-by {
-  text-align: center;
-}
-
-.footer-copyright__copyright,
-.footer-copyright__legal-menu {
-  margin-bottom: $gutter-half;
-}
-
-.footer-copyright__copyright {
-}
-
-.footer-copyright__legal-menu {
-  > li {
-    display: inline-block;
-    
-    &:not(:last-child)::after {
-      content: " | ";
+    > .widget-title {
+      color: $color-primary;
+      border-bottom: 0.2rem solid $color-primary;
+      // font-weight: $font-weight-normal;
+      font-style: italic;
     }
   }
 }
 
-// Made by US!
-
-.footer-made-by {
-  > span {
-    font-style: italic;
-  }
-}
-
-.maker-link {
-  font-size: 0;
-  opacity: 0.8;
-  transition: all 0.25s;
-
-  > svg {
-    height: 2rem;
-    position: relative;
-    top: 0.5rem;
-
-    //TODO: style inside the SVG
-  }
-
-  &:hover {
-    opacity: 1;
-  }
-}

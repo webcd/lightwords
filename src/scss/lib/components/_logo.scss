@@ -43,3 +43,16 @@ $mq-mobile: 'xs' !default;
     display: inline-block;
   }
 }
+
+// Extra footer logo
+
+.logo--footer {
+  max-width: 32rem;
+  margin-bottom: $gutter;
+  @include h-margin(auto);
+
+  @include bp('sm') {
+    @include h-margin(0, auto);
+  }
+}
+
