@@ -40,6 +40,7 @@ function display_cart_product_list_title() {
 
 // CHECKOUT PAGE
 
+// Add a title to the billing section
 add_action( 'woocommerce_review_order_before_payment', 'display_checkout_billing_title', 1);
 function display_checkout_billing_title() {
 	echo '<h3 class="payment-title">Paiement</h3>';

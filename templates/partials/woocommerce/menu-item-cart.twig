@@ -69,7 +69,8 @@
             {% if item.quantity > 1 %}
               <span class="item-product__quantity">{{ item.quantity }}x</span>
             {% endif %}
-            <span class="item-product__price">{{ fn('wc_price', item.data.price) }}</span>
+            {# <span class="item-product__price">{{ fn('wc_price', item.data.price)|formatPrice }}</span> #}
+            <span class="item-product__price">{{ item.data.price|formatPrice }}</span>
 
           </a>
         </li>

@@ -31,7 +31,10 @@
     > .widget-title {
       color: $color-primary;
 
+      text-decoration: underline;
+
       @include bp($expanded) {
+        text-decoration: none;
         border-bottom: 0.2rem solid $color-primary;
       }
 

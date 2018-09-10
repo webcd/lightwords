@@ -5,7 +5,7 @@
   "search": true,
   "breadcrumbs": true,
   "breadcrumbsInContent": true,
-  "hero": false,
+  "hero": true,
   
   "stickyHeader": true,
   "compressHeader": true,
