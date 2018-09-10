@@ -9,6 +9,7 @@
 * [PHP] Vast amount of PHP code (only) works in functions.php. Move/plit this elsewhere!
 * [PHP][Bug][Never] Latest posts add sticky posts to max count (see homepage)
 * [PHP][Never] Inject author datas (ex: avatar) into post templates (single and archive) + comments
+* [PHP][Never] Mark pages as "special" (like stock homepage, blog, my account...) (for contact page mostly)
 * [PHP][Never] Simple breadcrumbs (no YoastSEO) (see: https://gist.github.com/tinotriste/5387124)
 
 ### PHP Woocommerce

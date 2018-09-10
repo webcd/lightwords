@@ -6,17 +6,24 @@
 {% endblock %}
 
 <!-- BODY -->
-<body class="{{ body_class }} {{ body_class_config }}" data-config="{{ config_JSON }}">
+<body class="
+  {{ body_class }}
+  {{ body_class_config }}
+  {{ landing_page ? 'is-landing-page' }} {# TODO: inject into body_class_config #}
+  " data-config="{{ config_JSON }}"
+>
 
   <!-- SITE-WRAPPER -->
   <div class="site-wrapper">
 
     <!-- HEADER -->
-    <header class="site-header">
-      {% block header %}
-        {% include 'header/header.twig' %}
-      {% endblock %}
-    </header>
+    {% if not landing_page %}
+      <header class="site-header">
+        {% block header %}
+          {% include 'header/header.twig' %}
+        {% endblock %}
+      </header>
+    {% endif %}
 
     <!-- SITE-CONTENT -->
     <section class="site-content">
@@ -51,11 +58,13 @@
     </section><!-- end .site-content -->
 
     <!-- FOOTER -->
-    <footer class="site-footer">
-      {% block footer %}
-        {% include 'footer.twig' %}
-      {% endblock %}
-    </footer>
+    {% if not landing_page %}
+      <footer class="site-footer">
+        {% block footer %}
+          {% include 'footer.twig' %}
+        {% endblock %}
+      </footer>
+    {% endif %}
 
   </div><!-- end .site-wrapper -->
 

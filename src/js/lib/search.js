@@ -6,7 +6,7 @@
     
     if (Lightwords.CONFIG.search) {
   
-      var $search = $('.searchform')
+      // var $search = $('.searchform')
       var $searchInput = $(".searchform input[type='text']")
       var $searchSubmit = $(".searchform input[type='submit']")
   
@@ -22,7 +22,9 @@
         setSearchSubmit($(this).val().length)
       }
   
-      setSearchSubmit($searchInput.val().length)
+      if ($searchInput.val()) {
+        setSearchSubmit($searchInput.val().length)
+      }
   
       $searchInput.on('keyup', checkSearchValue)
       // checkSearchValue();
