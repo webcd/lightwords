@@ -4,7 +4,7 @@
 
 * [PHP] Auto-set variable for WooCommerce support ()
 * [PHP][Bug] Translation function _e() not working + use it everywhere (and add translation to the dictionary)
-* [PHP] /page-templates: use DRY includes (of page.php & single.php) with a $fullwidth_content variable
+* [PHP] /page-templates: use DRY includes (of page.php & single.php) with a `fullwidth_content` + `landing_page` variables
 * [PHP] Move all .php files at projet root into a 'controller' (or something) sub-folder (.htaccess redirection?) (only use index.php as a router?)
 * [PHP] Vast amount of PHP code (only) works in functions.php. Move/plit this elsewhere!
 * [PHP][Bug][Never] Latest posts add sticky posts to max count (see homepage)
@@ -24,7 +24,7 @@
 
 #### At shop root ("/produits")
 
-* [PHP][Bug] Shop page thumbail image is'nt the good one
+* [PHP][Bug] Shop page thumbail image isn't the good one
 * [PHP] Use dynamic title and description
 
 #### Products archive
@@ -59,6 +59,7 @@
 
 ## JS
 
+* [JS] Lightbox-like carousel
 * [JS] Compressed header: track for up & down scroll, not only absolute value
 * [CSS][JS] Improve / config for scroll up/down buttons
 * [JS] Handler (throttle/debounce) for resize and scroll events
@@ -71,7 +72,6 @@
 
 ## Probably not
 
-* Landing page model (no header or footer)
 * Woocommerce mega-dropdown-menu (walking through the shop categories & products)
 
 ## To be confirmed bugs
