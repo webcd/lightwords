@@ -52,5 +52,13 @@
   position: absolute !important;
   bottom: $gutter-double;
   left: 50%;
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 0.25s $ease-bump;
+
+  /*html*/.has-scroll-top-active & {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
 }
 

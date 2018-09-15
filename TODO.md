@@ -6,6 +6,7 @@
 * [PHP][Bug] Translation function _e() not working + use it everywhere (and add translation to the dictionary)
 * [PHP] /page-templates: use DRY includes (of page.php & single.php) with a `fullwidth_content` + `landing_page` variables
 * [PHP] Move all .php files at projet root into a 'controller' (or something) sub-folder (.htaccess redirection?) (only use index.php as a router?)
+* [PHP] Make contact infos a dedicated plugin
 * [PHP] Vast amount of PHP code (only) works in functions.php. Move/plit this elsewhere!
 * [PHP][Bug][Never] Latest posts add sticky posts to max count (see homepage)
 * [PHP][Never] Inject author datas (ex: avatar) into post templates (single and archive) + comments
@@ -60,14 +61,13 @@
 ## JS
 
 * [JS] Lightbox-like carousel
-* [CSS][JS] Improve / config for scroll up/down buttons
 * [JS] Handler (throttle/debounce) for resize and scroll events
 
 ## Build
 
-* [Build][Bug] js sourcemaps must be fixed
 * [Build] Move from Gulp to Webpack build process (or fix Mix build)
 * [Build] Get rid off jQuery?
+* [Build][Bug][Never] js sourcemaps must be fixed (Webpack first)
 
 ## Probably not
 

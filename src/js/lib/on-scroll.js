@@ -24,7 +24,7 @@
     }
   }
 
-  // TODO: throttle helper too!
+  // TODO: event throttling helper too!
 
   $(function() {
     var $window = $(window)
@@ -36,39 +36,53 @@
       var scrollTop = $window.scrollTop()
 
       // Detect scroll direction
-      // From: https://stackoverflow.com/questions/31223341/detecting-scroll-direction 
-
-      if (scrollTop > lastScrollTop) {
-        // Scrolling down
-        $body.addClass("scroll-down");
-        $body.removeClass("scroll-up");
-      } else {
-        // Scrolling up
-        $body.addClass("scroll-up");
-        $body.removeClass("scroll-down");
+      if (Lightwords.CONFIG.hasScrollDirectionTracking) {
+        // From: https://stackoverflow.com/questions/31223341/detecting-scroll-direction 
+      
+        if (scrollTop > lastScrollTop) {
+          // Scrolling down
+          $body.addClass("scroll-down");
+          $body.removeClass("scroll-up");
+        } else {
+          // Scrolling up
+          $body.addClass("scroll-up");
+          $body.removeClass("scroll-down");
+        }
+  
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
       }
-
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        
 
       // Header compress
-      if (scrollTop > 200) {
-        $body.addClass('header-compressed')
-        $body.removeClass('header-uncompressed')
-      } else {
-        $body.removeClass('header-compressed')
-        $body.removeClass('header-uncompressed')
+      if (Lightwords.CONFIG.compressHeader) {
+        console.warn('uhuh')
+        if (scrollTop > Lightwords.CONFIG.compressHeaderOffset) {
+          $body.addClass('header-compressed')
+          $body.removeClass('header-uncompressed')
+        } else {
+          $body.removeClass('header-compressed')
+          $body.removeClass('header-uncompressed')
+        }
       }
 
       // Scroll-to-top button
-      if (scrollTop > 400) {
-        $body.addClass('has-scroll-top-active')
-      } else {
-        $body.removeClass('has-scroll-top-active')
+      if (Lightwords.CONFIG.hasScrollTop) {
+        if (scrollTop > Lightwords.CONFIG.scrollTopOffset) {
+          $body.addClass('has-scroll-top-active')
+        } else {
+          $body.removeClass('has-scroll-top-active')
+        }
       }
       
     }, 50)
 
-    $(window).scroll(updateHeader)
+    if (
+      Lightwords.CONFIG.hasScrollDirectionTracking ||
+      Lightwords.CONFIG.compressHeader ||
+      Lightwords.CONFIG.hasScrollTop
+    ) {
+      $(window).scroll(updateHeader)
+    }
 
     console.log('on-scroll.js is loaded')
   })

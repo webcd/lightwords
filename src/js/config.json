@@ -7,13 +7,16 @@
   "breadcrumbsInContent": true,
   "hero": true,
   
+  "hasScrollDirectionTracking": true,
   "stickyHeader": true,
   "compressHeader": true,
+  "compressHeaderOffset": 200,
   "compressHeaderLogoSwap": true,
   "transparentHeader": false,
   "expandDropdownsOnHover": true,
 
   "hasScrollTop": true,
+  "scrollTopOffset": 400,
 
   "fixedWidthContainers": false,
   "fixedWidthHeader": true,
