@@ -195,12 +195,7 @@
   margin-left: $gutter-eighth;
 
   > .caret {
-    display: block;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: $caret-size $caret-size 0 $caret-size;
-    border-color: $caret-color transparent transparent transparent;
+    @include triangle('bottom', $caret-color, $caret-size);
     transition: all 0.5s $ease-bump;
   }
 
