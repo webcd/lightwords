@@ -60,7 +60,6 @@
 ## JS
 
 * [JS] Lightbox-like carousel
-* [JS] Compressed header: track for up & down scroll, not only absolute value
 * [CSS][JS] Improve / config for scroll up/down buttons
 * [JS] Handler (throttle/debounce) for resize and scroll events
 
@@ -73,6 +72,7 @@
 ## Probably not
 
 * Woocommerce mega-dropdown-menu (walking through the shop categories & products)
+* Search auto-complete/suggestions ala ElasticSearch
 
 ## To be confirmed bugs
 

@@ -24,29 +24,52 @@
     }
   }
 
+  // TODO: throttle helper too!
+
   $(function() {
     var $window = $(window)
     var $body = $('body')
 
+    var lastScrollTop = 0;
+
     var updateHeader = debounce(function() {
-      // All the taxing stuff you do
-      var scroll = $window.scrollTop()
-      if (scroll > 200) {
+      var scrollTop = $window.scrollTop()
+
+      // Detect scroll direction
+      // From: https://stackoverflow.com/questions/31223341/detecting-scroll-direction 
+
+      if (scrollTop > lastScrollTop) {
+        // Scrolling down
+        $body.addClass("scroll-down");
+        $body.removeClass("scroll-up");
+      } else {
+        // Scrolling up
+        $body.addClass("scroll-up");
+        $body.removeClass("scroll-down");
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+
+      // Header compress
+      if (scrollTop > 200) {
         $body.addClass('header-compressed')
         $body.removeClass('header-uncompressed')
       } else {
         $body.removeClass('header-compressed')
         $body.removeClass('header-uncompressed')
       }
-      if (scroll > 400) {
+
+      // Scroll-to-top button
+      if (scrollTop > 400) {
         $body.addClass('has-scroll-top-active')
       } else {
         $body.removeClass('has-scroll-top-active')
       }
+      
     }, 50)
 
     $(window).scroll(updateHeader)
 
-    console.log('header-compress.js is loaded')
+    console.log('on-scroll.js is loaded')
   })
 })(jQuery)

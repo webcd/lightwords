@@ -7,7 +7,7 @@
 
 /*html*/
 .sticky-header.compressible-header {
-  // Add transitiotns to modified elements
+  // Add transitions to modified elements
   .site-header {
     transition: 
       top 0.25s $ease-bump,
@@ -30,7 +30,7 @@
   }
 
   @include bp($expanded) {
-    &.header-compressed:not(.header-uncompressed) {
+    &.header-compressed:not(.header-uncompressed):not(.scroll-up) {
       .site-header {
         // Hide the topbar above the viewport
         top: -$topbar-height-desktop;
@@ -44,7 +44,7 @@
 
     // DESKTOP LOGO SHRINK
 
-    &.header-compressed:not(.header-uncompressed) {
+    &.header-compressed:not(.header-uncompressed):not(.scroll-up) {
       .logo--desktop {
         // Scale the desktop logo down to fit compressed header
         // Use mobile logo height
@@ -56,7 +56,7 @@
 
     // DESKTOP LOGO SWAP
 
-    &.header-compressed:not(.header-uncompressed).compressible-header-logo-swap {
+    &.header-compressed:not(.header-uncompressed):not(.scroll-up).compressible-header-logo-swap {
       .logo--desktop {
         // Swap the desktop logo with the tablet logo
         opacity: 0;
@@ -69,7 +69,7 @@
 
     // Wordpress admin bar
     &.admin-bar {
-      &.header-compressed:not(.header-uncompressed) {
+      &.header-compressed:not(.header-uncompressed):not(.scroll-up) {
         .site-header {
           @media screen and (min-width: $wp-adminbar-bp) {
             top: $wp-adminbar-height-desktop - $topbar-height-desktop;
