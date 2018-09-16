@@ -31,7 +31,10 @@ $pixels-per-rem: 10 !default; // Root font-size in px (unitless)
 
 // PX2EM
 // Converts pixels to em's
-@function px2em($pixels, $context: $browser-fontsize-base) {
+@function px2em(
+  $pixels, 
+  $context: $browser-fontsize-base
+) {
   $pixels: strip-unit($pixels);
   $context: strip-unit($context);
   @return $pixels / $context * 1em;
@@ -39,7 +42,10 @@ $pixels-per-rem: 10 !default; // Root font-size in px (unitless)
 
 // EM2PX
 // Converts em's to pixels
-@function em2px($ems, $context: $browser-fontsize-base) {
+@function em2px(
+  $ems, 
+  $context: $browser-fontsize-base
+) {
   $ems: strip-unit($ems);
   $context: strip-unit($context);
   @return $ems * $context * 1px;
@@ -49,8 +55,8 @@ $pixels-per-rem: 10 !default; // Root font-size in px (unitless)
 // Converts em's to rem's
 @function em2rem(
   $ems,
-  $context: $browser-fontsize-base,
-  $context-rem: $pixels-per-rem
+  $context-rem: $pixels-per-rem,
+  $context: $browser-fontsize-base
 ) {
   $ems: strip-unit($ems);
   $context: strip-unit($context);
@@ -62,8 +68,8 @@ $pixels-per-rem: 10 !default; // Root font-size in px (unitless)
 // Converts rem's to em's
 @function rem2em(
   $rems,
-  $context: $browser-fontsize-base,
-  $context-rem: $pixels-per-rem
+  $context-rem: $pixels-per-rem,
+  $context: $browser-fontsize-base
 ) {
   $rems: strip-unit($rems);
   $context: strip-unit($context);
@@ -73,7 +79,10 @@ $pixels-per-rem: 10 !default; // Root font-size in px (unitless)
 
 // PX2REM
 // Converts pixels to rem's
-@function px2rem($pixels, $context-rem: $pixels-per-rem) {
+@function px2rem(
+  $pixels, 
+  $context-rem: $pixels-per-rem
+) {
   $pixels: strip-unit($pixels);
   $context-rem: strip-unit($context-rem);
   @return $pixels / $context-rem * 1rem;
@@ -81,7 +90,10 @@ $pixels-per-rem: 10 !default; // Root font-size in px (unitless)
 
 // REM2PX
 // Converts rem's to pixels
-@function rem2px($rems, $context-rem: $pixels-per-rem) {
+@function rem2px(
+  $rems, 
+  $context-rem: $pixels-per-rem
+) {
   $rems: strip-unit($rems);
   $context-rem: strip-unit($context-rem);
   @return $rems * $context-rem * 1px;

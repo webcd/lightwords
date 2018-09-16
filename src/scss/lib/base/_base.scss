@@ -6,14 +6,7 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-}
-
 body {
-  font-family: $font-family-base;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
   background-color: $body-color-base;
   color: $text-color-base;
 }
@@ -27,5 +20,7 @@ body {
 
 // Responsive images by default
 img {
+  display: block;
+  @include h-margin(auto);
   max-width: 100%;
 }

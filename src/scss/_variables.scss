@@ -1,11 +1,13 @@
 ////////////////////////////////////////////////////////////////////////////////
 // VARIABLES
 
-// GUTTER
+////////////////////////////////////////////////////////////////////////////////
+// LAYOUT
 
+// Gutter
 $gutter: 3rem !default;
 
-// BREAKPOINTS
+// Breakpoints
 
 // List of breakpoint names and sizes
 
@@ -32,6 +34,7 @@ $breakpoints: (
 // The breakpoint at which starts the desktop layout
 $expanded: 'md' !default;
 
+////////////////////////////////////////////////////////////////////////////////
 // COLORS
 
 $color-primary: #e25d5d !default;
@@ -50,23 +53,24 @@ $color-warning: orange !default;
 $color-info: blue !default;
 $color-success: green !default;
 
-// Site wide
-
+// Body
 $text-color-base: $gray-darker !default;
 $body-color-base: white !default;
 
+// Links
 $link-color: $color-secondary !default;
 $link-color-active: $color-secondary-darker !default;
 
-// NAVBAR CONFIGURATION
+////////////////////////////////////////////////////////////////////////////////
+// NAVBAR
 
 $header-color-bg: white !default;
-
 $navbar-menu-mobile-width: 20em !default;
 
 // Topbar height
 $topbar-height-mobile: 6rem !default;
 $topbar-height-desktop: $topbar-height-mobile !default;
+
 // Navbar height
 $navbar-height-mobile: 6rem !default;
 $navbar-height-desktop: $navbar-height-mobile * 1.5 !default;
@@ -96,31 +100,44 @@ $navbar-logo-height-desktop: $topbar-height-desktop + $navbar-height-desktop - (
 
 $footer-logo-width-max: 24rem;
 
+////////////////////////////////////////////////////////////////////////////////
 // TYPOGRAPHY
 
+// Font family
 $font-family-sans-serif: 'Work Sans', 'Helvetica Neue', Helvetica, Arial,
   sans-serif !default;
 $font-family-serif: 'Lora', Georgia, 'Times New Roman', Times, serif !default;
 $font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace !default;
 $font-family-base: $font-family-sans-serif !default;
 
+// Font size
+$breakpoints-pixels-per-rem: (
+  'xs': 10,
+  'sm': 10,
+  'md': 10,
+  'lg': 11,
+  'xl': 12
+) !default;
+
 $font-size-base: 1.6rem !default;
-$line-height-base: 1.5 !default;
-$line-height-small: 1.25 !default;
-$line-height-smaller: 1.125 !default;
 
 $font-size-bigger: (floor($font-size-base * 1.5 * 10) / 10) !default;
 $font-size-big: (floor($font-size-base * 1.25 * 10) / 10) !default;
 $font-size-small: (floor($font-size-base * 0.9 * 10) / 10) !default;
 $font-size-smaller: (floor($font-size-base * 0.75 * 10) / 10) !default;
 
+// Line height
+$line-height-base: 1.5 !default;
+$line-height-small: 1.25 !default;
+$line-height-smaller: 1.125 !default;
+
+// Font weight
 $font-weight-light: 300 !default;
 $font-weight-normal: normal !default; // 500
 $font-weight-semibold: 500 !default;
 $font-weight-bold: 700 !default;
 
 // Headings
-
 $font-size-h1: (floor($font-size-base * 2.6 * 10) / 10) !default;
 $font-size-h2: (floor($font-size-base * 2.15 * 10) / 10) !default;
 $font-size-h3: (floor($font-size-base * 1.7 * 10) / 10) !default;
@@ -142,21 +159,21 @@ $font-family-h4: $font-family-sans-serif !default;
 $font-family-h5: $font-family-sans-serif !default;
 $font-family-h6: $font-family-sans-serif !default;
 
-// Border radiuses
+////////////////////////////////////////////////////////////////////////////////
+// MISC
 
+// Border radiuses
 $border-radius-base: 0 !default;
 $border-radius-large: 1.4142 * $border-radius-base !default;
 $border-radius-small: 2 * $border-radius-base !default;
 
 // Buttons
-
 $btn-font-weight: $font-weight-semibold !default;
 $btn-text-transform: uppercase !default;
 
 $scroll-btn-size: $gutter * 2 !default;
 
-// FORMS
-
+// Forms
 $input-bg: $body-color-base !default;
 $input-color: $text-color-base !default;
 $input-border-color: $gray !default;
@@ -164,8 +181,7 @@ $input-color-placeholder: $gray !default;
 
 $size-checkradio: $font-size-base * 1.5 !default;
 
-// AVATARS
-
+// Avatars
 $size-avatar-small: 3.2rem;
 $size-avatar-base: 6.4rem;
 $size-avatar-big: 9.6rem;

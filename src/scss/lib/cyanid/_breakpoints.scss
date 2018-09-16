@@ -32,6 +32,14 @@ $breakpoints: (
 // .container is full-width until this breakpoint
 $expanded: 'md' !default;
 
+$breakpoints-pixels-per-rem: (
+  'xs': 10,
+  'sm': 10,
+  'md': 10,
+  'lg': 11,
+  'xl': 12
+) !default;
+
 ////////////////////////////////////////////////////////////////////////////////
 // FUNCTIONS
 

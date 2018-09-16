@@ -21,9 +21,9 @@
   // overflow: hidden;
 }
 
-// CONTAINERSIZE
-@mixin container-size($width) {
-  width: em2rem($width) - $gutter-double; // TODO: container width bug
+// CONTAINER SIZE
+@mixin container-size($width, $pixels-per-rem: 10) {
+  width: em2rem($width, $pixels-per-rem) - $gutter-double; // TODO: container width bug
   margin-right: auto;
   margin-left: auto;
 }
@@ -47,12 +47,20 @@ body.has-fixed-width-content .site-content {
 
       &:not(.container--fluid) {
         @each $breakpoint-name, $breakpoint-width in $breakpoints {
-          @media (min-width: $breakpoint-width) {
-            @include container-size($breakpoint-width);
+
+          @if map-has-key($breakpoints-pixels-per-rem, $breakpoint-name) {
+
+            @include bp($breakpoint-name) {
+              $pxPerRem: map-get($breakpoints-pixels-per-rem, $breakpoint-name);
+
+              @include container-size($breakpoint-width, $pxPerRem);
+            }
+
+          } @else {
+            @error 'No $pixels-per-rem value for breakpoint #{$breakpoint-name}';
           }
         }
       }
-
     }
   }
 }

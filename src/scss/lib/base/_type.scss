@@ -1,5 +1,35 @@
 /* TYPE */
 
+html {
+  // Will be one rem
+  // 10px by default (easy to compute)
+  // Global zoom factor
+  font-size: 10 / 16 * 100%; // target size (10) / default size (16)
+
+
+  // Use $breakpoints-pixels-per-rem map
+  // Alter px/rem ratio depending on breakpoint
+  @each $breakpoint-name, $breakpoint-width in $breakpoints {
+
+    @if map-has-key($breakpoints-pixels-per-rem, $breakpoint-name) {
+
+      @include bp($breakpoint-name) {
+        $pxPerRem: map-get($breakpoints-pixels-per-rem, $breakpoint-name);
+        font-size: $pxPerRem / 16 * 100%; // target size / default size
+      }
+
+    } @else {
+      @error 'Big text: no $pixels-per-rem value for breakpoint #{$breakpoint-name}!';
+    }
+  }
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+}
+
 @mixin reset-list() {
   list-style-type: none;
   padding-left: 0;

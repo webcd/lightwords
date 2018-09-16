@@ -49,6 +49,8 @@
 
 ## CSS
 
+* [CSS] Big text mode (h1/h2, slogan...)
+* [CSS] Video homepage hero + mega search bar
 * [CSS][Bug] Navbar active item not working for "products" and cart / my-account custom items
 * [CSS][Bug] Product tile images are stretched (archive page)?!
 * [CSS][Bug] Navbar dropdown buttons: shadow when in panel mode
