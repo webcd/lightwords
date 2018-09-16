@@ -95,7 +95,7 @@ class StarterSite extends \TimberSite
 
         // JSON CONFIG
 
-        $config_JSON = file_get_contents(get_template_directory() . '/src/js/config.json');
+        $config_JSON = file_get_contents(get_template_directory() . '/config.json');
         $config = json_decode($config_JSON);
         // $context['config_JSON'] = htmlspecialchars(json_encode($config_JSON), ENT_QUOTES, 'UTF-8');
         $context['config_JSON'] = htmlspecialchars($config_JSON, ENT_QUOTES, 'UTF-8');
