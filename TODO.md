@@ -56,7 +56,6 @@
 * [CSS][Bug] Panels / dropdowns: max-height + scroll wrapper
 * [CSS] Jarallax causes horizontal scrolling (overflow hidden needed)
 * [TPL] All post/page/product image MUST use srcset
-* [CSS] Fix some button colors (focus, disabled...)
 * [CSS][Bug]"transparent header" option is plain broken
 
 ## JS

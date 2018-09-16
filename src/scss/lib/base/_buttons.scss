@@ -1,7 +1,6 @@
 /* BUTTONS */
 
 @mixin btn($mods: "") {
-
   @each $mod in $mods {
     @if $mod == "" {
       display: inline-block;
@@ -20,14 +19,14 @@
       padding: 1rem $gutter-half;
       transition: all 0.25s;
       color: $text-color-base;
-    
-      &:hover, &:focus {
-        @include shadow(2);
-        color: $text-color-base;
+
+      &:not(:disabled) {
+        @include hocus() {
+          @include shadow(2);
+          color: $text-color-base;
+        }
       }
-    
-      // TODO : focus, active, disabled
-    
+
       &:disabled {
         @include shadow(0);
         opacity: 0.75;
@@ -36,12 +35,14 @@
     }
 
     @elseif $mod == "default" {
-      background-color: $gray-lighter;
+      background-color: $gray-lightest;
       color: $text-color-base;
-    
-      &:hover:not(:disabled) {
-        background-color: $gray-light;
-        color: $text-color-base;
+
+      &:not(:disabled) {
+        @include hocus() {
+          background-color: $gray-lighter;
+          color: black;
+        }
       }
     }
 
@@ -84,93 +85,157 @@
     @elseif $mod == "primary" {
       background-color: $color-primary;
       color: white;
-    
-      &:hover:not(:disabled) {
-        background-color: $color-primary-dark;
-        color: white;
+
+      &:not(:disabled) {
+        @include hocus() {
+          background-color: $color-primary-dark;
+          color: white;
+        }
       }
     }
 
     @elseif $mod == "secondary" {
       background-color: $color-secondary;
       color: white;
-    
-      &:hover:not(:disabled) {
-        background-color: $color-secondary-dark;
-        color: white;
+
+      &:not(:disabled) {
+        @include hocus() {
+          background-color: $color-secondary-dark;
+          color: white;
+        }
       }
     }
 
     @elseif $mod == "ternary" {
       background-color: $color-ternary;
       color: white;
-    
-      &:hover:not(:disabled) {
-        background-color: $color-ternary-dark;
-        color: white;
-      }
+
+      &:not(:disabled) {
+        @include hocus() {
+          background-color: $color-ternary-dark;
+          color: white;
         }
+      }
+    }
 
     @elseif $mod == "black" {
       background-color: black;
-      color: $gray;
-    
-      &:hover:not(:disabled) {
-        // background-color: $color-ternary-dark;
-        color: $gray-lighter;
+      color: $gray-lighter;
+
+      &:not(:disabled) {
+        @include hocus() {
+          // background-color: $color-ternary-dark;
+          color: $gray-lightest;
+        }
       }
     }
 
     @elseif $mod == "gray" {
       background-color: $gray;
-      color: $gray-darker;
-    
-      &:hover:not(:disabled) {
-        // background-color: $color-ternary-dark;
-        color: $gray-darkest;
+      color: $gray-lightest;
+
+      &:not(:disabled) {
+        @include hocus() {
+          background-color: $gray-dark;
+          color: white;
+        }
       }
     }
 
     @elseif $mod == "white" {
       background-color: white;
       color: $gray;
-    
-      &:hover:not(:disabled) {
-        // background-color: $color-ternary-dark;
-        color: $gray-darkest;
+
+      &:not(:disabled) {
+        @include hocus() {
+          // background-color: $color-ternary-dark;
+          color: $gray-darkest;
+        }
       }
     }
 
-    @elseif $mod == "" {
+    @elseif $mod == "caret" {
+      position: relative;
+      padding-left: $gutter;
+      padding-right: $gutter;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: $gutter;
+        @include triangle('right', currentColor, $gutter-eighth * 3);
+
+        opacity: 0;
+        transform: translate3d(0, -50%, 0);
+        transition: all 0.25s;
+      }
+
+      &:not(:disabled) {
+        @include hocus() {
+          padding-left: $gutter-quarter * 3;
+          padding-right: $gutter-quarter * 5;
+
+          &::after {
+            opacity: 1;
+            transform: translate3d($gutter-quarter, -50%, 0);
+          }
+        }
+      }
     }
 
-    @elseif $mod == "" {
+    @else {
+      @error '@mixin btn(): unknown modifier #{$mod}!';
     }
   }
 }
 
 // BUTTON CLASSES
 
-.btn { @include btn(); }
+.btn {
+  @include btn();
+}
 
 // BUTTON SIZES
 
-.btn-xs { @include btn('xs'); }
-.btn-sm { @include btn('sm'); }
-.btn-lg { @include btn('lg'); }
-.btn-xl { @include btn('xl'); }
+.btn-xs {
+  @include btn("xs");
+}
+.btn-sm {
+  @include btn("sm");
+}
+.btn-lg {
+  @include btn("lg");
+}
+.btn-xl {
+  @include btn("xl");
+}
 
 // BUTTONS COLORS
 
-.btn-default { @include btn('default'); }
+.btn-default {
+  @include btn("default");
+}
 
-.btn-primary { @include btn('primary'); }
-.btn-secondary { @include btn('secondary'); }
-.btn-ternary { @include btn('ternary'); }
+.btn-primary {
+  @include btn("primary");
+}
+.btn-secondary {
+  @include btn("secondary");
+}
+.btn-ternary {
+  @include btn("ternary");
+}
 
-.btn-black { @include btn('black'); }
-.btn-gray { @include btn('gray'); }
-.btn-white { @include btn('white'); }
+.btn-black {
+  @include btn("black");
+}
+.btn-gray {
+  @include btn("gray");
+}
+.btn-white {
+  @include btn("white");
+}
 
 // HOLLOW BUTTONS
 // TODO: into the mixin too!!!
@@ -179,82 +244,113 @@
   background-color: transparent;
   border: 0.2rem solid;
 
-  &:hover:not(:disabled) {
-    @include shadow(0);
+  &:not(:disabled) {
+    @include hocus() {
+      @include shadow(0);
+    }
   }
 
   &.btn-default {
     color: $gray-light;
     border-color: $gray-light;
-
-    &:hover:not(:disabled) {
-      background-color: $gray-light;
-      color: white;
+    &:not(:disabled) {
+      @include hocus() {
+        background-color: $gray-light;
+        color: black;
+      }
     }
   }
   &.btn-primary {
     color: $color-primary;
     border-color: $color-primary;
 
-    &:hover:not(:disabled) {
-      background-color: $color-primary;
-      color: white;
+    &:not(:disabled) {
+      @include hocus() {
+        background-color: $color-primary;
+        color: white;
+      }
     }
   }
   &.btn-secondary {
     color: $color-secondary;
     border-color: $color-secondary;
 
-    &:hover:not(:disabled) {
-      background-color: $color-secondary;
-      color: white;
+    &:not(:disabled) {
+      @include hocus() {
+        background-color: $color-secondary;
+        color: white;
+      }
     }
   }
   &.btn-ternary {
     color: $color-ternary;
     border-color: $color-ternary;
 
-    &:hover:not(:disabled) {
-      background-color: $color-ternary;
-      color: white;
+    &:not(:disabled) {
+      @include hocus() {
+        background-color: $color-ternary;
+        color: white;
+      }
     }
   }
   &.btn-black {
     color: black;
     border-color: black;
 
-    &:hover:not(:disabled) {
-      background-color: black;
-      color: $gray-lighter;
+    &:not(:disabled) {
+      @include hocus() {
+        background-color: black;
+        color: $gray-lighter;
+      }
     }
   }
   &.btn-gray {
     color: $gray;
     border-color: $gray;
 
-    &:hover:not(:disabled) {
-      background-color: $gray;
-      color: $gray-darkest;
+    &:not(:disabled) {
+      @include hocus() {
+        background-color: $gray;
+        color: white;
+      }
     }
   }
   &.btn-white {
     color: white;
     border-color: white;
 
-    &:hover:not(:disabled) {
-      background-color: white;
-      color: $gray-darker;
+    &:not(:disabled) {
+      @include hocus() {
+        background-color: white;
+        color: $gray-darker;
+      }
     }
   }
 }
 
 // ROUNDED BUTTONS
 
-.btn-round { @include btn('round'); }
+.btn-round {
+  @include btn("round");
+}
 
 // BLOCK BUTTONS
 
-.btn-block { @include btn('block'); }
+.btn-block {
+  @include btn("block");
+}
+
+// WRAP BUTTONS (multiline)
+
+.btn-wrap {
+  @include btn("wrap");
+}
+
+// CARET BUTTONS
+
+.btn-caret {
+  @include btn("caret");
+}
 
 // Vertically space out multiple block buttons
 // .btn-block + .btn-block {
@@ -262,14 +358,18 @@
 // }
 
 // Specificity overrides
-input[type='submit'],
-input[type='reset'],
-input[type='button'] {
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
   &.btn-block {
     width: 100%;
   }
 }
 
-// WRAP BUTTONS (multiline)
 
-.btn-wrap { @include btn('wrap'); }
+// BUTTON ICONS
+
+.btn-icon {
+  height: 1.6rem; // TODO: Magic value!
+  vertical-align: middle;
+}

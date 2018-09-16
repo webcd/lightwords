@@ -1,6 +1,6 @@
 # Lightwords
 
-A minimal WordPress starter theme. Powered by Twig, Gulp and Sass, based on Timber-starter-theme!
+Not so minimal WordPress starter theme. Powered by Twig, Gulp and Sass, based on Timber-starter-theme!
 
 ## Requirements
 
@@ -54,3 +54,9 @@ gulp
 * `scripts` : handles javascript
 * `styles` : CSS pipeline
 * `templates` : void - just refresh the page
+
+Example:
+
+```sh
+gulp images
+```

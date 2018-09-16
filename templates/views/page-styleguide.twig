@@ -86,6 +86,9 @@
           <div class="col-xs-6 col-sm-4 col-md-3">
             <h3>Colors</h3>
             <button class="btn btn-default">.btn-default</button>
+            <button class="btn btn-black">.btn-black</button>
+            <button class="btn btn-gray">.btn-gray</button>
+            <button class="btn btn-white">.btn-white</button>
             <button class="btn btn-primary">.btn-primary</button>
             <button class="btn btn-secondary">.btn-secondary</button>
             <button class="btn btn-ternary">.btn-ternary</button>
@@ -93,13 +96,23 @@
           <div class="col-xs-6 col-sm-4 col-md-3">
             <h3>Rounded</h3>
             <button class="btn btn-default btn-round">.btn-round</button>
+            <button class="btn btn-black btn-round">.btn-round</button>
+            <button class="btn btn-gray btn-round">.btn-round</button>
+            <button class="btn btn-white btn-round">.btn-round</button>
             <button class="btn btn-primary btn-round">.btn-round</button>
             <button class="btn btn-secondary btn-round">.btn-round</button>
             <button class="btn btn-ternary btn-round">.btn-round</button>
           </div>
           <div class="col-xs-6 col-sm-4 col-md-3">
             <h3>Hollow</h3>
-            <button class="btn btn-default btn-hollow">.btn-hollow</button>
+            <div style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;">
+              <button class="btn btn-default btn-hollow">.btn-hollow</button>
+            </div>
+            <button class="btn btn-black btn-hollow">.btn-hollow</button>
+            <button class="btn btn-gray btn-hollow">.btn-hollow</button>
+            <div style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;">
+              <button class="btn btn-white btn-hollow">.btn-hollow</button>
+            </div>
             <button class="btn btn-primary btn-hollow">.btn-hollow</button>
             <button class="btn btn-secondary btn-hollow">.btn-hollow</button>
             <button class="btn btn-ternary btn-hollow">.btn-hollow</button>
@@ -115,13 +128,40 @@
           <div class="col-xs-6 col-sm-4 col-md-3">
             <h3>Layout</h3>
             <button class="btn btn-primary btn-block">.btn-block</button>
-            <button class="btn btn-primary btn-wrap">.btn-wrap very very long button multi-line content</button>
+            <button class="btn btn-secondary btn-wrap">.btn-wrap very very long button multi-line content</button>
+            <button class="btn btn-black btn-wrap btn-round">.btn-wrap rounded very very long button multi-line content</button>
           </div>
           <div class="col-xs-6 col-sm-4 col-md-3">
             <h3>Disabled</h3>
             <button class="btn btn-default" disabled>disabled</button>
+            <button class="btn btn-black" disabled>disabled</button>
             <button class="btn btn-primary btn-round" disabled>disabled</button>
             <button class="btn btn-secondary btn-hollow" disabled>disabled</button>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <h3>Icons</h3>
+            <button class="btn btn-default"><i class="fa fa-user"></i> .btn-default</button>
+            <button class="btn btn-black">.btn-black <i class="fa fa-arrow-right"></i></button>
+            <button class="btn btn-gray btn-lg"><i class="fa fa-envelope"></i> .btn-gray</button>
+            <button class="btn btn-white">
+              <svg class="btn-icon" viewBox="0 0 44 44">
+                <use xlink:href="#logo-mobile"></use>
+              </svg>
+              .btn-white
+            </button>
+            <button class="btn btn-primary">.btn-primary</button>
+            <button class="btn btn-secondary">.btn-secondary</button>
+            <button class="btn btn-ternary">.btn-ternary</button>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <h3>Caret</h3>
+            <button class="btn btn-default btn-caret">.btn-caret</button>
+            <button class="btn btn-primary btn-caret btn-xs">.btn-caret</button>
+            <button class="btn btn-black btn-caret btn-round btn-xl">.btn-caret</button>
+            <div style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;">
+              <button class="btn btn-white btn-caret btn-hollow btn-block">.btn-caret</button>
+            </div>
+            <button class="btn btn-secondary btn-caret btn-wrap">.btn-caret very very long button multi-line content</button>
           </div>
         </div>
 
