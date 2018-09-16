@@ -61,7 +61,7 @@
 ## JS
 
 * [JS] Lightbox-like carousel
-* [JS] Handler (throttle/debounce) for resize and scroll events
+* [JS] Handle resize events
 
 ## Build
 

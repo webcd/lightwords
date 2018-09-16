@@ -1,6 +1,8 @@
 ;(function($) {
   // DOM IS READY!
 
+  // TODO: ES6 here => https://codepen.io/jh3y/pen/opNYWy?editors=0010
+
   // DEBOUNCE HELPER
   // See: https://davidwalsh.name/javascript-debounce-function
 
@@ -10,9 +12,10 @@
   // leading edge, instead of the trailing.
   function debounce(func, wait, immediate) {
     var timeout
+
     return function() {
       var context = this,
-        args = arguments
+          args = arguments
       var later = function() {
         timeout = null
         if (!immediate) func.apply(context, args)
@@ -25,6 +28,29 @@
   }
 
   // TODO: event throttling helper too!
+
+  function throttle(func, limit) {
+    var lastFunc = 0,
+        lastRan = 0
+
+    return function () {
+      var context = this
+      var args = arguments
+      if (!lastRan) {
+        func.apply(context, args)
+        lastRan = Date.now()
+      } else {
+        clearTimeout(lastFunc)
+        lastFunc = setTimeout(function () {
+          if (Date.now() - lastRan >= limit) {
+            func.apply(context, args)
+            lastRan = Date.now()
+          }
+        }, limit - (Date.now() - lastRan))
+      }
+    }
+  }
+  
 
   $(function() {
     var $window = $(window)
