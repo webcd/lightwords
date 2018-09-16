@@ -1,4 +1,6 @@
 .woocommerce-message {
+  @include v-padding($gutter-quarter);
+
   .button {
     vertical-align: baseline;
     margin-bottom: 0;

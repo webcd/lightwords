@@ -7,33 +7,34 @@
   {# CART SIMPLE LINK #}
 
   {% if not has_dropdown %}
-
     <a href="{{ fn('wc_get_cart_url') }}" class="menu-item-link"
       title="{{ fn('_e', 'View your shopping cart') }}">
 
-      <span class="sr-only">Cart</span>
-      <i class="fa fa-fw fa-lg fa-shopping-cart"></i>
-
-      <span class="cart-counter">{{ cart.get_cart_contents_count }}</span>
-
-    </a>
-
-  {# CART DROPDOWN MENU #}
-
   {% else %}
-
     <button class="menu-item-link dropdown-toggle" data-dropdown
       data-panel-toggle data-panel-target="panel-cart"
     >
+  {% endif %}
 
       <span class="sr-only">Cart</span>
       <i class="fa fa-fw fa-lg fa-shopping-cart"></i>
 
-      <span class="cart-counter">
-        {{ cart.get_cart_contents_count }}
-      </span>
+      {% if cart.get_cart_contents_count > 0 %}
+        <span class="cart-counter">
+          {{ cart.get_cart_contents_count }}
+        </span>
+      {% endif %}
 
+  {% if not has_dropdown %}
+    </a>
+
+  {% else %}
     </button>
+  {% endif %}
+
+  {# CART DROPDOWN MENU #}
+
+  {% if has_dropdown %}
 
     <ul class="dropdown-menu dropdown-menu--right" id="panel-cart">
 

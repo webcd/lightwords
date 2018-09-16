@@ -17,6 +17,7 @@
 
 * [PHP] Modify wc_price() filter to split euros from cents (see StarterSite.php)
 * [PHP] Global config string/slug for "products" (singular/plurals, URL, breadcrumb, page title...)
+* [PHP] Cart page: deleting products should (AJAX) update the menu cart icon counter
 
 #### Twig templates needed
 
