@@ -67,7 +67,7 @@ address {
   > div {
     padding-left: $gutter-half * 2;
     margin-bottom: $gutter-quarter;
-    line-height: 1.25;
+    line-height: $line-height-small;
   }
 }
 

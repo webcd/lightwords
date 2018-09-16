@@ -43,7 +43,7 @@ label {
   display: block;
   font-weight: $font-weight-semibold;
   margin-bottom: $gutter-quarter;
-  line-height: 1.25; // Compact
+  line-height: $line-height-small; // Compact
 }
 
 // Placeholder

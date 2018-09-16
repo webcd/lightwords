@@ -87,7 +87,7 @@
       }
 
       &.product-name {
-        line-height: 1.25;
+        line-height: $line-height-small;
 
         > a {
           display: inline-block;
@@ -110,7 +110,7 @@
         > span {
           display: inline-block;
           padding: $gutter-eighth 0;
-          line-height: 1.25;
+          line-height: $line-height-small;
         }
       }
 
@@ -226,7 +226,7 @@ button[type="submit"][name="update_cart"] {
     .shipping-calculator-button {
       @include btn();
       @include btn('default');
-      line-height: 1.125;
+      line-height: $line-height-smaller;
       margin-top: $gutter;
       margin-bottom: 0;
     }

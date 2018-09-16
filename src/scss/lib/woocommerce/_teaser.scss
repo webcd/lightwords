@@ -49,7 +49,7 @@
       // @include btn('default');
       // @include btn('gray');
       @include btn('wrap');
-      line-height: 1;
+      line-height: $line-height-smallest;
     }
 
     > .teaser-description {

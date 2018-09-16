@@ -78,7 +78,7 @@
   display: block;
   min-height: $navbar-btn-size;
   @include h-padding($gutter-half);
-  line-height: 1; // In case of multi-line
+  line-height: $line-height-smallest; // In case of multi-line
 
   color: $navbar-btn-color;
   background-color: $navbar-btn-bg;

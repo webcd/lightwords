@@ -117,7 +117,7 @@
 
 //   > label {
 //     font-weight: $font-weight-semibold;
-//     line-height: 1.25;
+//     line-height: $line-height-small;
 //     @include col('sm', 4);
 
 //     @include bp('sm', true) {
