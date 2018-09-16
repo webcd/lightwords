@@ -33,7 +33,7 @@
 
 @mixin hocus() {
   &:hover,
-  a:focus {
+  &:focus {
     @content;
   }
 }

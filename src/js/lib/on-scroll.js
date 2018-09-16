@@ -81,7 +81,6 @@
 
       // Header compress
       if (Lightwords.CONFIG.compressHeader) {
-        console.warn('uhuh')
         if (scrollTop > Lightwords.CONFIG.compressHeaderOffset) {
           $body.addClass('header-compressed')
           $body.removeClass('header-uncompressed')

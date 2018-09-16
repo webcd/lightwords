@@ -2,49 +2,51 @@
 
 .scroll-btn {
   display: block;
-  $scroll-btn-size: $gutter-double;
 
   width: $scroll-btn-size;
   height: $scroll-btn-size;
   border-radius: 50%;
   cursor: pointer;
-  transition: all 0.5s $ease-bump;
   @include shadow(1);
-  transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1) rotateZ(0);
+  transition: all 0.5s $ease-bump;
 
-  &:hover,
-  &:focus {
+  @include hocus() {
     @include shadow(2);
-    transform: translate3d(-50%, 0, 0) scale3d(1.25, 1.25, 1) rotateZ(0);
   }
+
+  // SCROLL DOWN
+
+  &.scroll-btn-down {
+    transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1);
+    opacity: 1;
+
+    @include hocus() {
+      transform: translate3d(-50%, 0, 0) scale3d(1.25, 1.25, 1);
+    }
+    
+    /*body*/.has-scroll-top-active & {
+      // Hide the button when enough scrolled down
+      transform: translate3d(-50%, -100vh, 0);
+      opacity: 0;
+    }
+  }  
+
+  // SCROLL UP (TO TOP)
 
   &.scroll-btn-up {
-    transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1) rotateZ(0.5turn);
-
-    &:hover,
-    &:focus {
-      transform: translate3d(-50%, 0, 0) scale3d(1.25, 1.25, 1) rotateZ(0.5turn);
-    }
-  }
-}
-
-#site-scroll-top {
- 
-  body.has-scroll-top & {
-    display: block;
     position: fixed;
     left: 50%;
     bottom: $gutter;
     transform: translate3d(-50%, 200%, 0) scale3d(1, 1, 1) rotateZ(0.5turn);
+
+    /*body*/.has-scroll-top-active & {
+      transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1) rotateZ(0.5turn);
   
-  }
-
-  body.has-scroll-top-active & {
-    transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1) rotateZ(0.5turn);
-
-    &:hover,
-    &:focus {
-      transform: translate3d(-50%, 0, 0) scale3d(1.25, 1.25, 1) rotateZ(0.5turn);
+      &:hover,
+      &:focus {
+        transform: translate3d(-50%, 0, 0) scale3d(1.25, 1.25, 1) rotateZ(0.5turn);
+      }
     }
   }
 }
+

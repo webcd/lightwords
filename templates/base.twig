@@ -72,11 +72,13 @@
   <div class="overlay" id="overlay-panels"></div>
 
   <!-- SCROLL TO TOP BUTTON -->
-  <div id="site-scroll-top" class="scroll-btn scroll-btn-up" data-scroll="body">
-    <svg class="scroll-down" viewBox="0 0 71 71">
-      <use xlink:href="#scroll-down"></use>
-    </svg>
-  </div>
+  {% if CONFIG.hasScrollTop %}
+    <div class="scroll-btn scroll-btn-up" data-scroll="body">
+      <svg viewBox="0 0 71 71">
+        <use xlink:href="#scroll-down"></use>
+      </svg>
+    </div>
+  {% endif %}
 
   {% if do_inlinesvg %}
     <!-- INLINE SVG -->
