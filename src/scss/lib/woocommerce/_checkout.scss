@@ -180,7 +180,7 @@ ul.wc_payment_methods {
       font-weight: $font-weight-semibold;
       transition: all 0.25s;
 
-      &:hover, &:focus {
+      @include hocus() {
         @include shadow(3);
       }
     }

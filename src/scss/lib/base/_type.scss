@@ -61,9 +61,7 @@ a {
   text-decoration: none;
   transition: all 0.25s;
 
-  &:hover,
-  &:active,
-  &:focus {
+  @include hocus() {
     color: $link-color-active;
   }
 }

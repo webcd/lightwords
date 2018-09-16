@@ -25,8 +25,7 @@
 //   position: relative;
 //   background-clip: content-box;
 
-//   &:hover,
-//   &:focus {
+//   @include hocus() {
 //     @include shadow(2);
 //   }
 

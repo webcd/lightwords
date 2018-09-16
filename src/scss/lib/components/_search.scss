@@ -21,7 +21,7 @@
     font-weight: $font-weight-normal;
     text-transform: uppercase;
 
-    &:hover {
+    @include hocus() {
       background-color: $gray-lighter;
       color: $color-primary;
     }

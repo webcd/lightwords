@@ -42,8 +42,7 @@
     /*body*/.has-scroll-top-active & {
       transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1) rotateZ(0.5turn);
   
-      &:hover,
-      &:focus {
+      @include hocus() {
         transform: translate3d(-50%, 0, 0) scale3d(1.25, 1.25, 1) rotateZ(0.5turn);
       }
     }

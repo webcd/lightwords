@@ -47,7 +47,7 @@
     //TODO: style inside the SVG
   }
 
-  &:hover {
+  @include hocus() {
     opacity: 1;
   }
 }

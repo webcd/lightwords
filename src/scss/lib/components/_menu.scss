@@ -120,9 +120,7 @@
     > .menu-item-link {
       cursor: pointer;
 
-      &:hover,
-      &:active,
-      &:focus {
+      @include hocus() {
         color: $navbar-btn-color-hover;
         background-color: $navbar-btn-bg-hover;
       }

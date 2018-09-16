@@ -8,7 +8,7 @@
   text-align: center;
   position: relative;
 
-  &:hover {
+  @include hocus() {
     .hamburger,
     .hamburger:before,
     .hamburger:after {
@@ -48,7 +48,7 @@
 
 /*body*/.panel-menu-expanded {
   .hamburger-wrapper {
-    &:hover {
+    @include hocus() {
       .hamburger {
         background-color: transparent;
       }

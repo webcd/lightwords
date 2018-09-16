@@ -41,7 +41,7 @@
   }
 
   &.cart_item {
-    &:hover {
+    @include hocus() {
       background-color: $gray-lightest;
     }
 
@@ -56,8 +56,7 @@
           @include btn();
           margin-bottom: 0;
 
-          &:hover,
-          &:focus {
+          @include hocus() {
             background: red;
             color: white;
           }
@@ -96,8 +95,7 @@
           color: $gray;
           font-weight: $font-weight-semibold;
 
-          &:hover,
-          &:focus {
+          @include hocus() {
             color: black;
             text-decoration: underline;
           }

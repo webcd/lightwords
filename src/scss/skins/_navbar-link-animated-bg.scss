@@ -21,9 +21,7 @@
         transition: all 0.125s;
       }
 
-      &:hover,
-      &:active,
-      &:focus {
+      @include hocus() {
         background-color: transparent;
 
         &::before {

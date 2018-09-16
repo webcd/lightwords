@@ -92,7 +92,7 @@ $social-list: (
           }
         }
 
-        &:hover {
+        @include hocus() {
           a {
             @if $rrssb-monochromatic {
               background-color: nth($s-name, 2);
@@ -153,8 +153,7 @@ $social-list: (
         }
       }
 
-      &:hover,
-      &:focus {
+      @include hocus() {
         .icon {
           svg {
             fill: white;

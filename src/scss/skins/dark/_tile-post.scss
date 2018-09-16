@@ -11,7 +11,7 @@
   border-color: transparent;
   color: $color-secondary;
 
-  &:hover {
+  @include hocus() {
     background-color: transparent;
     border-color: transparent;
     color: lighten($color-secondary, 20%);

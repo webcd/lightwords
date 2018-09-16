@@ -11,8 +11,7 @@
     transition: all 0.25s;
     cursor: pointer;
 
-    &:hover,
-    &:focus {
+    @include hocus() {
       @include shadow(2);
     }
 

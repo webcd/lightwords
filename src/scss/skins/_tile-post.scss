@@ -70,7 +70,7 @@
   transition: box-shadow 0.125s;
   cursor: pointer;
 
-  &:hover {
+  @include hocus() {
     @include shadow(2);
   }
 }

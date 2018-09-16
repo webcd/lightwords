@@ -12,9 +12,7 @@
     transition: all 0.25s $ease-bump;
   }
 
-  &:hover,
-  &:focus,
-  &:active {
+  @include hocus() {
     color: currentColor;
     text-decoration: none;
     &:after {

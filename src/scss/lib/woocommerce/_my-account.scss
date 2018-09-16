@@ -42,8 +42,7 @@
               color: $navbar-btn-color;
               font-weight: $font-weight-semibold;
 
-              &:hover,
-              &:focus {
+              @include hocus() {
                 background-color: $navbar-btn-bg-hover;
               }
             }

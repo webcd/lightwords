@@ -6,9 +6,7 @@
     color: $gray;
     transition: all 0.25s;
 
-    &:hover,
-    &:active,
-    &:focus {
+    @include hocus() {
       color: $gray-darkest;
       text-decoration: underline;
     }
