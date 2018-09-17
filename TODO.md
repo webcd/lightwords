@@ -49,7 +49,7 @@
 
 ## CSS
 
-* [CSS] Big text mode (h1/h2, slogan...)
+* [CSS][Bug] WordPress admin bar must follow px/rem ratio too
 * [CSS] Video homepage hero + mega search bar
 * [CSS][Bug] Navbar active item not working for "products" and cart / my-account custom items
 * [CSS][Bug] Product tile images are stretched (archive page)?!
