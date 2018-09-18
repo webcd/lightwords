@@ -21,7 +21,11 @@ class StarterSite extends \TimberSite
         //  Thumbnails
         set_post_thumbnail_size(380, 230, true);
         add_theme_support('post-formats');
-        add_theme_support('post-thumbnails');
+
+        // See: https://developer.wordpress.org/reference/functions/add_theme_support/#post-thumbnails
+        // add_theme_support( 'post-thumbnails' ); // Should be enough fors posts
+        add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );
+
         add_theme_support('menus');
         // Page Title
         add_theme_support('title-tag');

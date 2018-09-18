@@ -1,5 +1,7 @@
 /* FORMS */
 
+// BASE
+
 input[type='text'],
 input[type='number'],
 input[type='email'],
@@ -10,12 +12,16 @@ textarea
  {
   display: block;
   width: 100%;
-  border: 0.1rem solid $input-border-color;
   padding-left: $gutter-half;
   padding-right: $gutter-half;
-
+  
   background-color: $input-bg;
   color: $input-color;
+  border: 0.1rem solid $input-border-color;
+
+  .error & {
+    border-color: $color-error;
+  }
 }
 
 input[type='text'],
@@ -25,8 +31,12 @@ input[type='password'],
 input[type='tel'],
 input[type='url'] {
   @include v-padding(0);
-  height: 4.4rem;
+  height: $input-height-base;
   line-height: 4.4rem;
+}
+
+input[type='number'] {
+  text-align: right;
 }
 
 textarea {
@@ -39,11 +49,29 @@ select {
   width: 100%;
 }
 
-label {
+label,
+.label {
   display: block;
-  font-weight: $font-weight-semibold;
   margin-bottom: $gutter-quarter;
   line-height: $line-height-small; // Compact
+
+  .input-block > & {
+    font-weight: $font-weight-semibold;
+  }
+
+  .input-block.error > & {
+    color: $color-error;
+  }
+
+  .input-block.required > & {
+    &::after {
+      display: inline-block;
+      margin-left: $gutter-eighth / 2;
+      content: "*";
+      color: $color-error;
+      transform: translateY(-$gutter-eighth);
+    }
+  }
 }
 
 // Placeholder
@@ -70,204 +98,75 @@ label {
   font-style: italic;
 }
 
-// SELECT2 OVERRIDES
+// Submit
 
-.select2-selection {
-  border: 0.1rem solid $input-border-color !important;
-  border-radius: 0 !important;
-  height: 4.4rem !important;
-}
-
-.select2-selection__rendered {
-  // padding: 0 $gutter-half;
-  line-height: 4.4rem !important;
-}
-
-.select2-selection__arrow {
-  height: 4.4rem !important;
-}
-
-// Colors
-
-.select2-container--default {
-  .select2-selection--single {
-    background-color: $input-bg;
-
-    .select2-selection__rendered {
-      color: $input-color;
-    }
-  }
-
-  .select2-results__option {
-    background-color: $input-bg;
-    color: $input-color;
-
-    &[aria-selected] {
-    }
-
-    &[aria-selected=true] {
-      background-color: $color-primary;
-      color: white;
-  }
-
-    &.select2-results__option--highlighted { // aka hover
-        
-      &[aria-selected] {
-        background-color: $input-color;
-        color: $input-bg;
-      }
-
-      &[aria-selected=true] {
-        background-color: $color-primary;
-        color: white;
-      }
-    }
-  }
-}
-
-
-// GRAVITY FORMS OVERRIDES (WIP)
-
-.gf_browser_chrome.gform_wrapper.gf_reset_wrapper {
-  form {
-    .gform_heading {
-      .gform_description {
-      }
-    }
-
-    .validation_error {
-    }
-
-    .gform_body {
-      ul.gform_fields {
-        .gfield {
-          .gfield_label {
-            .gfield_required {
-            }
-          }
-
-          .ginput_container {
-            input {
-            }
-          }
-
-          .gfield_description.validation_message {
-          }
-        }
-        .gfield_error {
-        }
-        .gf_left_half {
-        }
-      }
-    }
-  }
-}
-
-//
-
-.gform_fields {
-  list-style-type: none;
-  padding-left: 0;
-  @include row();
-}
-
-.gf_left_half,
-.gf_right_half {
-  @include col('sm', 6);
-}
-
-.gfield {
-  // margin-bottom: $gutter;
-}
-
-input[type='submit'] {
+input[type='submit']/*,
+button[type='submit']*/ {
   @include btn();
   @include btn('primary');
 }
 
-.gfield_required {
-  color: $color-error;
+// LAYOUT
+
+.form {
+  // @include row();
+  align-items: flex-start; // Better when unknown content
+  // align-items: flex-end; // Better when multiline label AND same height inputs
 }
 
-.validation_error {
-  color: $color-error;
+.input-block {
+  @include row();
+  @include row('no-gutter');
+
+  > input[type="submit"],
+  > button[type="submit"] {
+    flex-basis: auto;
+  }
 }
 
-.gfield_error {
-  .validation_message {
+.input {
+
+  &.input--inline {
+    display: flex;
+  }
+}
+
+.input-before,
+.input-after {
+  padding-left: $gutter-half;
+  padding-right: $gutter-half;
+  @include v-padding(0);
+  height: 4.4rem;
+  line-height: 4.4rem;
+  background-color: $input-border-color;
+}
+
+.input-info {
+  @include v-padding($gutter-eighth);
+  text-align: right;
+  font-size: $font-size-small;
+  line-height: $line-height-small;
+  font-style: italic;
+  color: gray;
+
+  .error & {
     color: $color-error;
   }
 }
 
-.gform_description {
+// MESSAGES
+
+.message {
+  display: block;
+  padding: $gutter-quarter $gutter-half;
   font-style: italic;
-}
 
-// FORM: STYLED RADIO INPUTS
-
-input[type="checkbox"],
-input[type="radio"] {
-
-  &:not(:checked),
-  &:checked {
-    position: absolute;
-    left: -9999px;
+  &.message--error {
+    background-color: $color-error;
+    color: white;
   }
 
-  // The label can follow the input,
-  // but if can also wrap the input and a span for instance
-  & + /*label*/* {
-    position: relative;
-    padding-left: $size-checkradio + $gutter-half;
-
-    &::before,
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 50%;
-      transform: translate3d(-50%, -50%, 0);
-      left: $size-checkradio / 2;
-      transition: 0.125s;
-    }
-
-    &::before {
-      width: $size-checkradio;
-      height: $size-checkradio;
-      border: 0.2rem solid $input-border-color;
-    }
-
-    &::after {
-      width: $size-checkradio / 2;
-      height: $size-checkradio / 2;
-      background-color: $color-primary;
-      opacity: 0;
-      transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 1);
-    }
-  }
-  
-  &:checked + /*label*/* {
-    
-    &::before {
-      border-color: currentColor;
-    }
-
-    &::after {
-      opacity: 1;
-      transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
-    }
-  }
-}
-
-input[type="radio"] {
-
-  & + /*label*/* {
-
-    &::before {
-      border-radius: 1000rem;
-    }
-    &::after {
-      border-radius: 1000rem;
-    }
+  .form & {
+    margin-bottom: $gutter;
   }
 }

@@ -83,22 +83,17 @@ $navbar-btn-bg: transparent !default;
 $navbar-btn-bg-hover: rgba(0,0,0,0.0625) !default;
 $hamburger-height: $navbar-btn-size - 2 * 1rem !default;
 
-// Dropdown menus
-$caret-size: $gutter / 3;
-$caret-color: $navbar-btn-color;
-$width-nested-dropdown-indentation: $gutter / 2;
-
-// WordPress admin bar
-$wp-adminbar-height-mobile: 4.6rem !default;
-$wp-adminbar-height-desktop: 3.2rem !default;
-$wp-adminbar-bp: 782px;
-
 // Logo
 $navbar-logo-height: $navbar-btn-size !default;
 $navbar-logo-padding-desktop: $gutter / 2 !default;
 $navbar-logo-height-desktop: $topbar-height-desktop + $navbar-height-desktop - ($navbar-logo-padding-desktop * 2) !default;
 
 $footer-logo-width-max: 24rem;
+
+// Dropdown menus
+$caret-size: $gutter / 3;
+$caret-color: $navbar-btn-color;
+$width-nested-dropdown-indentation: $gutter / 2;
 
 ////////////////////////////////////////////////////////////////////////////////
 // TYPOGRAPHY
@@ -175,9 +170,10 @@ $btn-text-transform: uppercase !default;
 $scroll-btn-size: $gutter * 2 !default;
 
 // Forms
+$input-height-base: 4.4rem !default;
 $input-bg: $body-color-base !default;
 $input-color: $text-color-base !default;
-$input-border-color: $gray !default;
+$input-border-color: $gray-light !default;
 $input-color-placeholder: $gray !default;
 
 $size-checkradio: $font-size-base * 1.5 !default;

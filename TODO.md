@@ -49,6 +49,7 @@
 
 ## CSS
 
+* [CSS][Bug] Select2: sometimes too wide (breaking flex columns) - pixel rounding issue?
 * [CSS][Bug] WordPress admin bar must follow px/rem ratio too
 * [CSS] Video homepage hero + mega search bar
 * [CSS][Bug] Navbar active item not working for "products" and cart / my-account custom items
@@ -68,6 +69,7 @@
 ## Build
 
 * [Build] Move from Gulp to Webpack build process (or fix Mix build)
+* [Build] Read config.json at build step, no through the DOM
 * [Build] Get rid off jQuery?
 * [Build][Bug][Never] js sourcemaps must be fixed (Webpack first)
 

@@ -65,6 +65,10 @@
 @import 'lib/base/type';
 @import 'lib/base/buttons';
 @import 'lib/base/forms';
+@import 'lib/base/forms-radio-checkbox';
+@import 'lib/base/forms-gravity';
+@import 'lib/base/forms-select2';
+@import 'lib/base/styleguide';
 
 /* LIGHTWORDS - COMPONENTS */
 @import 'lib/components/breadcrumb';
@@ -81,6 +85,8 @@
 @import 'lib/components/panels';
 @import 'lib/components/footer';
 @import 'lib/components/footer-post';
+
+@import 'lib/components/wp-adminbar';
 
 /* LIGHTWORDS - LAYOUT */
 @import 'lib/layout/fixed-ratio';

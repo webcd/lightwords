@@ -29,3 +29,15 @@ h2, .h2 {
   }
 
 }
+
+h3, .h3 {
+
+  @include bp('lg') {
+    font-size: $font-size-h3 * 1.125;
+  }
+
+  @include bp('xl') {
+    font-size: $font-size-h3 * 1.25;
+  }
+
+}

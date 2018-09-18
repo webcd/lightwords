@@ -11,12 +11,16 @@
 
         <!-- Styleguide content -->
 
+        <!-- MODAL -->
+        <h2>Modal</h2>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-modal data-modal-target="#myModal">
           Launch demo modal
         </button>
 
-        <!-- Modal -->
+        <hr>
+
+        <!-- Modal content -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -34,6 +38,9 @@
             </div>
           </div>
         </div>
+
+        <!-- HEADINGS -->
+        <h2>Headings</h2>
 
         <div class="row">
           <div class="col-sm-6">
@@ -62,6 +69,9 @@
 
         <hr>
 
+        <!-- BODY TEXT -->
+        <h2>Body text</h2>
+
         <p class="big">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt,
           aspernatur. A provident error, molestias dolore quos facilis, doloribus eaque tempora voluptas, voluptatem animi
           commodi libero dicta qui enim laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem
@@ -81,6 +91,9 @@
           qui dolorum saepe perferendis beatae alias facere assumenda voluptatem eum suscipit architecto! Ea.</p>
 
         <hr>
+
+        <!-- BUTTONS -->
+        <h2>Buttons</h2>
 
         <div class="row">
           <div class="col-xs-6 col-sm-4 col-md-3">
@@ -166,33 +179,144 @@
         </div>
 
         <hr>
-          <h3>Static form inputs</h3>
 
-          <div class="row">
-            <div class="col-xs-6 col-sm-4 col-md-3">
-              <p>
-                <input type="checkbox" id="check01" checked><label for="check01">Label checkbox 1</label>
-              </p>
-              <p>
-                <input type="checkbox" id="check02"><label for="check02">Label checkbox 2</label>
-              </p>
-              <p>
-                <input type="checkbox" id="check03"><label for="check03">Label checkbox 3</label>
-              </p>
-            </div>
-            <div class="col-xs-6 col-sm-4 col-md-3">
-              <p>
-                <input type="radio" id="radio01" name="radios" checked><label for="radio01">Label radio 1</label>
-              </p>
-              <p>
-                <input type="radio" id="radio02" name="radios"><label for="radio02">Label radio 2</label>
-              </p>
-              <p>
-                <input type="radio" id="radio03" name="radios"><label for="radio03">Label radio 3</label>
-              </p>
-            </div>
+        <!-- FORMS -->
+        <h2>Forms</h2>
+
+        <div class="row">
+          <div class="col-md-6">
+            <section class="form row">
+              <div class="input-block col-md-6 required">
+                <label for="text01">Text input</label>
+                <div class="input">
+                  <input type="text" id="text01" placeholder="Placeholder text">
+                </div>
+              </div>
+              <div class="input-block col-md-6 required">
+                <label for="text02">Text input with a very very long label</label>
+                <div class="input input--inline">
+                  <div class="input-before"><i class="fa fa-user"></i></div>
+                  <input type="text" id="text02" placeholder="Placeholder text">
+                </div>
+              </div>
+              <div class="input-block col-md-6">
+                <label for="number01">Number input</label>
+                <div class="input">
+                  <input type="number" id="number01" value="9">
+                </div>
+                <div class="input-info">This is the input info text</div>
+              </div>
+              <div class="input-block col-md-6">
+                <label for="number02">Number input with unit</label>
+                <div class="input input--inline">
+                  <input type="number" id="number02" value="0">
+                  <div class="input-after">€</div>
+                </div>
+              </div>
+              <div class="input-block col-md-6">
+                <div class="label">Radio</div>
+                <div class="input">
+                  <input type="radio" id="radio10" name="radio01x" checked><label for="radio10">Yes I do</label>
+                  <input type="radio" id="radio11" name="radio01x" ><label for="radio11">No way</label>
+                </div>
+              </div>
+              <div class="input-block col-md-6">
+                <div class="label">Checkbox</div>
+                <div class="input">
+                  <input type="checkbox" id="check010" checked><label for="check010">Very very long checkbox label Lorem ipsum dolor sit amet consectetur adipisicing elit.</label>
+                </div>
+                <div class="input-info">This is a very long input info text Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, rem.</div>
+              </div>
+              <div class="input-block required">
+                <div class="label">Inline radio</div>
+                <div class="input input--inline">
+                  <input type="radio" id="radio019" name="radios9"><label for="radio019">Label radio</label>
+                  <input type="radio" id="radio029" name="radios9"><label for="radio029">Very long label radio</label>
+                  <input type="radio" id="radio039" name="radios9"><label for="radio039">Label radio</label>
+                </div>
+              </div>
+              <div class="input-block">
+                <div class="label">Inline checkbox</div>
+                <div class="input input--inline">
+                  <input type="checkbox" id="check10"><label for="check10">Label one</label>
+                  <input type="checkbox" id="check11"><label for="check11">Second label</label>
+                  <input type="checkbox" id="check12"><label for="check12">Oh my label!</label>
+                </div>
+              </div>
+
+              <div>
+                <input type="submit" value="input[type=submit]">
+              </div>
+              <div>
+                <button type="submit" class="btn-lg btn-round btn-hollow btn-black btn-caret"><i class="fa fa-star"></i> Form submit button</button>
+              </div>
+            </section>
           </div>
+
+          <div class="col-md-6">
+            <section class="form row">
+              <div class="input-block">
+                <label for="area01">Select</label>
+                <div class="input">
+                  <select name="" id="">
+                    <option value="">One</option>
+                    <option value="">Very very long two</option>
+                    <option value="">Three</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-block">
+                <label for="area01">Textarea</label>
+                <div class="input">
+                  <textarea name="" id="area01" cols="30" rows="10" placeholder="Placeholder text"></textarea>
+                </div>
+              </div>
+              <!-- error -->
+              <h3>Error state</h3>
+              <div class="message message--error">
+                <i class="fa fa-warning"></i> There are some errors!
+              </div>
+              <div class="input-block col-md-6 required error">
+                <label for="text011">Text input</label>
+                <div class="input">
+                  <input type="text" id="text011" placeholder="Placeholder text">
+                </div>
+                <div class="input-info">This field is required.</div>
+              </div>
+              <div class="input-block col-md-6 required error overflow-hidden">
+                <label for="area011">Select</label>
+                <div class="input">
+                  <select name="" id="">
+                    <option value="">One</option>
+                    <option value="">Very very long two</option>
+                    <option value="">Three</option>
+                  </select>
+                </div>
+                <div class="input-info">This field is required.</div>
+              </div>
+              <div class="input-block required error">
+                <div class="label">Inline radio</div>
+                <div class="input input--inline">
+                  <input type="radio" id="radio011" name="radios" checked><label for="radio011">Label radio</label>
+                  <input type="radio" id="radio021" name="radios"><label for="radio021">Very long label radio</label>
+                  <input type="radio" id="radio031" name="radios"><label for="radio031">Label radio</label>
+                </div>
+                <div class="input-info">This field is required.</div>
+              </div>
+              <!-- mentions -->
+              <div>
+                <p class="small">Fields marked with a * are required.</p>
+                <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, consequatur aperiam et ullam culpa aut quod? Suscipit, alias ea? A suscipit neque, dolorem aspernatur provident incidunt sint fugit dolorum quas!</p>
+              </div>
+            </section>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+          </div>
+        </div>
+
         <hr>
+
+        <h3>Gravity forms</h3>
 
         <div class="gf_browser_chrome gform_wrapper" id="gform_wrapper_1">
           <form method="post" enctype="multipart/form-data" id="gform_1" action="/contact/">
@@ -361,7 +485,14 @@
       </div>
     </section>
 
+    <hr>
+
     {# COLORS #}
+    <section class="wrapper wrapper--padding">
+      <div class="container">
+        <h2>Colors</h2>
+      </div>
+    </section>
 
     {% set colors = ['primary', 'secondary', 'ternary'] %}
     {% set shades = ['-darkest', '-darker', '-dark', '', '-light', '-lighter', '-lightest'] %}

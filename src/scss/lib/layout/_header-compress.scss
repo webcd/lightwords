@@ -66,17 +66,6 @@
         transform: scale3d(1, 1, 1);
       }
     }
-
-    // Wordpress admin bar
-    &.admin-bar {
-      &.header-compressed:not(.header-uncompressed):not(.scroll-up) {
-        .site-header {
-          @media screen and (min-width: $wp-adminbar-bp) {
-            top: $wp-adminbar-height-desktop - $topbar-height-desktop;
-          }
-        }
-      }
-    }
   }
 
   // // TODO: revamp transparent header

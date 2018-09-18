@@ -4,7 +4,7 @@
   @each $mod in $mods {
     @if $mod == "" {
       display: inline-block;
-      margin-bottom: $gutter-half; // For input.btn
+      // margin-bottom: $gutter-half; // For input.btn
       font-weight: $btn-font-weight;
       text-align: center;
       vertical-align: middle;
@@ -366,6 +366,13 @@ input[type="button"] {
   }
 }
 
+// BASE BUTTON STYLE
+
+// TODO: too wide, breaks header navbar
+
+// button {
+//   @include btn();
+// }
 
 // BUTTON ICONS
 

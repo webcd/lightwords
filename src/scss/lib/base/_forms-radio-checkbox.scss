@@ -1,0 +1,78 @@
+// FORM: STYLED RADIO INPUTS
+
+input[type="checkbox"],
+input[type="radio"] {
+
+  &:not(:checked),
+  &:checked {
+    position: absolute;
+    left: -9999px;
+  }
+
+  // The label can follow the input,
+  // but if can also wrap the input and a span for instance
+  & + /*label*/* {
+    position: relative;
+    padding-left: $size-checkradio + $gutter-half;
+
+    @include v-padding(($input-height-base - $size-checkradio) / 2);
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      left: $size-checkradio / 2;
+      transition: 0.125s;
+    }
+
+    &::before {
+      width: $size-checkradio;
+      height: $size-checkradio;
+      border: 0.2rem solid $input-border-color;
+
+      .error & {
+        border-color: $color-error;
+      }
+    }
+
+    &::after {
+      width: $size-checkradio / 2;
+      height: $size-checkradio / 2;
+      background-color: $color-primary;
+      opacity: 0;
+      transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 1);
+    }
+
+    .input--inline &:not(:last-child) {
+      margin-right: $gutter;
+    }
+  }
+  
+  &:checked + /*label*/* {
+    
+    &::before {
+      border-color: currentColor;
+    }
+
+    &::after {
+      opacity: 1;
+      transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+    }
+  }
+}
+
+input[type="radio"] {
+
+  & + /*label*/* {
+
+    &::before {
+      border-radius: 1000rem;
+    }
+    &::after {
+      border-radius: 1000rem;
+    }
+  }
+}
