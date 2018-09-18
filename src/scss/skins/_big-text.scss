@@ -17,15 +17,15 @@ h1, .h1, .hero__slogan {
 h2, .h2 {
 
   @include bp('md') {
-    font-size: $font-size-h2 * 1.25;
+    font-size: $font-size-h2 * 1.125;
   }
 
   @include bp('lg') {
-    font-size: $font-size-h2 * 1.5;
+    font-size: $font-size-h2 * 1.25;
   }
 
   @include bp('xl') {
-    font-size: $font-size-h2 * 2;
+    font-size: $font-size-h2 * 1.5;
   }
 
 }

@@ -8,7 +8,7 @@
   
       // var $search = $('.searchform')
       var $searchInput = $(".searchform input[type='text']")
-      var $searchSubmit = $(".searchform input[type='submit']")
+      var $searchSubmit = $(".searchform [type='submit']")
   
       function setSearchSubmit(l) {
         if (l > 2) {

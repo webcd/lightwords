@@ -3,10 +3,9 @@
 html {
   // Will be one rem
   // 10px by default (easy to compute)
-  // Global zoom factor
   font-size: 10 / 16 * 100%; // target size (10) / default size (16)
 
-
+  // GLOBAL ZOOM
   // Use $breakpoints-pixels-per-rem map
   // Alter px/rem ratio depending on breakpoint
   @each $breakpoint-name, $breakpoint-width in $breakpoints {
@@ -36,19 +35,12 @@ body {
 }
 
 // Reset all margin top
-
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6,
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6,
 p,
 ul,
 blockquote {
@@ -176,7 +168,6 @@ h6, .h6 { @include h(6); }
 // MISC
 
 // Monospace elements
-
 pre,
 code {
   font-family: $font-family-monospace;

@@ -49,6 +49,7 @@
 
 ## CSS
 
+* [CSS] Feature: default images (post thumbnail, product, avatar...)
 * [CSS][Bug] Select2: sometimes too wide (breaking flex columns) - pixel rounding issue?
 * [CSS][Bug] WordPress admin bar must follow px/rem ratio too
 * [CSS] Video homepage hero + mega search bar

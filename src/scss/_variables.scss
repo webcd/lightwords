@@ -37,17 +37,21 @@ $expanded: 'md' !default;
 ////////////////////////////////////////////////////////////////////////////////
 // COLORS
 
+// Base palette
 $color-primary: #e25d5d !default;
 $color-secondary: #428bca !default;
 $color-ternary: #80f !default;
 
+// Shading factors
 $color-variation-ratio-base: 10% !default;
 $color-variation-ratio-more: 20% !default;
 $color-variation-ratio-most: 30% !default;
 
 // Computed colors
+// Also computes gray scale
 @import 'lib/base/colors';
 
+// "Universal" colors
 $color-error: red !default;
 $color-warning: orange !default;
 $color-info: blue !default;
@@ -62,40 +66,6 @@ $link-color: $color-secondary !default;
 $link-color-active: $color-secondary-darker !default;
 
 ////////////////////////////////////////////////////////////////////////////////
-// NAVBAR
-
-$header-color-bg: white !default;
-$navbar-menu-mobile-width: 20em !default;
-
-// Topbar height
-$topbar-height-mobile: 6rem !default;
-$topbar-height-desktop: $topbar-height-mobile !default;
-
-// Navbar height
-$navbar-height-mobile: 6rem !default;
-$navbar-height-desktop: $navbar-height-mobile * 1.5 !default;
-
-// Navbar buttons
-$navbar-btn-size: 4.4rem !default;
-$navbar-btn-color: $gray !default;
-$navbar-btn-color-hover: $gray-darker !default;
-$navbar-btn-bg: transparent !default;
-$navbar-btn-bg-hover: rgba(0,0,0,0.0625) !default;
-$hamburger-height: $navbar-btn-size - 2 * 1rem !default;
-
-// Logo
-$navbar-logo-height: $navbar-btn-size !default;
-$navbar-logo-padding-desktop: $gutter / 2 !default;
-$navbar-logo-height-desktop: $topbar-height-desktop + $navbar-height-desktop - ($navbar-logo-padding-desktop * 2) !default;
-
-$footer-logo-width-max: 24rem;
-
-// Dropdown menus
-$caret-size: $gutter / 3;
-$caret-color: $navbar-btn-color;
-$width-nested-dropdown-indentation: $gutter / 2;
-
-////////////////////////////////////////////////////////////////////////////////
 // TYPOGRAPHY
 
 // Font family
@@ -103,9 +73,19 @@ $font-family-sans-serif: 'Work Sans', 'Helvetica Neue', Helvetica, Arial,
   sans-serif !default;
 $font-family-serif: 'Lora', Georgia, 'Times New Roman', Times, serif !default;
 $font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace !default;
+
 $font-family-base: $font-family-sans-serif !default;
 
 // Font size
+$font-size-base: 1.6rem !default;
+
+$font-size-bigger: (floor($font-size-base * 1.5 * 10) / 10) !default;
+$font-size-big: (floor($font-size-base * 1.25 * 10) / 10) !default;
+$font-size-small: (floor($font-size-base * 0.9 * 10) / 10) !default;
+$font-size-smaller: (floor($font-size-base * 0.75 * 10) / 10) !default;
+
+// Pixel per rem per breakpoints
+// Aka "global zoom"
 $breakpoints-pixels-per-rem: (
   'xs': 10,
   'sm': 10,
@@ -113,13 +93,6 @@ $breakpoints-pixels-per-rem: (
   'lg': 11,
   'xl': 12
 ) !default;
-
-$font-size-base: 1.6rem !default;
-
-$font-size-bigger: (floor($font-size-base * 1.5 * 10) / 10) !default;
-$font-size-big: (floor($font-size-base * 1.25 * 10) / 10) !default;
-$font-size-small: (floor($font-size-base * 0.9 * 10) / 10) !default;
-$font-size-smaller: (floor($font-size-base * 0.75 * 10) / 10) !default;
 
 // Line height
 $line-height-base: 1.5 !default;
@@ -154,6 +127,41 @@ $font-family-h3: $font-family-sans-serif !default;
 $font-family-h4: $font-family-sans-serif !default;
 $font-family-h5: $font-family-sans-serif !default;
 $font-family-h6: $font-family-sans-serif !default;
+
+////////////////////////////////////////////////////////////////////////////////
+// NAVBAR
+
+$header-color-bg: white !default;
+$navbar-menu-mobile-width: 20em !default;
+
+// Topbar height
+$topbar-height-mobile: 6rem !default;
+$topbar-height-desktop: $topbar-height-mobile !default;
+
+// Navbar height
+$navbar-height-mobile: 6rem !default;
+$navbar-height-desktop: $navbar-height-mobile * 1.5 !default;
+
+// Navbar buttons
+$navbar-btn-size: 4.4rem !default;
+$hamburger-height: $navbar-btn-size - 2 * 1rem !default;
+
+$navbar-btn-color: $gray !default;
+$navbar-btn-color-hover: $gray-darker !default;
+$navbar-btn-bg: transparent !default;
+$navbar-btn-bg-hover: rgba(0,0,0,0.0625) !default;
+
+// Logo
+$navbar-logo-height: $navbar-btn-size !default;
+$navbar-logo-padding-desktop: $gutter / 2 !default;
+$navbar-logo-height-desktop: $topbar-height-desktop + $navbar-height-desktop - ($navbar-logo-padding-desktop * 2) !default;
+
+$footer-logo-width-max: 24rem;
+
+// Dropdown menus
+$caret-size: $gutter / 3;
+$caret-color: $navbar-btn-color;
+$width-nested-dropdown-indentation: $gutter / 2;
 
 ////////////////////////////////////////////////////////////////////////////////
 // MISC

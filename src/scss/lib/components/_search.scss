@@ -10,9 +10,6 @@
   }
 
   .searchform__submit {
-    background-color: $color-primary;
-    color: white;
-
     position: absolute;
     top: 0.1rem;
     right: 0.1rem;
@@ -21,13 +18,8 @@
     font-weight: $font-weight-normal;
     text-transform: uppercase;
 
-    @include hocus() {
-      background-color: $gray-lighter;
-      color: $color-primary;
-    }
-
     &[disabled] {
-      // don't submit less than 3 chars
+      // don't submit less than 3 chars - see JS
       background-color: transparent;
       color: $gray-light;
     }
