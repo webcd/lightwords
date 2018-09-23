@@ -18,4 +18,19 @@
       padding-top: $navbar-height-desktop + $topbar-height-desktop;
     }
   }
+
+  // Wordpress admin bar
+  &.admin-bar {
+    .site-header {
+      top: $wp-adminbar-height-mobile;
+
+      @media screen and (min-width: $wp-adminbar-bp) {
+        top: $wp-adminbar-height-desktop;
+      }
+    }
+
+    #wpadminbar {
+      position: fixed !important;
+    }
+  }
 }

@@ -51,7 +51,6 @@
 
 * [CSS] Feature: default images (post thumbnail, product, avatar...)
 * [CSS][Bug] Select2: sometimes too wide (breaking flex columns) - pixel rounding issue?
-* [CSS][Bug] WordPress admin bar must follow px/rem ratio too
 * [CSS] Video homepage hero + mega search bar
 * [CSS][Bug] Navbar active item not working for "products" and cart / my-account custom items
 * [CSS][Bug] Product tile images are stretched (archive page)?!
@@ -81,3 +80,8 @@
 
 ## To be confirmed bugs
 
+## PLUGINS
+
+* wordpress-seo (aka Yoast)
+* 404page
+* wp-sitemap-page

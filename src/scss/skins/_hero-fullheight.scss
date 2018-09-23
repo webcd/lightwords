@@ -1,5 +1,4 @@
 .hero {
-
   // Full height hero
   /*body*/
   .home & {
@@ -9,6 +8,18 @@
     @include bp($expanded) {
       // min-height: calc(100vh - $navbar-height-desktop);
       min-height: calc(100vh - 15rem);
+    }
+  }
+
+  // WordPress admin bar
+  .home.admin-bar & {
+
+    // min-height: calc(100vh - $navbar-height-mobile - $wp-adminbar-height-mobile); 4.6
+    min-height: calc(100vh - 6rem - 46px);
+
+    @include bp($expanded) {
+      // min-height: calc(100vh - $navbar-height-desktop - $wp-adminbar-height-desktop); 3.2
+      min-height: calc(100vh - 15rem - 32px);
     }
   }
 }
