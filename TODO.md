@@ -83,5 +83,4 @@
 ## PLUGINS
 
 * wordpress-seo (aka Yoast)
-* 404page
 * wp-sitemap-page

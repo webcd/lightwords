@@ -1,10 +1,9 @@
-.hero {
-  // Full height hero
-  /*body*/
-  .home & {
+@mixin full-height($body-selector: '') {
+
+  /*body*/#{$body-selector} {
     // min-height: calc(100vh - $navbar-height-mobile);
     min-height: calc(100vh - 6rem);
-
+    
     @include bp($expanded) {
       // min-height: calc(100vh - $navbar-height-desktop);
       min-height: calc(100vh - 15rem);
@@ -12,14 +11,42 @@
   }
 
   // WordPress admin bar
-  .home.admin-bar & {
-
-    // min-height: calc(100vh - $navbar-height-mobile - $wp-adminbar-height-mobile); 4.6
+  /*body*/#{$body-selector}.admin-bar & {
+    // min-height: calc(100vh - $navbar-height-mobile - $wp-adminbar-height-mobile);
     min-height: calc(100vh - 6rem - 46px);
-
+  
     @include bp($expanded) {
-      // min-height: calc(100vh - $navbar-height-desktop - $wp-adminbar-height-desktop); 3.2
+      // min-height: calc(100vh - $navbar-height-desktop - $wp-adminbar-height-desktop);
       min-height: calc(100vh - 15rem - 32px);
     }
   }
+  
+  // Chrome on Android URL bar
+  // See: https://dev.to/peiche/100vh-behavior-on-chrome-2hm8
+  @supports (-webkit-appearance: none) {
+    /*body*/#{$body-selector}.os-android & {
+      // min-height: calc(100vh - $navbar-height-mobile - $android-chrome-topbar-height);
+      min-height: calc(100vh - 6rem - 56px);
+
+      @include bp($expanded) {
+        // min-height: calc(100vh - $navbar-height-desktop - $android-chrome-topbar-height);
+        min-height: calc(100vh - 15rem - 56px);
+      }
+    }
+
+    /*body*/#{$body-selector}.os-android.admin-bar & {
+      // min-height: calc(100vh - $navbar-height-mobile - $wp-adminbar-height-mobile - $android-chrome-topbar-height);
+      min-height: calc(100vh - 6rem - 46px - 56px);
+
+      @include bp($expanded) {
+        // min-height: calc(100vh - $navbar-height-desktop - $wp-adminbar-height-desktop - $android-chrome-topbar-height);
+        min-height: calc(100vh - 15rem - 32px - 56px);
+      }
+    }
+  }
+}
+
+// Full height hero
+.hero {
+  @include full-height('.home'); // Only on homepage
 }
