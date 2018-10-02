@@ -63,12 +63,13 @@
 
 ## JS
 
+* [JS][Bug] Something eats CPU
 * [JS] Lightbox-like carousel
 * [JS] Handle resize events
 
 ## Build
 
-* [Build] Move from Gulp to Webpack build process (or fix Mix build)
+* [Build] Move from Gulp to Webpack build process (or fix Mix build) (see below)
 * [Build] Read config.json at build step, no through the DOM
 * [Build] Get rid off jQuery?
 * [Build][Bug][Never] js sourcemaps must be fixed (Webpack first)
@@ -84,3 +85,12 @@
 
 * wordpress-seo (aka Yoast)
 * wp-sitemap-page
+* HTML Editor Syntax Highlighter
+
+## WEBPACK DOC
+
+* https://www.ibenic.com/configuring-webpack-wordpress/
+* https://github.com/jaredpalmer/presspack
+* https://www.kirstencassidy.com/incorporting-webpack-wordpress-theme-part-1/
+* https://gist.github.com/wpscholar/261141cf7b2bf4efd45cb86ad0a43ff2
+* https://taylor.callsen.me/using-webpack-4-and-sass-with-wordpress/

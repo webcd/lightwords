@@ -48,6 +48,7 @@ global.config = {
     'src/js/lib/search.js',
     'src/js/lib/select2.js',
     'src/js/lib/on-scroll.js',
+    'src/js/lib/image-wall.js',
 
     'src/js/main.js'
   ]

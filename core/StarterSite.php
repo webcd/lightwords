@@ -55,6 +55,10 @@ class StarterSite extends \TimberSite
         add_filter('timber_context', array($this, 'add_to_context'));
         add_filter('get_twig', array($this, 'add_to_twig'));
         add_filter('xmlrpc_enabled', '__return_false'); // Remove XML RPC
+
+        // Remove Gallery Inline Styling
+        // See: https://css-tricks.com/snippets/wordpress/remove-gallery-inline-styling/
+        add_filter( 'use_default_gallery_style', '__return_false' );
     }
 
     // Body configuration classes
