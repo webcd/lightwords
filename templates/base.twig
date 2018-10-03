@@ -56,6 +56,28 @@
 
       </main>
 
+      <!-- SIDEBAR 1 -->
+      {% if widgets_sidebar_1 %}
+        <aside class="site-sidebar site-sidebar--left">
+          <div class="container">
+            <div class="row">
+              {{ widgets_sidebar_1 }}
+            </div>
+          </div>
+        </aside>
+      {% endif %}
+
+      <!-- SIDEBAR 2 -->
+      {% if widgets_sidebar_2 %}
+        <aside class="site-sidebar site-sidebar--right">
+          <div class="container">
+            <div class="row">
+              {{ widgets_sidebar_2 }}
+            </div>
+          </div>
+        </aside>
+      {% endif %}
+
     </section><!-- end .site-content -->
 
     <!-- FOOTER -->

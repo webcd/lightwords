@@ -29,6 +29,34 @@ body,
   }
 }
 
+// SIDEBARS
+
+.site-sidebar {
+  text-align: center;
+  @include v-padding($gutter-double);
+
+  @include bp('sm') {
+    text-align: left;
+  }
+
+  .row {
+    .widget {
+      @include bp('sm') {
+        flex-basis: 50%;
+
+        & + .widget {
+          margin-top: 0;
+        }
+      }
+
+      @include bp('lg') {
+        flex-basis: 25%;
+      }
+    }
+  }
+
+}
+
 // OVERLAY
 
 @include bp($expanded, true) {

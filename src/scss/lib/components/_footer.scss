@@ -1,6 +1,7 @@
 /* FOOTER */
 
-.site-footer {
+.site-footer,
+.site-sidebar {
   // De-colorize all links in footer
   a:not(.btn) {
     color: $gray;

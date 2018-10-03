@@ -12,7 +12,8 @@
     &::before { content: '#'; }
   }
 
-  .site-footer & {
+  .site-footer &,
+  .site-sidebar & {
     text-align: center;
   
     > a {

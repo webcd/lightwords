@@ -126,8 +126,13 @@ class StarterSite extends \TimberSite
 
         // DEBUG
         $context['do_debug_zone'] = WP_DEBUG;
+        // Force debug (/!\ WARNING: remove when in production)
+        $context['do_debug_zone'] = true;
         
         // WIDGETS AREAS
+        $context['widgets_sidebar_1'] = \Timber::get_widgets('sidebar-1');
+        $context['widgets_sidebar_2'] = \Timber::get_widgets('sidebar-2');
+
         $context['widgets_woo_sidebar_1'] = \Timber::get_widgets('woo-sidebar-1');
         $context['widgets_woo_sidebar_2'] = \Timber::get_widgets('woo-sidebar-2');
 
