@@ -5,9 +5,7 @@
 * [PHP] Auto-set variable for WooCommerce support ()
 * [PHP][Bug] Translation function _e() not working + use it everywhere (and add translation to the dictionary)
 * [PHP] /page-templates: use DRY includes (of page.php & single.php) with a `fullwidth_content` + `landing_page` variables
-* [PHP] Move all .php files at projet root into a 'controller' (or something) sub-folder (.htaccess redirection?) (only use index.php as a router?)
 * [PHP] Make contact infos a dedicated plugin
-* [PHP] Vast amount of PHP code (only) works in functions.php. Move/plit this elsewhere!
 * [PHP][Bug][Never] Latest posts add sticky posts to max count (see homepage)
 * [PHP][Never] Inject author datas (ex: avatar) into post templates (single and archive) + comments
 * [PHP][Never] Mark pages as "special" (like stock homepage, blog, my account...) (for contact page mostly)
