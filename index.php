@@ -100,7 +100,7 @@ if ( is_404() ) {
 		if ( isset( $wp_query->query_vars['author'] ) ) {
 			$author = new TimberUser( $wp_query->query_vars['author'] );
 			$context['author'] = $author;
-			$context['title'] = 'Articles de ' . $author->name();
+			$context['title'] = $author->name();
 		}
 
 	// Archive by custom post type
