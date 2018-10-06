@@ -68,8 +68,16 @@
                     {% endif %}
                     <span>&bull;</span>
 
-                    <span>Noté {{ post.product.average_rating }}</span>
-                    <span>({{ post.product.rating_counts|length }} avis)</span>
+                    {% if post.product.rating_counts|length > 0 %}
+                      <a href="#tab-reviews" class="product-rating">
+                        {% include 'partials/woocommerce/rating.twig' with {
+                          'rating': post.product.average_rating,
+                          'rating_counts': post.product.rating_counts|length
+                        } %}
+                      </a>
+                    {% else %}
+                      <span>Pas encore d'avis</span>
+                    {% endif %}
                   </div>
                 </div>
 

@@ -25,10 +25,21 @@
 			<a class="teaser-link" href="{{ post.link }}">{{ post.title }}</a>
 		</h3>
 
+		{% if post.product.rating_counts|length > 0 %}
+			<div class="teaser-rating">
+				{% include 'partials/woocommerce/rating.twig' with {
+					'rating': post.product.average_rating,
+					'rating_counts': post.product.rating_counts|length
+				} %}
+			</div>
+		{% endif %}
+
+		{# {{ fn('ddump', post.product) }} #}
+
 		{##
 		 # woocommerce_after_shop_loop_item_title hook.
 		 #
-		 # @hooked woocommerce_template_loop_rating - 5
+		 # REMOVED @hooked woocommerce_template_loop_rating - 5
 		 # @hooked woocommerce_template_loop_price - 10
 		 #}
 		{% do action('woocommerce_after_shop_loop_item_title') %}

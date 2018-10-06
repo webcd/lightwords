@@ -31,7 +31,6 @@
 
 * [PHP][Bug] Sub-categories teaser product count is broken sometimes (ex: 'Hoodies')
 * [PHP] Display "N results per page" selector (hook probably)
-* [Misc] Facet filter sidebar: new/custom plugin?
 
 #### Single product page
 
@@ -85,6 +84,8 @@
 * wordpress-seo (aka Yoast)
 * wp-sitemap-page
 * HTML Editor Syntax Highlighter
+* autoptimize (JS/CSS concatenation)
+* a3 Lazy Load
 
 ## WEBPACK DOC
 
