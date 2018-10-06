@@ -2,7 +2,7 @@
 
 ## PHP
 
-* [PHP] Auto-set variable for WooCommerce support ()
+* [PHP] Auto-set variable for WooCommerce support
 * [PHP][Bug] Translation function _e() not working + use it everywhere (and add translation to the dictionary)
 * [PHP] /page-templates: use DRY includes (of page.php & single.php) with a `fullwidth_content` + `landing_page` variables
 * [PHP] Make contact infos a dedicated plugin
@@ -47,6 +47,7 @@
 
 ## CSS
 
+* [CSS][Bug] Fix sidebars (default + WooCommerce)
 * [CSS] Feature: default images (post thumbnail, product, avatar...)
 * [CSS][Bug] Select2: sometimes too wide (breaking flex columns) - pixel rounding issue?
 * [CSS] Video homepage hero + mega search bar

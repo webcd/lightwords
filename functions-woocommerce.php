@@ -13,6 +13,12 @@ if ( class_exists( 'WooCommerce' ) ) {
 // Don't load WooCommerce default CSS
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
+// Don't load WooCommerce Filter (aka WOOF) CSS
+add_action( 'wp_print_styles', 'woof_deregister_styles', 100 );
+function woof_deregister_styles() {
+	wp_deregister_style( 'woof' );
+}
+
 add_action( 'after_setup_theme', function() {
 	add_theme_support( 'woocommerce' );
 } );

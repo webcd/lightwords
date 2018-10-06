@@ -61,7 +61,14 @@
   > * {
     display: block;
     @include col('xs', 6);
+    @include col('md', 4);
     margin: 0;
+  }
+
+  > .woof_products_top_panel {
+    @include col('xs', 12);
+    @include col('md', 12);
+    @include col('lg', 4);
   }
 
   @include bp($bp-woo-sidebar) {

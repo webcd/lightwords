@@ -8,6 +8,7 @@ input[type='email'],
 input[type='password'],
 input[type='tel'],
 input[type='url'],
+input[type='search'],
 textarea
  {
   display: block;
@@ -29,6 +30,7 @@ input[type='number'],
 input[type='email'],
 input[type='password'],
 input[type='tel'],
+input[type='search'],
 input[type='url'] {
   @include v-padding(0);
   height: $input-height-base;
