@@ -45,9 +45,12 @@
 
       @include btn();
       // @include btn('default');
-      // @include btn('gray');
       @include btn('wrap');
       line-height: $line-height-smallest;
+
+      @include hocus() {
+        @include btn('black');
+      }
     }
 
     > .teaser-description {

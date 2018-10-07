@@ -60,6 +60,7 @@
 
 ## JS
 
+* [JS][Bug] Product teaser "add to cart" button: prevent navigation + AJAX cart counter update + success state
 * [JS][Bug] Something eats CPU
 * [JS] Lightbox-like carousel
 * [JS] Handle resize events
