@@ -21,30 +21,35 @@
     }
   }
 
-  function setImagesSize($wallItems) {
+  var setImagesSize = debounce(function($wallItems) {
 
     Array.prototype.forEach.call($wallItems, function($item) {
       setImageSize($item)
     })
-  }
+
+    console.log('ImageWall resized')
+  }, 250)
 
   $(function() {
     var selector = '.wall .gallery .gallery-item .gallery-icon a'
     var $wallItems = document.querySelectorAll(selector)
 
-    // TODO: This break images resizing with lazyload!!!
-    // setImagesSize($wallItems)
+    if ($wallItems.length) {
 
-    window.addEventListener("resize", function(){
-      setImagesSize($wallItems)
-    })
-
-    // Lazyload
-    $items = $(selector)
-    $items.on('lazyload', function (e, $el) {
-      // console.log('LAZY', $el[0].parentNode)
-      setImageSize($el[0].parentNode)
-    })
+      // TODO: This break images resizing with lazyload!!!
+      // setImagesSize($wallItems)
+  
+      window.addEventListener("resize", function(){
+        setImagesSize($wallItems)
+      })
+  
+      // Lazyload
+      $items = $(selector)
+      $items.on('lazyload', function (e, $el) {
+        // console.log('LAZY', $el[0].parentNode)
+        setImageSize($el[0].parentNode)
+      })
+    }
 
     console.log('image-wall.js is loaded')
   })

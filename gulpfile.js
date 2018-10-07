@@ -40,6 +40,7 @@ global.config = {
 
     // Lib
     'src/js/lib/configure.js',
+    'src/js/lib/debounce-throttle.js',
     'src/js/lib/toggler.js',
     'src/js/lib/dropdown-menu.js',
     'src/js/lib/mobile-panels.js',

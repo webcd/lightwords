@@ -1,11 +1,28 @@
 ;(function($) {
   // DOM IS READY!
 
-  $(function() {
+  var initSelect2 = debounce( function($selects) {
+
     // See: https://select2.org/configuration
-    $('select').select2({
+    $selects.select2({
       minimumResultsForSearch: Infinity
     })
+
+    console.log('Select2 resized')
+  }, 250)
+
+  $(function() {
+
+    var $selects = $('select')
+
+    if ($selects.length) {
+
+      initSelect2($selects)
+      
+      window.addEventListener("resize", function(){
+        initSelect2($selects)
+      })
+    }
 
     console.log('select2.js is loaded')
   })
