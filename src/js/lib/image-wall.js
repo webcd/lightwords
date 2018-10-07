@@ -42,7 +42,7 @@
     // Lazyload
     $items = $(selector)
     $items.on('lazyload', function (e, $el) {
-      console.log('LAZY', $el[0].parentNode)
+      // console.log('LAZY', $el[0].parentNode)
       setImageSize($el[0].parentNode)
     })
 

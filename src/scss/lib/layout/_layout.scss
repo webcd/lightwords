@@ -29,6 +29,12 @@ body,
   }
 }
 
+// PREVENT HORIZONTAL SCROLLBAR
+
+body {
+  overflow-x: hidden;
+}
+
 // SIDEBARS
 
 .site-sidebar {

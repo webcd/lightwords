@@ -51,11 +51,9 @@
 * [CSS][Bug] Select2: sometimes too wide (breaking flex columns) - pixel rounding issue?
 * [CSS] Video homepage hero + mega search bar
 * [CSS][Bug] Navbar active item not working for "products" and cart / my-account custom items
-* [CSS][Bug] Product tile images are stretched (archive page)?!
 * [CSS][Bug] Navbar dropdown buttons: shadow when in panel mode
 * [CSS] Navbar dropdown buttons: hide carret mode?
 * [CSS][Bug] Panels / dropdowns: max-height + scroll wrapper
-* [CSS] Jarallax causes horizontal scrolling (overflow hidden needed)
 * [TPL] All post/page/product image MUST use srcset
 * [CSS][Bug]"transparent header" option is plain broken
 
@@ -86,6 +84,7 @@
 * HTML Editor Syntax Highlighter
 * autoptimize (JS/CSS concatenation)
 * a3 Lazy Load
+* WooCommerce Products Filter (WOOF)
 
 ## WEBPACK DOC
 
