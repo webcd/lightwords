@@ -10,6 +10,7 @@
 * [PHP][Never] Inject author datas (ex: avatar) into post templates (single and archive) + comments
 * [PHP][Never] Mark pages as "special" (like stock homepage, blog, my account...) (for contact page mostly)
 * [PHP][Never] Simple breadcrumbs (no YoastSEO) (see: https://gist.github.com/tinotriste/5387124)
+* [PHP][Idea] Add body classes for active plugins?
 
 ### PHP Woocommerce
 
@@ -85,6 +86,7 @@
 * autoptimize (JS/CSS concatenation)
 * a3 Lazy Load
 * WooCommerce Products Filter (WOOF)
+* WooSwipe (single product image slider)
 
 ## WEBPACK DOC
 
