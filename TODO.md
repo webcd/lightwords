@@ -62,6 +62,7 @@
 
 * [JS][Bug] Product teaser "add to cart" button: prevent navigation + AJAX cart counter update + success state
 * [JS][Bug] Something eats CPU
+* [JS] Get rid of Bootstrap modal
 * [JS] Lightbox-like carousel
 
 ## Build
@@ -87,6 +88,7 @@
 * a3 Lazy Load
 * WooCommerce Products Filter (WOOF)
 * WooSwipe (single product image slider)
+* Smart Slider 3
 
 ## WEBPACK DOC
 
