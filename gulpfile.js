@@ -46,6 +46,7 @@ global.config = {
     'src/js/lib/mobile-panels.js',
     'src/js/lib/scroller.js',
     'src/js/lib/ripple.js',
+    'src/js/lib/page-transitions.js',
     'src/js/lib/search.js',
     'src/js/lib/select2.js',
     'src/js/lib/on-scroll.js',

@@ -47,6 +47,7 @@
 
 ## CSS
 
+- [CSS] Improve page transitions (not only on links click)
 - [CSS][bug] Fix scroll top/bottom buttons on mobile
 - [CSS][bug] Fix sidebars (default + WooCommerce)
 - [CSS] Styleguide: add blockquotes and shadows

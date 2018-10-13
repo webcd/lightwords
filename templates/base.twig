@@ -103,6 +103,12 @@
     </div>
   {% endif %}
 
+  <!-- PAGE TRANSITION -->
+  {% if CONFIG.pageTransitions %}
+    <div class='page-transition-in active'></div>
+    <div class='page-transition-out'></div>
+  {% endif %}
+
   {% if do_inlinesvg %}
     <!-- INLINE SVG -->
     <div class="inline-svg">
