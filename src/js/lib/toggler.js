@@ -30,7 +30,7 @@
         } else {
           $el.classList.add(activeClassname)
         }
-
+        
         if (classname) {
           if ($target.classList.contains(classname)) {
             $target.classList.remove(classname)

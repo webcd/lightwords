@@ -1,17 +1,16 @@
 // WOO COMMERCE LAYOUT
 
-.woocommerce.archive .article-content {
-  // padding-bottom: 0;
-  // margin-bottom: -$gutter;
-}
-
-
-
 .wrapper--woo-content {
   background-color: $gray-light;
 
   @include bp($bp-woo-sidebar) {
-    background: linear-gradient(to right, $bg-woo-sidebar 0%,$bg-woo-sidebar 50%,$bg-woo-main 50%,$bg-woo-main 100%);
+    background: linear-gradient(
+      to right,
+      $bg-woo-sidebar 0%,
+      $bg-woo-sidebar 50%,
+      $bg-woo-main 50%,
+      $bg-woo-main 100%
+    );
   }
 }
 
@@ -25,20 +24,11 @@
 }
 
 .woo-content-sidebar {
+  margin: 0 (-$gutter-half);
+  padding: $gutter-half;
+
   background-color: $bg-woo-sidebar;
   color: $color-woo-sidebar;
-  margin: 0 (-$gutter-half);
-  padding: $gutter $gutter-half;
-  padding-bottom: 0;
-
-
-  > h2 {
-    margin-bottom: 0;
-  }
-
-  h3.widget-title {
-    @include h(4);
-  }
 
   @include bp($bp-woo-sidebar) {
     flex-basis: $width-woo-sidebar;
@@ -48,17 +38,18 @@
   }
 }
 
-.woo-content-sidebar-widgets {
-  @include row();
-  align-items: flex-start;
+// // Uncomment this if WooCommerce sidebar has multiple widgets
+// .woo-content-sidebar-widgets {
+//   @include row();
+//   align-items: flex-start;
 
-  > .widget {
-    @include col('xs', 6);
-    @include col('sm', 4);
-    @include col('md', 12);
-    margin-bottom: 0;
-  }
-}
+//   > .widget {
+//     @include col('xs', 6);
+//     @include col('sm', 4);
+//     @include col('md', 12);
+//     margin-bottom: 0;
+//   }
+// }
 
 .woo-content-main {
   padding-top: $gutter;

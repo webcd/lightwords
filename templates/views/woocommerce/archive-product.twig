@@ -78,13 +78,26 @@
 							<div class="container">
 
 								<article class="woo-content">
+
+									{# WOO SIDEBAR #}
+
 									{% if widgets_woo_sidebar_1 %}
 										<aside class="woo-content-sidebar">
-											<h2>Filtres</h2>
-											{# <button class="btn btn-hollow">Ouvrir</button> #}
+
+											{# WOO FILTERS #}
+
+											<div class="woo-filters-header">
+												<h2 class="woo-filters-title">Filtres</h2>
+												<button class="woo-filters-btn-toggle btn btn-white btn-hollow" data-toggle=".WOOF_Widget" data-toggle-classname="active">
+													<span class="sr-only">Ouvrir</span>
+													<i class="fa fa-fw fa-lg fa-plus"></i>
+												</button>
+											</div>
+
 											<section class="woo-content-sidebar-widgets">
 												{{ widgets_woo_sidebar_1 }}
 											</section>
+
 										</aside>
 									{% endif %}
 

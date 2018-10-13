@@ -1,5 +1,9 @@
 // SELECT2 OVERRIDES
 
+.select2 {
+  width: 100% !important;
+}
+
 .select2-selection {
   border: 0.1rem solid $input-border-color !important;
   border-radius: 0 !important;

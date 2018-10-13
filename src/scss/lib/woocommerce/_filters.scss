@@ -33,20 +33,93 @@
       }
     }
   }
+}
 
+// Sidebar
+
+@mixin woof-title() {
+  @include h(4);
+  color: $color-primary;
+  margin-bottom: $gutter-half;
+  border-bottom: 1px solid;
+  text-transform: uppercase;
+}
+
+
+.woo-filters-btn-toggle {
+  display: none;
+}
+
+@include bp($bp-woo-sidebar, true) {
+
+  .woo-filters-header {
+    display: flex;
+    align-items: flex-start;
+  
+    > .woo-filters-title {
+      flex-grow: 1;
+      margin-bottom: 0;
+      line-height: 4.4rem;
+    }
+  
+    > .woo-filters-btn-toggle {
+      display: block;
+      height: 4.4rem;
+      width: 4.4rem;
+      position: relative;
+
+      > .fa {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate3d(-50%, -50%, 0) rotateZ(0);
+        transition: all 0.5s $ease-bump;
+      }
+
+      &.active {
+        > .fa {
+          transform: translate3d(-50%, -50%, 0) rotateZ(0.5turn + 0.125turn);
+        }
+      }
+    }
+  }
+}
+
+.WOOF_Widget {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+
+  @include bp($bp-woo-sidebar) {
+    display: block;
+  }
+}
+
+.woof_redraw_zone {
+  @include row();
+  align-items: flex-start;
+
+  > * {
+    @include col('xs', 6);
+    @include col('sm', 4);
+    @include col('md', 12);
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+  }
 }
 
 .woof_redraw_zone {
 
   .woof_container {
-    // background-color: gray;
+    // background-color: gray; // Debug purpose
     margin-bottom: $gutter-half;
 
     h4 {
-      color: $color-primary;
-      margin-bottom: $gutter-half;
-      border-bottom: 1px solid;
-      text-transform: uppercase;
+      @include woof-title();
     }
 
     // Sort of select (conflicts with Select2)
@@ -165,15 +238,45 @@ ul.woof_childs_list {
 // Search by text
 // TODO: dequeue_style `by-text.css`
 
-.woof_redraw_zone .woof_text_search_container input[type='search'] {
-  font-size: $font-size-base !important;
-  border-radius: 0 !important;
+.woof_redraw_zone {
+
+  // Fake title
+  .woof_text_search_container,
+  .woof_by_rating_container {
+
+    &::before {
+      display: block;
+      @include woof-title();
+    }
+  }
+
+  .woof_text_search_container {
+
+    &::before {
+      content: "Recherche";
+    }
+
+    input[type='search'] {
+      font-size: $font-size-base !important;
+      border-radius: 0 !important;
+    }
+  }
+
+  .woof_by_rating_container {
+
+    &::before {
+      content: "Note";
+    }
+  }
 }
 
 // Reset button
 
 .woof_submit_search_form_container {
+  flex-basis: 100%;
+
   .button {
     @include btn('primary');
+    float: none !important;
   }
 }

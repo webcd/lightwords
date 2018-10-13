@@ -1,30 +1,30 @@
 // PRODUCTS LIST
 
-/*ul*/.woo-list,
-  .products {
+/*ul*/
+.woo-list,
+.products {
   padding-left: 0;
   list-style-type: none;
 
   @include row();
 
   > .woo-item,
-    .product {
+  .product {
     // height: 100%;
 
     // @include bp('xs') { flex-basis: 50%; }
     // @include bp('sm') { flex-basis: 33.33%; }
     // @include bp('md') { flex-basis: 25%; }
     // @include bp('lg') { flex-basis: 20%; }
-    @include col('xs', 6);
-    @include col('sm', 4);
-    @include col('md', 6);
-    @include col('lg', 4);
-    @include col('xl', 3);
+    @include col("xs", 6);
+    @include col("sm", 4);
+    @include col("md", 6);
+    @include col("lg", 4);
+    @include col("xl", 3);
   }
 }
 
 .woocommerce-pagination {
-
   > ul {
     @include reset-list();
     display: flex;
@@ -32,7 +32,7 @@
 
     > li {
       display: block;
-      
+
       > span,
       > a {
         display: inline-block;
@@ -46,7 +46,6 @@
       }
 
       > a {
-
       }
     }
   }
@@ -60,30 +59,32 @@
 
   > * {
     display: block;
-    @include col('xs', 6);
-    @include col('md', 4);
+    @include col("xs", 6);
+    @include col("md", 4);
     margin: 0;
   }
 
-  > .woof_products_top_panel {
-    @include col('xs', 12);
-    @include col('md', 12);
-    @include col('lg', 4);
+  @include bp($bp-woo-sidebar) {
+    @include v-padding($gutter-half);
   }
 
-  @include bp($bp-woo-sidebar) {
-    padding-top: $gutter-half;
-    padding-bottom: $gutter-half;
+  // Replace product counter in forst position
+  .woocommerce-result-count {
+    order: -1;
+  }
+
+  .woof_products_top_panel {
+    order: +1;
+    @include col("xs", 12);
+    @include col("md", 4);
   }
 }
 
 .woo-archive-description {
-
   > .term-image {
     width: 12rem;
   }
 
   > .term-description {
-
   }
 }
