@@ -49,6 +49,7 @@
 
 - [CSS][bug] Fix scroll top/bottom buttons on mobile
 - [CSS][bug] Fix sidebars (default + WooCommerce)
+- [CSS] Styleguide: add blockquotes and shadows
 - [CSS] Feature: default images (post thumbnail, product, avatar...)
 - [CSS][bug] Select2: sometimes too wide (breaking flex columns) - pixel rounding issue?
 - [CSS] Video homepage hero + mega search bar
