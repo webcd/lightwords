@@ -34,12 +34,12 @@ class SiteAdmin extends \App\Lib\SiteCore
     }
 
     /**
-     * Add widget company infos 
+     * Add widget company infos
      */
     public function webcd_dashboard_widget_function($post, $callback_args)
     {
         echo "<p>Votre site est géré par <strong>WebCD</strong>.</p>";
-        echo '<p style="text-align: center"><a href="https://webcd.fr"><img width="220" height="65" src="'.get_bloginfo('template_url').'/dist/img/logo-webcd.svg" /></a></p>';
+        echo '<p style="text-align: center"><a href="https://webcd.fr"><img width="220" height="65" src="' . get_bloginfo('template_url') . '/dist/img/logo-webcd.svg" /></a></p>';
         echo "<p><strong>Nous contacter : </strong>";
         echo "03 88 95 00 01<br>";
         echo '<a href="mailto:projet@webcd.fr">projet@webcd.fr</a>';
@@ -156,15 +156,15 @@ class SiteAdmin extends \App\Lib\SiteCore
     }
 
     /**
-     * 
+     *
      * @param type $init
      * @return array
      */
     public function customize_tinymce($init)
     {
         // Keep only useful styles
-        $init['block_formats']        = 'Paragraphe=p;Titre 2=h2;Titre 3=h3;Titre 4=h4';
-        $init['toolbar2']             = 'strikethrough,hr,pastetext,removeformat,charmap,outdent,indent,undo,redo,wp_help';
+        $init['block_formats'] = 'Paragraphe=p;Titre 2=h2;Titre 3=h3;Titre 4=h4';
+        $init['toolbar2'] = 'strikethrough,hr,pastetext,removeformat,charmap,outdent,indent,undo,redo,wp_help';
         // Force second line toolbar
         $init['wordpress_adv_hidden'] = false;
 
@@ -172,7 +172,7 @@ class SiteAdmin extends \App\Lib\SiteCore
     }
 
     /**
-     *  
+     *
      * @param array $mimes
      * @return Array
      */
@@ -204,11 +204,11 @@ class SiteAdmin extends \App\Lib\SiteCore
         // Post Type
         $labels = array(
             'name' => '#CPT#s',
-            'all_items' => __( 'All #CPT#s' ),
-            'singular_name' => __( '#CPT#' ),
-            'add_new_item' => __( 'Add New  #CPT#' ),
-            'edit_item' => __( 'Update  #CPT#' ),
-            'menu_name' => __( '#CPT#s' )
+            'all_items' => __('All #CPT#s'),
+            'singular_name' => __('#CPT#'),
+            'add_new_item' => __('Add New  #CPT#'),
+            'edit_item' => __('Update  #CPT#'),
+            'menu_name' => __('#CPT#s'),
         );
 
         $args = array(
@@ -229,31 +229,31 @@ class SiteAdmin extends \App\Lib\SiteCore
     public function create_taxonomy()
     {
         $labels = array(
-            'name'              => _x( '#Taxo#s', 'taxonomy general name' ),
-            'singular_name'     => _x( '#Taxo#', 'taxonomy singular name' ),
-            'search_items'      => __( 'Search #Taxo#s' ),
-            'all_items'         => __( 'All #Taxo#s' ),
-            'parent_item'       => __( 'Parent #Taxo#' ),
-            'parent_item_colon' => __( 'Parent #Taxo#:' ),
-            'edit_item'         => __( 'Edit #Taxo#' ),
-            'update_item'       => __( 'Update #Taxo#' ),
-            'add_new_item'      => __( 'Add New #Taxo#' ),
-            'new_item_name'     => __( 'New #Taxo# Name' ),
-            'menu_name'         => __( '#Taxo#' ),
+            'name' => _x('#Taxo#s', 'taxonomy general name'),
+            'singular_name' => _x('#Taxo#', 'taxonomy singular name'),
+            'search_items' => __('Search #Taxo#s'),
+            'all_items' => __('All #Taxo#s'),
+            'parent_item' => __('Parent #Taxo#'),
+            'parent_item_colon' => __('Parent #Taxo#:'),
+            'edit_item' => __('Edit #Taxo#'),
+            'update_item' => __('Update #Taxo#'),
+            'add_new_item' => __('Add New #Taxo#'),
+            'new_item_name' => __('New #Taxo# Name'),
+            'menu_name' => __('#Taxo#'),
         );
 
         $args = array(
-            'hierarchical'      => true,
-            'labels'            => $labels,
-            'show_ui'           => true,
+            'hierarchical' => true,
+            'labels' => $labels,
+            'show_ui' => true,
             'show_admin_column' => true,
-            'query_var'         => true,
-            'rewrite'           => array( 'slug' => '#Taxo#s' ),
-            'show_in_rest'       => true,
-            'rest_base'          => '#Taxo#s',
+            'query_var' => true,
+            'rewrite' => array('slug' => '#Taxo#s'),
+            'show_in_rest' => true,
+            'rest_base' => '#Taxo#s',
             'rest_controller_class' => 'WP_REST_Terms_Controller',
         );
-        
-        register_taxonomy( '#Taxo#s', array( '#CPTSLUG#' ), $args );
+
+        register_taxonomy('#Taxo#s', array('#CPTSLUG#'), $args);
     }
 }

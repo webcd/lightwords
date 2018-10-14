@@ -37,7 +37,6 @@ function ddump($what)
 include 'functions-woocommerce.php';
 include 'functions-woocommerce-hooks.php';
 
-
 // TODO: move this elsewhere
 
 // Disable TinyMCE automatic paragraph removal
@@ -51,4 +50,3 @@ function remove_wpautop($content)
 
 // Disable TinyMCE automatic paragraph removal
 add_filter('the_content', 'remove_wpautop', 9);
-

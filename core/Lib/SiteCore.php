@@ -9,8 +9,8 @@ abstract class SiteCore
      */
     public $loader;
 
-    function __construct(\App\Lib\SiteLoader $loader)
-    { 
+    public function __construct(\App\Lib\SiteLoader $loader)
+    {
         // Loader action and filters
         $this->loader = $loader;
         // Add actions
