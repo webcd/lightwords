@@ -1,5 +1,10 @@
 ;(function($) {
 
+  // window.navigateTo = function(url) {
+  //   setTimeout(function() {
+  //     window.location.href = url;
+  //   }, 500);
+  // }
   
   $(function() {
     // PAGE TRANSITION
@@ -13,21 +18,33 @@
   
       setTimeout(function() {
         $pageTransitionIn.remove();
+        console.warn('ON PAGE IN');
       }, 2000);
   
       function onPageOut(e) {
+        var url = $(this).attr("href");
+
+        if (! url) {
+          url = $(this).attr("data-onclick-url");
+        }
+
+        console.warn('ON PAGE OUT', url);
         e.preventDefault();
   
         $pageTransitionOut.addClass("active");
-  
-        var url = $(this).attr("href");
-  
+    
         setTimeout(function() {
           window.location.href = url;
         }, 1000);
       }
   
-      $("a").click(onPageOut);
+      $("a[href], [data-onclick-url]").not("a[href^='#']").click(onPageOut);
+
+      // ONCLICK ELEMENTS
+      // $("[data-onclick-url]").click(function(e) {
+      //   var url = $(this).attr("data-onclick-url");
+      //   navigateTo(url);
+      // });
     }
 
     console.log('page-transitions.js is loaded')
