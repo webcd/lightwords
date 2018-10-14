@@ -5,21 +5,23 @@
     <div class="tile__head">
 
       <div class="tile__img">
-        <img
-          src="{{ post.thumbnail.src|resize(480) }}"
-          srcset="
-            {{ post.thumbnail.src|resize(768) }} 768w,
-            {{ post.thumbnail.src|resize(480) }} 480w,
-            {{ post.thumbnail.src|resize(220) }} 220w
-          "
-          sizes="
-            (min-width: 1200px) 25vw,
-            (min-width: 992px) 33.33vw,
-            (min-width: 768px) 50vw,
-            100vw
-          "
-          itemprop="image"
-          alt="{{ post.thumbnail.alt }}" />
+        {% if post.thumbnail %}
+          <img
+            src="{{ post.thumbnail.src|resize(480) }}"
+            srcset="
+              {{ post.thumbnail.src|resize(768) }} 768w,
+              {{ post.thumbnail.src|resize(480) }} 480w,
+              {{ post.thumbnail.src|resize(220) }} 220w
+            "
+            sizes="
+              (min-width: 1200px) 25vw,
+              (min-width: 992px) 33.33vw,
+              (min-width: 768px) 50vw,
+              100vw
+            "
+            itemprop="image"
+            alt="{{ post.thumbnail.alt }}" />
+          {% endif %}
 
         <h3 class="h3 tile__title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
       </div>
