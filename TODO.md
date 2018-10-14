@@ -47,6 +47,7 @@
 
 ## CSS
 
+- [CSS][bug] Enhanced radios/checkboxes seems bottom truncated
 - [CSS] Improve page transitions (not only on links click)
 - [CSS][bug] Fix scroll top/bottom buttons on mobile
 - [CSS][bug] Fix sidebars (default + WooCommerce)
