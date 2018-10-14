@@ -5,7 +5,7 @@ namespace App;
 class StarterSite extends \TimberSite
 {
 
-    function __construct()
+    public function __construct()
     {
         // Add filters
         $this->filters();
@@ -24,7 +24,7 @@ class StarterSite extends \TimberSite
 
         // See: https://developer.wordpress.org/reference/functions/add_theme_support/#post-thumbnails
         // add_theme_support( 'post-thumbnails' ); // Should be enough fors posts
-        add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );
+        add_theme_support('post-thumbnails', array('post', 'page'));
 
         add_theme_support('menus');
         // Page Title
@@ -34,12 +34,12 @@ class StarterSite extends \TimberSite
         // Enable HTML5
         add_theme_support('html5',
             array(
-            'search-form',
-            'comment-form',
-            'comment-list',
-            'gallery',
-            'caption',
-        ));
+                'search-form',
+                'comment-form',
+                'comment-list',
+                'gallery',
+                'caption',
+            ));
         // RSS
         add_theme_support('automatic-feed-links');
 
@@ -58,7 +58,19 @@ class StarterSite extends \TimberSite
 
         // Remove Gallery Inline Styling
         // See: https://css-tricks.com/snippets/wordpress/remove-gallery-inline-styling/
-        add_filter( 'use_default_gallery_style', '__return_false' );
+        add_filter('use_default_gallery_style', '__return_false');
+
+        // Disable TinyMCE automatic paragraph removal
+        add_filter('the_content', 'remove_wpautop', 9);
+    }
+
+    // Disable TinyMCE automatic paragraph removal
+    private function remove_wpautop($content)
+    {
+        global $post;
+        // Remove the filter
+        remove_filter('the_content', 'wpautop');
+        return $content;
     }
 
     // Body configuration classes
@@ -68,36 +80,36 @@ class StarterSite extends \TimberSite
 
         // Debug classes
 
-        if ($config->debug) { $body_class_config .=                             'debug ';
-    
+        if ($config->debug) {$body_class_config .= 'debug ';
+
             if ($config->debuggers) {
-                foreach ($config->debuggers as $debugger){ $body_class_config .= 'debug--' . $debugger . ' '; }
+                foreach ($config->debuggers as $debugger) {$body_class_config .= 'debug--' . $debugger . ' ';}
             }
         }
 
         // Has feature
-    
-        if ($config->stickyHeader) { $body_class_config .=                      'sticky-header ';
-            if ($config->compressHeader) { $body_class_config .=                'compressible-header ';
-                if ($config->compressHeaderLogoSwap) { $body_class_config .=    'compressible-header-logo-swap '; }
-                if ($config->transparentHeader) { $body_class_config .=         'transparent-header '; }
+
+        if ($config->stickyHeader) {$body_class_config .= 'sticky-header ';
+            if ($config->compressHeader) {$body_class_config .= 'compressible-header ';
+                if ($config->compressHeaderLogoSwap) {$body_class_config .= 'compressible-header-logo-swap ';}
+                if ($config->transparentHeader) {$body_class_config .= 'transparent-header ';}
             }
         }
-  
-        if ($config->fixedWidthContainers) { $body_class_config .=              'has-fixed-width-containers ';
+
+        if ($config->fixedWidthContainers) {$body_class_config .= 'has-fixed-width-containers ';
         } else {
-            if ($config->fixedWidthHeader) { $body_class_config .=              'has-fixed-width-header '; } 
-            if ($config->fixedWidthFooter) { $body_class_config .=              'has-fixed-width-footer '; }
-            if ($config->fixedWidthContent) { $body_class_config .=             'has-fixed-width-content '; }
+            if ($config->fixedWidthHeader) {$body_class_config .= 'has-fixed-width-header ';}
+            if ($config->fixedWidthFooter) {$body_class_config .= 'has-fixed-width-footer ';}
+            if ($config->fixedWidthContent) {$body_class_config .= 'has-fixed-width-content ';}
         }
 
-        if ($config->hasScrollTop) { $body_class_config .=                      'has-scroll-top '; }
-  
+        if ($config->hasScrollTop) {$body_class_config .= 'has-scroll-top ';}
+
         return $body_class_config;
     }
 
     // Global context, available to all templates
-    function add_to_context($context)
+    public function add_to_context($context)
     {
         $context['site'] = $this;
 
@@ -128,7 +140,7 @@ class StarterSite extends \TimberSite
         $context['do_debug_zone'] = WP_DEBUG;
         // Force debug (/!\ WARNING: remove when in production)
         $context['do_debug_zone'] = true;
-        
+
         // WIDGETS AREAS
         $context['widgets_sidebar_1'] = \Timber::get_widgets('sidebar-1');
         $context['widgets_sidebar_2'] = \Timber::get_widgets('sidebar-2');
@@ -142,7 +154,7 @@ class StarterSite extends \TimberSite
         $context['widgets_footer_4'] = \Timber::get_widgets('footer4');
 
         // Inline SVG
-        $context['do_inlinesvg'] = file_exists(get_template_directory().'/dist/img/sprite.symbol.svg.twig');
+        $context['do_inlinesvg'] = file_exists(get_template_directory() . '/dist/img/sprite.symbol.svg.twig');
 
         // WOOCOMMERCE
         // See also /woocommerce.php at theme root
@@ -151,7 +163,7 @@ class StarterSite extends \TimberSite
         $context['is_woocommerce_active'] = $has_woocommerce;
 
         if ($has_woocommerce) {
-            $context['my_account_link'] = get_permalink( get_option('woocommerce_myaccount_page_id') );
+            $context['my_account_link'] = get_permalink(get_option('woocommerce_myaccount_page_id'));
             $context['my_account_items'] = wc_get_account_menu_items();
         }
 
@@ -159,64 +171,63 @@ class StarterSite extends \TimberSite
     }
 
     // From: http://woocommerce.wp-a2z.org/oik_api/wc_price/
-    function lw_price( $price, $args = array() ) {
+    public function lw_price($price, $args = array())
+    {
         $args = apply_filters(
-          'wc_price_args', wp_parse_args(
-            $args, array(
-              'ex_tax_label'       => false,
-              'currency'           => '',
-              'decimal_separator'  => wc_get_price_decimal_separator(),
-              'thousand_separator' => wc_get_price_thousand_separator(),
-              'decimals'           => wc_get_price_decimals(),
-              'price_format'       => get_woocommerce_price_format(),
+            'wc_price_args', wp_parse_args(
+                $args, array(
+                    'ex_tax_label' => false,
+                    'currency' => '',
+                    'decimal_separator' => wc_get_price_decimal_separator(),
+                    'thousand_separator' => wc_get_price_thousand_separator(),
+                    'decimals' => wc_get_price_decimals(),
+                    'price_format' => get_woocommerce_price_format(),
+                )
             )
-          )
         );
-      
+
         $unformatted_price = $price;
-        $negative          = $price < 0;
-        $price             = apply_filters( 'raw_woocommerce_price', floatval( $negative ? $price * -1 : $price ) );
-        $price             = apply_filters( 'formatted_woocommerce_price', number_format( $price, $args['decimals'], $args['decimal_separator'], $args['thousand_separator'] ), $price, $args['decimals'], $args['decimal_separator'], $args['thousand_separator'] );
-      
-        if ( apply_filters( 'woocommerce_price_trim_zeros', false ) && $args['decimals'] > 0 ) {
-          $price = wc_trim_zeros( $price );
+        $negative = $price < 0;
+        $price = apply_filters('raw_woocommerce_price', floatval($negative ? $price * -1 : $price));
+        $price = apply_filters('formatted_woocommerce_price', number_format($price, $args['decimals'], $args['decimal_separator'], $args['thousand_separator']), $price, $args['decimals'], $args['decimal_separator'], $args['thousand_separator']);
+
+        if (apply_filters('woocommerce_price_trim_zeros', false) && $args['decimals'] > 0) {
+            $price = wc_trim_zeros($price);
         }
-      
-        $currency_symbol = get_woocommerce_currency_symbol( $args['currency'] );
+
+        $currency_symbol = get_woocommerce_currency_symbol($args['currency']);
 
         // TODO: split euros from cents
 
-        // $price_units = 
+        // $price_units =
 
-        $formatted_price = 
-            ( $negative ? '-' : '' ) . 
-            sprintf( 
-                $args['price_format'], 
-                '<span class="woocommerce-Price-currencySymbol">' . $currency_symbol . '</span>', 
-                $price
-            );
+        $formatted_price =
+        ($negative ? '-' : '') .
+        sprintf(
+            $args['price_format'],
+            '<span class="woocommerce-Price-currencySymbol">' . $currency_symbol . '</span>',
+            $price
+        );
 
-        $return          = '<span class="woocommerce-Price-amount amount">' . $formatted_price . '</span>';
-      
-        if ( $args['ex_tax_label'] && wc_tax_enabled() ) {
-          $return .= ' <small class="woocommerce-Price-taxLabel tax_label">' . WC()->countries->ex_tax_or_vat() . '</small>';
+        $return = '<span class="woocommerce-Price-amount amount">' . $formatted_price . '</span>';
+
+        if ($args['ex_tax_label'] && wc_tax_enabled()) {
+            $return .= ' <small class="woocommerce-Price-taxLabel tax_label">' . WC()->countries->ex_tax_or_vat() . '</small>';
         }
-      
-        
-      /**
-       * Filters the string of price markup.
-       *
-       * @param string $return            Price HTML markup.
-       * @param string $price             Formatted price.
-       * @param array  $args              Pass on the args.
-       * @param float  $unformatted_price Price as float to allow plugins custom formatting. Since 3.2.0.
-       */
-        return apply_filters( 'wc_price', $return, $price, $args, $unformatted_price );
-      }
-       
+
+        /**
+         * Filters the string of price markup.
+         *
+         * @param string $return            Price HTML markup.
+         * @param string $price             Formatted price.
+         * @param array  $args              Pass on the args.
+         * @param float  $unformatted_price Price as float to allow plugins custom formatting. Since 3.2.0.
+         */
+        return apply_filters('wc_price', $return, $price, $args, $unformatted_price);
+    }
 
     // Phone price text formatting - Twig filter
-    function formatPrice($number, $tag = 'span')
+    public function formatPrice($number, $tag = 'span')
     {
         $result = $this->lw_price($number);
 
@@ -224,20 +235,20 @@ class StarterSite extends \TimberSite
     }
 
     // Phone number text formatting - Twig filter
-    function formatPhone($number, $separator = '.')
+    public function formatPhone($number, $separator = '.')
     {
-        $result = 
-            substr($number, 0, 2) . $separator .
-            substr($number, 2, 2) . $separator .
-            substr($number, 4, 2) . $separator .
-            substr($number, 6, 2) . $separator .
-            substr($number, 8, 2);
+        $result =
+        substr($number, 0, 2) . $separator .
+        substr($number, 2, 2) . $separator .
+        substr($number, 4, 2) . $separator .
+        substr($number, 6, 2) . $separator .
+        substr($number, 8, 2);
 
         return $result;
     }
 
     // Phone number link formatting - Twig filter
-    function formatPhoneLink($number)
+    public function formatPhoneLink($number)
     {
         $result = '033' . substr($number, 1);
 
@@ -245,7 +256,7 @@ class StarterSite extends \TimberSite
     }
 
     // Demo Twig filter
-    function myfoo($text)
+    public function myfoo($text)
     {
         $text .= ' <= Timber custom-filtered thing!';
 
@@ -253,7 +264,7 @@ class StarterSite extends \TimberSite
     }
 
     // Pimp my Twig
-    function add_to_twig($twig)
+    public function add_to_twig($twig)
     {
         // this is where you can add your own functions to twig
         $twig->addExtension(new \Twig_Extension_StringLoader());
@@ -277,13 +288,13 @@ class StarterSite extends \TimberSite
      */
     private function loadClassesSite()
     {
-        if (!is_dir(get_template_directory().'/core/Classes')) {
+        if (!is_dir(get_template_directory() . '/core/Classes')) {
             return false;
         }
 
-        $dir = new \RecursiveDirectoryIterator(get_template_directory().'/core/Classes', \FilesystemIterator::SKIP_DOTS);
+        $dir = new \RecursiveDirectoryIterator(get_template_directory() . '/core/Classes', \FilesystemIterator::SKIP_DOTS);
         // Flatten the recursive iterator, folders come before their files
-        $it  = new \RecursiveIteratorIterator($dir, \RecursiveIteratorIterator::SELF_FIRST);
+        $it = new \RecursiveIteratorIterator($dir, \RecursiveIteratorIterator::SELF_FIRST);
         // Maximum depth is 1 level deeper than the base folder
         $it->setMaxDepth(0);
 
@@ -300,9 +311,9 @@ class StarterSite extends \TimberSite
      */
     protected function setClassSite($fileinfo)
     {
-        $loader      = new \App\Lib\SiteLoader();
-        $file        = str_replace('.php', '', $fileinfo->getFilename());
-        $class       = new \ReflectionClass("App\\Classes\\".$file);
+        $loader = new \App\Lib\SiteLoader();
+        $file = str_replace('.php', '', $fileinfo->getFilename());
+        $class = new \ReflectionClass("App\\Classes\\" . $file);
         $classParent = $class->getParentClass();
         if (isset($classParent->name) && $classParent->name == 'App\Lib\SiteCore' && $class->hasMethod('actions') && $class->hasMethod('filters')
             && $class->hasMethod('__construct')) {
