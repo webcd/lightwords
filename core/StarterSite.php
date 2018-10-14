@@ -59,18 +59,6 @@ class StarterSite extends \TimberSite
         // Remove Gallery Inline Styling
         // See: https://css-tricks.com/snippets/wordpress/remove-gallery-inline-styling/
         add_filter('use_default_gallery_style', '__return_false');
-
-        // Disable TinyMCE automatic paragraph removal
-        add_filter('the_content', 'remove_wpautop', 9);
-    }
-
-    // Disable TinyMCE automatic paragraph removal
-    private function remove_wpautop($content)
-    {
-        global $post;
-        // Remove the filter
-        remove_filter('the_content', 'wpautop');
-        return $content;
     }
 
     // Body configuration classes

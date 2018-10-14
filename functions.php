@@ -36,3 +36,19 @@ function ddump($what)
 // TODO: move this elsewhere
 include 'functions-woocommerce.php';
 include 'functions-woocommerce-hooks.php';
+
+
+// TODO: move this elsewhere
+
+// Disable TinyMCE automatic paragraph removal
+function remove_wpautop($content)
+{
+    global $post;
+    // Remove the filter
+    remove_filter('the_content', 'wpautop');
+    return $content;
+}
+
+// Disable TinyMCE automatic paragraph removal
+add_filter('the_content', 'remove_wpautop', 9);
+
