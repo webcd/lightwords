@@ -50,6 +50,16 @@
 
 .gfield {
   // margin-bottom: $gutter;
+
+  &.inline {
+    li {
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-right: $gutter;
+      }
+    }
+  }
 }
 
 .gfield_required {
@@ -68,5 +78,10 @@
 
 .gform_description {
   font-style: italic;
+}
+
+ul.gfield_radio,
+ul.gfield_checkbox {
+  @include reset-list();
 }
 

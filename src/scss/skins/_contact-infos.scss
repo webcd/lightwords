@@ -103,3 +103,13 @@ address {
     font-weight: $font-weight-semibold;
   }
 }
+
+// GOOGLE MAP
+
+#google-map {
+  height: 100vh;
+
+  @include bp('md') {
+    height: 50vh;
+  }
+}

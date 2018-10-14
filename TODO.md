@@ -53,7 +53,6 @@
 - [CSS][bug] Fix sidebars (default + WooCommerce)
 - [CSS] Styleguide: add blockquotes and shadows
 - [CSS] Feature: default images (post thumbnail, product, avatar...)
-- [CSS][bug] Select2: sometimes too wide (breaking flex columns) - pixel rounding issue?
 - [CSS] Video homepage hero + mega search bar
 - [CSS][bug] Navbar active item not working for "products" and cart / my-account custom items
 - [CSS][bug] Navbar dropdown buttons: shadow when in panel mode
@@ -82,6 +81,8 @@
 - Search auto-complete/suggestions ala ElasticSearch
 
 ## To be confirmed bugs
+
+- [CSS][Solved] Select2: sometimes too wide (breaking flex columns) - pixel rounding issue?
 
 ## PLUGINS
 
