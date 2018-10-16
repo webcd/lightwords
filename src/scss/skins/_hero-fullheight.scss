@@ -1,6 +1,6 @@
 @mixin full-height($body-selector: '') {
 
-  /*body*/#{$body-selector} {
+  /*body*/#{$body-selector} & {
     // min-height: calc(100vh - $navbar-height-mobile);
     min-height: calc(100vh - 6rem);
     
