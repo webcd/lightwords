@@ -27,15 +27,16 @@ add_action('after_setup_theme', function () {
 // MY-ACCOUNT ITEMS ICONS
 function getMyAccountItemIcon($item)
 {
-    if ($item === 'dashboard') {return 'fa-user';}
-    if ($item === 'dashboard') {return 'fa-user';}
-    if ($item === 'orders') {return 'fa-file-text';}
-    if ($item === 'downloads') {return 'fa-cloud-download';}
-    if ($item === 'edit-address') {return 'fa-map-marker';}
-    if ($item === 'edit-account') {return 'fa-user-plus';}
-    if ($item === 'customer-logout') {return 'fa-power-off';}
+    $fontAwesome = array(
+        "dashboard" => 'fa-user',
+        "orders" => 'fa-file-text',
+        "downloads" => 'fa-cloud-download',
+        "edit-address" => 'fa-map-marker',
+        "edit-account" => 'fa-user-plus',
+        "customer-logout" => 'fa-power-off'
+    );
 
-    return '';
+    return (array_key_exists($item, $fontAwesome)) ? $fontAwesome[$item]: "";
 }
 
 // CART PAGE
