@@ -139,9 +139,17 @@
   }
 }
 
-/* LOGIN / FORGOT-PASSWORD PAGES */
+/* LOGIN / REGISTER / FORGOT-PASSWORD PAGES */
 
-// LOGIN FORM PAGE
+// LOGIN & REGISTER FORM(S) PAGE
+
+.u-columns {
+  @include row();
+
+  > * {
+    @include col('md', 6);
+  }
+}
 
 /*body*/.woocommerce-account:not(.logged-in),
 /*body*/.woocommerce-lost-password {
@@ -151,6 +159,7 @@
   }
 
   /*form*/.woocommerce-form-login,
+  /*form*/.woocommerce-form-register,
   /*form*/.woocommerce-ResetPassword {
     padding: $gutter;
     // background: $gray-lighter;
@@ -168,14 +177,16 @@
       margin-top: $gutter-half;
       margin-bottom: $gutter;
     }
+
+    .woocommerce-privacy-policy-text {
+      font-size: $font-size-small;
+    }
   }
 }
 
 /*body*/.woocommerce-account:not(.logged-in) {
 
   .woocommerce-form-login {
-
-
 
     .lost_password {
       text-align: right;
