@@ -29,7 +29,7 @@
   "rippleEffect": true,
   "rippleSelector": ".btn, .scroll-btn, .rrssb-button > a",
 
-  "pageTransitions": true,
+  "pageTransitions": false,
 
   "contactInfos": "true",
   "contactInfosAddressFirmName": "Webcd",

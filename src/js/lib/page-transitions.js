@@ -18,7 +18,7 @@
   
       setTimeout(function() {
         $pageTransitionIn.remove();
-        console.warn('ON PAGE IN');
+        // console.warn('ON PAGE IN');
       }, 2000);
   
       function onPageOut(e) {
@@ -28,7 +28,7 @@
           url = $(this).attr("data-onclick-url");
         }
 
-        console.warn('ON PAGE OUT', url);
+        // console.warn('ON PAGE OUT', url);
         e.preventDefault();
   
         $pageTransitionOut.addClass("active");
@@ -45,6 +45,13 @@
       //   var url = $(this).attr("data-onclick-url");
       //   navigateTo(url);
       // });
+
+    } else {
+      // Default "onclick" behavior
+      $("[data-onclick-url]").click(function() {
+        var url = $(this).attr("data-onclick-url");
+        window.location.href = url;
+      });
     }
 
     console.log('page-transitions.js is loaded')
