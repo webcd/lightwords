@@ -69,7 +69,7 @@ config.pathImages = [
 ]
 config.pathFavicons = config.path.src + config.path.favicons + '*.*'
 config.pathHtml = [config.path.src + '*.html', config.pathStyleguide + '*.html']
-config.pathTemplates = ['*.php', 'lib/**/*.php', 'templates/**/*.twig']
+config.pathTemplates = ['*.php', 'lib/**/*.php', 'templates/**/*.twig', 'config.json']
 
 // Destination
 config.pathJsDest = config.path.dist + config.path.js
