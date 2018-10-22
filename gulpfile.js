@@ -8,7 +8,8 @@
 global.config = {
   // Server config
 
-  browsersyncProxyURL: 'localhost', // put your wordpress dev URL here
+  // browsersyncProxyURL: 'localhost', // put your wordpress dev URL here
+  browsersyncProxyURL: 'localhost:8000', // NAT with docker-compose
   serverport: 3000,
   openBrowser: false,
   openBrowsers: ['google chrome', 'firefox'],
