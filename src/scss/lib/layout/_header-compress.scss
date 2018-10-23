@@ -8,26 +8,27 @@
 /*html*/
 .sticky-header.compressible-header {
   // Add transitions to modified elements
-  .site-header {
+  .site-header,
+  .wrapper--pre-header {
     transition: 
-      top 0.25s $ease-bump,
-      background-color 0.5s,
+      top 0.25s $ease-bump, 
+      background-color 1s,
       transform 0.25s $ease-bump;
   }
 
   .logo {
     transform-origin: 50% 50%;
     transition: all 0.25s $ease-bump;
-  }
 
-  .logo--tablet {
-  
-    @include bp($expanded) {
-      display: block;
-      transform: scale3d(0, 0, 1);
-      position: absolute;
+    &.logo--tablet {
+      @include bp($expanded) {
+        display: block;
+        transform: scale3d(0, 0, 1);
+        position: absolute;
+      }
     }
   }
+
 
   @include bp($expanded) {
     &.header-compressed:not(.header-uncompressed):not(.scroll-up) {
@@ -77,45 +78,35 @@
           }
         }
       }
-    }    
+    }
   }
 
-  // // TODO: revamp transparent header
-  // &.transparent-header {
-  //   .site-header {
-  //     @include shadow(0);
-  //     background-color: transparent;
-  //   }
+  // TRANSPARENT HEADER
 
-  //   &.header-compressed {
-  //     .site-header {
-  //       background-color: $header-color-bg;
-  //       @include shadow(1);
-  //     }
-  //   }
+  &.transparent-header {
+    .site-header,
+    .wrapper--pre-header {
+      @include shadow(0);
+      background-color: transparent;
+    }
 
-  //   .site-content {
-  //     padding-top: 0;
+    &.header-compressed {
+      .wrapper--pre-header {
+        background-color: $topbar-color-bg;
+      }
 
-  //     @include bp($expanded) {
-  //       padding-top: 0;
-  //     }
-  //   }
+      .site-header {
+        background-color: $header-color-bg;
+        @include shadow(1);
+      }
+    }
 
-  //   // TEMPORARY HACKS!
+    .wrapper--hero {
+      margin-top: -$navbar-height-mobile;
 
-  //   .wrapper--breadcrumb {
-  //     // TODO: find a solution!
-  //     // Hide breadcrumbs
-  //     display: none;
-  //   }
-
-  //   .main-title:not(.hero-title) { // .hero-title doesn't exist anymore!
-  //     margin-top: $navbar-height-mobile;
-
-  //     @include bp($expanded) {
-  //       margin-top: $navbar-height-desktop + $topbar-height-desktop;
-  //     }
-  //   }
-  // }
+      @include bp($expanded) {
+        margin-top: -($navbar-height-desktop + $topbar-height-desktop);
+      }
+    }
+  }
 }

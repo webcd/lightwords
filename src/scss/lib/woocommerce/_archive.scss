@@ -10,13 +10,7 @@
 
   > .woo-item,
   .product {
-    // height: 100%;
-
-    // @include bp('xs') { flex-basis: 50%; }
-    // @include bp('sm') { flex-basis: 33.33%; }
-    // @include bp('md') { flex-basis: 25%; }
-    // @include bp('lg') { flex-basis: 20%; }
-    @include col("xs", 6);
+    @include col("min", 6);
     @include col("sm", 4);
     @include col("md", 6);
     @include col("lg", 4);

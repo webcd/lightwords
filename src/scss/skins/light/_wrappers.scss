@@ -10,7 +10,7 @@
 
 // Micro-wrappers
 
-.wrapper--pre-header { background-color: $gray-lightest; }
+.wrapper--pre-header { background-color: $topbar-color-bg; }
 .wrapper--header {}
 .wrapper--post-header {}
 
@@ -35,7 +35,6 @@
 }
 
 .wrapper--comments { @include v-padding($gutter-double);
-
   background-color: $gray-dark;
   color: $gray-lighter;
 }

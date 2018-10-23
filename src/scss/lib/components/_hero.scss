@@ -1,8 +1,11 @@
 .hero {
   position: relative;
-  // min-height: 56.25vw; // 16:9 ratio
-  min-height: 40vw; // Fix too tall hero
+  min-height: 56.25vw; // 16:9 ratio
   overflow: hidden;
+  
+  @include bp('md') {
+    min-height: 40vw;
+  }
 
   .transparent-header.home & {
     min-height: 100vh;
@@ -37,8 +40,8 @@
 
 .hero__slogan {
   @include h(1);
-  color: white;
-  text-shadow: 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.5);
+  color: black;
+  text-shadow: 0.2rem 0.2rem 0 white;
 }
 
 .hero__btn {

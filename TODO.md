@@ -2,8 +2,8 @@
 
 ## PHP
 
+- [PHP][bug] Translation function _e() not working + use it everywhere (and add translation to the dictionary)
 - [PHP] Auto-set variable for WooCommerce support
-- [PHP][bug] Translation function \_e() not working + use it everywhere (and add translation to the dictionary)
 - [PHP] /page-templates: use DRY includes (of page.php & single.php) with a `fullwidth_content` + `landing_page` variables
 - [PHP] Make contact infos a dedicated plugin
 - [PHP] Make privacy policy a dedicated plugin
@@ -22,14 +22,14 @@
 #### Twig templates needed
 
 - [PHP][tpl] Cart, checkout and order validation page (the whole funnel)
-- [PHP][tpl] All account pages / login and forgotten password forms
+- [PHP][tpl] All account pages / login + register + forgotten password forms
 
-#### At shop root ("/produits")
+#### Shop root page ("/produits")
 
 - [PHP][bug] Shop page thumbail image isn't the good one
 - [PHP] Use dynamic title and description
 
-#### Products archive
+#### Products archive page
 
 - [PHP][bug] Sub-categories teaser product count is broken sometimes (ex: 'Hoodies')
 - [PHP] Display "N results per page" selector (hook probably)
@@ -44,37 +44,41 @@
 - [PHP] "Choisir ce qui sera affiché sur la page principale de la boutique." (products and/or categories)
 - [PHP] "Choisir ce qui sera affiché sur les pages de catégories de produits." (products and/or categories)
 - [PHP] N products per line & N lines per page ? (non-responsive / desktop 3-4-6 choices + interpolation?)
-- [PHP][never] Add new admin theme options?
+- [PHP][never] Add new admin theme options? (like config.json content)
 
 ## CSS
 
+- [CSS][bug] Lazyload breaks cart page
 - [CSS][bug] Enhanced radios/checkboxes seems bottom truncated
-- [CSS] Improve page transitions (not only on links click)
 - [CSS][bug] Fix scroll top/bottom buttons on mobile
 - [CSS][bug] Fix sidebars (default + WooCommerce)
+- [CSS][bug] Navbar active item not working for "products" and cart / my-account custom items
+- [CSS][bug] Navbar dropdown buttons: shadow when in panel mode
+- [CSS][bug] Panels / dropdowns: max-height + scroll wrapper
+- [CSS][bug] Android on Chrome sniffing fails (full-height hero / URL bar)
+- [CSS] Improve page transitions (browser history too, no-JS mode)
 - [CSS] Styleguide: add blockquotes and shadows
 - [CSS] Feature: default images (post thumbnail, product, avatar...)
 - [CSS] Video homepage hero + mega search bar
-- [CSS][bug] Navbar active item not working for "products" and cart / my-account custom items
-- [CSS][bug] Navbar dropdown buttons: shadow when in panel mode
 - [CSS] Navbar dropdown buttons: hide carret mode?
 - [TPL] All post/page/product image MUST use srcset
-- [CSS][bug]"transparent header" option is plain broken
 
 ## JS
 
 - [JS][bug] Mobile dropdown menus toggling (when in `expandDropdownsOnHover` mode)
 - [JS][bug] Product teaser "add to cart" button: prevent navigation + AJAX cart counter update + success state
 - [JS][bug] Something eats CPU
+- [JS] Rewrite all custom code with modules / ES6
 - [JS] Get rid of Bootstrap modal
+- [JS] Get rid off jQuery?
 - [JS] Lightbox-like carousel
 
 ## Build
 
 - [Build] Move from Gulp to Webpack build process (or fix Mix build) (see below)
 - [Build] Read config.json at build step, no through the DOM
-- [Build] Get rid off jQuery?
 - [Build][bug][Never] js sourcemaps must be fixed (Webpack first)
+- [Docker] NAT forwarding
 
 ## Probably not
 

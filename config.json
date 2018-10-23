@@ -12,7 +12,7 @@
   "compressHeader": true,
   "compressHeaderOffset": 200,
   "compressHeaderLogoSwap": true,
-  "transparentHeader": false,
+  "transparentHeader": true,
   "expandDropdownsOnHover": true,
 
   "hasScrollTop": true,
@@ -29,7 +29,7 @@
   "rippleEffect": true,
   "rippleSelector": ".btn, .scroll-btn, .rrssb-button > a",
 
-  "pageTransitions": false,
+  "pageTransitions": true,
 
   "contactInfos": "true",
   "contactInfosAddressFirmName": "Webcd",

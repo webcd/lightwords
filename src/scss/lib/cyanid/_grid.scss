@@ -107,8 +107,18 @@ $n-children-max: 12 !default; // Max number of columns
 }
 
 @mixin col($bp, $size) {
-	@include bp($bp) { 
+	@if $bp == "min" {
+		
 		@include colSize($n-children-max, $size);
+
+	} @else if map-has-key($breakpoints, $bp) {
+
+		@include bp($bp) { 
+			@include colSize($n-children-max, $size);
+		}
+
+	} @else {
+    @warn 'ERROR in mixin col(): unknown breakpoint #{$bp}';
 	}
 }
 
