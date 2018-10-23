@@ -2,21 +2,25 @@
   // DOM IS READY!
 
   $(function() {
-    var $togglers = $('[data-dropdown]')
 
-    $togglers.on('click', function() {
-      $(this).toggleClass('active')
-      var $dropdownMenu = $(this).next('.dropdown-menu')
-      $dropdownMenu.toggleClass('active')
+    if (! Lightwords.CONFIG.expandDropdownsOnHover) {
 
-      var $dropdown = $(this).parent('.menu-item--dropdown')
-      $dropdown.toggleClass('active')
-    })
+      // Click / touch to open submenus
+      var $togglers = $('[data-dropdown]')
 
-    // Mouse hover auto-opens submenus
+      $togglers.on('click', function() {
+        $(this).toggleClass('active')
 
-    if (Lightwords.CONFIG.expandDropdownsOnHover) {
-  
+        var $dropdownMenu = $(this).next('.dropdown-menu')
+        $dropdownMenu.toggleClass('active')
+
+        var $dropdown = $(this).parent('.menu-item--dropdown')
+        $dropdown.toggleClass('active')
+      })
+
+    } else {
+
+      // Mouse hover auto-opens submenus
       var $dropdowns = $('.menu-item--dropdown')
   
       $dropdowns.on('mouseenter', function() {
@@ -27,6 +31,7 @@
         var $dropdownMenu = $this.children('.dropdown-menu')
         $dropdownMenu.addClass('active')
       })
+
       $dropdowns.on('mouseleave', function() {
         var $this = $(this)
         $this.removeClass('active')
