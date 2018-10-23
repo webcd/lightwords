@@ -28,15 +28,19 @@
       </span>
 
       {# Dropdown menu #}
-      <ul class="dropdown-menu">
+      <div class="dropdown-wrapper">
 
-        {# Recursivity! Circular includes! #}
-        {% include 'header/menu-loop.twig' with {
-          'items': item.get_children,
-          'hidden_expanded': false
-        } %}
+        <ul class="dropdown-menu">
 
-      </ul>
+          {# Recursivity! Circular includes! #}
+          {% include 'header/menu-loop.twig' with {
+            'items': item.get_children,
+            'hidden_expanded': false
+          } %}
+
+        </ul>
+
+      </div>
 
     {% endif %}
 

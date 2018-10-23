@@ -1,7 +1,7 @@
 {% set has_dropdown = CONFIG.menuMyAccountDropdown %}
 
 <li class="menu-item menu-item--button menu-item--my-account
-  {{ (has_dropdown and user) ? 'menu-item-has-children menu-item--dropdown menu-item--dropdown-mobile' }}
+  {{ (has_dropdown and user) ? 'menu-item-has-children menu-item--dropdown' }}
   {{ user ? 'menu-item--my-account--logged-in' }}
 ">
 
@@ -63,50 +63,53 @@
 
     {# "MY ACCOUNT" DROPDOWN MENU CONTENT #}
 
-      <ul class="dropdown-menu dropdown-menu--right" id="panel-my-account">
+      <div class="dropdown-wrapper dropdown-wrapper--panel dropdown-wrapper--right">
 
-        {# DROPDOWN HEADER (user metas) #}
+        <ul class="dropdown-menu">
 
-        <li class="menu-item menu-item--passive menu-item--my-account-metas">
-          <div class="menu-item-link">
+          {# DROPDOWN HEADER (user metas) #}
 
-            {# BIG AVATAR #}
+          <li class="menu-item menu-item--passive menu-item--my-account-metas">
+            <div class="menu-item-link">
 
-            <span class="avatar avatar--big my-account-avatar">
-              <img src="{{ user.avatar }}" alt="{{ user.name }}'s avatar">
-            </span>
+              {# BIG AVATAR #}
 
-            {# USER NAME #}
+              <span class="avatar avatar--big my-account-avatar">
+                <img src="{{ user.avatar }}" alt="{{ user.name }}'s avatar">
+              </span>
 
-            <span class="my-account-metas__name">
-              {{ user.first_name }}
-              {{ user.last_name }}
-            </span>
+              {# USER NAME #}
 
-          </div>
-        </li>
+              <span class="my-account-metas__name">
+                {{ user.first_name }}
+                {{ user.last_name }}
+              </span>
 
-        <li class="divider"></li>
+            </div>
+          </li>
 
-        {# MY-ACCOUNT LINKS #}
+          <li class="divider"></li>
 
-        {% for my_account_item, my_account_name in my_account_items %}
+          {# MY-ACCOUNT LINKS #}
 
-        <li class="menu-item
-          {{ my_account_item == 'dashboard' ? 'highlight' }}
-        ">
+          {% for my_account_item, my_account_name in my_account_items %}
 
-          <a href="{{ fn('wc_get_account_endpoint_url', my_account_item) }}" class="menu-item-link">
-            <i class="fa fa-fw {{ fn('getMyAccountItemIcon', my_account_item) }}"></i>
-            <span>{{ my_account_name }}</span>
-          </a>
+          <li class="menu-item
+            {{ my_account_item == 'dashboard' ? 'highlight' }}
+          ">
 
-        </li>
+            <a href="{{ fn('wc_get_account_endpoint_url', my_account_item) }}" class="menu-item-link">
+              <i class="fa fa-fw {{ fn('getMyAccountItemIcon', my_account_item) }}"></i>
+              <span>{{ my_account_name }}</span>
+            </a>
 
-        {% endfor %}
+          </li>
 
-      </ul>
-    
+          {% endfor %}
+
+        </ul>
+      </div>
+      
     {% endif %}
 
   {% endif %}  

@@ -3,17 +3,14 @@
 // Makes list of links (or whtever) stacked on mobile, inlined on desktop
 
 /*ul*/.nav {
-  display: flex;
-  flex-wrap: wrap;
-
   @include reset-list;
   margin-bottom: 0;
 
-  > * {
-    flex-basis: 100%;
-    flex-grow: 1;
+  @include bp($expanded) {
+    display: flex;
+    flex-wrap: wrap;
 
-    @include bp($expanded) {
+    > * {
       flex-basis: auto;
       flex-grow: 0;
     }

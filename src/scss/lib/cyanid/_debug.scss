@@ -26,6 +26,7 @@ $debug-zone-text-color: chartreuse;
     bottom: 0;
     right: 0;
     background-color: $debug-zone-background;
+    z-index: 100000;
   }
 
   .debug-zone__item {

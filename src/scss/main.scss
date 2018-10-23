@@ -82,7 +82,6 @@
 @import 'lib/components/modal';
 @import 'lib/components/article-content';
 @import 'lib/components/navbar';
-@import 'lib/components/panels';
 @import 'lib/components/footer';
 @import 'lib/components/footer-post';
 @import 'lib/components/image-wall';
@@ -92,6 +91,7 @@
 // @import 'lib/components/wp-adminbar';
 
 /* LIGHTWORDS - LAYOUT */
+@import 'lib/layout/panels';
 @import 'lib/layout/fixed-ratio';
 @import 'lib/layout/wrappers';
 @import 'lib/layout/layout';

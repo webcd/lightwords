@@ -1,6 +1,5 @@
 ;(function($) {
   // DOM IS READY!
-
   
   $(function() {
     var $body = $('body')
@@ -40,8 +39,6 @@
 
         $body.addClass(panelName + '-expanded')
       }
-
-      // var $panel = $('#' + panelName)
     })
 
     $overlay.on('click', function() {

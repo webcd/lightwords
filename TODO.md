@@ -58,12 +58,12 @@
 - [CSS][bug] Navbar active item not working for "products" and cart / my-account custom items
 - [CSS][bug] Navbar dropdown buttons: shadow when in panel mode
 - [CSS] Navbar dropdown buttons: hide carret mode?
-- [CSS][bug] Panels / dropdowns: max-height + scroll wrapper
 - [TPL] All post/page/product image MUST use srcset
 - [CSS][bug]"transparent header" option is plain broken
 
 ## JS
 
+- [JS][bug] Mobile dropdown menus toggling (when in `expandDropdownsOnHover` mode)
 - [JS][bug] Product teaser "add to cart" button: prevent navigation + AJAX cart counter update + success state
 - [JS][bug] Something eats CPU
 - [JS] Get rid of Bootstrap modal

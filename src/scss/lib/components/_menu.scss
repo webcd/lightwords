@@ -9,29 +9,24 @@
   background-color: $navbar-btn-bg-hover;
 }
 
-
 @mixin dropdown() {
   position: relative;
   transition: all 0.25s ease;
   flex-wrap: nowrap;
 
-  .dropdown-menu {
+  .dropdown-wrapper {
     background-color: $header-color-bg;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 50vw;
 
-    // max-height: calc(100vh - 8rem);
-    // overflow-y: auto;
-
     @include bp($expanded) {
-      // max-height: calc(100vh - 19rem);
       width: 25vw;
     }
     padding-top: $gutter-quarter;
 
-    &.dropdown-menu--right {
+    &.dropdown-wrapper--right {
       left: auto;
       right: 0;
     }
@@ -43,14 +38,12 @@
     transition: all 0.5s $ease-bump;
     z-index: +10;
 
-    > .menu-item {
-      margin: $gutter-quarter;
-      margin-top: 0;
-    }
+    > .dropdown-menu {
 
-    &.active {
-      opacity: 1;
-      transform: scale3d(1, 1, 1) translateY(100%);
+      > .menu-item {
+        margin: $gutter-quarter;
+        margin-top: 0;
+      }
     }
 
     .dropdown-menu & {
@@ -61,6 +54,11 @@
   &.active {
     @include shadow(1);
     margin-bottom: 0;
+
+    > .dropdown-wrapper {
+      opacity: 1;
+      transform: scale3d(1, 1, 1) translateY(100%);
+    }
   }
 }
 
@@ -82,8 +80,6 @@
 
   color: $navbar-btn-color;
   background-color: $navbar-btn-bg;
-  // Debug
-  // background: $gray-lightest;
 
   // Flex vertical center
   display: flex;
@@ -93,7 +89,6 @@
 
   > .fa,
   > .icon {
-    
     & + * {
       margin-left: $gutter-quarter;
     }
@@ -105,18 +100,16 @@
 
   // Active item
   .current-menu-item & {
-      color: $color-primary;
-      font-weight: $font-weight-semibold;
+    color: $color-primary;
+    font-weight: $font-weight-semibold;
   }
 }
 
 // MENU ITEM
 
 .menu-item {
-
   // Active items (default)
   &:not(.menu-item--passive) {
-
     > .menu-item-link {
       cursor: pointer;
 
@@ -129,11 +122,11 @@
 
   &.menu-item--button {
     margin-left: $gutter-quarter;
-    
+
     > .dropdown-toggle {
       margin-left: 0;
     }
-    
+
     > .menu-item-link {
       @include h-padding($gutter-quarter);
       border: 0;
@@ -160,7 +153,6 @@
   // Highlighted item
   &.highlight {
     .site-header & {
-
       background-color: $color-primary;
 
       > .menu-item-link {
@@ -185,7 +177,6 @@
 }
 
 .dropdown-menu {
-  // reset lists
   @include reset-list();
 }
 
@@ -193,11 +184,12 @@
   margin-left: $gutter-eighth;
 
   > .caret {
-    @include triangle('bottom', $caret-color, $caret-size);
+    @include triangle("bottom", $caret-color, $caret-size);
     transition: all 0.5s $ease-bump;
   }
 
-  &.active {
+  .menu-item--dropdown.active > & {
+
     > .caret {
       transform: rotateZ(180deg);
     }
@@ -205,40 +197,26 @@
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// MOBILE MENU
+// MOBILE ONLY MENU
 
 // Pain in the ass to reset mobile navbar styles on larger screens
 // So for once, we allow MOBILE ONLY styles max-width @mq here!
 @include bp($expanded, true) {
-  //No secondary menu on mobile (hidden and merged into primary one)
-  .menu-primary {
-    @include v-padding($gutter-half);
-    @include h-padding($gutter-quarter);
-
-    .menu-item {
-      // Space between items when stacked
-      margin-bottom: $gutter-quarter;
-    }
-  }
 
   // Sub-menus
 
   .menu-item--dropdown {
 
-    .dropdown-menu {
+    > .dropdown-wrapper {
       margin-top: $gutter-quarter;
       flex-basis: 100%;
       // TODO: animate hide/show
       display: none;
+    }
 
-      &.active {
+    &.active {
+      > .dropdown-wrapper {
         display: block;
-      }
-
-      .menu-item {
-        &:last-child {
-          margin-bottom: 0;
-        }
       }
     }
   }
@@ -246,33 +224,37 @@
   // Nested dropdowns indentation
 
   .dropdown-menu {
-
     // First level
-    .menu-primary & {
-
-      .menu-item {
-        > .menu-item-link:first-child {
-          padding-left: $gutter-half + $width-nested-dropdown-indentation;
-        }
+    .menu-item {
+      > .menu-item-link:first-child {
+        padding-left: $gutter-half + $width-nested-dropdown-indentation;
       }
     }
 
-    // Second (and other) level
+    // Second level
     .dropdown-menu & {
-      .menu-primary & {
+      .menu-item {
+        > .menu-item-link:first-child {
+          padding-left: $gutter-half +
+            ($width-nested-dropdown-indentation * 2);
+        }
+      }
+
+      // Third (and other) level
+      .dropdown-menu & {
         .menu-item {
           > .menu-item-link:first-child {
-            padding-left: $gutter-half + ($width-nested-dropdown-indentation * 2);
+            padding-left: $gutter-half +
+              ($width-nested-dropdown-indentation * 3);
           }
         }
       }
     }
   }
-
 }
 
 /////////////////////////////////////////////////////////////////////////////
-//DESKTOP MENU
+//DESKTOP ONLY MENU
 
 @include bp($expanded) {
   .menu-primary,
