@@ -35,19 +35,24 @@
 }
 
 .maker-link {
+  display: inline-block;
+  vertical-align: sub;
   font-size: 0;
+  transition: all 0.25s $ease-bump;
+
   opacity: 0.8;
-  transition: all 0.25s;
+  transform: scale3d(0.8,0.8,1) rotateZ(0);
 
   > svg {
-    height: 2rem;
+    height: 2.4rem;
     position: relative;
     top: 0.5rem;
-
     //TODO: style inside the SVG
   }
 
   @include hocus() {
     opacity: 1;
+    transform: scale3d(1,1,1) rotateZ(9deg);
+    @include shadow(2);
   }
 }

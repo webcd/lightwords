@@ -24,6 +24,7 @@ $gutter: 3rem !default;
 // 'xxxl':  120em    // 1920 px
 
 $breakpoints: (
+  'xxs': 20em,
   'xs': 30em,
   'sm': 48em,
   'md': 60em,
@@ -87,6 +88,7 @@ $font-size-smaller: (floor($font-size-base * 0.75 * 10) / 10) !default;
 // Pixel per rem per breakpoints
 // Aka "global zoom"
 $breakpoints-pixels-per-rem: (
+  'xxs': 10,
   'xs': 10,
   'sm': 10,
   'md': 10,

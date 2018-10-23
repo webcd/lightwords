@@ -46,9 +46,14 @@ address {
 
     > .fa {
       color: $color-primary;
-      // font-size: ($font-size-base / $font-size-h4) * 100%;
       font-size: 100%; // Don't scale with H4 fontsize
-      // width: $gutter;
+
+      @include bp('sm', true) {
+        display: block;
+        width: auto;
+        text-align: center;
+        margin-bottom: $gutter-half;
+      }
     }
   
     > a {
@@ -65,7 +70,9 @@ address {
 .contact-infos__opening-hours {
 
   > div {
-    padding-left: $gutter-half * 2;
+    @include bp('sm') {
+      padding-left: $gutter-half * 2;
+    }
     margin-bottom: $gutter-quarter;
     line-height: $line-height-small;
   }
@@ -111,5 +118,28 @@ address {
 
   @include bp('md') {
     height: 50vh;
+  }
+}
+
+// NEWSLETTER FORM
+
+.form-newsletter {
+
+  .gfield + .gfield {
+    margin-top: -$gutter-half;
+  }
+
+  .gfield_label {
+    display: none;
+  }
+
+  label {
+    font-size: $font-size-small;
+    text-align: left;
+  }
+
+  .gfield_description {
+    font-size: $font-size-small;
+    font-style: italic;
   }
 }
