@@ -2,9 +2,8 @@
 
 .menu-item--my-account {
   &:not(.menu-item--my-account--logged-in) {
-    // Hide anonymous link on mobile (overide forcing)
-    @include bp($expanded, true) {
-      display: none;
+    // Show anonymous link on desktop
+    @include bp($expanded) {
     }
   }
 

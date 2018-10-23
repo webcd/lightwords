@@ -6,6 +6,7 @@
 - [PHP][bug] Translation function \_e() not working + use it everywhere (and add translation to the dictionary)
 - [PHP] /page-templates: use DRY includes (of page.php & single.php) with a `fullwidth_content` + `landing_page` variables
 - [PHP] Make contact infos a dedicated plugin
+- [PHP] Make privacy policy a dedicated plugin
 - [PHP][bug][Never] Latest posts add sticky posts to max count (see homepage)
 - [PHP][never] Inject author datas (ex: avatar) into post templates (single and archive) + comments
 - [PHP][never] Mark pages as "special" (like stock homepage, blog, my account...) (for contact page mostly)
