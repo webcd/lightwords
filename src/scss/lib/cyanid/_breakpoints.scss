@@ -92,6 +92,14 @@ $breakpoints-pixels-per-rem: (
   }
 }
 
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: initial;
+}
+
 .visible-collapsed {
   @include bp($expanded, true) {
     display: initial;

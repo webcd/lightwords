@@ -91,7 +91,7 @@
 - wp-sitemap-page
 - HTML Editor Syntax Highlighter
 - autoptimize (JS/CSS concatenation)
-- a3 Lazy Load
+- a3 Lazy Load (excluded classes : "attachment-woocommerce_thumbnail")
 - WooCommerce Products Filter (WOOF)
 - WooSwipe (single product image slider)
 - Smart Slider 3
