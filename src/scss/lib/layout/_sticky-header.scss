@@ -1,7 +1,7 @@
 /* STICKY HEADER */
 
 /*body*/
-.sticky-header:not(.is-landing-page) {
+.has-sticky-header:not(.is-landing-page) {
   .site-header {
     position: fixed;
     top: 0;

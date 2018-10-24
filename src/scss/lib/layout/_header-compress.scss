@@ -6,7 +6,7 @@
 }
 
 /*html*/
-.sticky-header.compressible-header {
+.has-sticky-header.has-compressible-header {
   // Add transitions to modified elements
   .site-header,
   .wrapper--pre-header {
@@ -57,7 +57,7 @@
 
     // DESKTOP LOGO SWAP
 
-    &.header-compressed:not(.header-uncompressed):not(.scroll-up).compressible-header-logo-swap {
+    &.header-compressed:not(.header-uncompressed):not(.scroll-up).has-compressible-header-logo-swap {
       .logo--desktop {
         // Swap the desktop logo with the tablet logo
         opacity: 0;
@@ -83,7 +83,7 @@
 
   // TRANSPARENT HEADER
 
-  &.transparent-header {
+  &.has-transparent-header {
     .site-header,
     .wrapper--pre-header {
       @include shadow(0);

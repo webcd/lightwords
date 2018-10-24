@@ -77,10 +77,10 @@ class StarterSite extends \TimberSite
 
         // Has feature
 
-        if ($config->stickyHeader) {$body_class_config .= 'sticky-header ';
-            if ($config->compressHeader) {$body_class_config .= 'compressible-header ';
-                if ($config->compressHeaderLogoSwap) {$body_class_config .= 'compressible-header-logo-swap ';}
-                if ($config->transparentHeader) {$body_class_config .= 'transparent-header ';}
+        if ($config->stickyHeader) {$body_class_config .= 'has-sticky-header ';
+            if ($config->compressHeader) {$body_class_config .= 'has-compressible-header ';
+                if ($config->compressHeaderLogoSwap) {$body_class_config .= 'has-compressible-header-logo-swap ';}
+                if ($config->transparentHeader) {$body_class_config .= 'has-transparent-header ';}
             }
         }
 
