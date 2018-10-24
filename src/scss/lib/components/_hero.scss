@@ -1,9 +1,13 @@
 .hero {
   position: relative;
-  min-height: 56.25vw; // 16:9 ratio
+  min-height: 100vw; // square ratio
   overflow: hidden;
   
   @include bp('md') {
+    min-height: 56.25vw; // 16:9 ratio
+  }
+
+  @include bp('lg') {
     min-height: 40vw;
   }
 
