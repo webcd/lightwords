@@ -39,3 +39,12 @@
 
   @return 0 $primary-offset $blur $color;
 }
+
+// Helper classes
+
+.shadow-0 { @include shadow(0); }
+.shadow-1 { @include shadow(1); }
+.shadow-2 { @include shadow(2); }
+.shadow-3 { @include shadow(3); }
+.shadow-4 { @include shadow(4); }
+.shadow-5 { @include shadow(5); }

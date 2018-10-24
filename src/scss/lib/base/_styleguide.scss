@@ -7,4 +7,15 @@
       margin-bottom: $gutter-half;
     }
   }
+
+  .styleguide-shadow-demo {
+    margin: auto;
+    width: 50%;
+    height: $gutter-double;
+    line-height: $gutter-double;
+    background-color: $gray-lighter;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: $gutter;
+  }
 }

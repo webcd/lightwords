@@ -9,8 +9,8 @@
 <body class="
   {{ body_class }}
   {{ body_class_config }}
-  {{ landing_page ? 'is-landing-page' }} {# TODO: inject into body_class_config #}
-  {{ post.slug ? "slug-#{post.slug}" }} {# TODO: inject into body_class_config #}
+  {{ landing_page ? 'is-landing-page' }}
+  {{ post.slug ? "slug-#{post.slug}" }}
   " data-config="{{ config_JSON }}"
 >
 

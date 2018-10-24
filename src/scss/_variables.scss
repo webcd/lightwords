@@ -138,12 +138,12 @@ $topbar-color-bg: $gray-lightest !default;
 $navbar-menu-mobile-width: 20em !default;
 
 // Topbar height
-// Warning: also change hard-coded height in 'header-compress'!
+// Warning: also change hard-coded height marked in comments with "[MANUAL]"!
 $topbar-height-mobile: 6rem !default;
 $topbar-height-desktop: $topbar-height-mobile !default;
 
 // Navbar height
-// Warning: also change hard-coded height in 'hero-fullheight'!
+// Warning: also change hard-coded height marked in comments with "[MANUAL]"!
 $navbar-height-mobile: 6rem !default;
 $navbar-height-desktop: $navbar-height-mobile * 1.5 !default;
 
@@ -169,11 +169,14 @@ $caret-color: $navbar-btn-color;
 $width-nested-dropdown-indentation: $gutter / 2;
 
 // WordPress admin bar
+// Warning: also change hard-coded height marked in comments with "[MANUAL]"!
 $wp-adminbar-height-mobile: 46px !default;
+// Warning: also change hard-coded height marked in comments with "[MANUAL]"!
 $wp-adminbar-height-desktop: 32px !default;
 $wp-adminbar-bp: 782px;
 
 // Chrome on Android URL bar
+// Warning: also change hard-coded height marked in comments with "[MANUAL]"!
 $android-chrome-topbar-height: 56px;
 
 ////////////////////////////////////////////////////////////////////////////////

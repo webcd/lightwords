@@ -43,7 +43,7 @@ h5, .h5,
 h6, .h6,
 p,
 ul,
-blockquote {
+blockquote, cite {
   margin-top: 0;
 }
 
@@ -66,11 +66,32 @@ p {
 }
 
 blockquote {
-  font-family: $font-family-serif;
-  font-style: italic;
-  color: $gray;
-  border-color: $color-primary;
+  border-left: $gutter-quarter solid $color-primary;
+  margin-left: 0;
+  padding-left: $gutter;
+
+  > p {
+    font-family: $font-family-serif;
+    font-style: italic;
+    color: $gray;
+    margin-bottom: $gutter-half;
+    text-indent: -$gutter / 3;
+  
+    &::before {
+      content: "“ ";
+    }
+  
+    &::after {
+      content: " ”";
+    }
+  }
+
+  > cite {
+    display: block;
+    margin-bottom: $gutter;
+  }
 }
+
 
 hr {
   margin-bottom: $gutter;
