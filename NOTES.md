@@ -1,17 +1,6 @@
 # NOTES
 
-The TODO list is now on Trello. See [this board](https://trello.com/b/a3iZuRtE/lightwords).
-
-## SUPPORTED PLUGINS
-
-- wordpress-seo (aka Yoast)
-- wp-sitemap-page
-- HTML Editor Syntax Highlighter
-- autoptimize (JS/CSS concatenation)
-- a3 Lazy Load (excluded classes : "attachment-woocommerce_thumbnail")
-- WooCommerce Products Filter (WOOF)
-- WooSwipe (single product image slider)
-- Smart Slider 3
+The TODO list is now on Trello. See [this private board](https://trello.com/b/a3iZuRtE/lightwords).
 
 ## WEBPACK DOC
 

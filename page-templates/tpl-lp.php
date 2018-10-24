@@ -13,7 +13,7 @@ if ( ! class_exists( 'Timber' ) ) {
 	return;
 }
 
-// TODO: use page.php with a $lp(?) variable and keep it DRY
+// TODO: use page.php with a $landing_page variable and keep it DRY
 
 $context = Timber::get_context();
 $post = new TimberPost();

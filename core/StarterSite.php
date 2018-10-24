@@ -62,39 +62,41 @@ class StarterSite extends \TimberSite
     }
 
     // Body configuration classes
-    // TODO: rewrite better (with an array)
     private function getBodyConfigurationClassesString($config)
     {
         $body_class_config = '';
-
+        $body_classes_config = array();
+        
         // Debug classes
-
-        if ($config->debug) {$body_class_config .= 'debug ';
+        if ($config->debug) {array_push($body_classes_config, 'debug');
 
             if ($config->debuggers) {
-                foreach ($config->debuggers as $debugger) {$body_class_config .= 'debug--' . $debugger . ' ';}
+                foreach ($config->debuggers as $debugger) {
+                    array_push($body_classes_config, 'debug--' . $debugger);
+                }
             }
         }
 
-        // Has feature
-
-        if ($config->stickyHeader) {$body_class_config .= 'has-sticky-header ';
-            if ($config->compressHeader) {$body_class_config .= 'has-compressible-header ';
-                if ($config->compressHeaderLogoSwap) {$body_class_config .= 'has-compressible-header-logo-swap ';}
-                if ($config->transparentHeader) {$body_class_config .= 'has-transparent-header ';}
+        // Has header features
+        if ($config->stickyHeader) {array_push($body_classes_config, 'has-sticky-header');
+            if ($config->compressHeader) {array_push($body_classes_config, 'has-compressible-header');
+                if ($config->compressHeaderLogoSwap) {array_push($body_classes_config, 'has-compressible-header-logo-swap');}
+                if ($config->transparentHeader) {array_push($body_classes_config, 'has-transparent-header');}
             }
         }
 
-        if ($config->fixedWidthContainers) {$body_class_config .= 'has-fixed-width-containers ';
+        // Has fixed-width containers
+        if ($config->fixedWidthContainers) {array_push($body_classes_config, 'has-fixed-width-containers');
         } else {
-            if ($config->fixedWidthHeader) {$body_class_config .= 'has-fixed-width-header ';}
-            if ($config->fixedWidthFooter) {$body_class_config .= 'has-fixed-width-footer ';}
-            if ($config->fixedWidthContent) {$body_class_config .= 'has-fixed-width-content ';}
+            if ($config->fixedWidthHeader) {array_push($body_classes_config, 'has-fixed-width-header');}
+            if ($config->fixedWidthFooter) {array_push($body_classes_config, 'has-fixed-width-footer');}
+            if ($config->fixedWidthContent) {array_push($body_classes_config, 'has-fixed-width-content');}
         }
 
-        if ($config->hasScrollTop) {$body_class_config .= 'has-scroll-top ';}
+        // Has scroll top
+        if ($config->hasScrollTop) {array_push($body_classes_config, 'has-scroll-top');}
 
-        return $body_class_config;
+        return implode(' ', $body_classes_config);
     }
 
     // Global context, available to all templates
