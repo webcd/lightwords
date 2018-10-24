@@ -1,0 +1,37 @@
+/* HEADER TRANSPARENT */
+
+// TODO: isolate transparent header from sticky and compressible modes
+/*html*/.has-transparent-header.has-sticky-header.has-compressible-header { // Specificity war!
+
+  .site-header,
+  .wrapper--pre-header {
+
+    // Tranparentize
+    @include shadow(0);
+    background-color: transparent;
+  }
+
+  &.header-compressed,
+  &.panel-expanded {
+
+    // Opacify
+    .wrapper--pre-header {
+      background-color: $topbar-color-bg;
+    }
+
+    .site-header {
+      background-color: $header-color-bg;
+      @include shadow(1);
+    }
+  }
+
+  // Hero moving up
+
+  .wrapper--hero {
+    margin-top: -$navbar-height-mobile;
+
+    @include bp($expanded) {
+      margin-top: -($navbar-height-desktop + $topbar-height-desktop);
+    }
+  }
+}

@@ -12,6 +12,7 @@
 - [PHP][never] Mark pages as "special" (like stock homepage, blog, my account...) (for contact page mostly)
 - [PHP][never] Simple breadcrumbs (no YoastSEO) (see: https://gist.github.com/tinotriste/5387124)
 - [PHP][idea] Add body classes for active plugins?
+- [PHP][idea] Add default CPT to pages?
 
 ### PHP Woocommerce
 

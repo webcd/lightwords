@@ -62,6 +62,7 @@ class StarterSite extends \TimberSite
     }
 
     // Body configuration classes
+    // TODO: rewrite better (with an array)
     private function getBodyConfigurationClassesString($config)
     {
         $body_class_config = '';

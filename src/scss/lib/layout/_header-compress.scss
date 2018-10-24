@@ -5,8 +5,7 @@
   display: none;
 }
 
-/*html*/
-.has-sticky-header.has-compressible-header {
+/*html*/.has-sticky-header.has-compressible-header {
   // Add transitions to modified elements
   .site-header,
   .wrapper--pre-header {
@@ -28,7 +27,6 @@
       }
     }
   }
-
 
   @include bp($expanded) {
     &.header-compressed:not(.header-uncompressed):not(.scroll-up) {
@@ -77,35 +75,6 @@
             top: calc(32px - 6rem);
           }
         }
-      }
-    }
-  }
-
-  // TRANSPARENT HEADER
-
-  &.has-transparent-header {
-    .site-header,
-    .wrapper--pre-header {
-      @include shadow(0);
-      background-color: transparent;
-    }
-
-    &.header-compressed {
-      .wrapper--pre-header {
-        background-color: $topbar-color-bg;
-      }
-
-      .site-header {
-        background-color: $header-color-bg;
-        @include shadow(1);
-      }
-    }
-
-    .wrapper--hero {
-      margin-top: -$navbar-height-mobile;
-
-      @include bp($expanded) {
-        margin-top: -($navbar-height-desktop + $topbar-height-desktop);
       }
     }
   }
