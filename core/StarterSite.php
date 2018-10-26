@@ -70,10 +70,8 @@ class StarterSite extends \TimberSite
         // Debug classes
         if ($config->debug) {array_push($body_classes_config, 'debug');
 
-            if ($config->debuggers) {
-                foreach ($config->debuggers as $debugger) {
-                    array_push($body_classes_config, 'debug--' . $debugger);
-                }
+            if ($config->debugBreakpoints) {
+                array_push($body_classes_config, 'debug--breakpoints');
             }
         }
 
@@ -104,16 +102,75 @@ class StarterSite extends \TimberSite
     {
         $context['site'] = $this;
 
-        // JSON CONFIG
+        // THEME OPTIONS
 
-        $config_JSON = file_get_contents(get_template_directory() . '/config.json');
-        $config_JSON = preg_replace("#(/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/)|([\s\t]//.*)|(^//.*)#", '', $config_JSON); // Remove comments from JSON
-        $config = json_decode($config_JSON);
+        $config = (object)NULL;
 
-        // $context['config_JSON'] = htmlspecialchars(json_encode($config_JSON), ENT_QUOTES, 'UTF-8');
-        $context['config_JSON'] = htmlspecialchars($config_JSON, ENT_QUOTES, 'UTF-8');
+        // Get config from theme settings
+        $config->debug = get_theme_mod( 'lw_settings_debug', true );
+        $config->debugBreakpoints = get_theme_mod( 'lw_settings_debugBreakpoints', true );
+        $config->search = get_theme_mod( 'lw_settings_search', true );
+        $config->breadcrumbs = get_theme_mod( 'lw_settings_breadcrumbs', true );
+        $config->breadcrumbsInContent = get_theme_mod( 'lw_settings_breadcrumbsInContent', true );
+        $config->hero = get_theme_mod( 'lw_settings_hero', true );
+        $config->hasScrollDirectionTracking = get_theme_mod( 'lw_settings_hasScrollDirectionTracking', true );
+        $config->stickyHeader = get_theme_mod( 'lw_settings_stickyHeader', true );
+        $config->compressHeader = get_theme_mod( 'lw_settings_compressHeader', true );
+        $config->compressHeaderOffset = get_theme_mod( 'lw_settings_compressHeaderOffset', true );
+        $config->compressHeaderLogoSwap = get_theme_mod( 'lw_settings_compressHeaderLogoSwap', true );
+        $config->transparentHeader = get_theme_mod( 'lw_settings_transparentHeader', true );
+        $config->expandDropdownsOnHover = get_theme_mod( 'lw_settings_expandDropdownsOnHover', true );
+        $config->hasScrollTop = get_theme_mod( 'lw_settings_hasScrollTop', true );
+        $config->scrollTopOffset = get_theme_mod( 'lw_settings_scrollTopOffset', 400 );
+        $config->fixedWidthContainers = get_theme_mod( 'lw_settings_fixedWidthContainers', false );
+        $config->fixedWidthHeader = get_theme_mod( 'lw_settings_fixedWidthHeader', true );
+        $config->fixedWidthFooter = get_theme_mod( 'lw_settings_fixedWidthFooter', true );
+        $config->fixedWidthContent = get_theme_mod( 'lw_settings_fixedWidthContent', true );
+        $config->menuCartDropdown = get_theme_mod( 'lw_settings_menuCartDropdown', true );
+        $config->menuMyAccountDropdown = get_theme_mod( 'lw_settings_menuMyAccountDropdown', true );
+        $config->rippleEffect = get_theme_mod( 'lw_settings_rippleEffect', true );
+        $config->rippleSelector = get_theme_mod( 'lw_settings_rippleSelector', ".btn, .scroll-btn, .rrssb-button > a" );
+        $config->pageTransitions = get_theme_mod( 'lw_settings_pageTransitions', false );
+
+        // Contact infos
+        $config->contactInfos = get_theme_mod( 'lw_contact_infos', true );
+        $config->contactInfosAddressFirmName = get_theme_mod( 'lw_contact_infos_addressFirmName', "" );
+        $config->contactInfosAddress1 = get_theme_mod( 'lw_contact_infos_address1', "" );
+        $config->contactInfosAddress2 = get_theme_mod( 'lw_contact_infos_address2', "" );
+        $config->contactInfosAddressZipcode = get_theme_mod( 'lw_contact_infos_addressZipcode', "" );
+        $config->contactInfosAddressCity = get_theme_mod( 'lw_contact_infos_addressCity', "" );
+        $config->contactInfosAddressCountry = get_theme_mod( 'lw_contact_infos_addressCountry', "" );
+        $config->contactInfosPhone1 = get_theme_mod( 'lw_contact_infos_phone1', "" );
+        $config->contactInfosPhone2 = get_theme_mod( 'lw_contact_infos_phone2', "" );
+        $config->contactInfosFax = get_theme_mod( 'lw_contact_infos_fax', "" );
+        $config->contactInfosOpening = get_theme_mod( 'lw_contact_infos_opening', true );
+        $config->contactInfosOpening1 = get_theme_mod( 'lw_contact_infos_opening1', "" );
+        $config->contactInfosOpening2 = get_theme_mod( 'lw_contact_infos_opening2', "" );
+        $config->contactInfosOpening3 = get_theme_mod( 'lw_contact_infos_opening3', "" );
+        $config->contactInfosEmail = get_theme_mod( 'lw_contact_infos_email', "" );
+        $config->contactInfosLinkToContactPage = get_theme_mod( 'lw_contact_infos_linkToContactPage', true );
+
+        // Social links
+        $config->socialLinks = get_theme_mod( 'lw_social_links', true );
+        $config->socialLinksTopbar = get_theme_mod( 'lw_social_links_topbar', true );
+        $config->socialLinksFacebook = get_theme_mod( 'lw_social_links_facebook', "" );
+        $config->socialLinksTwitter = get_theme_mod( 'lw_social_links_twitter', "" );
+        $config->socialLinksGooglePlus = get_theme_mod( 'lw_social_links_googlePlus', "" );
+        $config->socialLinksLinkedin = get_theme_mod( 'lw_social_links_linkedin', "" );
+        $config->socialLinksYoutube = get_theme_mod( 'lw_social_links_youtube', "" );
+        $config->socialLinksViadeo = get_theme_mod( 'lw_social_links_viadeo', "" );
+        $config->socialLinksEmail = get_theme_mod( 'lw_social_links_email', "" );
+        $config->socialLinksTumblr = get_theme_mod( 'lw_social_links_tumblr', "" );
+        $config->socialLinksReddit = get_theme_mod( 'lw_social_links_reddit', "" );
+        $config->socialLinksPinterest = get_theme_mod( 'lw_social_links_pinterest', "" );
+        $config->socialLinksPocket = get_theme_mod( 'lw_social_links_pocket', "" );
+        $config->socialLinksGithub = get_theme_mod( 'lw_social_links_github', "" );
+
         $context['CONFIG'] = $config;
 
+        $context['config_JSON'] = htmlspecialchars(json_encode($config), ENT_QUOTES, 'UTF-8');
+
+        // Body configuration classes
         $context['body_class_config'] = $this->getBodyConfigurationClassesString($config);
 
         // MENUS

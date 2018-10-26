@@ -3,10 +3,10 @@
   $(function() {
 
     // DOM IS READY!
-
+    
     // Get the JSON configuration from markup
-    var configJSON = JSON.parse($("body").data("config"));
-
+    var configJSON = JSON.parse(JSON.stringify($("body").data("config")));
+    
     window.Lightwords = {};
     window.Lightwords.CONFIG = configJSON;
 

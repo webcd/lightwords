@@ -37,8 +37,12 @@ function ddump($what)
 include 'functions-woocommerce.php';
 include 'functions-woocommerce-hooks.php';
 
-// TODO: move this elsewhere
+// THEME OPTIONS
+include 'functions-theme-options.php';
+include 'functions-theme-options-social-links.php';
+include 'functions-theme-options-contact-infos.php';
 
+// TODO: move this elsewhere
 // Disable TinyMCE automatic paragraph removal
 function remove_wpautop($content)
 {
