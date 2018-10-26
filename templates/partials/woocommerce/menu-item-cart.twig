@@ -64,7 +64,11 @@
             <a href="{{ fn('get_permalink', item.data.id) }}" class="menu-item-link item-product">
 
               <span class="item-product__img">
-                <img src="{{ fn('get_the_post_thumbnail_url', item.data.id) }}" alt="{{ item.data.name }}"/>
+                {% if fn('has_post_thumbnail', item.data.id) %}
+                  <img src="{{ fn('get_the_post_thumbnail_url', item.data.id) }}" alt="{{ item.data.name }}"/>
+                {% else %}
+                  <img src="{{ fn('woocommerce_placeholder_img_src') }}" alt="{{ item.data.name }}"/>
+                {% endif %}
               </span>
               {# {{ item.data.id }} #}
               

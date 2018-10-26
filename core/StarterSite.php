@@ -107,7 +107,9 @@ class StarterSite extends \TimberSite
         // JSON CONFIG
 
         $config_JSON = file_get_contents(get_template_directory() . '/config.json');
+        $config_JSON = preg_replace("#(/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/)|([\s\t]//.*)|(^//.*)#", '', $config_JSON); // Remove comments from JSON
         $config = json_decode($config_JSON);
+
         // $context['config_JSON'] = htmlspecialchars(json_encode($config_JSON), ENT_QUOTES, 'UTF-8');
         $context['config_JSON'] = htmlspecialchars($config_JSON, ENT_QUOTES, 'UTF-8');
         $context['CONFIG'] = $config;
@@ -150,7 +152,8 @@ class StarterSite extends \TimberSite
         // WOOCOMMERCE
         // See also /woocommerce.php at theme root
 
-        $has_woocommerce = true; // TODO: dynamic!
+        include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+        $has_woocommerce = is_plugin_active('woocommerce/woocommerce.php');
         $context['is_woocommerce_active'] = $has_woocommerce;
 
         if ($has_woocommerce) {
