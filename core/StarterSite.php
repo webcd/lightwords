@@ -150,7 +150,8 @@ class StarterSite extends \TimberSite
         // WOOCOMMERCE
         // See also /woocommerce.php at theme root
 
-        $has_woocommerce = true; // TODO: dynamic!
+        include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+        $has_woocommerce = is_plugin_active('woocommerce/woocommerce.php');
         $context['is_woocommerce_active'] = $has_woocommerce;
 
         if ($has_woocommerce) {
