@@ -65,8 +65,8 @@
                         {{ fn('esc_html_e', 'SKU:', 'woocommerce' ) }}
                         {{ post.product.sku }}
                       </span>
+                      <span>&bull;</span>
                     {% endif %}
-                    <span>&bull;</span>
 
                     {% if post.product.rating_counts|length > 0 %}
                       <a href="#tab-reviews" class="product-rating">
