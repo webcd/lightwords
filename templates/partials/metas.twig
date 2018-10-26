@@ -4,11 +4,11 @@
     <div class="terms">
 
       {% for cat in post.categories %}
-        <a class="category-link btn btn-primary btn-xs" href="{{cat.link}}">{{cat.name}}</a>
+        <a class="category-link btn btn-primary btn-xs" href="{{ fn('get_term_link', cat) }}">{{cat.name}}</a>
       {% endfor %}
 
       {% for tag in post.terms('tags') %}
-        <a class="tag-link btn btn-xs" href="{{tag.link}}">#{{tag.name}}</a>
+        <a class="tag-link btn btn-xs" href="{{ fn('get_term_link', tag) }}">#{{tag.name}}</a>
       {% endfor %}
 
     </div>
