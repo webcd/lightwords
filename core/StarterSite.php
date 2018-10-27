@@ -319,13 +319,6 @@ class StarterSite extends \TimberSite
     {
         // this is where you can add your own functions to twig
         $twig->addExtension(new \Twig_Extension_StringLoader());
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        // This filter throw a 500 error
-        // $twig->addFilter('myfoo', new \Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
->>>>>>> dev
-=======
 
         // Enable dump() in templates
         // See: https://twig.symfony.com/doc/2.x/functions/dump.html
@@ -337,7 +330,6 @@ class StarterSite extends \TimberSite
         $twig->addFilter(new \Twig_SimpleFilter('formatPhone', array($this, 'formatPhone')));
         $twig->addFilter(new \Twig_SimpleFilter('formatPhoneLink', array($this, 'formatPhoneLink')));
 
->>>>>>> dev
         return $twig;
     }
 
