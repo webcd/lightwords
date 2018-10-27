@@ -1,0 +1,35 @@
+.menu-item {
+
+  // Active items (default)
+  &:not(.menu-item--passive) {
+
+    > .menu-item-link {
+      position: relative;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        background-color: $navbar-btn-bg-hover;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        transform: scale3d(0,0,1);
+        opacity: 0;
+        transition: all 0.125s;
+      }
+
+      @include hocus() {
+        background-color: transparent;
+
+        &::before {
+          transform: scale3d(1,1,1);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+}

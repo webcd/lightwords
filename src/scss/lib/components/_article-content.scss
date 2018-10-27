@@ -1,0 +1,59 @@
+// ARTICLE CONTENT
+
+.article-content {}
+
+// Debug
+
+// .article-content-header { background: gray; }
+// .article-content-header { background: lightgray; }
+
+// Article header
+
+.article-content-header {
+  padding-top: $gutter-double;
+  padding-bottom: $gutter;
+
+  body.home & {
+    display: none;
+  }
+
+  .breadcrumb {}
+
+  .metas {
+    margin-top: $gutter;
+
+    .woocommerce.single-product & {
+      margin-top: 0;
+      margin-bottom: $gutter;
+    }
+  }
+}
+
+// Article body
+
+.article-content-body {
+  padding-top: $gutter;
+  padding-bottom: $gutter-double;
+
+  .page-template-tpl-fullwidth-page &,
+  .archive.woocommerce &,
+  .single.woocommerce & {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+// MAIN PAGE TITLE
+
+// Homepage title is only for SEO
+.main-title {
+  margin-bottom: 0;
+
+  &.main-title--hidden {
+    display: none;
+  }
+}
+
+.publish {
+  font-style: italic;
+}

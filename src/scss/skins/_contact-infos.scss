@@ -1,0 +1,145 @@
+// For WooCommerce mostly
+
+address {
+  margin-bottom: $gutter-half;
+  position: relative;
+  padding-left: $gutter-half * 2.25; // OMG super magic value!
+  // border-left: 0.2rem solid $gray-light;
+
+  &::before {
+    content: "\f041";
+    position: absolute;
+    top: $gutter-quarter;
+    left: 0;
+
+    display: inline-block;
+    // background: red;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 1.33333333em;
+    width: 1.28571429em;
+    text-align: center;
+    height: $gutter;
+    line-height: .75em;
+    // color: $gray-light;
+    color: $color-primary;
+  }
+}
+
+.address_city {
+  text-transform: uppercase;
+}
+
+.contact-infos {
+
+  address {
+    position: initial;
+    padding-left: 0;
+
+    &::before {
+      display: none;
+    }
+  }
+  
+  h4 {
+    margin-bottom: $gutter-quarter;
+    font-style: normal;
+
+    > .fa {
+      color: $color-primary;
+      font-size: 100%; // Don't scale with H4 fontsize
+
+      @include bp('sm', true) {
+        display: block;
+        width: auto;
+        text-align: center;
+        margin-bottom: $gutter-half;
+      }
+    }
+  
+    > a {
+    }
+  }
+
+}
+
+.contact-infos-block {
+  margin-bottom: $gutter;
+}
+
+.contact-infos__address,
+.contact-infos__opening-hours {
+
+  > div {
+    @include bp('sm') {
+      padding-left: $gutter-half * 2;
+    }
+    margin-bottom: $gutter-quarter;
+    line-height: $line-height-small;
+  }
+}
+
+
+.contact-infos__address {}
+
+.contact-infos__phone-numbers {
+  > * {
+
+    em {
+      font-size: $font-size-base;
+    }
+  }
+}
+
+.contact-infos__opening-hours {
+
+  sub {
+    bottom: initial; // reset subs
+    font-size: $font-size-small;
+  }
+
+  b {
+    font-weight: $font-weight-semibold;
+  }
+}
+
+.contact-infos__link {
+
+  > a, button {
+    background-color: $gray-darkest;
+    color: white;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+// GOOGLE MAP
+
+#google-map {
+  height: 100vh;
+
+  @include bp('md') {
+    height: 50vh;
+  }
+}
+
+// NEWSLETTER FORM
+
+.form-newsletter {
+
+  .gfield + .gfield {
+    margin-top: -$gutter-half;
+  }
+
+  .gfield_label {
+    display: none;
+  }
+
+  label {
+    font-size: $font-size-small;
+    text-align: left;
+  }
+
+  .gfield_description {
+    font-size: $font-size-small;
+    font-style: italic;
+  }
+}

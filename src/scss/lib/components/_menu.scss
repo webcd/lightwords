@@ -1,0 +1,276 @@
+/* MENU */
+
+/////////////////////////////////////////////////////////////////////////////
+// COMMON STYLES
+
+.divider {
+  margin-bottom: $gutter-quarter;
+  height: 0.2rem;
+  background-color: $navbar-btn-bg-hover;
+}
+
+@mixin dropdown() {
+  position: relative;
+  transition: all 0.25s ease;
+  flex-wrap: nowrap;
+
+  .dropdown-wrapper {
+    background-color: $header-color-bg;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50vw;
+
+    @include bp($expanded) {
+      width: 25vw;
+    }
+    padding-top: $gutter-quarter;
+
+    &.dropdown-wrapper--right {
+      left: auto;
+      right: 0;
+    }
+
+    @include shadow(1);
+    transform: scale3d(1, 0, 1) translateY(100%);
+    transform-origin: 50% 0 0;
+    opacity: 0;
+    transition: all 0.5s $ease-bump;
+    z-index: +10;
+
+    > .dropdown-menu {
+
+      > .menu-item {
+        margin: $gutter-quarter;
+        margin-top: 0;
+      }
+    }
+
+    .dropdown-menu & {
+      overflow: hidden;
+    }
+  }
+
+  &.active {
+    @include shadow(1);
+    margin-bottom: 0;
+
+    > .dropdown-wrapper {
+      opacity: 1;
+      transform: scale3d(1, 1, 1) translateY(100%);
+    }
+  }
+}
+
+// MENUS
+
+.menu-buttons {
+  @include reset-list;
+  margin-bottom: 0;
+  display: flex;
+}
+
+// ITEM LINK DEFAULT STYLES
+
+.menu-item-link {
+  display: block;
+  min-height: $navbar-btn-size;
+  @include h-padding($gutter-half);
+  line-height: $line-height-smallest; // In case of multi-line
+
+  color: $navbar-btn-color;
+  background-color: $navbar-btn-bg;
+
+  // Flex vertical center
+  display: flex;
+  align-items: center;
+
+  transition: all 0.25s;
+
+  > .fa,
+  > .icon {
+    & + * {
+      margin-left: $gutter-quarter;
+    }
+  }
+
+  em {
+    font-size: $font-size-small;
+  }
+
+  // Active item
+  .current-menu-item & {
+    color: $color-primary;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+// MENU ITEM
+
+.menu-item {
+  // Active items (default)
+  &:not(.menu-item--passive) {
+    > .menu-item-link {
+      cursor: pointer;
+
+      @include hocus() {
+        color: $navbar-btn-color-hover;
+        background-color: $navbar-btn-bg-hover;
+      }
+    }
+  }
+
+  &.menu-item--button {
+    margin-left: $gutter-quarter;
+
+    > .dropdown-toggle {
+      margin-left: 0;
+    }
+
+    > .menu-item-link {
+      @include h-padding($gutter-quarter);
+      border: 0;
+      min-width: $navbar-btn-size;
+      transition: color 0.25s;
+      // Bring toggle btns back to foreground (in case of overlay/offscreen panel)
+      position: relative;
+      z-index: +1;
+
+      &:focus {
+        outline: none;
+        background-color: $navbar-btn-bg-hover;
+      }
+    }
+
+    // Ugly hamburger exception
+    &.menu-item--hamburger {
+      > .menu-item-link {
+        @include h-padding(($navbar-btn-size - $hamburger-height) / 2);
+      }
+    }
+  }
+
+  // Highlighted item
+  &.highlight {
+    .site-header & {
+      background-color: $color-primary;
+
+      > .menu-item-link {
+        color: white;
+      }
+    }
+  }
+
+  // Dropdown
+  &.menu-item--dropdown {
+    display: flex;
+    flex-wrap: wrap;
+
+    .menu-item-link:first-child {
+      flex-grow: 1;
+    }
+
+    &.menu-item--dropdown-mobile {
+      @include dropdown();
+    }
+  }
+}
+
+.dropdown-menu {
+  @include reset-list();
+}
+
+.dropdown-toggle {
+  margin-left: $gutter-eighth;
+
+  > .caret {
+    @include triangle("bottom", $caret-color, $caret-size);
+    transition: all 0.5s $ease-bump;
+  }
+
+  .menu-item--dropdown.active > & {
+
+    > .caret {
+      transform: rotateZ(180deg);
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// MOBILE ONLY MENU
+
+// Pain in the ass to reset mobile navbar styles on larger screens
+// So for once, we allow MOBILE ONLY styles max-width @mq here!
+@include bp($expanded, true) {
+
+  // Sub-menus
+
+  .menu-item--dropdown {
+
+    > .dropdown-wrapper {
+      margin-top: $gutter-quarter;
+      flex-basis: 100%;
+      // TODO: animate hide/show
+      display: none;
+    }
+
+    &.active {
+      > .dropdown-wrapper {
+        display: block;
+      }
+    }
+  }
+
+  // Nested dropdowns indentation
+
+  .dropdown-menu {
+    // First level
+    .menu-item {
+      > .menu-item-link:first-child {
+        padding-left: $gutter-half + $width-nested-dropdown-indentation;
+      }
+    }
+
+    // Second level
+    .dropdown-menu & {
+      .menu-item {
+        > .menu-item-link:first-child {
+          padding-left: $gutter-half +
+            ($width-nested-dropdown-indentation * 2);
+        }
+      }
+
+      // Third (and other) level
+      .dropdown-menu & {
+        .menu-item {
+          > .menu-item-link:first-child {
+            padding-left: $gutter-half +
+              ($width-nested-dropdown-indentation * 3);
+          }
+        }
+      }
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////
+//DESKTOP ONLY MENU
+
+@include bp($expanded) {
+  .menu-primary,
+  .menu-secondary,
+  .menu-buttons {
+    .menu-item {
+      margin-left: $gutter-quarter;
+
+      &.hidden-expanded {
+        display: none; // Needed for submenus with flex display
+      }
+
+      // Hide and show dropdown submenu
+      &.menu-item--dropdown {
+        @include dropdown();
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+/* STICKY HEADER */
+
+/*body*/
+.has-sticky-header:not(.is-landing-page) {
+  .site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    @include shadow(1);
+    z-index: 20000; // TODO: better!
+    background-color: $header-color-bg;
+  }
+
+  .site-content {
+    padding-top: $navbar-height-mobile;
+
+    @include bp($expanded) {
+      padding-top: $navbar-height-desktop + $topbar-height-desktop;
+    }
+  }
+
+  // Wordpress admin bar
+  &.admin-bar {
+    .site-header {
+      top: $wp-adminbar-height-mobile;
+
+      @media screen and (min-width: $wp-adminbar-bp) {
+        top: $wp-adminbar-height-desktop;
+      }
+    }
+
+    #wpadminbar {
+      position: fixed !important;
+    }
+  }
+}

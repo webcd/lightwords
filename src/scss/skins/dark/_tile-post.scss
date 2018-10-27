@@ -1,0 +1,44 @@
+/* SKIN - DARK - POSTS */
+
+///////////////////////////////////////////////////////////////////////////////
+// METAS
+
+.publish {
+  color: $gray-light;
+}
+
+.tag-link {
+  border-color: transparent;
+  color: $color-secondary;
+
+  @include hocus() {
+    background-color: transparent;
+    border-color: transparent;
+    color: lighten($color-secondary, 20%);
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// TILES
+
+.tile__title {
+  background-color: rgba(0, 0, 0, 0.5);
+
+  a {
+    color: white;
+  }
+}
+
+.tile__body {
+  color: white;
+}
+
+.tile__foot {
+}
+
+// Posts tiles are dark
+.tile-post {
+  .tile__content {
+    background-color: $gray-darkest;
+  }
+}

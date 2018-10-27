@@ -1,0 +1,13 @@
+/* BREADCRUMB */
+
+.breadcrumb {
+  > span {
+    > span {
+      [property='v:title'],
+      .breadcrumb_last {
+        display: inline-block;
+        padding: $gutter-quarter 0;
+      }
+    }
+  }
+}

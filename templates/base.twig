@@ -2,80 +2,133 @@
 
 <!-- HEAD -->
 {% block head %}
-{% include 'head.twig' %}
+  {% include 'header/head.twig' %}
 {% endblock %}
 
 <!-- BODY -->
-<body class="{{body_class}}" data-template="base.twig">
+<body class="
+  {{ body_class }}
+  {{ body_class_config }}
+  {{ landing_page ? 'is-landing-page' }}
+  {{ post.slug ? "slug-#{post.slug}" }}
+  " data-config="{{ config_JSON }}"
+>
 
-	<!-- SITE-WRAPPER -->
-	<div class="site-wrapper">
+  <!-- SITE-WRAPPER -->
+  <div class="site-wrapper">
 
-		<!-- HEADER -->
-		<header class="site-header">
-			{% block header %}
-			{% include 'header.twig' %}
-			{% endblock %}
-		</header>
+    <!-- HEADER -->
+    {% if not landing_page %}
+      <header class="site-header">
+        {% block header %}
+          {% include 'header/header.twig' %}
+        {% endblock %}
+      </header>
+    {% endif %}
 
-		<!-- SITE-CONTENT -->
-		<section class="site-content">
+    <!-- SITE-CONTENT -->
+    <section class="site-content">
 
-			<!-- MAIN -->
-			<main class="wrapper wrapper--content" role="main">
-				{% if not fn('is_front_page') %}
-				<!-- BREADCRUMB -->
-				<section class="wrapper wrapper--breadcrumb">
-					<div class="container">
-						{# native walker: % include "breadcrumb.twig" %#}
-						{{ breadcrumb }}
-					</div>
-				</section>
-				{% endif %}
+      {# Ugly dump, use with extreme shame #}
+      {# {% for item in cart.cart_contents %} #}
+        {# {{ fn('ddump', CONFIG) }} #}
+      {# {% endfor %} #}
 
-				<!-- ARTICLE CONTENT -->
-				{% block content %}
-				<div class="container">
-					Sorry, no content!
-				</div>
-				{% endblock %}
+      <!-- MAIN -->
+      <main class="site-main-content wrapper wrapper--content" role="main">
 
-			</main>
-               {# {{ \Timber::get_widgets('footer1') }}#}
-			{% if sidebar %}
-			<!-- SIDEBAR -->
-			<aside class="site-aside">
-				{{ sidebar }}
-			</aside>
-			{% endif %}
+        <!-- BREADCRUMB -->
+        {% if CONFIG.breadcrumbs and not CONFIG.breadcrumbsInContent and not fn('is_front_page') %}
+          <section class="wrapper wrapper--breadcrumb">
+            <div class="container">
+              {# native walker: % include "breadcrumb.twig" %#}
+              {{ breadcrumb }}
+            </div>
+          </section>
+        {% endif %}
 
-		</section><!-- end .site-content -->
+        <!-- ARTICLE CONTENT -->
+        {% block content %}
+          <div class="container">
+            Sorry, no content!
+          </div>
+        {% endblock %}
 
-		<!-- FOOTER -->
-		<footer class="site-footer">
-			{% block footer %}
-			{% include 'footer.twig' %}
-			{% endblock %}
-		</footer>
+      </main>
 
-	</div><!-- end .site-wrapper -->
+      {# <!-- SIDEBAR 1 -->
+      {% if widgets_sidebar_1 %}
+        <aside class="site-sidebar site-sidebar--left">
+          <div class="container">
+            <div class="row">
+              {{ widgets_sidebar_1 }}
+            </div>
+          </div>
+        </aside>
+      {% endif %}
 
-	<div class="overlay" data-toggle="#navbar-menu, #overlay-navbar, body" data-toggle-classname="navbar-expanded" id="overlay-navbar"></div>
+      <!-- SIDEBAR 2 -->
+      {% if widgets_sidebar_2 %}
+        <aside class="site-sidebar site-sidebar--right">
+          <div class="container">
+            <div class="row">
+              {{ widgets_sidebar_2 }}
+            </div>
+          </div>
+        </aside>
+      {% endif %} #}
 
-	{% if do_inlinesvg %}
-	<!-- INLINE SVG -->
-    <div class="inline-svg">{% include 'sprite.symbol.svg.twig' %}</div>
-	{% endif %}
+    </section><!-- end .site-content -->
 
-	{% if do_debug_zone %}
-	<!-- DEBUG ZONE -->
-	<div class="debug-zone">
-		<div class="debug-zone__item debug-zone__item--bp"></div>
-	</div>
-	{% endif %}
+    <!-- FOOTER -->
+    {% if not landing_page %}
+      <footer class="site-footer">
+        {% block footer %}
+          {% include 'footer.twig' %}
+        {% endblock %}
+      </footer>
+    {% endif %}
 
-	<!-- WP_FOOTER -->
-	{{ function('wp_footer') }}
+  </div><!-- end .site-wrapper -->
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay-panels"></div>
+
+  <!-- SCROLL TO TOP BUTTON -->
+  {% if CONFIG.hasScrollTop %}
+    <div class="scroll-btn scroll-btn-up" data-scroll="body">
+      <svg viewBox="0 0 71 71">
+        <use xlink:href="#scroll-down"></use>
+      </svg>
+    </div>
+  {% endif %}
+
+  <!-- PAGE TRANSITION -->
+  {% if CONFIG.pageTransitions %}
+    <div class='page-transition-in active'></div>
+    <div class='page-transition-out'></div>
+  {% endif %}
+
+  {% if do_inlinesvg %}
+    <!-- INLINE SVG -->
+    <div class="inline-svg">
+      {% include 'sprite.symbol.svg.twig' %}
+
+      {% if CONFIG.socialLinks or CONFIG.socialButtons %}
+        {% include 'social-networks-svg.twig' %}
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if do_debug_zone %}
+    <!-- DEBUG ZONE -->
+    <div class="debug-zone">
+      <div class="debug-zone__item debug-zone__item--bp"></div>
+    </div>
+  {% endif %}
+
+  <!-- WP_FOOTER -->
+  {{ function('wp_footer') }}
 
 </body>
 </html>

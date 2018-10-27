@@ -1,0 +1,57 @@
+/* FOOTER */
+
+.site-footer,
+.site-sidebar {
+  // De-colorize all links in footer
+  a:not(.btn) {
+    color: $gray-darker;
+    font-weight: $font-weight-semibold;
+    transition: all 0.25s;
+
+    @include hocus() {
+      color: $color-primary;
+      text-decoration: underline;
+    }
+  }
+
+  // Reset all lists in footer
+  // And make links bigger enough
+  ul {
+    @include reset-list();
+    > li {
+      > a {
+        display: inline-block;
+        @include v-padding($gutter-quarter);
+      }
+    }
+  }
+
+  .widget {
+
+    > .widget-title {
+      color: $color-primary;
+
+      text-decoration: underline;
+
+      @include bp($expanded) {
+        text-decoration: none;
+        border-bottom: 0.2rem solid $color-primary;
+      }
+
+      // font-weight: $font-weight-normal;
+      font-style: italic;
+    }
+
+    &.widget--newsletter {
+
+      .gform_fields > * {
+        @include v-padding($gutter-quarter);
+      }
+    }
+  }
+
+  .widget + .widget {
+    margin-top: $gutter;
+  }
+}
+

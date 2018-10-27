@@ -1,0 +1,45 @@
+// Macro-wrappers
+
+.site-wrapper {}
+
+.site-header,
+.site-footer {
+  background-color: $gray-darker;
+  color: $gray-light;
+}
+.site-footer {
+  border-top: 0.2rem solid $color-primary;
+}
+.site-content {}
+
+// Micro-wrappers
+
+.wrapper--pre-header,
+.wrapper--header {
+  background-color: $gray-darkest;
+}
+.wrapper--post-header {}
+
+.wrapper--pre-footer {}
+.wrapper--footer {}
+.wrapper--post-footer {
+  background-color: $gray-darkest;
+}
+
+.wrapper--content {}
+
+// Nano-wrappers
+
+.wrapper--hero {}
+.wrapper--article-content {}
+.wrapper--posts {
+  background-color: $gray-dark;
+  color: $gray-light;
+}
+.wrapper--breadcrumb {
+  background-color: $color-primary;
+}
+.wrapper--comments {
+  background-color: $gray-dark;
+}
+

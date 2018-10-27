@@ -1,0 +1,14 @@
+/* WP ADMIN BAR */
+
+// See: https://css-tricks.com/snippets/wordpress/remove-the-28px-push-down-from-the-admin-bar/#comment-1607379
+html:first-of-type {
+  margin-top: 0 !important;
+}
+
+#wpadminbar {
+  position: fixed !important;
+  top: auto !important;
+  bottom: 0 !important;
+  background-color: $gray-darkest !important;
+}
+

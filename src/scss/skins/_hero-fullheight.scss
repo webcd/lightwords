@@ -1,0 +1,95 @@
+/* HERO FULLHEIGHT */
+
+@mixin full-height($body-selector: '') {
+
+  // Default full-height
+  /*body*/#{$body-selector} & {
+    // [MANUAL] min-height: calc(100vh - $navbar-height-mobile);
+    min-height: calc(100vh - 6rem);
+    
+    @include bp($expanded) {
+      // [MANUAL] min-height: calc(100vh - $navbar-height-desktop);
+      min-height: calc(100vh - 15rem);
+    }
+  }
+
+  // WordPress admin bar
+  /*body*/#{$body-selector}.admin-bar & {
+    // [MANUAL] min-height: calc(100vh - $navbar-height-mobile - $wp-adminbar-height-mobile);
+    min-height: calc(100vh - 6rem - 46px);
+  
+    @include bp($expanded) {
+      // [MANUAL] min-height: calc(100vh - $navbar-height-desktop - $wp-adminbar-height-desktop);
+      min-height: calc(100vh - 15rem - 32px);
+    }
+  }
+
+  // Transparent header
+  /*body*/#{$body-selector}.has-transparent-header & {
+    min-height: 100vh;
+  }
+
+  // Transparent header + WordPress admin bar
+  /*body*/#{$body-selector}.has-transparent-header.admin-bar & {
+    // min-height: calc(100vh - $wp-adminbar-height-mobile);
+    min-height: calc(100vh - 46px);
+  
+    @include bp($expanded) {
+      // min-height: calc(100vh - $wp-adminbar-height-desktop);
+      min-height: calc(100vh - 32px);
+    }
+  }
+  
+  // TODO: doesn't work!!!
+  // Chrome on Android URL bar hack
+  // See: https://dev.to/peiche/100vh-behavior-on-chrome-2hm8
+
+  // @supports (-webkit-appearance: none) {
+
+  //   /*body*/#{$body-selector}.os-android & {
+  //     // [MANUAL] min-height: calc(100vh - $navbar-height-mobile - $android-chrome-topbar-height);
+  //     min-height: calc(100vh - 6rem - 56px);
+
+  //     @include bp($expanded) {
+  //       // [MANUAL] min-height: calc(100vh - $navbar-height-desktop - $android-chrome-topbar-height);
+  //       min-height: calc(100vh - 15rem - 56px);
+  //     }
+  //   }
+
+  //   /*body*/#{$body-selector}.os-android.admin-bar & {
+  //     // [MANUAL] min-height: calc(100vh - $navbar-height-mobile - $wp-adminbar-height-mobile - $android-chrome-topbar-height);
+  //     min-height: calc(100vh - 6rem - 46px - 56px);
+
+  //     @include bp($expanded) {
+  //       // [MANUAL] min-height: calc(100vh - $navbar-height-desktop - $wp-adminbar-height-desktop - $android-chrome-topbar-height);
+  //       min-height: calc(100vh - 15rem - 32px - 56px);
+  //     }
+  //   }
+
+  //   /*body*/#{$body-selector}.os-android.has-transparent-header & {
+  //     // min-height: calc(100vh - $android-chrome-topbar-height);
+  //     min-height: calc(100vh - 56px);
+
+  //     @include bp($expanded) {
+  //       // min-height: calc(100vh - $android-chrome-topbar-height);
+  //       min-height: calc(100vh - 56px);
+  //     }
+  //   }
+
+  //   /*body*/#{$body-selector}.os-android.has-transparent-header.admin-bar & {
+  //     // min-height: calc(100vh - $wp-adminbar-height-mobile - $android-chrome-topbar-height);
+  //     min-height: calc(100vh - 46px - 56px);
+
+  //     @include bp($expanded) {
+  //       // min-height: calc(100vh - $wp-adminbar-height-desktop - $android-chrome-topbar-height);
+  //       min-height: calc(100vh - 32px - 56px);
+  //     }
+  //   }
+  // }
+
+}
+
+// Full height hero
+.hero {
+  @include full-height('.home'); // Only on homepage
+}

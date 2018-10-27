@@ -1,0 +1,19 @@
+{% if CONFIG.hero and post.get_thumbnail %}
+  
+  {% include "hero.twig" with { 'img': post.thumbnail.src } %}
+
+{% endif %}
+
+<section class="wrapper wrapper--article-content">
+  <div class="article-content">
+
+    {% include "article-content-header.twig" with {'title': post.title} %}
+
+    <div class="article-content-body">
+      <div class="{% if not fullwidth_content %}container{% endif %}">
+        {{ post.content }}
+      </div>
+    </div>
+
+  </div>
+</section>

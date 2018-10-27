@@ -1,0 +1,100 @@
+/******************************************************************************
+ * CYANID - UNITS TOOLS
+ * Depends on : nothing
+ ******************************************************************************/
+
+////////////////////////////////////////////////////////////////////////////////
+// VARIABLES
+
+$browser-fontsize-base: 16 !default; // Default browser font-size in px (unitless)
+$pixels-per-rem: 10 !default; // Root font-size in px (unitless)
+
+////////////////////////////////////////////////////////////////////////////////
+// FUNCTIONS
+
+// STRIP-UNIT
+// Remove the unit of a length
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Unitless number
+// See: https://css-tricks.com/snippets/sass/strip-unit-function/
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+// UNITS CONVERSION
+// These functions inputs can be with or without units
+// They return values WITH unit (use strip-unit() if needed)
+// Adapted from: https://css-tricks.com/snippets/sass/px-to-em-functions/
+
+// PX2EM
+// Converts pixels to em's
+@function px2em(
+  $pixels, 
+  $context: $browser-fontsize-base
+) {
+  $pixels: strip-unit($pixels);
+  $context: strip-unit($context);
+  @return $pixels / $context * 1em;
+}
+
+// EM2PX
+// Converts em's to pixels
+@function em2px(
+  $ems, 
+  $context: $browser-fontsize-base
+) {
+  $ems: strip-unit($ems);
+  $context: strip-unit($context);
+  @return $ems * $context * 1px;
+}
+
+// EM2REM
+// Converts em's to rem's
+@function em2rem(
+  $ems,
+  $context-rem: $pixels-per-rem,
+  $context: $browser-fontsize-base
+) {
+  $ems: strip-unit($ems);
+  $context: strip-unit($context);
+  $context-rem: strip-unit($context-rem);
+  @return $ems * $context / $context-rem * 1rem;
+}
+
+// REM2EM
+// Converts rem's to em's
+@function rem2em(
+  $rems,
+  $context-rem: $pixels-per-rem,
+  $context: $browser-fontsize-base
+) {
+  $rems: strip-unit($rems);
+  $context: strip-unit($context);
+  $context-rem: strip-unit($context-rem);
+  @return $rems / $context * $context-rem * 1em;
+}
+
+// PX2REM
+// Converts pixels to rem's
+@function px2rem(
+  $pixels, 
+  $context-rem: $pixels-per-rem
+) {
+  $pixels: strip-unit($pixels);
+  $context-rem: strip-unit($context-rem);
+  @return $pixels / $context-rem * 1rem;
+}
+
+// REM2PX
+// Converts rem's to pixels
+@function rem2px(
+  $rems, 
+  $context-rem: $pixels-per-rem
+) {
+  $rems: strip-unit($rems);
+  $context-rem: strip-unit($context-rem);
+  @return $rems * $context-rem * 1px;
+}

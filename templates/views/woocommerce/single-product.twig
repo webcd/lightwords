@@ -1,0 +1,187 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+{# {{ fn('ddump', post.product.average_rating) }} #}
+  <article class="single">
+
+    <section class="wrapper bg-secondary color-white">
+      <div class="container">
+        {##
+          # woocommerce_before_single_product hook.
+          #
+          # @hooked wc_print_notices - 10
+          #}
+        {% do action('woocommerce_before_single_product') %}
+      </div>
+    </section>
+
+    <section class="wrapper wrapper--article-content">
+      <div class="article-content">
+
+        <div class="article-content-header" id="product-{{ post.id }}" {{ fn('post_class', ['product', 'product--' ~ post.product.get_type()]) }}>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-4 col-md-6 col-lg-5 col-xl-4 product-images">
+                {##
+                  # woocommerce_before_single_product_summary hook.
+                  #
+                  # @hooked woocommerce_show_product_sale_flash - 10
+                  # @hooked woocommerce_show_product_images - 20
+                #}
+                {% do action('woocommerce_before_single_product_summary') %}
+
+                {# {% if post.thumbnail %}
+                    <img src="{{ post.thumbnail.src('thumbnail') }}">
+                {% endif %} #}
+              </div>
+
+              <div class="col-sm-8 col-md-6 col-lg-7 col-xl-8 product-content">
+
+                {{ fn('do_action', 'woocommerce_product_meta_start') }}
+
+                <div class="metas metas--product metas--single">
+
+                  {% if categories or tags %}
+                    <div class="terms">
+
+                      {% for cat in categories %}
+                        <a class="category-link btn btn-primary btn-xs" href="{{ fn('get_term_link', cat) }}">{{cat.name}}</a>
+                      {% endfor %}
+
+                      {% for tag in tags %}
+                        <a class="tag-link btn btn-xs" href="{{ fn('get_term_link', tag) }}">#{{tag.name}}</a>
+                      {% endfor %}
+
+                    </div>
+                  {% endif %}
+
+                  <div class="publish">
+                    <span class="date">Ajouté le {{ post.post_date|date}}</span>
+                    <span>&bull;</span>
+
+                    {% if post.product.sku %}
+                      <span class="product-sku">
+                        {{ fn('esc_html_e', 'SKU:', 'woocommerce' ) }}
+                        {{ post.product.sku }}
+                      </span>
+                      <span>&bull;</span>
+                    {% endif %}
+
+                    {% if post.product.rating_counts|length > 0 %}
+                      <a href="#tab-reviews" class="product-rating">
+                        {% include 'partials/woocommerce/rating.twig' with {
+                          'rating': post.product.average_rating,
+                          'rating_counts': post.product.rating_counts|length
+                        } %}
+                      </a>
+                    {% else %}
+                      <span>Pas encore d'avis</span>
+                    {% endif %}
+                  </div>
+                </div>
+
+                {{ fn('do_action', 'woocommerce_product_meta_end') }}
+
+                <h1 class="h1 main-title" id="main-title">{{ post.title }}</h1>
+
+                {% if CONFIG.breadcrumbs and CONFIG.breadcrumbsInContent %}
+                  {{ breadcrumb }}
+                {% endif %}
+
+                <div class="product-summary">
+
+                  <p class="price">
+                    {% if post.product.sale_price %}
+                      <del>
+                        <span class="woocommerce-Price-amount amount">
+                          {{ fn('wc_price', post.product.regular_price) }}
+                        </span>
+                      </del>
+                      <ins>
+                        <span class="woocommerce-Price-amount amount">
+                          {{ fn('wc_price', post.product.sale_price) }}
+                        </span>
+                      </ins>
+                    {% else %}
+                      <ins>
+                        <span class="woocommerce-Price-amount amount">
+                          {{ fn('wc_price', post.product.regular_price) }}
+                        </span>
+                      </ins>
+                    {% endif %}
+                  </p>
+
+                  <div class="woocommerce-product-details__short-description">
+                    {{ post.product.short_description }}
+                  </div>
+
+                  {##
+                    # woocommerce_single_product_summary hook.
+                    #
+                    # REMOVED @hooked woocommerce_template_single_title - 5
+                    # REMOVED @hooked woocommerce_template_single_rating - 10
+                    # REMOVED @hooked woocommerce_template_single_price - 10
+                    # REMOVED @hooked woocommerce_template_single_excerpt - 20
+                    # @hooked woocommerce_template_single_add_to_cart - 30
+                    # REMOVED @hooked woocommerce_template_single_meta - 40
+                    # @hooked woocommerce_template_single_sharing - 50
+                    # @hooked WC_Structured_Data::generate_product_data() - 60
+                    #}
+                  {% do action( 'woocommerce_single_product_summary' ) %}
+
+                  {% if post.manage_stock %}
+                    <div>{{ post.stock_quantity }} en stock</div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div> <!-- End .article-content-header -->
+
+        <div class="article-content-body">
+        
+          <section class="wrapper wrapper--padding bg-gray-lighter">
+            <div class="container">
+              {##
+                # woocommerce_after_single_product_summary hook.
+                #
+                # @hooked woocommerce_output_product_data_tabs - 10
+                # @hooked woocommerce_upsell_display - 15
+                # REMOVED @hooked woocommerce_output_related_products - 20
+                #}
+              {% do action('woocommerce_after_single_product_summary') %}
+
+              {# <div class="content">{{ post.content }}</div> #}
+
+              {% do action('woocommerce_after_single_product') %}
+            </div>
+          </section>
+
+          {% if related_products %}
+            <section class="wrapper wrapper--padding bg-gray-light">
+              <div class="container">
+
+                <h2>Produits similaires</h2>
+                <ul class="woo-list woo-list--products">
+
+                  {% for product in related_products %}
+                    <li class="woo-item">
+                      {% include 'partials/woocommerce/teaser-product.twig' with { post: product } %}
+                    </li>
+                  {% endfor %}
+                </ul>
+
+              </div>
+            </section>
+          {% endif %}
+
+        </div>
+
+      </div>
+    </section>
+
+  </article>
+
+{% endblock %}

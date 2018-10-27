@@ -1,0 +1,67 @@
+/******************************************************************************
+ * CYANID - DEBUG
+ * Depends on : Gutter, Breakpoints
+ ******************************************************************************/
+
+////////////////////////////////////////////////////////////////////////////////
+// VARIABLES
+
+$debug-zone-background: rgba(0, 0, 0, 0.75);
+$debug-zone-text-color: chartreuse;
+
+////////////////////////////////////////////////////////////////////////////////
+// CLASSES
+
+/* DEBUG ZONE */
+.debug-zone {
+  display: none;
+}
+
+/* DEBUG */
+/*html*/
+.debug {
+  .debug-zone {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: $debug-zone-background;
+    z-index: 100000;
+  }
+
+  .debug-zone__item {
+    padding: $gutter-eighth $gutter-half;
+    color: $debug-zone-text-color;
+
+    &:before {
+      font-weight: $font-weight-bold;
+      text-transform: uppercase;
+    }
+    &:after {
+    }
+  }
+}
+
+/* DEBUG BREAKPOINTS */
+.debug.debug--breakpoints {
+  // In case ther is no 'min' breakpoint
+  .debug-zone__item--bp:before {
+    content: 'min';
+  }
+  .debug-zone__item--bp:after {
+    content: ' (0em / 0rem / 0px)';
+  }
+
+  @each $breakpoint-name, $breakpoint-width in $breakpoints {
+    @media (min-width: $breakpoint-width) {
+      .debug-zone__item--bp::before {
+        content: $breakpoint-name; // name
+      }
+      .debug-zone__item--bp::after {
+        content: ' (' + bp($breakpoint-name) + ' / ' +
+          em2rem(bp($breakpoint-name)) + ' / ' +
+          em2px(bp($breakpoint-name)) + ')';
+      }
+    }
+  }
+}

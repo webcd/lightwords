@@ -1,0 +1,84 @@
+// PRODUCTS LIST
+
+/*ul*/
+.woo-list,
+.products {
+  padding-left: 0;
+  list-style-type: none;
+
+  @include row();
+
+  > .woo-item,
+  .product {
+    @include col("min", 6);
+    @include col("sm", 4);
+    @include col("md", 6);
+    @include col("lg", 4);
+    @include col("xl", 3);
+  }
+}
+
+.woocommerce-pagination {
+  > ul {
+    @include reset-list();
+    display: flex;
+    justify-content: center;
+
+    > li {
+      display: block;
+
+      > span,
+      > a {
+        display: inline-block;
+        padding: $gutter-quarter $gutter-half;
+        margin: $gutter-eighth;
+        background-color: $gray-lightest;
+      }
+
+      > span {
+        background-color: $gray-light;
+      }
+
+      > a {
+      }
+    }
+  }
+}
+
+.woo-products-header {
+  @include row();
+  margin-top: 0;
+  margin-bottom: 0;
+  align-items: center;
+
+  > * {
+    display: block;
+    @include col("xs", 6);
+    @include col("md", 4);
+    margin: 0;
+  }
+
+  @include bp($bp-woo-sidebar) {
+    @include v-padding($gutter-half);
+  }
+
+  // Replace product counter in forst position
+  .woocommerce-result-count {
+    order: -1;
+  }
+
+  .woof_products_top_panel {
+    order: +1;
+    @include col("xs", 12);
+    @include col("md", 4);
+  }
+}
+
+.woo-archive-description {
+  > .term-image {
+    width: 12rem;
+  }
+
+  > .term-description {
+  }
+}

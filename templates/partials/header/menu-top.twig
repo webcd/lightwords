@@ -1,0 +1,42 @@
+<div class="topbar" id="topbar">
+  <div class="bar-wrapper container">
+
+    {# TOPBAR SECONDARY MENU #}
+    {# Only visible on desktop #}
+
+    <div class="topbar-menu">
+      <nav class="menu-secondary hidden-collapsed" role="navigation">
+        <ul class="nav">
+
+          {% include 'header/menu-loop.twig' with {
+            'items': menu_top.get_items
+          } %}
+        
+        </ul>
+      </nav>
+    </div>
+
+    {# SEARCH #}
+
+    {% if CONFIG.search %}
+      <div class="topbar-search">
+        
+        {% include 'header/search-form.twig' %}
+
+      </div>
+    {% endif %}
+
+    {# SOCIAL LINKS #}
+    {% if CONFIG.socialLinks and CONFIG.socialLinksTopbar %}
+      <div class="topbar-social-links hidden-collapsed">
+
+        {% include "social-links.twig" with {
+          'bare': true,
+          'mini': true
+        } %}
+
+      </div>
+    {% endif %}
+
+  </div><!-- /.container -->
+</div>

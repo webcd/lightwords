@@ -1,0 +1,19 @@
+/******************************************************************************
+ * CYANID FLEXBOX GRID
+ * 
+ * MODULE           DEPENDENCIES
+ *
+ * Gutter           none
+ * Breakpoints      none
+ * Units tools      none
+ * Container        Gutter, Breakpoints, Units tools
+ * Grid             Gutter, Breakpoints
+ * Debug            Gutter, Breakpoints
+ ******************************************************************************/
+
+@import 'gutter';
+@import 'breakpoints';
+@import 'units-tools';
+@import 'container';
+@import 'grid';
+@import 'debug';

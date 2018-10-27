@@ -1,0 +1,87 @@
+// GRAVITY FORMS OVERRIDES (WIP)
+
+.gf_browser_chrome.gform_wrapper.gf_reset_wrapper {
+  form {
+    .gform_heading {
+      .gform_description {
+      }
+    }
+
+    .validation_error {
+    }
+
+    .gform_body {
+      ul.gform_fields {
+        .gfield {
+          .gfield_label {
+            .gfield_required {
+            }
+          }
+
+          .ginput_container {
+            input {
+            }
+          }
+
+          .gfield_description.validation_message {
+          }
+        }
+        .gfield_error {
+        }
+        .gf_left_half {
+        }
+      }
+    }
+  }
+}
+
+//
+
+.gform_fields {
+  list-style-type: none;
+  padding-left: 0;
+  @include row();
+}
+
+.gf_left_half,
+.gf_right_half {
+  @include col('sm', 6);
+}
+
+.gfield {
+  // margin-bottom: $gutter;
+
+  &.inline {
+    li {
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-right: $gutter;
+      }
+    }
+  }
+}
+
+.gfield_required {
+  color: $color-error;
+}
+
+.validation_error {
+  color: $color-error;
+}
+
+.gfield_error {
+  .validation_message {
+    color: $color-error;
+  }
+}
+
+.gform_description {
+  font-style: italic;
+}
+
+ul.gfield_radio,
+ul.gfield_checkbox {
+  @include reset-list();
+}
+

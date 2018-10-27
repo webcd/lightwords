@@ -1,0 +1,81 @@
+/* HEADER COMPRESS */
+
+.menu-item--compress {
+  // Hide the "+" button by default
+  display: none;
+}
+
+/*html*/.has-sticky-header.has-compressible-header {
+  // Add transitions to modified elements
+  .site-header,
+  .wrapper--pre-header {
+    transition: 
+      top 0.25s $ease-bump, 
+      background-color 1s,
+      transform 0.25s $ease-bump;
+  }
+
+  .logo {
+    transform-origin: 50% 50%;
+    transition: all 0.25s $ease-bump;
+
+    &.logo--tablet {
+      @include bp($expanded) {
+        display: block;
+        transform: scale3d(0, 0, 1);
+        position: absolute;
+      }
+    }
+  }
+
+  @include bp($expanded) {
+    &.header-compressed:not(.header-uncompressed):not(.scroll-up) {
+      .site-header {
+        // Hide the topbar above the viewport
+        top: -$topbar-height-desktop;
+      }
+
+      .menu-item--compress {
+        // Display the "+" button when compressed
+        display: initial;
+      }
+    }
+
+    // DESKTOP LOGO SHRINK
+
+    &.header-compressed:not(.header-uncompressed):not(.scroll-up) {
+      .logo--desktop {
+        // Scale the desktop logo down to fit compressed header
+        // Use mobile logo height
+        height: $navbar-logo-height;
+        // Move it back to bottom of the navbar
+        top: 0;
+      }
+    }
+
+    // DESKTOP LOGO SWAP
+
+    &.header-compressed:not(.header-uncompressed):not(.scroll-up).has-compressible-header-logo-swap {
+      .logo--desktop {
+        // Swap the desktop logo with the tablet logo
+        opacity: 0;
+      }
+
+      .logo--tablet {
+        transform: scale3d(1, 1, 1);
+      }
+    }
+
+    // Wordpress admin bar
+    &.admin-bar {
+      &.header-compressed:not(.header-uncompressed):not(.scroll-up) {
+        .site-header {
+          @media screen and (min-width: $wp-adminbar-bp) {
+            // [MANUAL] top: calc($wp-adminbar-height-desktop - $topbar-height-desktop);
+            top: calc(32px - 6rem);
+          }
+        }
+      }
+    }
+  }
+}

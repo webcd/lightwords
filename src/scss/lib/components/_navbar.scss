@@ -1,0 +1,85 @@
+/* NAVBAR */
+
+///////////////////////////////////////////////////////////////////////////////
+// BAR WRAPPERS
+
+.bar-wrapper {
+  // Gives flexbox behavious to bars
+  display: flex;
+  flex-wrap: wrap;
+
+  .navbar & {
+    // Bar content gutter
+    @include v-padding(($navbar-height-mobile - $navbar-btn-size) / 2);
+
+    @include bp($expanded) {
+      @include v-padding(($navbar-height-desktop - $navbar-btn-size) / 2);
+    }
+  }
+
+  .topbar & {
+    // Bar content gutter
+    @include v-padding(($topbar-height-mobile - $navbar-btn-size) / 2);
+
+    @include bp($expanded) {
+      @include v-padding(($topbar-height-desktop - $navbar-btn-size) / 2);
+    }
+  }
+
+  // Topbar item alignement
+  .topbar & {
+    justify-content: flex-end; // To right
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// TOPBAR
+
+.topbar {
+  // overflow: hidden; // Needed?
+  height: $topbar-height-mobile;
+
+  .topbar-menu {}
+
+  .topbar-search {
+    flex-basis: 100%;
+
+    @include bp($expanded) {
+      flex-basis: auto;
+      margin-left: $gutter-half;
+    }
+  }
+}
+
+// Topbar on mobile - toggles visibility
+@include bp($expanded, true) {
+  .site-header {
+    transform: translate3d(0, -$topbar-height-mobile, 0);
+    transition: transform 0.5s $ease-bump;
+
+    /*html*/
+    .topbar-expanded & {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// NAVBAR HEADER
+
+.navbar-header {
+  flex-grow: 1;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// NAVBAR MENU
+
+.navbar-menu {}
+
+///////////////////////////////////////////////////////////////////////////////
+// NAVBAR FOOTER
+
+.navbar-footer {
+  display: flex;
+}
+

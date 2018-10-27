@@ -12,17 +12,17 @@
 #}
 
 {% if breadcrumb is defined %}
-<nav class="breadcrumb" role="navigation">
-  <ol>
-  {% for item in breadcrumb %}
-    {% if loop.first %}
-      <li>{{ item }} » </li>
-    {% elseif loop.last %}
-      <li>{{ item }}</li>
-    {% else %}
-      <li>{{ item }} » </li>
-    {% endif %}
-  {% endfor %}
-  </ol>
-</nav>
+  <nav class="breadcrumb" role="navigation">
+    <ol>
+    {% for item in breadcrumb %}
+      {% if loop.first %}
+        <li>{{ item }} » </li>
+      {% elseif loop.last %}
+        <li>{{ item }}</li>
+      {% else %}
+        <li>{{ item }} » </li>
+      {% endif %}
+    {% endfor %}
+    </ol>
+  </nav>
 {% endif %}

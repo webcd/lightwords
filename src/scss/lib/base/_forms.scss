@@ -1,0 +1,174 @@
+/* FORMS */
+
+// BASE
+
+input[type='text'],
+input[type='number'],
+input[type='email'],
+input[type='password'],
+input[type='tel'],
+input[type='url'],
+input[type='search'],
+textarea
+ {
+  display: block;
+  width: 100%;
+  padding-left: $gutter-half;
+  padding-right: $gutter-half;
+  
+  background-color: $input-bg;
+  color: $input-color;
+  border: 0.1rem solid $input-border-color;
+
+  .error & {
+    border-color: $color-error;
+  }
+}
+
+input[type='text'],
+input[type='number'],
+input[type='email'],
+input[type='password'],
+input[type='tel'],
+input[type='search'],
+input[type='url'] {
+  @include v-padding(0);
+  height: $input-height-base;
+  line-height: 4.4rem;
+}
+
+input[type='number'] {
+  text-align: right;
+}
+
+textarea {
+  @include v-padding($gutter-half);
+  line-height: $line-height-base;
+}
+
+select {
+  display: block;
+  width: 100%;
+}
+
+label,
+.label {
+  display: block;
+  margin-bottom: $gutter-quarter;
+  line-height: $line-height-small; // Compact
+
+  .input-block > & {
+    font-weight: $font-weight-semibold;
+  }
+
+  .input-block.error > & {
+    color: $color-error;
+  }
+
+  .input-block.required > & {
+    &::after {
+      display: inline-block;
+      margin-left: $gutter-eighth / 2;
+      content: "*";
+      color: $color-error;
+      transform: translateY(-$gutter-eighth);
+    }
+  }
+}
+
+// Placeholder
+// See: https://css-tricks.com/almanac/selectors/p/placeholder/
+
+@mixin placeholder() {
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    @content;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    @content;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    @content;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    @content;
+  }
+}
+
+@include placeholder() {
+
+  font-style: italic;
+}
+
+// Submit
+
+input[type='submit']/*,
+button[type='submit']*/ {
+  @include btn();
+  @include btn('primary');
+}
+
+// LAYOUT
+
+.form {
+  // @include row();
+  align-items: flex-start; // Better when unknown content
+  // align-items: flex-end; // Better when multiline label AND same height inputs
+}
+
+.input-block {
+  @include row();
+  @include row('no-gutter');
+
+  > input[type="submit"],
+  > button[type="submit"] {
+    flex-basis: auto;
+  }
+}
+
+.input {
+
+  &.input--inline {
+    display: flex;
+  }
+}
+
+.input-before,
+.input-after {
+  padding-left: $gutter-half;
+  padding-right: $gutter-half;
+  @include v-padding(0);
+  height: 4.4rem;
+  line-height: 4.4rem;
+  background-color: $input-border-color;
+}
+
+.input-info {
+  @include v-padding($gutter-eighth);
+  text-align: right;
+  font-size: $font-size-small;
+  line-height: $line-height-small;
+  font-style: italic;
+  color: gray;
+
+  .error & {
+    color: $color-error;
+  }
+}
+
+// MESSAGES
+
+.message {
+  display: block;
+  padding: $gutter-quarter $gutter-half;
+  font-style: italic;
+
+  &.message--error {
+    background-color: $color-error;
+    color: white;
+  }
+
+  .form & {
+    margin-bottom: $gutter;
+  }
+}

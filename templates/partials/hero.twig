@@ -1,19 +1,50 @@
 <section class="wrapper wrapper--hero">
-    <div class="hero">
-    <!-- <img src="{{ post.thumbnail.src }}" /> -->
-    <img
-        src="{{ post.thumbnail.src|resize(1920) }}"
-        srcset="
-          {{ post.thumbnail.src|resize(1920) }} 1920w,
-          {{ post.thumbnail.src|resize(1200) }} 1200w,
-          {{ post.thumbnail.src|resize(768) }} 768w,
-          {{ post.thumbnail.src|resize(480) }} 480w,
-          {{ post.thumbnail.src|resize(220) }} 220w
-        "
-        sizes="
-            100vw
-        "
-        itemprop="image"
-        alt="{{ post.thumbnail.alt }}" />
+  <div class="hero">
+    <div class="hero__img" style="background-image: url('{{ img|resize(1920) }}');"
+      data-parallax="0.5"
+    >
+    {#
+    <img class="hero__img"
+      src="{{ post.thumbnail.src|resize(1920) }}"
+      srcset="
+        {{ post.thumbnail.src|resize(1920) }} 1920w,
+        {{ post.thumbnail.src|resize(1200) }} 1200w,
+        {{ post.thumbnail.src|resize(768) }} 768w,
+        {{ post.thumbnail.src|resize(480) }} 480w,
+        {{ post.thumbnail.src|resize(220) }} 220w
+      "
+      sizes="
+        100vw
+      "
+      itemprop="image"
+      alt="{{ post.thumbnail.alt }}" />
+    #}
+
+      {% if fn('is_front_page') or slogan %}
+        <div class="hero__content">
+
+          {% if slogan %}
+            <div class="hero__slogan">
+              {{ slogan }}
+            </div>
+          {% endif %}
+
+          {% if fn('is_front_page') %}
+            <div class="hero__btn">
+              <a href="#" class="btn btn-black btn-lg btn-hollow btn-wrap">Call to ACTION!</a>
+            </div>
+          {% endif %}
+
+        </div>
+
+        <div class="hero__scroll-down scroll-btn scroll-btn-down" data-scroll=".wrapper--article-content">
+          <svg viewBox="0 0 71 71">
+            <use xlink:href="#scroll-down"></use>
+          </svg>
+        </div>
+      {% endif %}
+
+    </div>
+    
   </div>
 </section>

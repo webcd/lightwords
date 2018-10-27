@@ -1,0 +1,49 @@
+{# MENU ITEM LOOP #}
+
+{% for item in items %}
+
+  <li class="menu-item
+    {{ item.classes | join(' ') }}
+    {{ (item.has_child_class) ? 'menu-item--dropdown' }}
+    {{ (hidden_expanded) ? 'hidden-expanded' }}
+  ">
+
+    {# ONE SINGLE MENU ITEM #}
+    {# Can be simple or have dropdown menu #}
+
+    {# SIMPLE MENU ITEM #}
+
+    {# Item link #}
+    <a href="{{item.get_link}}" class="menu-item-link">
+      <span>{{item.title}}</span>
+    </a>
+
+    {# DROPDOWN MENU #}
+
+    {% if item.has_child_class() %}
+
+      {# Caret #}
+      <span class="menu-item-link dropdown-toggle" data-dropdown>
+        <span class="caret"></span>
+      </span>
+
+      {# Dropdown menu #}
+      <div class="dropdown-wrapper">
+
+        <ul class="dropdown-menu">
+
+          {# Recursivity! Circular includes! #}
+          {% include 'header/menu-loop.twig' with {
+            'items': item.get_children,
+            'hidden_expanded': false
+          } %}
+
+        </ul>
+
+      </div>
+
+    {% endif %}
+
+  </li>
+
+{% endfor %}

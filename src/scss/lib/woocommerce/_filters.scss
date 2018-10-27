@@ -1,0 +1,282 @@
+/* FILTERS */
+
+// WOOF
+
+// Top panel
+
+.woof_products_top_panel {
+  margin-bottom: -$gutter-quarter;
+
+  ul {
+    @include reset-list();
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      margin-right: $gutter-quarter;
+
+      a {
+        @include btn();
+        @include btn('xs');
+        @include btn('primary');
+        margin-bottom: $gutter-quarter;
+    
+        > span {
+  
+          &::after {
+            content: "\f057";
+            font-family: "FontAwesome";
+            margin-left: $gutter-quarter;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Sidebar
+
+@mixin woof-title() {
+  @include h(4);
+  color: $color-primary;
+  margin-bottom: $gutter-half;
+  border-bottom: 1px solid;
+  text-transform: uppercase;
+}
+
+
+.woo-filters-btn-toggle {
+  display: none;
+}
+
+@include bp($bp-woo-sidebar, true) {
+
+  .woo-filters-header {
+    display: flex;
+    align-items: flex-start;
+  
+    > .woo-filters-title {
+      flex-grow: 1;
+      margin-bottom: 0;
+      line-height: 4.4rem;
+    }
+  
+    > .woo-filters-btn-toggle {
+      display: block;
+      height: 4.4rem;
+      width: 4.4rem;
+      position: relative;
+
+      > .fa {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate3d(-50%, -50%, 0) rotateZ(0);
+        transition: all 0.5s $ease-bump;
+      }
+
+      &.active {
+        > .fa {
+          transform: translate3d(-50%, -50%, 0) rotateZ(0.5turn + 0.125turn);
+        }
+      }
+    }
+  }
+}
+
+.WOOF_Widget {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+
+  @include bp($bp-woo-sidebar) {
+    display: block;
+  }
+}
+
+.woof_redraw_zone {
+  @include row();
+  align-items: flex-start;
+
+  > * {
+    @include col('xs', 6);
+    @include col('sm', 4);
+    @include col('md', 12);
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+  }
+}
+
+.woof_redraw_zone {
+
+  .woof_container {
+    // background-color: gray; // Debug purpose
+    margin-bottom: $gutter-half;
+
+    h4 {
+      @include woof-title();
+    }
+
+    // Sort of select (conflicts with Select2)
+    .chosen-container {
+      display: none;
+    }
+
+    br {
+      display: none;
+    }
+  }
+}
+
+// Hack: remove extra &nbsp; from plugin
+.woof_checkbox_featured_container,
+.woof_checkbox_sales_container,
+.woof_checkbox_instock_container {
+  .woof_container_inner {
+    font-size: 0;
+
+    * {
+      font-size: $font-size-base;
+    }
+  }
+}
+
+
+// Lists
+
+ul.woof_list {
+  @include reset-list();
+
+  li {
+    position: relative;
+  }
+
+  label {
+    display: inline-block;
+  }
+}
+
+ul.woof_childs_list {
+  @include reset-list();
+  margin-left: $size-checkradio + $gutter-half;
+}
+
+// List buttons
+/*a*/.woof_childs_list_opener,
+/*a*/.woof_radio_term_reset {
+  width: 4.4rem;
+  height: 4.4rem;
+  line-height: 4.4rem;
+  display: inline-block;
+  opacity: 0.8;
+  transition: all 0.25s;
+  text-align: center;
+  
+  @include hocus() {
+    opacity: 1;
+  }
+  
+}
+
+/*a*/.woof_childs_list_opener {
+  > span {
+    &.woof_is_closed {
+      &::after {
+        content: "\f055";
+        font-family: "FontAwesome";
+        font-size: $font-size-big;
+        color: $color-woo-sidebar;
+      }
+    }
+    &.woof_is_opened {
+      &::after {
+        content: "\f056";
+        font-family: "FontAwesome";
+        font-size: $font-size-big;
+        color: $color-woo-sidebar;
+      }
+    }
+  }
+}
+
+/*a*/.woof_radio_term_reset {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  > img {
+    display: none;
+  }
+  
+  &::after {
+    content: "\f057";
+    font-family: "FontAwesome";
+    font-size: $font-size-big;
+    color: $color-error;
+  }
+}
+
+// Price range slider
+
+.woof .widget_price_filter .price_slider {
+  margin-bottom: $gutter-half !important;
+}
+
+.woof .widget_price_filter .price_slider_amount {
+  margin-bottom: $gutter-half !important;
+}
+
+.price_label {
+  margin-bottom: $gutter-half;
+}
+
+// Search by text
+// TODO: dequeue_style `by-text.css`
+
+.woof_redraw_zone {
+
+  // Fake title
+  .woof_text_search_container,
+  .woof_by_rating_container {
+
+    &::before {
+      display: block;
+      @include woof-title();
+    }
+  }
+
+  .woof_text_search_container {
+
+    &::before {
+      content: "Recherche";
+    }
+
+    input[type='search'] {
+      font-size: $font-size-base !important;
+      border-radius: 0 !important;
+    }
+  }
+
+  .woof_by_rating_container {
+
+    &::before {
+      content: "Note";
+    }
+  }
+}
+
+// Reset button
+
+.woof_submit_search_form_container {
+  flex-basis: 100%;
+
+  .button {
+    @include btn('primary');
+    float: none !important;
+  }
+}

@@ -1,26 +1,15 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 
-	{% if post.get_thumbnail %}
-	{% include "hero.twig" %}
-	{% endif %}
+  <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 
-	<section class="wrapper wrapper--article-content">
-		<div class="article-content container">
+    {% include 'base-content.twig' %}
 
-			<h1 class="h1 hero-title">{{ post.title }}</h1>
-			{% include "metas.twig" %}
-			<div class="article-content-body">
-				{{ post.content }}
-			</div>
-		</div>
-	</section>
+    {% if post.comment_status != 'closed' %}
+      {% include 'comments.twig' %}
+    {% endif %}
 
-	{% if post.comment_status != 'closed' %}
-        {% include 'comments.twig' %}
-	{% endif %}
+  </article>
 
-</article>
 {% endblock %}

@@ -1,0 +1,43 @@
+<nav class="navbar" role="navigation">
+  <div class="bar-wrapper container">
+
+    {# LOGO #}
+
+    <div class="navbar-header">
+      <a class="navbar-logo" href="{{site.url}}" rel="home">
+        <svg class="logo logo--mobile" viewBox="0 0 44 44">
+          <use xlink:href="#logo-mobile"></use>
+        </svg>
+        <svg class="logo logo--tablet" viewBox="0 0 156 44">
+          <use xlink:href="#logo-tablet"></use>
+        </svg>
+        <svg class="logo logo--desktop" viewBox="0 0 124 110">
+          <use xlink:href="#logo-desktop"></use>
+        </svg>
+      </a>
+    </div>
+
+    {# MAIN MENU #}
+
+    <nav class="navbar-menu dropdown-wrapper dropdown-wrapper--panel dropdown-wrapper--panel-menu">
+      <ul class="menu-primary nav">
+
+        {% include 'header/menu-main.twig' %}
+
+      </ul>
+    </nav>
+
+    {# ACTION BUTTONS #}
+    {# Show up in the mobile topbar, aligned right (think hamburger) #}
+    {# Can also be visible on desktop, at the right of the main menu #}
+
+    <div class="navbar-footer">
+      <ul class="menu-buttons">
+
+        {% include 'header/menu-buttons.twig' %}
+
+      </ul>
+    </div>
+
+  </div><!-- End .container -->
+</nav>

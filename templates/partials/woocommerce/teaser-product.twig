@@ -1,0 +1,57 @@
+<div {{ fn('post_class', ['list-item', 'teaser', 'teaser--product'] ) }}
+	data-onclick-url="{{ post.link }}"
+>
+
+	{{ fn('timber_set_product', post) }}
+
+	<div class="teaser-content">
+		{##
+		 # woocommerce_before_shop_loop_item_title hook.
+		 #
+		 # @hooked woocommerce_show_product_loop_sale_flash - 10
+		 # @hooked woocommerce_template_loop_product_thumbnail - 10
+		 #}
+		{% do action('woocommerce_before_shop_loop_item_title') %}
+
+		{##
+		 # woocommerce_shop_loop_item_title hook.
+		 #
+		 # REMOVED @hooked woocommerce_template_loop_product_title - 10
+		 #}
+		{% do action('woocommerce_shop_loop_item_title') %}
+
+		{# TITLE #}
+		<h3 class="teaser-title">
+			<a class="teaser-link" href="{{ post.link }}">{{ post.title }}</a>
+		</h3>
+
+		{% if post.product.rating_counts|length > 0 %}
+			<div class="teaser-rating">
+				{% include 'partials/woocommerce/rating.twig' with {
+					'rating': post.product.average_rating,
+					'rating_counts': post.product.rating_counts|length
+				} %}
+			</div>
+		{% endif %}
+
+		{# {{ fn('ddump', post.product) }} #}
+
+		{##
+		 # woocommerce_after_shop_loop_item_title hook.
+		 #
+		 # REMOVED @hooked woocommerce_template_loop_rating - 5
+		 # @hooked woocommerce_template_loop_price - 10
+		 #}
+		{% do action('woocommerce_after_shop_loop_item_title') %}
+
+		{##
+		 # woocommerce_after_shop_loop_item hook.
+		 #
+		 # The second parameter is currently needed to prevent an issue with Timber action calls.
+		 #
+		 # @hooked woocommerce_template_loop_product_link_close - 5
+		 # @hooked woocommerce_template_loop_add_to_cart - 10
+		 #}
+		{% do action('woocommerce_after_shop_loop_item', []) %}
+	</div>
+</div>

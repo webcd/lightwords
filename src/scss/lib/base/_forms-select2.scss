@@ -1,0 +1,64 @@
+// SELECT2 OVERRIDES
+
+.select2 {
+  width: 100% !important;
+}
+
+.select2-selection {
+  border: 0.1rem solid $input-border-color !important;
+  border-radius: 0 !important;
+  height: 4.4rem !important;
+
+  .error & {
+    border-color: $color-error !important;
+  }
+}
+
+.select2-selection__rendered {
+  // padding: 0 $gutter-half;
+  line-height: 4.4rem !important;
+}
+
+.select2-selection__arrow {
+  height: 4.4rem !important;
+}
+
+// Colors
+
+.select2-container--default {
+  .select2-selection--single {
+    background-color: $input-bg;
+
+    .select2-selection__rendered {
+      color: $input-color;
+    }
+  }
+
+  .select2-results__option {
+    background-color: $input-bg;
+    color: $input-color;
+
+    &[aria-selected] {
+    }
+
+    &[aria-selected=true] {
+      background-color: $color-primary;
+      color: white;
+  }
+
+    &.select2-results__option--highlighted { // aka hover
+        
+      &[aria-selected] {
+        background-color: $input-color;
+        color: $input-bg;
+      }
+
+      &[aria-selected=true] {
+        background-color: $color-primary;
+        color: white;
+      }
+    }
+  }
+}
+
+

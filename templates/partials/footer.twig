@@ -5,18 +5,38 @@
 
 <section class="wrapper wrapper--footer">
   <div class="container">
-    <div class="flexrow flexrow--gutter">
-      <div class="flex-sm-6 flex-md-3">
+    <div class="row">
+
+      {# .col-sm-6 .col-md-3 is the default #}
+
+      <div class="col-sm-6 col-md-12 col-lg-3">
         {{ widgets_footer_1 }}
       </div>
-      <div class="flex-sm-6 flex-md-3">
+
+      <div class="col-sm-6 col-md-4 col-lg-3">
         {{ widgets_footer_2 }}
       </div>
-      <div class="flex-sm-6 flex-md-3">
+
+      <div class="col-sm-6 col-md-4 col-lg-3">
         {{ widgets_footer_3 }}
+
+        {% if CONFIG.socialLinks %}
+
+          {% include "social-links.twig" %}
+
+        {% endif %}
+
       </div>
-      <div class="flex-sm-6 flex-md-3">
+
+      <div class="col-sm-6 col-md-4 col-lg-3">
         {{ widgets_footer_4 }}
+
+        {% if CONFIG.contactInfos %}
+
+          {% include "contact-infos.twig" %}
+
+        {% endif %}
+
       </div>
     </div>
   </div>
@@ -26,7 +46,22 @@
   <div class="container">
 
     <div class="footer-copyright">
-      Lightwords &copy; {{"now"|date('Y')}}
+      <div class="footer-copyright__copyright">Copyright {{ site.name }} &copy; {{"now"|date('Y')}}</div>
+      <ul class="footer-copyright__legal-menu">
+
+        {% for item in menu_legal.get_items %}
+          <li class="{{item.classes | join(' ')}}">
+            <a href="{{item.get_link}}" class="menu-item-link">
+              {{item.title}}
+            </a>
+          </li>
+        {% endfor %}
+
+      </ul>
+    </div>
+    <div class="footer-made-by">
+      <span>Design et réalisation</span>
+      <a href="https://www.webcd.fr" target="_blank" class="maker-link">Webcd<svg viewBox="0 0 633 156"><use xlink:href="#logo-webcd"></use></svg></a>
     </div>
 
   </div>

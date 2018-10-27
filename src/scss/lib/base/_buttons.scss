@@ -1,0 +1,382 @@
+/* BUTTONS */
+
+@mixin btn($mods: "") {
+  @each $mod in $mods {
+    @if $mod == "" {
+      display: inline-block;
+      // margin-bottom: $gutter-half; // For input.btn
+      font-weight: $btn-font-weight;
+      text-align: center;
+      vertical-align: middle;
+      touch-action: manipulation;
+      cursor: pointer;
+      background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+      border: none;
+      white-space: nowrap;
+      text-transform: $btn-text-transform;
+      // height: 4.4rem; // Recommanded touch size
+      background-color: transparent;
+      padding: 1rem $gutter-half;
+      transition: all 0.25s;
+      color: $text-color-base;
+
+      &:not(:disabled) {
+        @include hocus() {
+          @include shadow(2);
+          color: $text-color-base;
+        }
+      }
+
+      &:disabled {
+        @include shadow(0);
+        opacity: 0.75;
+        cursor: not-allowed;
+      }
+    }
+
+    @elseif $mod == "default" {
+      background-color: $gray-lightest;
+      color: $text-color-base;
+
+      &:not(:disabled) {
+        @include hocus() {
+          background-color: $gray-lighter;
+          color: black;
+        }
+      }
+    }
+
+    @elseif $mod == "block" {
+      display: block;
+      width: 100%;
+    }
+
+    @elseif $mod == "round" {
+      border-radius: 100rem;
+    }
+
+    @elseif $mod == "wrap" {
+      white-space: normal !important;
+    }
+
+    // SIZES
+
+    @elseif $mod == "xs" {
+      padding: $gutter-eighth $gutter-quarter;
+      font-size: $font-size-small;
+    }
+
+    @elseif $mod == "sm" {
+      padding: $gutter-eighth $gutter-half;
+    }
+
+    @elseif $mod == "lg" {
+      padding: ($gutter-eighth * 3) ($gutter-quarter * 3);
+      font-size: $font-size-big;
+    }
+
+    @elseif $mod == "xl" {
+      padding: ($gutter-eighth * 5) $gutter;
+      font-size: $font-size-big;
+    }
+
+    // COLORS
+
+    @elseif $mod == "primary" {
+      background-color: $color-primary;
+      color: white;
+
+      &:not(:disabled) {
+        @include hocus() {
+          background-color: $color-primary-dark;
+          color: white;
+        }
+      }
+    }
+
+    @elseif $mod == "secondary" {
+      background-color: $color-secondary;
+      color: white;
+
+      &:not(:disabled) {
+        @include hocus() {
+          background-color: $color-secondary-dark;
+          color: white;
+        }
+      }
+    }
+
+    @elseif $mod == "ternary" {
+      background-color: $color-ternary;
+      color: white;
+
+      &:not(:disabled) {
+        @include hocus() {
+          background-color: $color-ternary-dark;
+          color: white;
+        }
+      }
+    }
+
+    @elseif $mod == "black" {
+      background-color: black;
+      color: $gray-lighter;
+
+      &:not(:disabled) {
+        @include hocus() {
+          // background-color: $color-ternary-dark;
+          color: $gray-lightest;
+        }
+      }
+    }
+
+    @elseif $mod == "gray" {
+      background-color: $gray;
+      color: $gray-lightest;
+
+      &:not(:disabled) {
+        @include hocus() {
+          background-color: $gray-dark;
+          color: white;
+        }
+      }
+    }
+
+    @elseif $mod == "white" {
+      background-color: white;
+      color: $gray;
+
+      &:not(:disabled) {
+        @include hocus() {
+          // background-color: $color-ternary-dark;
+          color: $gray-darkest;
+        }
+      }
+    }
+
+    @elseif $mod == "caret" {
+      position: relative;
+      padding-left: $gutter;
+      padding-right: $gutter;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: $gutter;
+        @include triangle('right', currentColor, $gutter-eighth * 3);
+
+        opacity: 0;
+        transform: translate3d(0, -50%, 0);
+        transition: all 0.25s;
+      }
+
+      &:not(:disabled) {
+        @include hocus() {
+          padding-left: $gutter-quarter * 3;
+          padding-right: $gutter-quarter * 5;
+
+          &::after {
+            opacity: 1;
+            transform: translate3d($gutter-quarter, -50%, 0);
+          }
+        }
+      }
+    }
+
+    @else {
+      @error '@mixin btn(): unknown modifier #{$mod}!';
+    }
+  }
+}
+
+// BUTTON CLASSES
+
+.btn {
+  @include btn();
+}
+
+// BUTTON SIZES
+
+.btn-xs {
+  @include btn("xs");
+}
+.btn-sm {
+  @include btn("sm");
+}
+.btn-lg {
+  @include btn("lg");
+}
+.btn-xl {
+  @include btn("xl");
+}
+
+// BUTTONS COLORS
+
+.btn-default {
+  @include btn("default");
+}
+
+.btn-primary {
+  @include btn("primary");
+}
+.btn-secondary {
+  @include btn("secondary");
+}
+.btn-ternary {
+  @include btn("ternary");
+}
+
+.btn-black {
+  @include btn("black");
+}
+.btn-gray {
+  @include btn("gray");
+}
+.btn-white {
+  @include btn("white");
+}
+
+// HOLLOW BUTTONS
+// TODO: into the mixin too!!!
+
+.btn-hollow {
+  background-color: transparent;
+  border: 0.2rem solid;
+
+  &:not(:disabled) {
+    @include hocus() {
+      @include shadow(0);
+    }
+  }
+
+  &.btn-default {
+    color: $gray-light;
+    border-color: $gray-light;
+    &:not(:disabled) {
+      @include hocus() {
+        background-color: $gray-light;
+        color: black;
+      }
+    }
+  }
+  &.btn-primary {
+    color: $color-primary;
+    border-color: $color-primary;
+
+    &:not(:disabled) {
+      @include hocus() {
+        background-color: $color-primary;
+        color: white;
+      }
+    }
+  }
+  &.btn-secondary {
+    color: $color-secondary;
+    border-color: $color-secondary;
+
+    &:not(:disabled) {
+      @include hocus() {
+        background-color: $color-secondary;
+        color: white;
+      }
+    }
+  }
+  &.btn-ternary {
+    color: $color-ternary;
+    border-color: $color-ternary;
+
+    &:not(:disabled) {
+      @include hocus() {
+        background-color: $color-ternary;
+        color: white;
+      }
+    }
+  }
+  &.btn-black {
+    color: black;
+    border-color: black;
+
+    &:not(:disabled) {
+      @include hocus() {
+        background-color: black;
+        color: $gray-lighter;
+      }
+    }
+  }
+  &.btn-gray {
+    color: $gray;
+    border-color: $gray;
+
+    &:not(:disabled) {
+      @include hocus() {
+        background-color: $gray;
+        color: white;
+      }
+    }
+  }
+  &.btn-white {
+    color: white;
+    border-color: white;
+
+    &:not(:disabled) {
+      @include hocus() {
+        background-color: white;
+        color: $gray-darker;
+      }
+    }
+  }
+}
+
+// ROUNDED BUTTONS
+
+.btn-round {
+  @include btn("round");
+}
+
+// BLOCK BUTTONS
+
+.btn-block {
+  @include btn("block");
+}
+
+// WRAP BUTTONS (multiline)
+
+.btn-wrap {
+  @include btn("wrap");
+}
+
+// CARET BUTTONS
+
+.btn-caret {
+  @include btn("caret");
+}
+
+// Vertically space out multiple block buttons
+// .btn-block + .btn-block {
+//   margin-top: $gutter-quarter;
+// }
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+// BASE BUTTON STYLE
+
+// TODO: too wide, breaks header navbar
+
+// button {
+//   @include btn();
+// }
+
+// BUTTON ICONS
+
+.btn-icon {
+  height: 1.6rem; // TODO: Magic value!
+  vertical-align: middle;
+}

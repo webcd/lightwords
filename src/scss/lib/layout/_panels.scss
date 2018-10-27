@@ -1,0 +1,128 @@
+/* PANELS */
+
+// MOBILE ONLY SIDE PANELS
+
+@mixin mobile-panel($label: "MENU") {
+  margin-top: 0 !important;
+  position: fixed;
+  right: 0;
+  top: 0;
+
+  display: flex /* !important*/;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  // Larger than necessary
+  // x2 to avoid gap when animated
+  width: $navbar-menu-mobile-width * 2;
+  padding-right: $navbar-menu-mobile-width;
+
+  @include bp("sm") {
+    width: 100%;
+    padding-right: 50%;
+  }
+
+  padding-top: $navbar-height-mobile;
+  transform: translate3d(100%, $navbar-height-mobile, 0);
+  transition: transform 0.5s $ease-bump, box-shadow 0.5s;
+  background-color: $header-color-bg;
+
+  height: 100vh;
+
+  /*html*/.topbar-expanded & {
+    // [MANUAL] height: calc(100vh - $navbar-height-mobile);
+    height: calc(100vh - 6rem);
+  }
+  /*html*/.admin-bar & {
+    // [MANUAL] height: calc(100vh - $wp-adminbar-height-mobile);
+    height: calc(100vh - 46px);
+  }
+  /*html*/.admin-bar.topbar-expanded & {
+    // [MANUAL] height: calc(100vh - $navbar-height-mobile - $wp-adminbar-height-mobile);
+    height: calc(100vh - 6rem - 48px);
+  }
+
+  // Generated label
+  &:before {
+    content: $label;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: $gutter-quarter * 3;
+    line-height: $navbar-height-mobile;
+    font-weight: $font-weight-bold;
+    color: $gray-light;
+    @include shadow(1);
+  }
+
+  > * {
+    // Allow mobile menu scroll
+    flex-grow: 1;
+    max-height: 100%;
+    overflow-y: auto;
+
+    @include v-padding($gutter-half);
+    @include h-padding($gutter-quarter);
+    // overflow-y: auto;
+    // position: initial !important;
+    // transform: none !important;
+    // width: auto !important;
+
+    > .menu-item {
+      // Space between items when stacked
+      margin-bottom: $gutter-quarter;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@mixin mobile-panel-active() {
+  // Move the navbar into viewport
+  transform: translate3d(50%, $topbar-height-mobile, 0);
+  @include shadow(5);
+}
+
+// Pain in the ass to reset mobile navbar styles on larger screens
+// So for once, we allow MOBILE ONLY styles (max-width here)
+@include bp($expanded, true) {
+  // Mobile menu panels
+
+  // MAIN MENU PANEL
+
+  .dropdown-wrapper--panel-menu {
+    @include mobile-panel();
+
+    /*body*/
+    .panel-menu-expanded & {
+      @include mobile-panel-active();
+    }
+  }
+
+  // WOOCOMMERCE EXTRA PANELS
+  // Comment the code below if not needed
+  // Or adapt it to make any dropdown menu item becomes a full sidebar panel!
+
+  // MY-ACCOUNT & CART BUTTON PANELS
+
+  .menu-item--cart .dropdown-wrapper--panel {
+    @include mobile-panel("PANIER");
+
+    /*body*/
+    .panel-cart-expanded & {
+      @include mobile-panel-active();
+    }
+  }
+
+  .menu-item--my-account .dropdown-wrapper--panel {
+    @include mobile-panel("COMPTE");
+
+    /*body*/
+    .panel-my-account-expanded & {
+      @include mobile-panel-active();
+    }
+  }
+}

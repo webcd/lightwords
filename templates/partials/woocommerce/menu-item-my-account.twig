@@ -1,0 +1,118 @@
+{% set has_dropdown = CONFIG.menuMyAccountDropdown %}
+
+<li class="menu-item menu-item--button menu-item--my-account
+  {{ (has_dropdown and user) ? 'menu-item-has-children menu-item--dropdown' }}
+  {{ user ? 'menu-item--my-account--logged-in' }}
+">
+
+  {# ANONYMOUS SIMPLE LINK #}
+
+  {% if not user %}
+
+    <a href="{{ my_account_link }}" class="menu-item-link">
+      {# <span>{{ fn('_e', 'My Account', 'woothemes') }}</span> #}
+      <i class="fa fa-fw fa-lg fa-user"></i>
+      <span class="hidden-collapsed">Mon compte</span>
+    </a>
+
+  {% else %}
+
+    {# "MY ACCOUNT" SIMPLE LINK #}
+
+    {% if not has_dropdown %}
+
+      <a href="{{ my_account_link }}" class="menu-item-link">
+
+    {# "MY ACCOUNT" DROPDOWN MENU #}
+
+    {% else %}
+
+      <button class="menu-item-link dropdown-toggle" data-dropdown
+        data-panel-toggle data-panel-target="panel-my-account"
+      >
+
+    {% endif %}
+
+        {# Menu item link content (same for link and button) #}
+
+        {# AVATAR #}
+
+        <span class="avatar avatar--small my-account-avatar">
+          <img src="{{ user.avatar }}" alt="{{ user.name }}'s avatar">
+        </span>
+
+        {# USER NAME #}
+
+        {# <span class="my-account-name">{{ user.name }}</span> #}
+        <span class="my-account-name">
+          {{ user.first_name }}
+          {# {{ user.last_name }} #}
+        </span>
+
+    {% if not has_dropdown %}
+
+      </a>
+
+    {% else %}
+
+      </button>
+
+    {% endif %}
+
+    {% if has_dropdown %}
+
+    {# "MY ACCOUNT" DROPDOWN MENU CONTENT #}
+
+      <div class="dropdown-wrapper dropdown-wrapper--panel dropdown-wrapper--right">
+
+        <ul class="dropdown-menu">
+
+          {# DROPDOWN HEADER (user metas) #}
+
+          <li class="menu-item menu-item--passive menu-item--my-account-metas">
+            <div class="menu-item-link">
+
+              {# BIG AVATAR #}
+
+              <span class="avatar avatar--big my-account-avatar">
+                <img src="{{ user.avatar }}" alt="{{ user.name }}'s avatar">
+              </span>
+
+              {# USER NAME #}
+
+              <span class="my-account-metas__name">
+                {{ user.first_name }}
+                {{ user.last_name }}
+              </span>
+
+            </div>
+          </li>
+
+          <li class="divider"></li>
+
+          {# MY-ACCOUNT LINKS #}
+
+          {% for my_account_item, my_account_name in my_account_items %}
+
+          <li class="menu-item
+            {{ my_account_item == 'dashboard' ? 'highlight' }}
+          ">
+
+            <a href="{{ fn('wc_get_account_endpoint_url', my_account_item) }}" class="menu-item-link">
+              <i class="fa fa-fw {{ fn('getMyAccountItemIcon', my_account_item) }}"></i>
+              <span>{{ my_account_name }}</span>
+            </a>
+
+          </li>
+
+          {% endfor %}
+
+        </ul>
+      </div>
+      
+    {% endif %}
+
+  {% endif %}  
+</li>
+
+

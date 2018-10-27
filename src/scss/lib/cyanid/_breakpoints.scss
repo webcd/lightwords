@@ -1,0 +1,126 @@
+/******************************************************************************
+ * CYANID - BREAKPOINTS
+ * Depends on : nothing
+ ******************************************************************************/
+
+////////////////////////////////////////////////////////////////////////////////
+// VARIABLES
+
+$breakpoints: (
+  // List of breakpoint names and sizes
+
+  // Common screen sizes, in em unit (1em = 16px, browser default font-size)
+  // 'xxs':   20em,    //  320 px
+  // 'xs':    30em,    //  480 px
+  // 's':     40em,    //  640 px
+  // 'sm':    48em,    //  768 px
+  // 'md':    60em,    //  960 px
+  // 'ml':    64em,    // 1024 px
+  // 'lg':    75em,    // 1200 px
+  // 'xl':    90em,    // 1440 px
+  // 'xxl':   100em,   // 1600 px
+  // 'xxxl':  120em    // 1920 px
+
+  'xs': 30em,  //  480 px 
+  'sm': 48em,  //  768 px 
+  'md': 60em,  //  960 px 
+  'lg': 75em,  // 1200 px 
+  'xl': 100em  // 1600 px
+) !default;
+
+// The breakpoint at which starts the desktop layout
+// .container is full-width until this breakpoint
+$expanded: 'md' !default;
+
+$breakpoints-pixels-per-rem: (
+  'xs': 10,
+  'sm': 10,
+  'md': 10,
+  'lg': 11,
+  'xl': 12
+) !default;
+
+////////////////////////////////////////////////////////////////////////////////
+// FUNCTIONS
+
+// BP
+// Returns a breakpoint size
+@function bp($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @return map-get($breakpoints, $breakpoint);
+  } @else {
+    @error 'ERROR in function bp(): unknown breakpoint #{$breakpoint}';
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// MIXINS
+
+// BP
+@mixin bp($point: 'sm', $max-width: false) {
+  @if map-has-key($breakpoints, $point) {
+    @if $max-width {
+      @media (max-width: bp($point)) {
+        @content;
+      }
+    } @else {
+      @media (min-width: bp($point)) {
+        @content;
+      }
+    }
+  } @else {
+    @warn 'ERROR in mixin bp(): unknown breakpoint #{$point}';
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// CLASSES
+
+// VISIBILITY HELPERS
+
+@each $breakpoint-name, $breakpoint-width in $breakpoints {
+  .visible-#{$breakpoint-name} {
+    @include bp($breakpoint-name) {
+      display: initial;
+    }
+  }
+
+  .hidden-#{$breakpoint-name} {
+    @include bp($breakpoint-name) {
+      display: none;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: initial;
+}
+
+.visible-collapsed {
+  @include bp($expanded, true) {
+    display: initial;
+  }
+}
+
+.hidden-collapsed {
+  @include bp($expanded, true) {
+    display: none;
+  }
+}
+
+.visible-expanded {
+  @include bp($expanded) {
+    display: initial;
+  }
+}
+
+.hidden-expanded {
+  @include bp($expanded) {
+    display: none;
+  }
+}
+

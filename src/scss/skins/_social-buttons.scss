@@ -1,0 +1,186 @@
+// CONFIGURATION
+
+$rrssb-size: 6rem !default;
+$rrssb-icon-size: 2.4rem !default;
+$rrssb-size-mini: $navbar-btn-size !default;
+$rrssb-icon-size-mini: $navbar-btn-size / 2 !default;
+
+$rrssb-gutter: $gutter-quarter !default;
+$rrssb-border-radius: $border-radius-base !default;
+
+$rrssb-monochromatic: true !default;
+$rrssb-monochromatic-color: $text-color-base !default;
+
+$rrssb-txt: $body-color-base !default;
+
+// Social networks brand colors
+$rrssb-email: #aaa !default;
+$rrssb-facebook: #306199 !default;
+$rrssb-tumblr: #32506d !default;
+$rrssb-linkedin: #007bb6 !default;
+$rrssb-viadeo: #ec7206 !default;
+$rrssb-twitter: #26c4f1 !default;
+$rrssb-googleplus: #e93f2e !default;
+$rrssb-reddit: #8bbbe3 !default;
+$rrssb-youtube: #df1c31 !default;
+$rrssb-pinterest: #b81621 !default;
+$rrssb-pocket: #ed4054 !default;
+$rrssb-github: #888 !default;
+
+// Variable list for all social button colors to be iterated over.
+$social-list: (
+  email $rrssb-email,
+  facebook $rrssb-facebook,
+  tumblr $rrssb-tumblr,
+  linkedin $rrssb-linkedin,
+  twitter $rrssb-twitter,
+  googleplus $rrssb-googleplus,
+  youtube $rrssb-youtube,
+  reddit $rrssb-reddit,
+  pinterest $rrssb-pinterest,
+  pocket $rrssb-pocket,
+  github $rrssb-github,
+  viadeo $rrssb-viadeo
+);
+
+/* BUTTONS */
+
+// Sets the size and position of button and its icon
+@mixin rrssb-size($size: $rrssb-size, $size-icon: $rrssb-icon-size) {
+  height: $size;
+  flex-basis: $size;
+
+  a {
+    width: $size;
+
+    .icon {
+      top: ($size - $size-icon) / 2;
+      left: ($size - $size-icon) / 2;
+
+      svg {
+        height: $size-icon;
+        width: $size-icon;
+      }
+    }
+  }
+}
+
+/* RRSSB BUTTONS */
+
+.rrssb-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -$rrssb-gutter / 2;
+
+  .rrssb-button {
+    position: relative;
+    display: block;
+
+    @include rrssb-size();
+
+    // Gutter
+    margin: $rrssb-gutter / 2;
+
+    // Icon color
+    @each $s-name in $social-list {
+      &.#{nth($s-name, 1)} {
+        a {
+          @if $rrssb-monochromatic {
+            background-color: $rrssb-monochromatic-color;
+          } @else {
+            background-color: nth($s-name, 2);
+          }
+        }
+
+        @include hocus() {
+          a {
+            @if $rrssb-monochromatic {
+              background-color: nth($s-name, 2);
+            } @else {
+              background-color: darken(nth($s-name, 2), 10%);
+            }
+          }
+        }
+      }
+    } // end @each directive
+
+    @include hover3d();
+
+    a {
+      // position: absolute;
+      display: block;
+      background-color: #ccc;
+      border-radius: $rrssb-border-radius;
+      height: 100%;
+      padding: 0;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      .icon {
+        position: absolute;
+        display: block;
+        height: 100%;
+        transform: translateZ(0);
+        transition: all 0.25s ease-in-out;
+
+        svg {
+          fill: white;
+          transition: all 0.25s ease-in-out;
+        }
+      }
+    }
+  }
+
+  // Mini mode - for topbar use
+  &.rrssb-buttons--mini {
+    margin: 0;
+
+    .rrssb-button {
+      @include rrssb-size($rrssb-size-mini, $rrssb-icon-size-mini);
+
+      margin: 0;
+      margin-left: $rrssb-gutter / 2;
+
+      a {
+        background-color: transparent;
+        padding: 0;
+
+        .icon {
+          svg {
+            fill: $text-color-base;
+          }
+        }
+      }
+
+      @include hocus() {
+        .icon {
+          svg {
+            fill: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Layout variants
+
+.site-footer {
+  .rrssb-buttons {
+    margin-bottom: $gutter;
+    justify-content: center;
+
+    @include bp("sm") {
+      justify-content: start;
+    }
+  }
+}
+
+.topbar-social-links {
+  margin-left: $gutter-half;
+
+  .rrssb-buttons {
+    flex-wrap: nowrap;
+  }
+}

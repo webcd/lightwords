@@ -13,12 +13,121 @@
  * @since   Timber 0.1
  */
 
-if ( ! class_exists( 'Timber' ) ) {
-	echo 'Timber not activated. Make sure you activate the plugin in <a href="/wp-admin/plugins.php#timber">/wp-admin/plugins.php</a>';
-	return;
+if (!class_exists('Timber')) {
+    echo 'Timber not activated. Make sure you activate the plugin in <a href="/wp-admin/plugins.php#timber">/wp-admin/plugins.php</a>';
+    return;
 }
 
+$templates = array('index.twig');
 $context = Timber::get_context();
-$context['posts'] = Timber::get_posts();
+$context['posts'] = Timber::get_posts(); // Can be empty! (404, single, page)
 
-Timber::render( 'index.twig', $context );
+////////////////////////////////////////////////////////////////////////////////
+// 404
+
+if (is_404()) {
+    array_unshift($templates, '404.twig');
+    $context['title'] = "Oups, petit problème !";
+
+////////////////////////////////////////////////////////////////////////////////
+    // SINGLE
+
+} else if (is_single()) { // Or is_singular()?
+    if (post_password_required($post->ID)) {
+        array_unshift($templates, 'single-password.twig');
+
+    } else {
+        array_unshift($templates,
+            'single-' . $post->ID . '.twig',
+            'single-' . $post->post_type . '.twig',
+            'single.twig'
+        );
+    }
+
+    $post = Timber::query_post();
+    $context['post'] = $post;
+
+////////////////////////////////////////////////////////////////////////////////
+    // PAGE
+
+} else if (is_page()) {
+    array_unshift($templates,
+        'page-' . $post->post_name . '.twig',
+        'page.twig',
+        'index.twig'
+    );
+
+    $post = new TimberPost();
+    $context['post'] = $post;
+
+    if (is_front_page()) {
+        array_unshift($templates, 'front-page.twig');
+
+        $args = array(
+            'posts_per_page' => 6,
+            'orderby' => 'date',
+        );
+        $context['latest_posts'] = Timber::get_posts($args);
+    }
+
+////////////////////////////////////////////////////////////////////////////////
+    // ARCHIVE
+
+} else if (is_archive()) {
+    array_unshift($templates, 'archive.twig');
+    $context['title'] = 'Articles';
+
+    // Archive by period
+    if (is_day()) {
+        $context['title'] = 'Articles par date : ' . get_the_date('D M Y');
+    } else if (is_month()) {
+        $context['title'] = 'Articles par date : ' . get_the_date('M Y');
+    } else if (is_year()) {
+        $context['title'] = 'Articles par date : ' . get_the_date('Y');
+
+        // Archive by tag or category
+    } else if (is_tag()) {
+        $context['title'] = 'Articles avec le tag "' . single_tag_title('', false) . '"';
+
+    } else if (is_category()) {
+        array_unshift($templates, 'archive-' . get_query_var('cat') . '.twig');
+        $context['title'] = 'Articles dans la catégorie ' . single_cat_title('', false);
+
+        // Archive by author
+    } else if (is_author()) {
+        array_unshift($templates, 'author.twig');
+
+        if (isset($wp_query->query_vars['author'])) {
+            $author = new TimberUser($wp_query->query_vars['author']);
+            $context['author'] = $author;
+            $context['title'] = $author->name();
+        }
+
+        // Archive by custom post type
+    } else if (is_post_type_archive()) {
+        array_unshift($templates, 'archive-' . get_post_type() . '.twig');
+        $context['title'] = post_type_archive_title('', false);
+    }
+
+////////////////////////////////////////////////////////////////////////////////
+    // SEARCH
+
+} else if (is_search()) {
+    array_unshift($templates,
+        'search.twig',
+        'archive.twig'
+    );
+
+    $context['title'] = count(Timber::get_posts()) . ' résultat(s) de recherche pour "' . get_search_query() . '"';
+
+////////////////////////////////////////////////////////////////////////////////
+    // INDEX
+
+} else {
+    $context['title'] = 'Blog';
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// TIMBER TEMPLATES RENDERING
+
+Timber::render($templates, $context);

@@ -1,37 +1,143 @@
-/* CONFIG */
+/*****************************************************************************
+ * LIGHTWORDS THEME
+ *****************************************************************************/
 
-@import "variables";
+/*****************************************************************************
+ * VARIABLES
+ *****************************************************************************/
+@import 'variables';
 
-/* VENDOR LIBS */
+// @import 'skins/dark/variables';
 
-@import "bootstrap";
+/*****************************************************************************
+ * VENDOR LIBS
+ *****************************************************************************/
 
-/* LIBS */
+/*****************************************************************************
+ * NORMALIZE
+ *****************************************************************************/
+@import '../../node_modules/normalize.css/normalize';
 
-@import "lib/cdn-imports";
+/*****************************************************************************
+ * SELECT2
+ *****************************************************************************/
+@import '../../node_modules/select2/dist/css/select2';
 
-@import "lib/shadows";
-@import "lib/base";
-@import "lib/type";
-@import "lib/colors";
-@import "lib/animation";
-@import "lib/buttons";
-@import "lib/wordstrap";
-@import "lib/breakpoints";
-@import "lib/fixed-ratio";
-@import "lib/flexgrid";
-@import "lib/layout";
-@import "lib/sticky-header";
-@import "lib/nav";
-@import "lib/navbar";
-@import "lib/ripple";
-@import "lib/styleguide";
+/*****************************************************************************
+ * JARALLAX
+ *****************************************************************************/
+@import '../../node_modules/jarallax/dist/jarallax';
 
-@import "lib/debug";
+/*****************************************************************************
+ * CYANID
+ *****************************************************************************/
+// @import '../../node_modules/cyanid/src/css/gutter';
+// @import '../../node_modules/cyanid/src/css/breakpoints';
+// @import '../../node_modules/cyanid/src/css/units-tools';
+// @import '../../node_modules/cyanid/src/css/container';
+// @import '../../node_modules/cyanid/src/css/grid';
+// @import '../../node_modules/cyanid/src/css/debug';
 
-@import "lib/foo";
+@import 'lib/cyanid/gutter';
+@import 'lib/cyanid/breakpoints';
+@import 'lib/cyanid/units-tools';
+@import 'lib/cyanid/container';
+@import 'lib/cyanid/grid';
+@import 'lib/cyanid/debug';
 
-/* APP */
+// @import 'lib/cyanid';
 
-@import "app";
-@import "demo";
+/*****************************************************************************
+ * LIGHTWORDS STYLES
+ *****************************************************************************/
+ 
+/* LIGHTWORDS - FX */
+// @import 'lib/fx/css-parallax';
+@import 'lib/fx/animation';
+@import 'lib/fx/jarallax';
+@import 'lib/fx/ripple';
+@import 'lib/fx/shadows';
+
+/* LIGHTWORDS - BASE */
+@import 'lib/base/cdn-imports';
+@import 'lib/base/tools';
+@import 'lib/base//base';
+@import 'lib/base/type';
+@import 'lib/base/buttons';
+@import 'lib/base/forms';
+@import 'lib/base/forms-radio-checkbox';
+@import 'lib/base/forms-gravity';
+@import 'lib/base/forms-select2';
+@import 'lib/base/styleguide';
+
+/* LIGHTWORDS - COMPONENTS */
+@import 'lib/components/breadcrumb';
+@import 'lib/components/nav';
+@import 'lib/components/logo';
+@import 'lib/components/avatar';
+@import 'lib/components/menu';
+@import 'lib/components/hero';
+@import 'lib/components/hamburger';
+@import 'lib/components/search';
+@import 'lib/components/modal';
+@import 'lib/components/article-content';
+@import 'lib/components/navbar';
+@import 'lib/components/footer';
+@import 'lib/components/footer-post';
+@import 'lib/components/image-wall';
+@import 'lib/components/author';
+@import 'lib/components/rating';
+
+// @import 'lib/components/wp-adminbar';
+
+/* LIGHTWORDS - LAYOUT */
+@import 'lib/layout/panels';
+@import 'lib/layout/fixed-ratio';
+@import 'lib/layout/wrappers';
+@import 'lib/layout/layout';
+@import 'lib/layout/header-sticky';
+@import 'lib/layout/header-compress';
+@import 'lib/layout/header-transparent';
+
+/* LIGHTWORDS - DEBUG */
+@import 'lib/debug/debug';
+
+/* LIGHTWORDS - WOOCOMMERCE */
+@import 'lib/woocommerce/woocommerce';
+
+/*****************************************************************************
+ * LIGHTWORDS SKIN
+ *****************************************************************************/
+
+/* LIGHTWORDS - SKIN FEATURES */
+
+// @import 'skins/hero-container';
+@import 'skins/hero-fullheight';
+@import 'skins/hero-title';
+@import 'skins/scroll-buttons';
+@import 'skins/big-text';
+
+@import 'skins/navbar-link-animated-bg';
+@import 'skins/hover3d';
+@import 'skins/social-buttons';
+@import 'skins/contact-infos';
+@import 'skins/tag-cloud';
+
+// @import 'skins/animated-links';
+@import 'skins/post-footer';
+
+/* LIGHTWORDS - SKIN WRAPPERS */
+// XOR
+@import 'skins/light/wrappers';
+// @import 'skins/dark/wrappers';
+
+/* LIGHTWORDS - SKIN TILE-POST */
+@import 'skins/tile-post';
+// XOR
+@import 'skins/light/tile-post';
+// @import 'skins/dark/tile-post';
+
+/*****************************************************************************
+ * APP 
+ *****************************************************************************/
+@import 'app';

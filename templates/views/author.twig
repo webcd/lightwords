@@ -1,9 +1,57 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div class="container">
-		{% for post in posts %}
-			{% include ["tease-"~post.post_type~".twig", "tease.twig"] %}
-		{% endfor %}
-	</div>
+
+  <article class="archive">
+
+    <section class="wrapper wrapper--article-content">
+      <div class="article-content">
+
+        {% include "article-content-header.twig" %}
+
+        <div class="article-content-body">
+          <div class="container">
+
+            <h2>Profil</h2>
+
+            <section class="author-metas">
+    
+              <div class="author__avatar">
+                <img src="{{ author.avatar }}" alt="">
+              </div>
+    
+              <div class="author__profile">
+                <div class="h3">{{ author.name }}</div>
+                <p>Email: <a href="mailto:{{ author.user_email }}">{{ author.user_email }}</a></p>
+                <p>Website: <a href="{{ author.user_url }}" target="_blank">{{ author.user_url }}</a></p>
+                <p>Registered: {{ author.user_registered }}</p>
+                <p>Posts: {{ posts|length }}</p>
+                {# author.wp_capabilities #}
+                {# {{ fn('ddump', author) }} #}
+              </div>
+    
+            </section>
+
+            <h2>Les articles de {{ author.name }}</h2>
+            {% if posts %}
+
+              <section class="posts row">
+
+                {% for post in posts %}
+                  {% include "tile-post.twig" %}
+                {% endfor %}
+
+              </section>
+            {% else %}
+              <p>{{ author.name }} n'a pas encore publié d'article.</p>
+            {% endif %}
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </article>
+
 {% endblock %}

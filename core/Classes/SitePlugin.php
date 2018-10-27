@@ -15,7 +15,7 @@ class SitePlugin extends \App\Lib\SiteCore
      */
     public function actions()
     {
-        
+
     }
 
     /**

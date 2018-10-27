@@ -1,0 +1,66 @@
+/******************************************************************************
+ * CYANID - CONTAINER
+ * Depends on : Gutter, Breakpoints, Units tools
+ ******************************************************************************/
+
+////////////////////////////////////////////////////////////////////////////////
+// TODO
+// - Improve .container: mush stay fluid not only on `min` screen size
+// - Containers width bug (seems related to vertical scrollbar)
+
+////////////////////////////////////////////////////////////////////////////////
+// MIXINS
+
+// CONTAINER
+@mixin container() {
+  margin-right: $gutter-half;
+  margin-left: $gutter-half;
+
+  // Pain point : overflow hidden keeps vertical gutter with container nice but breaks overflowing elements
+  // TODO: find a solution to this!
+  // overflow: hidden;
+}
+
+// CONTAINER SIZE
+@mixin container-size($width, $pixels-per-rem: 10) {
+  width: em2rem($width, $pixels-per-rem) - $gutter-double; // TODO: container width bug
+  margin-right: auto;
+  margin-left: auto;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// CLASSES
+
+.container {
+  @include container();
+}
+
+/* CONTAINER */
+// Only applies to fixed-width containers
+body.has-fixed-width-containers,
+body.has-fixed-width-header .site-header,
+body.has-fixed-width-footer .site-footer,
+body.has-fixed-width-content .site-content {
+
+  .container {
+    @include bp($expanded) {
+
+      &:not(.container--fluid) {
+        @each $breakpoint-name, $breakpoint-width in $breakpoints {
+
+          @if map-has-key($breakpoints-pixels-per-rem, $breakpoint-name) {
+
+            @include bp($breakpoint-name) {
+              $pxPerRem: map-get($breakpoints-pixels-per-rem, $breakpoint-name);
+
+              @include container-size($breakpoint-width, $pxPerRem);
+            }
+
+          } @else {
+            @error 'No $pixels-per-rem value for breakpoint #{$breakpoint-name}';
+          }
+        }
+      }
+    }
+  }
+}

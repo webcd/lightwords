@@ -1,45 +1,13 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 
-	{% if post.get_thumbnail %}
-	{% include "hero.twig" %}
-	{% endif %}
+  <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 
-	<section class="wrapper wrapper--article-content">
-		<div class="article-content container">
+    {% include 'base-content.twig' with {'slogan': site.description} %}
 
-			<h1 class="h1 hero-title">{{ post.title }}</h1>
-			<div class="article-content-body">
-				{{ post.content }}
-			</div>
+    {% include 'latest-posts.twig' %}
 
-		</div>
-		
-	</section>
+  </article>
 
-	{% if latest_posts %}
-	<section class="wrapper wrapper--posts">
-		<div class="container">
-
-			<h2>Latest Posts</h2>
-	
-			<section class="posts posts--latest flexrow flexrow--gutter">
-				{% for post in latest_posts %}
-
-				{% include 'tile-post.twig' %}
-
-				{% endfor %}
-
-				<div class="flex-full text-center">
-					<a href="#" class="btn btn-primary">See all posts</a>
-				</div>
-			</section>
-
-		</div>
-	</section>
-	{% endif %}
-
-</article>
 {% endblock %}

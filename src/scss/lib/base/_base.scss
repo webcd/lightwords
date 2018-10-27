@@ -1,0 +1,27 @@
+/* BASE */
+
+// Box model
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $body-color-base;
+  color: $text-color-base;
+}
+
+// Avoid 150px height default behaviour
+.inline-svg {
+  svg {
+    display: none;
+  }
+}
+
+// Responsive images by default
+img {
+  display: block;
+  @include h-margin(auto);
+  max-width: 100%;
+}

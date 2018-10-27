@@ -7,14 +7,14 @@ class SiteFront extends \App\Lib\SiteCore
 
     public function __construct($loader)
     {
-       parent::__construct($loader);
+        parent::__construct($loader);
     }
 
     /**
      * add_action THEME
      * */
     public function actions()
-    {     
+    {
         $this->loader->add_action('wp_enqueue_scripts', $this, 'enqueue_scripts', '');
         $this->loader->add_action('wp_print_scripts', $this, 'dequeue_scripts', 100);
     }
@@ -24,11 +24,11 @@ class SiteFront extends \App\Lib\SiteCore
      * */
     public function filters()
     {
-        
+
     }
 
     /**
-     * Styles front 
+     * Styles front
      * */
     private function enqueue_styles()
     {
@@ -40,7 +40,7 @@ class SiteFront extends \App\Lib\SiteCore
      * */
     public function enqueue_scripts()
     {
-        wp_enqueue_script('main', get_stylesheet_directory_uri().'/dist/js/main.js', array('jquery'), '0.1.0', true);
+        wp_enqueue_script('main', get_stylesheet_directory_uri() . '/dist/js/main.js', array('jquery'), '0.1.0', true);
     }
 
     /**
@@ -48,6 +48,6 @@ class SiteFront extends \App\Lib\SiteCore
      * */
     public function dequeue_scripts()
     {
-        
+
     }
 }

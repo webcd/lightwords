@@ -1,0 +1,59 @@
+/* LOGO */
+
+$mq-mobile: 'xs' !default;
+
+.navbar-logo {
+  display: block;
+  height: $navbar-logo-height;
+}
+
+.logo {}
+
+.logo--mobile {
+  height: $navbar-logo-height;
+
+  @include bp($mq-mobile) {
+    display: none;
+  }
+}
+
+.logo--tablet {
+  height: $navbar-logo-height;
+  display: none;
+
+  @include bp($mq-mobile) {
+    display: inline-block;
+  }
+  @include bp($expanded) {
+    display: none;
+  }
+}
+
+.logo--desktop {
+  height: $navbar-logo-height-desktop;
+  display: none;
+
+  // Move the desktop logo up, over the topbar
+  // Hacky!
+  position: relative;
+  // top: -($topbar-height-desktop - 0.8rem); // TODO better, magic value
+  top: $navbar-logo-padding-desktop - (($navbar-height-desktop - $navbar-btn-size) / 2 + $topbar-height-desktop);
+
+  @include bp($expanded) {
+    display: inline-block;
+  }
+}
+
+// Footer logo
+
+.logo-footer-wrapper {
+
+  max-width: $footer-logo-width-max;
+  @include h-margin(auto);
+
+  margin-bottom: $gutter;
+}
+
+.logo--footer {
+}
+

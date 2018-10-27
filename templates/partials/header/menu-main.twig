@@ -1,0 +1,37 @@
+{# The mobile menu AND the primary desktop menu #}
+
+{# Primary menu, always visible #}
+
+{% include 'header/menu-loop.twig' with {
+  'items': menu_main.get_items
+} %}
+
+{# Secondary menu for mobile only #}
+
+<li class="divider hidden-expanded"></li>
+
+{% include 'header/menu-loop.twig' with {
+  'items': menu_top.get_items,
+  'hidden_expanded': true
+} %}
+
+{# SOCIAL LINKS #}
+{% if CONFIG.socialLinks and CONFIG.socialLinksTopbar %}
+
+  <li class="divider hidden-expanded"></li>
+
+  <li class="menu-item menu-item--passive hidden-expanded">
+    <div class="menu-item-link">
+      <span>Suivez-nous&nbsp;!</span>
+    </div>
+  </li>
+
+  <div class="navbar-social-links hidden-expanded">
+
+    {% include "social-links.twig" with {
+      'bare': true,
+      'mini': true
+    } %}
+
+  </div>
+{% endif %}

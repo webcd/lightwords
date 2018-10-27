@@ -1,0 +1,23 @@
+<div class="article-content-header
+  {% if CONFIG.hero and (post.get_thumbnail or category_image) %}article-content-header--hero{% endif %}
+">
+  <div class="container container-article-content-header">
+
+    <h1 class="h1 main-title 
+      {% if fn('is_front_page') %}main-title--hidden{% endif %}
+    ">
+      {{ title }}
+    </h1>
+
+    {% if CONFIG.breadcrumbs and CONFIG.breadcrumbsInContent and not fn('is_front_page') %}
+      {# native walker: % include "breadcrumb.twig" %#}
+      {{ breadcrumb }}
+    {% endif %}
+
+    {% if fn('is_single') %}
+      {% include "metas.twig" %}
+    {% endif %}
+
+  </div>
+</div>
+

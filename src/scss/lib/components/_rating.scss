@@ -1,0 +1,27 @@
+// Stars rating
+.rating--star {
+  display: flex;
+  justify-content: center;
+  color: $color-primary;
+
+  .rating-count {
+    color: $gray;
+    font-style: italic;
+  }
+}
+
+.product-rating {
+  display: inline-block;
+}
+
+// Legacy WooCommerce rating class
+.star-rating {
+  padding-left: $gutter-half;
+  padding-right: $gutter-half;
+  text-align: center;
+
+  .rating {
+    color: $color-primary;
+  }
+}
+

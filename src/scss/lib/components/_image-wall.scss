@@ -1,0 +1,211 @@
+// CONFIG
+$body-bg: white;
+
+$wall-gutter: $gutter-quarter;
+$wall-item-width: 30rem;
+$wall-item-height: 20rem;
+
+$star-size: $gutter;
+
+$stripe-size: $gutter-eighth;
+$stripe-color-1: rgba(0, 0, 0, 0.6);
+$stripe-color-2: rgba(0, 0, 0, 0.75);
+
+// STRUCTURE
+
+.wall {
+  .gallery {
+    // Flexbox Default/Fallback - does not produce 100% matching result
+    display: flex;
+    flex-wrap: wrap;
+
+    display: grid;
+    grid-gap: $wall-gutter;
+    // Use Grid if browser supports it
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax($wall-item-height, 1fr);
+
+    @include bp("xs") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include bp("sm") {
+      > .gallery-item {
+        @supports (display: grid) {
+          &:nth-of-type(6n + 1),
+          &:nth-of-type(6n + 5) {
+            grid-row: span 2;
+          }
+        }
+      }
+    }
+
+    @include bp("lg") {
+      grid-template-columns: repeat(auto-fill, minmax($wall-item-width, 1fr));
+      grid-auto-rows: minmax($wall-item-height, 1fr);
+      grid-auto-flow: dense;
+
+      > .gallery-item {
+        @supports (display: grid) {
+          // Unset the properties used for flexbox fallback
+          height: initial;
+          margin: unset;
+          width: initial;
+          min-width: initial;
+
+          grid-row: span 1;
+          grid-column: span 1;
+
+          &:nth-of-type(3n + 1) {
+            grid-row: span 2;
+          }
+
+          &:nth-of-type(4n + 1) {
+            grid-column: span 2;
+          }
+
+          &:last-of-type {
+            grid-row: span 1;
+            grid-column: span 1;
+          }
+        }
+      }
+    }
+
+    > .gallery-item {
+      // flex: 0 0 auto;
+      // flex-wrap: wrap;
+      // height: 20vh;
+      // margin: 0.12rem;
+      // width: 20rem;
+      // min-width: 15rem;
+
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background-color: #222;
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        transition: all 0.25s;
+      }
+
+      &::before {
+        content: "\f002";
+        font-family: "FontAwesome";
+        width: $star-size;
+        height: $star-size;
+        line-height: $star-size;
+        text-align: center;
+        top: 0;
+        right: 0;
+        background-color: $body-bg;
+        z-index: +1;
+        transform: translateY(-100%);
+        // font-size: 2rem;
+      }
+
+      > .gallery-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0) scale3d(1.2, 1.2, 1);
+        width: 100%;
+        height: 100%;
+        transition: all 0.25s;
+
+        > a {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+
+          &::before,
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            transition: all 0.25s;
+          }
+
+          &::after {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: repeating-linear-gradient(
+              45deg,
+              $stripe-color-1,
+              $stripe-color-1 $stripe-size,
+              $stripe-color-2 $stripe-size,
+              $stripe-color-2 $stripe-size * 2
+            );
+            opacity: 0;
+            transform: scale3d(0.75, 0.75, 1);
+          }
+
+          > img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            // display: block;
+            // object-fit: cover;
+            width: auto;
+            height: auto;
+            max-width: none;
+          }
+        }
+      }
+
+      > .gallery-caption {
+        position: absolute;
+        display: inline-block;
+        max-width: 80%;
+        bottom: 0;
+        background-color: $body-bg;
+        color: #444;
+        font-size: 1.6rem;
+        font-weight: normal;
+        line-height: 1.125;
+        margin: 0;
+        padding: $gutter-quarter;
+        transition: all 0.25s;
+        z-index: +1;
+      }
+
+      @include hocus() {
+        &::before {
+          transform: translateY(0);
+        }
+
+        > .gallery-icon {
+          transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+
+          > a {
+            &::after {
+              opacity: 1;
+              transform: scale3d(1, 1, 1);
+            }
+
+            > img {
+              filter: grayscale(50%);
+              // filter: saturate(200%);
+            }
+          }
+        }
+
+        > .gallery-caption {
+          padding-top: $gutter-half;
+          padding-bottom: $gutter-half;
+          color: black;
+        }
+      }
+    }
+  }
+}

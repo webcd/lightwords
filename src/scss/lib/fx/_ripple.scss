@@ -1,0 +1,27 @@
+/* RIPPLE */
+
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ink {
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  transform: scale(0);
+  background: #fff;
+  opacity: 1;
+}
+
+.ink.animate {
+  animation: ripple-effect 0.5s linear;
+}
+
+@keyframes ripple-effect {
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}

@@ -1,11 +1,11 @@
 # Lightwords
 
-A minimal WordPress starter theme. Powered by Twig, Gulp and Bootstrap, inspired by Sage, based on Timber-starter-theme!
+Not so minimal WordPress starter theme. Powered by Twig, Gulp and Sass, based on Timber-starter-theme!
 
 ## Requirements
 
 * WordPress
-* Timber plugin
+* Timber plugin (from Composer)
 
 ## Installation
 
@@ -20,7 +20,7 @@ A minimal WordPress starter theme. Powered by Twig, Gulp and Bootstrap, inspired
 npm install
 ```
 
-* optional Composer
+* Composer (mostly for Timber plugin)
 
 ```sh
 composer install
@@ -54,3 +54,9 @@ gulp
 * `scripts` : handles javascript
 * `styles` : CSS pipeline
 * `templates` : void - just refresh the page
+
+Example:
+
+```sh
+gulp images
+```

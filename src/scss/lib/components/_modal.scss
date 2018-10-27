@@ -1,0 +1,152 @@
+//
+// Modals
+// --------------------------------------------------
+
+$zindex-modal: 10000;
+$zindex-modal-background: 5000;
+
+// .modal-open      - body class for killing the scroll
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and shit
+
+// Kill the scroll on the body
+.modal-open {
+  overflow: hidden;
+}
+
+// Container that the modal scrolls within
+.modal {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-modal;
+  -webkit-overflow-scrolling: touch;
+
+  // Prevent Chrome on Windows from adding a focus outline. For details, see
+  // https://github.com/twbs/bootstrap/pull/10951.
+  outline: 0;
+
+  // When fading in the modal, animate it to slide down
+  &.fade .modal-dialog {
+    transform: translate3d(-50%, -250%, 0);
+    transition: transform 0.5s $ease-bump;
+  }
+  &.in .modal-dialog {
+    transform: translate3d(-50%, -50%, 0);
+  }
+}
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// Shell div to position the modal with bottom padding
+.modal-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90vw;
+
+  @include bp('sm') {
+    width: 80vw;
+  }
+
+  @include bp('md') {
+    width: 75vw;
+  }
+
+  @include bp('lg') {
+    width: 50vw;
+  }
+
+  @include bp('xl') {
+    width: 33vw;
+  }
+}
+
+// Actual modal
+.modal-content {
+  position: relative;
+  background-color: $body-color-base;
+  border-radius: $border-radius-base;
+  @include shadow(3);
+  background-clip: padding-box;
+  // Remove focus outline from opened modal
+  outline: 0;
+}
+
+// Modal background
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-modal-background;
+  background-color: rgba(0, 0, 0, 0.5);
+  // Fade for backdrop
+  &.fade {
+    opacity: 0;
+  }
+  &.in {
+    opacity: 1;
+  }
+}
+
+// Modal header
+// Top section of the modal w/ title and dismiss
+.modal-header {
+  padding: $gutter-quarter $gutter-half;
+  border-bottom: 0.1rem solid $gray-light;
+  display: flex;
+}
+// Close icon
+.modal-header .close {
+  @include btn();
+  @include btn('default');
+  margin-bottom: 0;
+}
+
+// Title text within header
+.modal-title {
+  margin: 0;
+  margin-top: $gutter-quarter;
+  flex-grow: 1;
+  @include h(3);
+}
+
+// Footer
+.modal-footer {
+  padding: $gutter-quarter $gutter-half;
+  border-top: 0.1rem solid $gray-light;
+  display: flex;
+  justify-content: flex-end;
+
+  .btn {
+    margin-bottom: 0;
+    margin-left: $gutter-quarter;
+  }
+}
+
+// Modal body
+// Where all modal content resides (sibling of .modal-header and .modal-footer)
+.modal-body {
+  position: relative;
+  padding: $gutter $gutter-half;
+  max-height: 40vh;
+  overflow: auto;
+}
+
+// Measure scrollbar width for padding body during modal show/hide
+// .modal-scrollbar-measure {
+//   position: absolute;
+//   top: -9999px;
+//   width: 50px;
+//   height: 50px;
+//   overflow: scroll;
+// }

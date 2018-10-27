@@ -1,0 +1,133 @@
+/* SKIN - LIGHT - POSTS */
+
+///////////////////////////////////////////////////////////////////////////////
+// METAS
+
+.metas {
+  margin-bottom: $gutter;
+
+  .posts & {
+    margin-bottom: 0;
+  }
+}
+
+.terms {
+  padding-bottom: $gutter-quarter;
+  border-bottom: 1px dotted;
+
+  > * {
+    margin-bottom: $gutter-quarter;
+  }
+}
+
+.publish {
+  font-style: italic;
+  margin-top: $gutter-quarter;
+  padding-top: $gutter-eighth;
+}
+
+.tag-link {
+  text-transform: none;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// POST(S)
+
+// BIGGER FIRST PARAGRAPH
+.article-content-body {
+  // TODO : didn't find how to make a real excerpt in WP
+  // the <!-- more --> thing changes nothing in markup
+  // So we made the very first paragraph of content highlighted!
+  p:first-child {
+    // TODO: limit to simple article (woocommerce conflicts)
+    // font-size: $font-size-big;
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// TILES
+
+.tile {
+  // margin-bottom: $gutter;
+}
+
+.tile__content {
+  height: 100%;
+  padding: $gutter-half;
+  display: flex;
+  flex-direction: column;
+
+  > * {
+    flex: 0 0 auto;
+
+    &.tile__body {
+      flex-grow: 1;
+    }
+  }
+
+  @include shadow(1);
+  transition: box-shadow 0.125s;
+  cursor: pointer;
+
+  @include hocus() {
+    @include shadow(2);
+  }
+}
+
+.tile__img {
+  position: relative;
+  margin: -$gutter-half;
+  margin-bottom: $gutter-half;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+
+  > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    transform: translate3d(-50%, -50%, 0) scale3d(1.2, 1.2, 1);
+    transition: transform 0.5s $ease-bump;
+
+    .tile:hover & {
+      transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+    }
+  }
+}
+
+.tile__title {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding: $gutter-quarter $gutter-half;
+
+  a {
+    font-weight: $font-weight-light;
+  }
+}
+
+.tile__body {
+  margin-top: $gutter-half;
+  margin-bottom: $gutter-half;
+
+  .read-more {
+    display: block;
+    text-align: right;
+  }
+}
+
+.tile__foot {
+  text-align: right;
+
+  .read-more {
+    font-weight: font-weight-bold;
+    text-transform: uppercase;
+  }
+}
+
+.tile-post {
+  .tile__content {
+    background-color: white;
+  }
+}
+

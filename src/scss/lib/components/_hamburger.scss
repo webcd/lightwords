@@ -1,0 +1,74 @@
+/* HAMBURGER ANIMATED BUTTON */
+
+// HAMBURGER BUTTON
+
+.hamburger-wrapper {
+  height: $hamburger-height;
+  width: $hamburger-height;
+  text-align: center;
+  position: relative;
+
+  @include hocus() {
+    .hamburger,
+    .hamburger:before,
+    .hamburger:after {
+      background-color: currentColor;
+    }
+  }
+}
+
+.hamburger,
+.hamburger:before,
+.hamburger:after {
+  display: block;
+  height: $hamburger-height / 8;
+  width: 100%;
+  background-color: currentColor;
+  transform: rotate(0deg);
+  transition: transform 0.75s $ease-bump, background-color 0.25s;
+}
+
+.hamburger:before,
+.hamburger:after {
+  content: '';
+  position: absolute;
+}
+
+.hamburger {
+  position: relative;
+  top: ($hamburger-height / 2 - $hamburger-height / 16);
+
+  &:before {
+    top: ($hamburger-height * 3 / 8);
+  }
+  &:after {
+    top: (-$hamburger-height * 3 / 8);
+  }
+}
+
+/*body*/.panel-menu-expanded {
+  .hamburger-wrapper {
+    @include hocus() {
+      .hamburger {
+        background-color: transparent;
+      }
+      .hamburger:before,
+      .hamburger:after {
+        background-color: currentColor;
+      }
+    }
+  }
+
+  .hamburger {
+    background-color: rgba(255, 255, 255, 0);
+    transform: rotate(-90deg);
+
+    &:after {
+      transform: translateY($hamburger-height * 3 / 8) rotate(-135deg);
+    }
+
+    &:before {
+      transform: translateY(-$hamburger-height * 3 / 8) rotate(-45deg);
+    }
+  }
+}

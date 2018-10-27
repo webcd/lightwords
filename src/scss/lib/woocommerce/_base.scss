@@ -1,0 +1,20 @@
+// Quantity
+
+.quantity {
+
+  > input {
+    width: 7rem;
+    text-align: right;
+  }
+}
+
+.button {
+  @include btn();
+  // @include btn('default');
+  @include btn('wrap');
+}
+
+.checkout-button {
+  @include btn('primary');
+  @include btn('block');
+}

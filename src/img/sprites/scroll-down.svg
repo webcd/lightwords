@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="-470.4 245.4 71 71" enable-background="new -470.4 245.4 71 71" xml:space="preserve">
+	<g>
+		<path fill="#FFFFFF" d="M-399.4 280.9c0 19.6-15.9 35.5-35.5 35.5s-35.5-15.9-35.5-35.5c0-19.6 15.9-35.5 35.5-35.5 S-399.4 261.3-399.4 280.9z M-468 280.9c0 18.2 14.8 33.1 33.1 33.1s33.1-14.8 33.1-33.1s-14.8-33.1-33.1-33.1 S-468 262.6-468 280.9z"/>
+		<path id="animFleche" fill="#FFFFFF" d="M-422.4 276.8c0 0.3-0.1 0.6-0.4 0.9l-11.8 11.8c-0.5 0.5-1.2 0.5-1.7 0l-11.8-11.8c-0.5-0.5-0.5-1.2 0-1.7 s1.2-0.5 1.7 0l10.9 10.9l10.9-10.9c0.5-0.5 1.2-0.5 1.7 0C-422.5 276.2-422.4 276.5-422.4 276.8z" />
+		<animate
+			xlink:href="#animFleche" attributeName="opacity" attributeType="XML"
+			values=		"1;		1;		0;		1"
+			keyTimes=	"0;		0.2;	0.5;	1"
+			dur="1.5s"
+			repeatCount="indefinite"/>
+		<animateTransform
+			xlink:href="#animFleche"
+			attributeName="transform"
+			type="translate"
+			from="0 -10" to="0 61"
+			dur="1.5s"
+			repeatCount="indefinite" />
+	</g>
+</svg>

@@ -1,0 +1,36 @@
+.author-metas {
+  margin-bottom: $gutter-double;
+  
+  @include bp('sm') {
+    display: flex;
+  }
+}
+
+.author__avatar {
+  margin-bottom: $gutter;
+  
+  > img {
+    border: $gutter-quarter solid $body-color-base;
+    border-radius: 10000rem;
+    @include shadow(1);
+  }
+}
+
+.author__profile {
+  @include bp('sm') {
+    margin-left: $gutter;
+  }
+
+  .h3 {
+    margin-bottom: $gutter-half;
+    text-align: center;
+
+    @include bp('sm') {
+      text-align: left;
+    }
+  }
+
+  p {
+    margin-bottom: $gutter-quarter;
+  }
+}

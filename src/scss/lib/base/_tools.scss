@@ -1,0 +1,102 @@
+// PADDING HELPER
+
+@mixin v-padding($top, $bottom: $top) {
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
+
+@mixin h-padding($left, $right: $left) {
+  padding-left: $left;
+  padding-right: $right;
+}
+
+// MARGIN HELPER
+
+@mixin v-margin($top, $bottom: $top) {
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+
+@mixin h-margin($left, $right: $left) {
+  margin-left: $left;
+  margin-right: $right;
+}
+
+// SIZE HELPER
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// HOVER / FOCUS MIXIN
+
+@mixin hocus() {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+// TEXT SIZE HELPERS
+
+.text-small { font-size: $font-size-small; }
+.text-big { font-size: $font-size-big; }
+.text-bigger { font-size: $font-size-bigger; }
+
+// TEXT ALIGNEMENT HELPERS
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+// OVERFLOW
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+// CSS TRIANGLES
+
+@mixin triangle($orientation, $color, $width, $height: $width / 2) {
+  display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	
+	@if $orientation == 'left' {
+		border-width: $width / 2 $height $width / 2 0;
+		border-color: transparent $color transparent transparent;
+
+	} @else if $orientation == 'right' {
+		border-width: $width / 2 0 $width / 2 $height;
+		border-color: transparent transparent transparent $color;
+
+	} @else if $orientation == 'top' {
+		border-width: 0 $width / 2 $height $width / 2;
+		border-color: transparent transparent $color transparent;
+
+	} @else if $orientation == 'bottom' {
+		border-width: $height $width / 2 0 $width / 2;
+		border-color: $color transparent transparent transparent;
+
+	} @else if $orientation == 'top-left' {
+		border-width: $height * 2 $width 0 0;
+		border-color: $color transparent transparent transparent;
+
+	} @else if $orientation == 'top-right' {
+		border-width: 0 $width $height * 2 0;
+		border-color: transparent $color transparent transparent;
+
+	} @else if $orientation == 'bottom-left' {
+		border-width: $height * 2 0 0 $width;
+		border-color: transparent transparent transparent $color;
+
+	} @else if $orientation == 'bottom-right' {
+		border-width: 0 0 $height * 2 $width;
+		border-color: transparent transparent $color transparent;
+
+	} @else {
+		@error '@mixin triangle(): unknown $orientation `#{$orientation}`'
+	}
+}

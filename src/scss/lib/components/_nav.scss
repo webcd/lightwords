@@ -1,0 +1,18 @@
+/* NAVS */
+
+// Makes list of links (or whtever) stacked on mobile, inlined on desktop
+
+/*ul*/.nav {
+  @include reset-list;
+  margin-bottom: 0;
+
+  @include bp($expanded) {
+    display: flex;
+    flex-wrap: wrap;
+
+    > * {
+      flex-basis: auto;
+      flex-grow: 0;
+    }
+  }
+}
