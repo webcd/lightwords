@@ -23,6 +23,10 @@
   height: 100%;
   background-size: cover;
   background-position: 50% 50%;
+
+  > .hero-img {
+    object-fit: cover;
+  }
 }
 
 .hero__content {
