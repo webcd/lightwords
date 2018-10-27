@@ -496,7 +496,7 @@
 
     <hr>
 
-    {# COLORS #}
+    <!-- COLORS -->
     <section class="wrapper wrapper--padding">
       <div class="container">
         <h2>Colors</h2>
@@ -513,8 +513,8 @@
             {{ color }}</h3>
           <div class="row row--auto-size">
             {% for shade in shades %}
-              <article class="color-block bg-{{ color }}{{ shade }}" style="min-height: 12rem;">
-                <div style="position: absolute;">{{ color }}{{ shade }}</div>
+              <article class="color-block bg-{{ color }}{{ shade }}">
+                <div>{{ color }}{{ shade }}</div>
               </article>
             {% endfor %}
           </div>
@@ -529,8 +529,8 @@
         <h3>Color: gray</h3>
         <div class="row row--auto-size">
           {% for shade in shades %}
-            <article class="color-block bg-{{ shade }}" style="min-height: 12rem;">
-              <div style="position: absolute;">{{ shade }}</div>
+            <article class="color-block bg-{{ shade }}">
+              <div>{{ shade }}</div>
             </article>
           {% endfor %}
         </div>
@@ -601,26 +601,26 @@
         <h2>[FX] - Parallax on scroll</h2>
 
         <div class="row row--quarter-gutter">
-          <div class="col-sm-6">
+          <div class="col-sm-6 overflow-hidden">
             <!-- Background Image Parallax -->
-            <div class="jarallax" data-jarallax="data-jarallax" data-speed="0.5">
+            <div class="jarallax" data-jarallax data-speed="0.5">
               <img class="jarallax-img" src="https://picsum.photos/800/600/?random" alt="">
               <h1 class="color-white" style="padding: 12rem 3rem;">Your content here...</h1>
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-6 overflow-hidden">
             <!-- Alternate: Background Image Parallax -->
-            <div class="jarallax" style="background-image: url('https://picsum.photos/801/600/?random');" data-jarallax="data-jarallax" data-speed="-0.2">
+            <div class="jarallax" style="background-image: url('https://picsum.photos/801/600/?random');" data-jarallax data-speed="0">
               <h1 class="color-white" style="padding: 12rem 3rem;">Content here...</h1>
             </div>
           </div>
-          <div class="col-sm-8">
+          <div class="col-sm-8 overflow-hidden">
             <!-- Background YouTube Parallax -->
-            <div class="jarallax" data-jarallax-video="https://www.youtube.com/watch?v=ab0TSkLe-E0" data-jarallax="data-jarallax" data-speed="0.8">
+            <div class="jarallax" data-jarallax-video="https://www.youtube.com/watch?v=ab0TSkLe-E0" data-jarallax data-speed="0.8">
               <h1 class="color-white" style="padding: 12rem 3rem;">Your video content here...</h1>
             </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-4 overflow-hidden">
             <!-- Element will be parallaxed on 250 pixels from the screen center by Y axis and on -100 pixels from the screen center by X axis -->
             <div data-jarallax-element="0 -100">
               <h1 style="padding: 12rem 3rem;">Your content here...</h1>

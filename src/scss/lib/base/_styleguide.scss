@@ -2,9 +2,34 @@
 
   .site-content {
     
-
     button {
       margin-bottom: $gutter-half;
+    }
+  }
+
+  .color-block {
+    min-height: 12rem;
+    overflow: hidden;
+    position: relative;
+
+    > * {
+      position: absolute;
+      top: $gutter-quarter;
+      left: $gutter-and-half;
+      transform-origin: 0 0;
+      transform: rotateZ(0.25turn);
+      line-height: 1;
+
+      @include bp('md') {
+        transform: none;
+        left: $gutter-quarter;
+      }
+    }
+
+    &:nth-child(n+5) {
+      > * {
+        color: black;
+      }
     }
   }
 
