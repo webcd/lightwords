@@ -2,7 +2,7 @@ import $ from "jquery";
 
 // SCROLLER
 
-const scroller = () => {
+const scroller = (() => {
   const $scrollers = $("[data-scroll]");
 
   $scrollers.on("click", function() {
@@ -28,6 +28,6 @@ const scroller = () => {
   });
 
   console.log("scroller.js is loaded");
-};
+})();
 
 export default scroller;

@@ -2,7 +2,7 @@ import $ from "jquery";
 
 // SEARCH HELPERS
 
-const search = (minLength = 3) => {
+const search = ((minLength = 3) => {
   if (Lightwords.CONFIG.search) {
     // const $search = $('.searchform')
     const $searchInput = $(".searchform input[type='text']");
@@ -29,6 +29,6 @@ const search = (minLength = 3) => {
 
     console.log("search.js is loaded");
   }
-};
+})();
 
 export default search;

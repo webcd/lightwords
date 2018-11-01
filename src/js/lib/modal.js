@@ -2,7 +2,7 @@ import $ from "jquery";
 
 // MODAL (from Bootstrap)
 
-const modal = () => {
+const modal = (() => {
   /* ========================================================================
    * Bootstrap: modal.js v3.3.7
    * http://getbootstrap.com/javascript/#modals
@@ -368,6 +368,6 @@ const modal = () => {
     })
     Plugin.call($target, option, this)
   })
-}
+})();
 
 export default modal;

@@ -3,7 +3,7 @@ import { debounce } from "./debounce-throttle";
 
 // ON-SCROLL
 
-const onScroll = () => {
+const onScroll = (() => {
   const $window = $(window);
   const $body = $("body");
 
@@ -59,6 +59,6 @@ const onScroll = () => {
   }
 
   console.log("on-scroll.js is loaded");
-};
+})();
 
 export default onScroll;

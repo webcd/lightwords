@@ -2,7 +2,7 @@ import $ from "jquery";
 
 // RIPPLE EFFECT
 
-const ripple = () => {
+const ripple = (() => {
   if (Lightwords.CONFIG.rippleEffect) {
     $(Lightwords.CONFIG.rippleSelector).addClass("ripple");
 
@@ -39,6 +39,6 @@ const ripple = () => {
     });
   }
   console.log("ripple.js is loaded");
-};
+})();
 
 export default ripple;

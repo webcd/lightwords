@@ -12,7 +12,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "./node_modules/.bin/webpack-dev-server --hot --mode development",
     "build": "./node_modules/.bin/webpack --mode production",
-    "watch": "./node_modules/.bin/webpack --watch"
+    "watch": "./node_modules/.bin/webpack --watch",
+    "nwatch": "./node_modules/.bin/nodemon --watch webpack.config.js --exec ./node_modules/.bin/webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,7 @@
     "imagemin-webpack-plugin": "^2.3.0",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.9.4",
+    "nodemon-webpack-plugin": "^4.0.3",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",

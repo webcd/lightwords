@@ -4,7 +4,7 @@ import select2 from "select2";
 
 // SELECT2
 
-const select = () => {
+const select = (() => {
   const initSelect2 = debounce(function($selects) {
     // See: https://select2.org/configuration
     $selects.select2({
@@ -25,6 +25,6 @@ const select = () => {
   }
 
   console.log("select2.js is loaded");
-};
+})();
 
 export default select;

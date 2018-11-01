@@ -2,7 +2,7 @@ import $ from 'jquery'
 
 // DROPDOWN MENU
 
-const dropdownMenu = () => {
+const dropdownMenu = (() => {
 
   if (! Lightwords.CONFIG.expandDropdownsOnHover) {
 
@@ -32,6 +32,6 @@ const dropdownMenu = () => {
   }
 
   console.log('dropdown-menu.js is loaded')
-}
+})();
 
 export default dropdownMenu;

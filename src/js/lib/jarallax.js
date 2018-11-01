@@ -1,7 +1,7 @@
 import { jarallax/*, jarallaxElement, jarallaxVideo*/ } from "jarallax";
 import $ from "jquery";
 
-const jarallaxModule = () => {
+const jarallaxModule = (() => {
 
   // Image parallax
   const jElements = document.querySelectorAll(".jarallax");
@@ -24,7 +24,7 @@ const jarallaxModule = () => {
   // jarallaxElement(document.querySelectorAll('[data-jarallax-element]'), {
   //   speed: 0.5
   // });
-};
+})();
 
 export default jarallaxModule;
 

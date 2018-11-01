@@ -3,7 +3,7 @@ import $ from "jquery";
 
 // PARALLAX HERO
 
-const parallaxHero = () => {
+const parallaxHero = (() => {
   console.log("parallax-hero.js is loaded");
 
   // PARALLAX HERO
@@ -34,6 +34,6 @@ const parallaxHero = () => {
       // console.log('scroll', Math.round(scroll), "%", Math.round(percent * 100));
     }
   }
-};
+})();
 
 export default parallaxHero;

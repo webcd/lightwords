@@ -2,7 +2,7 @@ import $ from "jquery";
 
 // CONFIGURE
 
-const configure = () => {
+const configure = (() => {
   // Get the JSON configuration from markup
   const configJSON = JSON.parse(JSON.stringify($("body").data("config")));
 
@@ -11,6 +11,6 @@ const configure = () => {
 
   console.log("configure.js is loaded");
   console.log("config.json", configJSON);
-};
+})();
 
 export default configure;

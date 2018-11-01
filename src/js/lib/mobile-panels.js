@@ -2,7 +2,7 @@ import $ from "jquery";
 
 // MOBILE PANELS
 
-const mobilePanels = () => {
+const mobilePanels = (() => {
   const $body = $("body");
   const $togglers = $("[data-panel-toggle]");
   const $overlay = $("#overlay-panels");
@@ -45,6 +45,6 @@ const mobilePanels = () => {
   });
 
   console.log("mobile-panels.js is loaded");
-};
+})();
 
 export default mobilePanels;

@@ -11,6 +11,7 @@ const path = require("path"),
   CopyWebpackPlugin = require("copy-webpack-plugin"),
   BrowserSyncPlugin = require("browser-sync-webpack-plugin"),
   // WriteFilePlugin = require("write-file-webpack-plugin"),
+  // NodemonPlugin = require( 'nodemon-webpack-plugin' ),
   FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin");
 
 // const DEV = process.env.NODE_ENV === "development";
@@ -137,29 +138,33 @@ module.exports = {
       proxy: "localhost:8000", // The Docker wp port
       open: false,
       browser: ["google chrome", "firefox"]
-    })
+    }),
+
+    // // Nodemon: "hot reload this Webpack config file too"
+    // // See: https://survivejs.com/webpack/developing/webpack-dev-server/#making-it-faster-to-develop-configuration
+    // new NodemonPlugin()
   ],
 
   // OPTIMIZATION
 
   optimization: {
     minimizer: [
-      // Enable the js minification plugin
-      new UglifyJSPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true,
-        uglifyOptions: {
-          ie8: false,
-          ecma: 8,
-          mangle: true,
-          output: {
-               comments: false,
-               beautify: false
-          },
-          warnings: false
-       }
-      }),
+      // // Enable the js minification plugin
+      // new UglifyJSPlugin({
+      //   cache: true,
+      //   parallel: true,
+      //   sourceMap: true,
+      //   uglifyOptions: {
+      //     ie8: false,
+      //     ecma: 8,
+      //     mangle: true,
+      //     output: {
+      //          comments: false,
+      //          beautify: false
+      //     },
+      //     warnings: false
+      //  }
+      // }),
 
       // Enable the css minification plugin
       new OptimizeCSSAssetsPlugin({})

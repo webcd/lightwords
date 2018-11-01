@@ -3,7 +3,7 @@ import { debounce } from "./debounce-throttle";
 
 // IMAGE WALL
 
-const imageWall = () => {
+const imageWall = (() => {
   const setImageSize = ($item) => {
     const itemWidth = $item.getBoundingClientRect().width;
     const itemHeight = $item.getBoundingClientRect().height;
@@ -54,6 +54,6 @@ const imageWall = () => {
   }
 
   console.log("image-wall.js is loaded");
-};
+})();
 
 export default imageWall;

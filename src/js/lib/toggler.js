@@ -1,6 +1,6 @@
 // TOGGLE HELPER
 
-const toggler = () => {
+const toggler = (() => {
 
   const $togglers = document.querySelectorAll("[data-toggle]");
 
@@ -40,6 +40,6 @@ const toggler = () => {
   });
 
   console.log("toggler.js is loaded");
-};
+})();
 
 export default toggler;

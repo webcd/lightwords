@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-const pageTransitions = () => {
+const pageTransitions = (() => {
   // PAGE TRANSITION
 
   if (Lightwords.CONFIG.pageTransitions) {
@@ -49,6 +49,6 @@ const pageTransitions = () => {
   }
 
   console.log("page-transitions.js is loaded");
-};
+})();
 
 export default pageTransitions;
