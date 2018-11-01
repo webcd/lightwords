@@ -1,7 +1,6 @@
-/*body*/.slug-styleguide {
-
+/*body*/
+.slug-styleguide {
   .site-content {
-    
     button {
       margin-bottom: $gutter-half;
     }
@@ -20,13 +19,13 @@
       transform: rotateZ(0.25turn);
       line-height: 1;
 
-      @include bp('md') {
+      @include bp("md") {
         transform: none;
         left: $gutter-quarter;
       }
     }
 
-    &:nth-child(n+5) {
+    &:nth-child(n + 5) {
       > * {
         color: black;
       }
@@ -40,7 +39,113 @@
     line-height: $gutter-double;
     background-color: $gray-lighter;
     font-size: 1.2rem;
-    text-align: center;
     margin-bottom: $gutter;
+  }
+}
+
+// STAGING AREA
+
+.col-inner--no-gutter {
+  @include bp("sm", true) {
+    // TODO: Depends on grid/row gutter!
+    margin: -$gutter-half;
+  }
+}
+
+.square {
+  min-height: 100vw;
+
+  @include bp("sm") {
+    min-height: initial;
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+
+    > * {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+  }
+}
+
+.flex-middle {
+  display: flex;
+  // flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.img-display {
+  background-color: white;
+  color: black;
+  padding: $gutter;
+  margin: $gutter;
+
+  @include bp('sm') {
+    margin: 0;
+  }
+}
+
+.row--broken {
+  @include v-margin($gutter-quad);
+
+  > *:first-child {
+    transform: translate3d(0, $gutter, 0);
+  }
+  > *:nth-child(2) {
+    transform: translate3d(0, -$gutter, 0);
+  }
+
+  @include bp("sm") {
+    @include h-margin(- $gutter-double - $gutter-half);
+
+    > *:first-child {
+      transform: translate3d($gutter-double, - $gutter-and-half, 0);
+    }
+    > *:nth-child(2) {
+      transform: translate3d(- $gutter-double, $gutter-and-half, 0);
+    }
+
+    &.row--broken-inverse {
+      > *:last-child {
+        order: -1;
+
+      }
+      > *:first-child {
+        transform: translate3d(- $gutter-double, - $gutter-and-half, 0);
+      }
+      > *:nth-child(2) {
+        transform: translate3d($gutter-double, $gutter-and-half, 0);
+      }
+    }
+  }
+}
+
+.bordeer {
+  font-size: $font-size-bigger;
+  font-family: $font-family-serif;
+  font-style: italic;
+  color: black;
+  width: 100%;
+  box-shadow: inset 0 0 0 $gutter-quarter black;
+  background-color: white;
+
+  > * {
+    margin: $gutter-double;
+
+    @include bp("sm") {
+      margin: 0;
+    }
+
+    &::before {
+      content: "“ ";
+    }
+
+    &::after {
+      content: " ”";
+    }
   }
 }

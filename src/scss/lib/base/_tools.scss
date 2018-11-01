@@ -97,6 +97,27 @@
 		border-color: transparent transparent $color transparent;
 
 	} @else {
-		@error '@mixin triangle(): unknown $orientation `#{$orientation}`'
+		@error '@mixin triangle(): unknown $orientation `#{$orientation}`';
 	}
 }
+
+// BACKGROUND HELPERS
+
+.background-cover {
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
+// BORDER
+
+.border-quarter {
+	border: $gutter-quarter solid;
+}
+
+// MISC
+
+// .square {
+// 	height: 0;
+// 	padding-bottom: 100%;
+// }
+
