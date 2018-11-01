@@ -1,4 +1,6 @@
+////////////////////////////////////////////////////////////////////////////////
 // WEBPACK CONFIGURATION
+////////////////////////////////////////////////////////////////////////////////
 
 const path = require("path"),
     webpack = require("webpack"),
@@ -17,12 +19,11 @@ const path = require("path"),
 // const DEV = process.env.NODE_ENV === "development"
 
 module.exports = {
+    ////////////////////////////////////////////////////////////////////////////
     // MAIN CONFIG
 
     mode: "development",
-
     context: path.resolve(__dirname, "src"),
-
     entry: ["./js/index.js", "./scss/main.scss"],
 
     output: {
@@ -31,6 +32,7 @@ module.exports = {
         filename: "[name].js"
     },
 
+    ////////////////////////////////////////////////////////////////////////////
     // LOADERS
 
     module: {
@@ -71,6 +73,7 @@ module.exports = {
         ]
     },
 
+    ////////////////////////////////////////////////////////////////////////////
     // PLUGINS
 
     plugins: [
@@ -144,6 +147,7 @@ module.exports = {
     // new NodemonPlugin()
     ],
 
+    ////////////////////////////////////////////////////////////////////////////
     // OPTIMIZATION
 
     optimization: {
@@ -170,7 +174,8 @@ module.exports = {
         ]
     }
 
-    // // DEV SERVER
+    ////////////////////////////////////////////////////////////////////////////
+    // DEV SERVER
 
     // devServer: {
     //   // Display only errors to reduce the amount of output.
