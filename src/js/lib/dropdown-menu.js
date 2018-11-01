@@ -1,35 +1,37 @@
-;(function($) {
-  // DOM IS READY!
+import $ from 'jquery'
 
-  $(function() {
+// DROPDOWN MENU
 
-    if (! Lightwords.CONFIG.expandDropdownsOnHover) {
+const dropdownMenu = () => {
 
-      // Click / touch to open submenus
-      var $togglers = $('[data-dropdown]')
+  if (! Lightwords.CONFIG.expandDropdownsOnHover) {
 
-      $togglers.on('click', function() {
+    // Click / touch to open submenus
+    const $togglers = $('[data-dropdown]')
 
-        var $dropdown = $(this).parent('.menu-item--dropdown')
-        $dropdown.toggleClass('active')
-      })
+    $togglers.on('click', function() {
 
-    } else {
+      const $dropdown = $(this).parent('.menu-item--dropdown')
+      $dropdown.toggleClass('active')
+    })
 
-      // Mouse hover auto-opens submenus
-      var $dropdowns = $('.menu-item--dropdown')
-  
-      function onMouseChange(e) {
-        var $this = $(this)
-        $this.toggleClass('active')
-      }
+  } else {
 
-      $dropdowns.on('mouseenter', onMouseChange)
-      $dropdowns.on('mouseleave', onMouseChange)
+    // Mouse hover auto-opens submenus
+    const $dropdowns = $('.menu-item--dropdown')
 
-      console.log('Dropdowns will auto-expand on mouse hover')
+    function onMouseChange(e) {
+      const $this = $(this)
+      $this.toggleClass('active')
     }
 
-    console.log('dropdown-menu.js is loaded')
-  })
-})(jQuery)
+    $dropdowns.on('mouseenter', onMouseChange)
+    $dropdowns.on('mouseleave', onMouseChange)
+
+    console.log('Dropdowns will auto-expand on mouse hover')
+  }
+
+  console.log('dropdown-menu.js is loaded')
+}
+
+export default dropdownMenu;

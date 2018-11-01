@@ -1,13 +1,15 @@
-/* ========================================================================
- * Bootstrap: modal.js v3.3.7
- * http://getbootstrap.com/javascript/#modals
- * ========================================================================
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
+import $ from "jquery";
 
-;+(function($) {
-  'use strict'
+// MODAL (from Bootstrap)
+
+const modal = () => {
+  /* ========================================================================
+   * Bootstrap: modal.js v3.3.7
+   * http://getbootstrap.com/javascript/#modals
+   * ========================================================================
+   * Copyright 2011-2016 Twitter, Inc.
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * ======================================================================== */
 
   // MODAL CLASS DEFINITION
   // ======================
@@ -366,4 +368,6 @@
     })
     Plugin.call($target, option, this)
   })
-})(jQuery)
+}
+
+export default modal;

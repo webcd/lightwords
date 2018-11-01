@@ -32,7 +32,7 @@ class SiteFront extends \App\Lib\SiteCore
      * */
     private function enqueue_styles()
     {
-
+        // TODO: not working!
     }
 
     /**
@@ -40,7 +40,20 @@ class SiteFront extends \App\Lib\SiteCore
      * */
     public function enqueue_scripts()
     {
-        wp_enqueue_script('main', get_stylesheet_directory_uri() . '/dist/js/main.js', array('jquery'), '0.1.0', true);
+        // No hash assets
+        wp_enqueue_script('site_main_js', get_template_directory_uri() . '/dist/js/main.js', array('jquery'), null, true);
+        wp_enqueue_style('site_main_css', get_template_directory_uri() . '/dist/css/main.css');
+
+        // // Hash assets
+
+        // $jsFilePath = glob(get_template_directory() . '/dist/js/main.*.js');
+        // $jsFileURI = get_template_directory_uri() . '/dist/js/' . basename($jsFilePath[0]);
+        // wp_enqueue_script('site_main_js', $jsFileURI, array('jquery'), null, true);
+
+        // // TODO: Move this!
+        // $cssFilePath = glob(get_template_directory() . '/dist/css/main.*.css');
+        // $cssFileURI = get_template_directory_uri() . '/dist/css/' . basename($cssFilePath[0]);
+        // wp_enqueue_style('site_main_css', $cssFileURI);
     }
 
     /**

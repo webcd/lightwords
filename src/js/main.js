@@ -1,10 +1,7 @@
-;(function($) {
-  console.log("main.js in action 😀");
+// MAIN
 
-  $(function() {
-    // DOM IS READY!
-    // It's up to you!
-    console.log("main.js DOM ready 😀");
+const main = () => {
+  console.log("main.js in action! 😀");
+};
 
-  });
-})(jQuery);
+export default main;

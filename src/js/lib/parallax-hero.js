@@ -1,36 +1,39 @@
-;(function($) {
-  $(function() {
-    console.log("parallax-hero.js is loaded");
+import $ from "jquery";
+// import { throttle } from "./debounce-throttle";
 
-    // PARALLAX HERO
-    var $parallax = $("[data-parallax]");
+// PARALLAX HERO
 
-    if ($parallax.length > 0) {
-    
-      var $parallax = document.querySelector("[data-parallax]"),
-          pSpeed = parseFloat($parallax.dataset.parallax),
-          pHeight = $parallax.offsetHeight,
-          pTop = $parallax.offsetTop;
-    
-      console.log("parallax-hero.js applied to: ", $parallax);
+const parallaxHero = () => {
+  console.log("parallax-hero.js is loaded");
 
-      // TODO: Throttling scroll event causes stuttering parallax!
-      // window.addEventListener('scroll', throttle(onScroll, 1000 / 60));
-      window.addEventListener('scroll', onScroll);
-    
-      function onScroll() {
-        var scroll = window.scrollY;
-        var percent = ((scroll - pTop) / pHeight) * pSpeed;
+  // PARALLAX HERO
+  const $parallax = $("[data-parallax]");
 
-        // Constrain in [0-1] range
-        percent = Math.max(0, percent);
-        percent = Math.min(1, percent);
+  if ($parallax.length > 0) {
+    const $parallax = document.querySelector("[data-parallax]"),
+      pSpeed = parseFloat($parallax.dataset.parallax),
+      pHeight = $parallax.offsetHeight,
+      pTop = $parallax.offsetTop;
 
-        $parallax.style.transform = "translateY(" + percent * 100 + "%)";
-        
-        // console.log('scroll', Math.round(scroll), "%", Math.round(percent * 100));
-      }
+    console.log("parallax-hero.js applied to: ", $parallax);
+
+    // TODO: Throttling scroll event causes stuttering parallax!
+    // window.addEventListener('scroll', throttle(onScroll, 1000 / 60));
+    window.addEventListener("scroll", onScroll);
+
+    function onScroll() {
+      const scroll = window.scrollY;
+      let percent = ((scroll - pTop) / pHeight) * pSpeed;
+
+      // Constrain in [0-1] range
+      percent = Math.max(0, percent);
+      percent = Math.min(1, percent);
+
+      $parallax.style.transform = "translateY(" + percent * 100 + "%)";
+
+      // console.log('scroll', Math.round(scroll), "%", Math.round(percent * 100));
     }
-  });
+  }
+};
 
-})(jQuery);
+export default parallaxHero;
