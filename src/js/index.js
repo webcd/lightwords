@@ -1,3 +1,7 @@
+import '../../node_modules/normalize.css/normalize.css';
+import '../../node_modules/select2/dist/css/select2.css';
+import '../../node_modules/jarallax/dist/jarallax.css';
+
 import "../scss/main.scss";
 // import "jquery";
 

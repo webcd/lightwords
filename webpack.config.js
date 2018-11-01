@@ -49,7 +49,7 @@ module.exports = {
       },
       // Styles
       {
-        test: /\.(sass|scss)$/,
+        test: /\.(css|sass|scss)$/,
         use: [
           /*'clean-css-loader',*/
           MiniCssExtractPlugin.loader,
