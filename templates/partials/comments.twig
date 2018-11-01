@@ -1,7 +1,7 @@
 <section class="wrapper wrapper--comments">
   <div class="container">
     <div class="respond">
-      <h3 class="h2"> {{ post.get_comment_count() }} Comments </h3>
+      <div class="h2"> {{ post.get_comment_count() }} Comments </div>
       {{ post.comment_form() }}
     </div>
     {% if post.get_comment_count() %}
