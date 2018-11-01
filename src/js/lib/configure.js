@@ -1,16 +1,16 @@
-import $ from "jquery";
+import $ from "jquery"
 
 // CONFIGURE
 
 const configure = (() => {
   // Get the JSON configuration from markup
-  const configJSON = JSON.parse(JSON.stringify($("body").data("config")));
+  const configJSON = JSON.parse(JSON.stringify($("body").data("config")))
 
-  window.Lightwords = {};
-  window.Lightwords.CONFIG = configJSON;
+  window.Lightwords = {}
+  window.Lightwords.CONFIG = configJSON
 
-  console.log("configure.js is loaded");
-  console.log("config.json", configJSON);
-})();
+  console.log("configure.js is loaded")
+  console.log("config.json", configJSON)
+})()
 
-export default configure;
+export default configure

@@ -1,30 +1,28 @@
-import { jarallax/*, jarallaxElement, jarallaxVideo*/ } from "jarallax";
-import $ from "jquery";
+import { jarallax /*, jarallaxElement, jarallaxVideo*/ } from "jarallax"
+import $ from "jquery"
 
 const jarallaxModule = (() => {
-
   // Image parallax
-  const jElements = document.querySelectorAll(".jarallax");
+  const jElements = document.querySelectorAll(".jarallax")
   for (let el of jElements) {
     jarallax(el, {
-      speed: el.getAttribute('data-speed') || 0.5
-    });
+      speed: el.getAttribute("data-speed") || 0.5
+    })
   }
 
   // // Video parallax
-  // const jElementsVideo = document.querySelectorAll("[data-jarallax-video]");
+  // const jElementsVideo = document.querySelectorAll("[data-jarallax-video]")
   // for (let el of jElementsVideo) {
   //   jarallaxVideo(el, {
   //     speed: el.getAttribute('data-speed') || 0.5,
   //     videoSrc: el.getAttribute('data-jarallax-video')
-  //   });
+  //   })
   // }
 
   // // Element parallax
   // jarallaxElement(document.querySelectorAll('[data-jarallax-element]'), {
   //   speed: 0.5
-  // });
-})();
+  // })
+})()
 
-export default jarallaxModule;
-
+export default jarallaxModule

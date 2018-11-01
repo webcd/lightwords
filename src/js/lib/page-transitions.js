@@ -1,39 +1,39 @@
-import $ from "jquery";
+import $ from "jquery"
 
 const pageTransitions = (() => {
   // PAGE TRANSITION
 
   if (Lightwords.CONFIG.pageTransitions) {
-    const $pageTransitionIn = $(".page-transition-in");
-    const $pageTransitionOut = $(".page-transition-out");
+    const $pageTransitionIn = $(".page-transition-in")
+    const $pageTransitionOut = $(".page-transition-out")
 
-    $pageTransitionIn.removeClass("active");
+    $pageTransitionIn.removeClass("active")
 
     setTimeout(function() {
-      $pageTransitionIn.remove();
+      $pageTransitionIn.remove()
       // console.warn('ON PAGE IN');
-    }, 2000);
+    }, 2000)
 
     function onPageOut(e) {
-      let url = $(this).attr("href");
+      let url = $(this).attr("href")
 
       if (!url) {
-        url = $(this).attr("data-onclick-url");
+        url = $(this).attr("data-onclick-url")
       }
 
       // console.warn('ON PAGE OUT', url);
-      e.preventDefault();
+      e.preventDefault()
 
-      $pageTransitionOut.addClass("active");
+      $pageTransitionOut.addClass("active")
 
       setTimeout(function() {
-        window.location.href = url;
-      }, 1000);
+        window.location.href = url
+      }, 1000)
     }
 
     $("a[href], [data-onclick-url]")
       .not("a[href^='#']")
-      .click(onPageOut);
+      .click(onPageOut)
 
     // ONCLICK ELEMENTS
     // $("[data-onclick-url]").click(function(e) {
@@ -43,12 +43,12 @@ const pageTransitions = (() => {
   } else {
     // Default "onclick" behavior
     $("[data-onclick-url]").click(function() {
-      const url = $(this).attr("data-onclick-url");
-      window.location.href = url;
-    });
+      const url = $(this).attr("data-onclick-url")
+      window.location.href = url
+    })
   }
 
-  console.log("page-transitions.js is loaded");
-})();
+  console.log("page-transitions.js is loaded")
+})()
 
-export default pageTransitions;
+export default pageTransitions
