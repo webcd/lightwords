@@ -17,9 +17,8 @@ import select from "./lib/select2";
 import onScroll from "./lib/on-scroll";
 import imageWall from "./lib/image-wall";
 import parallaxHero from "./lib/parallax-hero";
+import jarallax from "./lib/jarallax";
 import modal from "./lib/modal";
-
-// import { jarallax, jarallaxElement, jarallaxVideo } from "jarallax";
 
 import main from "./main";
 
@@ -35,12 +34,8 @@ select();
 onScroll();
 imageWall();
 parallaxHero();
+jarallax();
 modal();
-
-// jarallax(document.querySelectorAll(".jarallax"), {
-//   // TODO
-//   speed: 0.2
-// });
 
 main();
 
