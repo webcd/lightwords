@@ -2,6 +2,7 @@ import $ from "jquery"
 import { debounce } from "./debounce-throttle"
 
 // IMAGE WALL
+// Not used anymore, kept for reference
 
 const imageWall = (() => {
   const setImageSize = $item => {

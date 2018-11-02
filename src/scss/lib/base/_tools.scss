@@ -12,6 +12,17 @@
 
 .padding { padding: $gutter; }
 .padding-double { padding: $gutter-double; }
+.padding-triple { padding: $gutter-triple; }
+.padding-quad { padding: $gutter-quad; }
+.padding-half { padding: $gutter-half; }
+.padding-quarter { padding: $gutter-quarter; }
+
+// BORDER
+
+.border {	border: 0.2rem solid; }
+.border-thin {	border: 0.1rem solid; }
+.border-quarter {	border: $gutter-quarter solid; }
+.border-eighth {	border: $gutter-eighth solid; }
 
 // MARGIN HELPER
 
@@ -109,12 +120,6 @@
 .background-cover {
 	background-size: cover;
 	background-position: 50% 50%;
-}
-
-// BORDER
-
-.border-quarter {
-	border: $gutter-quarter solid;
 }
 
 // MISC
