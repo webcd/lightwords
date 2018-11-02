@@ -16,5 +16,6 @@ import imageWall from "./lib/image-wall"
 import parallaxHero from "./lib/parallax-hero"
 import jarallax from "./lib/jarallax"
 import modal from "./lib/modal"
+import lightbox from "./lib/lightbox"
 
 import app from "./app"

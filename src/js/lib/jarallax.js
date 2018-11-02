@@ -1,5 +1,4 @@
 import { jarallax /*, jarallaxElement, jarallaxVideo*/ } from "jarallax"
-import $ from "jquery"
 
 const jarallaxModule = (() => {
   // Image parallax
