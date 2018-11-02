@@ -16,7 +16,7 @@
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="logo-mobile.svg"
-   inkscape:export-filename="/media/datassd1/webprojects/wordpress-docker-compose/lightwords/src/img/logo/logo-desktop.png"
+   inkscape:export-filename="/media/datassd1/webprojects/wordpress-docker-compose/lightwords/src/img/sprites/logo-mobile.svg.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -28,9 +28,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6"
-     inkscape:cx="112.54424"
-     inkscape:cy="10.490437"
+     inkscape:zoom="31.678384"
+     inkscape:cx="23.48358"
+     inkscape:cy="24.358457"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -79,18 +79,16 @@
          width="9.5435801"
          id="rect861"
          style="fill:#e25d5d;fill-opacity:1;stroke:none;stroke-width:12.70111752;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <text
+      <g
+         aria-label="W"
          transform="scale(1.002151,0.99785361)"
-         id="text865"
-         y="294.58386"
-         x="17.766268"
          style="font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.93818903px;line-height:1.25;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Medium Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.19845472"
-         xml:space="preserve"><tspan
+         id="text865">
+        <path
+           d="m 22.949905,289.70981 q 0.02381,0.42867 0.05557,0.89702 0.03969,0.46835 0.08732,0.93671 0.04763,0.46041 0.09526,0.90495 0.04763,0.44454 0.09526,0.82557 0.222269,-0.42072 0.460415,-0.92083 0.238146,-0.50804 0.476291,-1.04784 0.238146,-0.5398 0.468354,-1.10341 0.230207,-0.57155 0.444538,-1.11928 h 1.063718 q -0.627117,1.53207 -1.270111,2.89744 -0.635055,1.36536 -1.349492,2.60372 h -0.968459 q -0.0635,-0.42866 -0.127011,-0.84145 -0.05557,-0.41278 -0.111135,-0.83351 -0.04763,-0.42866 -0.09526,-0.86526 -0.03969,-0.44454 -0.07938,-0.92083 -0.492167,0.91289 -0.976397,1.77022 -0.476291,0.84938 -1.016088,1.69083 h -0.984336 q -0.0635,-0.69062 -0.09526,-1.3733 -0.02381,-0.68269 -0.02381,-1.39713 0,-1.30186 0.09526,-2.73073 h 1.000212 q -0.04763,0.76206 -0.07938,1.51619 -0.03175,0.74619 -0.03175,1.5162 0,0.28577 0,0.57948 0,0.28578 0.01588,0.57949 0.246084,-0.40485 0.508044,-0.84939 0.261961,-0.45247 0.515983,-0.91289 0.254022,-0.46041 0.492167,-0.92083 0.246084,-0.46041 0.460415,-0.88114 z"
            style="font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-size:7.93818903px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu, Medium Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.19845472"
-           y="294.58386"
-           x="17.766268"
-           id="tspan863"
-           sodipodi:role="line">W</tspan></text>
+           id="path818" />
+      </g>
     </g>
   </g>
 </svg>

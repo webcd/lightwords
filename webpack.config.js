@@ -32,11 +32,14 @@ module.exports = {
     filename: "[name].js"
   },
 
+  devtool: 'eval-source-map',
+
   ////////////////////////////////////////////////////////////////////////////
   // LOADERS
 
   module: {
     rules: [
+
       // Scripts
       {
         test: /\.js$/,
@@ -49,17 +52,29 @@ module.exports = {
           }
         }
       },
+
       // Styles
       {
         test: /\.(css|sass|scss)$/,
-        use: [
-          /*'clean-css-loader',*/
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
-          "sass-loader"
-        ]
+        use: [{
+          loader: MiniCssExtractPlugin.loader
+        }, {
+          loader: "css-loader", 
+          options: {
+            sourceMap: true
+          }
+        }, {
+          loader: "postcss-loader", 
+          options: {
+            sourceMap: true
+          }
+        }, {
+          loader: "sass-loader", options: {
+            sourceMap: true
+          }
+        }]
       },
+
       // SVG sprites
       {
         test: /img\/sprites\/.*\.svg$/,
@@ -83,7 +98,8 @@ module.exports = {
     // Extract css into dedicated file
     new MiniCssExtractPlugin({
       // filename: "../css/[name].[hash:8].css"
-      filename: "../css/[name].css"
+      filename: "../css/[name].css",
+      sourceMap: true
     }),
 
     // Enable the css minification plugin
@@ -166,21 +182,6 @@ module.exports = {
           }
         }
       }),
-      // new UglifyJSPlugin({
-      //   cache: true,
-      //   parallel: true,
-      //   sourceMap: true,
-      //   uglifyOptions: {
-      //     ie8: false,
-      //     ecma: 8,
-      //     mangle: true,
-      //     output: {
-      //       comments: false,
-      //       beautify: false
-      //     },
-      //     warnings: false
-      //   }
-      // }),
 
       // Enable the css minification plugin
       new OptimizeCSSAssetsPlugin({})
