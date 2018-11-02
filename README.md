@@ -1,6 +1,6 @@
 # Lightwords
 
-Not so minimal WordPress starter theme. Powered by Twig, Gulp and Sass, based on Timber-starter-theme!
+Not so minimal WordPress starter theme. Powered by Twig, Webpack and Sass, based on Timber-starter-theme!
 
 ## Requirements
 
@@ -13,6 +13,7 @@ Not so minimal WordPress starter theme. Powered by Twig, Gulp and Sass, based on
 
 * cd into your WordPress theme directory
 * git clone this repo
+* activate the theme in the WordPress admin panel
 
 ### Install dependencies
 
@@ -29,34 +30,12 @@ composer install
 ### Build the theme
 
 ```sh
-gulp build
+npm run build
 ```
 
 ### Local live server
 
 ```sh
-gulp
+npm run watch
 ```
 
-## Usage
-
-### Gulp tasks
-
-* `(default)` : see `swatch`
-* `build` : clean and build all assets
-* `swatch` : `serve` and `watch`
-* `serve` : launch a local proxy web server
-* `watch` : do things when a file change
-* `graphics` : `images` and `sprites`
-* `images` : optimise images
-* `sprites` : build sprites
-* `compile` : `scripts`, `styles` and `templates`
-* `scripts` : handles javascript
-* `styles` : CSS pipeline
-* `templates` : void - just refresh the page
-
-Example:
-
-```sh
-gulp images
-```

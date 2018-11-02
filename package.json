@@ -1,6 +1,6 @@
 {
   "name": "lightwords",
-  "version": "0.6.0",
+  "version": "0.6.5",
   "description": "A minimal WordPress starter theme. Powered by Twig, Gulp and Sass, based on Timber-starter-theme!",
   "homepage": "https://github.com/webcd/lightwords#readme",
   "author": "Nicolas Giethlen (@nicolasgiethlen)",
@@ -24,7 +24,8 @@
     "starter-theme",
     "webpack",
     "twig",
-    "sass"
+    "sass",
+    "ES6"
   ],
   "devDependencies": {
     "@babel/core": "^7.1.2",
