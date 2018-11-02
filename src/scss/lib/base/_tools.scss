@@ -10,6 +10,9 @@
   padding-right: $right;
 }
 
+.padding { padding: $gutter; }
+.padding-double { padding: $gutter-double; }
+
 // MARGIN HELPER
 
 @mixin v-margin($top, $bottom: $top) {
