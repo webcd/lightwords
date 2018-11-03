@@ -38,7 +38,6 @@
 @import 'lib/fx/jarallax';
 @import 'lib/fx/ripple';
 @import 'lib/fx/shadows';
-@import 'lib/fx/lightbox';
 
 /* LIGHTWORDS - BASE */
 @import 'lib/base/cdn-imports';
@@ -51,6 +50,8 @@
 @import 'lib/base/forms-gravity';
 @import 'lib/base/forms-select2';
 @import 'lib/base/styleguide';
+
+@import 'lib/fx/lightbox';
 
 /* LIGHTWORDS - COMPONENTS */
 @import 'lib/components/breadcrumb';

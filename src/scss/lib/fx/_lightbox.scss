@@ -1,3 +1,273 @@
+$smartphoto-gutter: $gutter-half;
+$smartphoto-btn-size: $navbar-btn-size;
+$smartphoto-border-size: 0.2rem;
+$smartphoto-skin: "white"; // "black" or "white"
+
 .smartphoto {
-  z-index: 100000 !important;
+  // Above ALL (but debug-zone)
+  z-index: 99999;
 }
+
+// BUTTONS
+
+.smartphoto-header > .smartphoto-dismiss,
+.smartphoto-nav li,
+.smartphoto-arrows li {
+  @include size($smartphoto-btn-size);
+  margin: $smartphoto-gutter;
+  transition: all 0.25s;
+}
+
+.smartphoto-header > .smartphoto-dismiss,
+.smartphoto-arrows a {
+  position: relative;
+  background: none;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: $smartphoto-border-size;
+    background-color: white;
+  }
+
+  &::before {
+    transform: translate3d(-50%, -50%, 0) rotateZ(45deg);
+  }
+  &::after {
+    transform: translate3d(-50%, -50%, 0) rotateZ(-45deg);
+  }
+}
+
+.smartphoto-arrows li {
+  background: none;
+  transform: translateY(-50%);
+}
+
+.smartphoto-arrow-left a {
+  &::before,
+  &::after {
+    width: 25%;
+    transform-origin: 0.1rem 50%;
+  }
+}
+
+.smartphoto-arrow-right a {
+  &::before,
+  &::after {
+    width: 25%;
+    transform-origin: calc(100% - 0.1rem) 50%;
+  }
+}
+
+// HEADER & FOOTER
+
+.smartphoto-header,
+.smartphoto-nav {
+  height: auto;
+  padding: 0;
+  display: flex;
+  background-color: transparent;
+  z-index: +1;
+}
+
+// HEADER
+
+.smartphoto-header {
+  > * {
+    display: inline-block;
+    position: initial;
+    margin: $smartphoto-gutter;
+    height: auto;
+  }
+
+  > .smartphoto-count {
+    @include h-padding($smartphoto-gutter);
+    line-height: $smartphoto-btn-size;
+    flex-shrink: 0;
+    height: $smartphoto-btn-size;
+
+    // Counter styling
+
+    // min-width: $smartphoto-btn-size * 1.5;
+    // font-size: 0;
+    // overflow: hidden;
+    // position: relative;
+    // display: flex;
+
+    // &::before {
+    //   content: "";
+    //   display: block;
+    //   position: absolute;
+    //   @include size($smartphoto-btn-size * 1.5);
+    //   background-color: white;
+    //   top: 50%;
+    //   right: 50%;
+    //   transform-origin: 100% 50%;
+    //   transform: translate3d(0,-50%,0) rotate(18deg);
+    //   z-index: -1;
+    // }
+
+    // > span {
+    //   font-size: $font-size-base;
+    //   flex-basis: 50%;
+
+    //   &:first-child {
+    //     color: black;
+    //     transform: translateY(- $smartphoto-btn-size / 16);
+    //     text-align: right;
+    //     font-size: $font-size-big;
+    //     padding-right: $smartphoto-btn-size / 8;
+    //   }
+
+    //   &:last-child {
+    //     transform: translateY($smartphoto-btn-size / 16);
+    //     padding-left: $smartphoto-btn-size / 8;
+    //   }
+    // }
+  }
+
+  > .smartphoto-caption {
+    padding: 0;
+    flex-grow: 1;
+    line-height: $smartphoto-btn-size;
+    height: $smartphoto-btn-size;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-small;
+
+    @include bp('sm') { font-size: $font-size-base; }
+    @include bp('lg') { font-size: $font-size-big; }
+  }
+
+  > .smartphoto-dismiss {
+    top: 0;
+    right: 0;
+    flex-shrink: 0;
+  }
+}
+
+// FOOTER
+
+.smartphoto-nav {
+  ul {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  li {
+    flex-shrink: 0;
+    @include size($smartphoto-btn-size);
+    margin-right: $smartphoto-gutter;
+    overflow: visible;
+    background: transparent;
+
+    &:not(:last-child) {
+      margin-right: 0;
+    }
+  }
+
+  a {
+    opacity: 0.75;
+    filter: grayscale(25%);
+
+    @include hocus() {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+
+    &.current {
+      position: relative;
+      opacity: 1;
+      filter: grayscale(0);
+      transform: translate3d(- $smartphoto-gutter / 8, - $smartphoto-gutter / 8, 0);
+    }
+  }
+}
+
+// CONTENT
+
+.smartphoto-list {
+  z-index: initial;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// SKIN
+
+@if $smartphoto-skin == "black" {
+
+  // BLACK SKIN
+
+  .smartphoto-header > .smartphoto-count,
+  .smartphoto-header > .smartphoto-dismiss {
+    outline: $smartphoto-border-size solid white;
+  }
+
+  .smartphoto-arrows > li > a {
+    background-color: black;
+  }
+
+  .smartphoto-header,
+  .smartphoto-nav {
+    background-color: rgba(0,0,0,0.75);
+  }
+
+  .smartphoto-nav {
+    a {
+      &.current {
+        outline: $smartphoto-border-size solid white;
+        box-shadow: ($smartphoto-gutter / 2) ($smartphoto-gutter / 2) 0 0 white;
+      }
+    }
+  }
+
+} @else {
+
+  // WHITE SKIN
+  
+  .smartphoto {
+    background-color: white;
+  }
+  
+  .smartphoto-count,
+  .smartphoto-caption {
+    color: black;
+  }
+  
+  .smartphoto-header > .smartphoto-count,
+  .smartphoto-header > .smartphoto-dismiss {
+    outline: $smartphoto-border-size solid black;
+  }
+  
+  .smartphoto-arrows > li > a {
+    background-color: white;
+  }
+  
+  .smartphoto-header,
+  .smartphoto-nav {
+    background-color: rgba(255,255,255,0.85);
+  }
+  
+  .smartphoto-nav {
+    a {
+      &.current {
+        outline: $smartphoto-border-size solid black;
+        box-shadow: ($smartphoto-gutter / 2) ($smartphoto-gutter / 2) 0 0 black;
+      }
+    }
+  }
+  
+  .smartphoto-header > .smartphoto-dismiss,
+  .smartphoto-arrows a {
+    &::before,
+    &::after {
+      background-color: black;
+    }
+  }
+}
+
