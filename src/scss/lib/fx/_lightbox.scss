@@ -1,7 +1,7 @@
 $smartphoto-gutter: $gutter-half;
 $smartphoto-btn-size: $navbar-btn-size;
 $smartphoto-border-size: 0.2rem;
-$smartphoto-skin: "white"; // "black" or "white"
+$smartphoto-skin: "black"; // "black" or "white"
 
 .smartphoto {
   // Above ALL (but debug-zone)
@@ -155,8 +155,8 @@ $smartphoto-skin: "white"; // "black" or "white"
 .smartphoto-nav {
   ul {
     flex-grow: 1;
-    display: flex;
-    justify-content: center;
+    // display: flex;
+    // justify-content: center;
   }
 
   li {
@@ -219,6 +219,7 @@ $smartphoto-skin: "white"; // "black" or "white"
 
   .smartphoto-nav {
     a {
+      background: $gray-dark;
       &.current {
         outline: $smartphoto-border-size solid white;
         box-shadow: ($smartphoto-gutter / 2) ($smartphoto-gutter / 2) 0 0 white;
@@ -255,6 +256,7 @@ $smartphoto-skin: "white"; // "black" or "white"
   
   .smartphoto-nav {
     a {
+      background: $gray-light;
       &.current {
         outline: $smartphoto-border-size solid black;
         box-shadow: ($smartphoto-gutter / 2) ($smartphoto-gutter / 2) 0 0 black;
