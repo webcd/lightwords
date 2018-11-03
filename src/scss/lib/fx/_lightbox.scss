@@ -1,11 +1,118 @@
+/* LIGHBOX */
+
+// VARIABLES
+
 $smartphoto-gutter: $gutter-half;
 $smartphoto-btn-size: $navbar-btn-size;
 $smartphoto-border-size: 0.2rem;
-$smartphoto-skin: "black"; // "black" or "white"
+
+$skin: "light"; // "dark" or "light"
+
+// Computed variables
+
+$smartphotoColorBack: white;
+$smartphotoColorFront: black;
+
+@if $skin == "dark" {
+  $smartphotoColorBack: black;
+  $smartphotoColorFront: white;
+}
+
+// MIXINS
+
+@mixin btn-ctrl($type: "cancel") {
+  width: $smartphoto-btn-size !important;
+  height: $smartphoto-btn-size !important;
+  background: none !important;
+  background: $smartphotoColorBack !important;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: $smartphoto-border-size;
+    background-color: $smartphotoColorFront;
+    transition: all 0.25s;
+  }
+
+  &::before {
+    transform: translate3d(-50%, -50%, 0) rotateZ(45deg);
+  }
+  &::after {
+    transform: translate3d(-50%, -50%, 0) rotateZ(-45deg);
+  }
+
+  @if $type == "previous" {
+    &::before,
+    &::after {
+      width: 25%;
+      transform-origin: 0.1rem 50%;
+    }
+  
+  } @else if $type == "next" {
+    &::before,
+    &::after {
+      width: 25%;
+      transform-origin: calc(100% - 0.1rem) 50%;
+    }
+  }
+
+  &:hover {
+    background-color: $smartphotoColorFront !important;
+
+    &::before,
+    &::after {
+      background-color: $smartphotoColorBack;
+    }
+  }
+}
+
+// Owl Carousel (aka SLide Anything)
+// Specificity war!
+
+html .white .sa_owl_theme .owl-nav .owl-prev {
+  @include btn-ctrl("previous");
+}
+
+html .white .sa_owl_theme .owl-nav .owl-next {
+  @include btn-ctrl("next");
+}
+
+// Smart Slider 3
+
+.nextend-arrow {
+  &.nextend-arrow-previous {
+    @include btn-ctrl("previous");
+  }
+
+  &.nextend-arrow-next {
+    @include btn-ctrl("next");
+  }
+
+  > img {
+    display: none !important;
+  }
+}
 
 .smartphoto {
   // Above ALL (but debug-zone)
   z-index: 99999;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// SMARTPHOTO
+
+.smartphoto {
+  background-color: $smartphotoColorBack;
+}
+
+.smartphoto-count,
+.smartphoto-caption {
+  color: $smartphotoColorFront;
 }
 
 // BUTTONS
@@ -22,25 +129,10 @@ $smartphoto-skin: "black"; // "black" or "white"
 .smartphoto-arrows a {
   position: relative;
   background: none;
+}
 
-  &::before,
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    height: $smartphoto-border-size;
-    background-color: white;
-  }
-
-  &::before {
-    transform: translate3d(-50%, -50%, 0) rotateZ(45deg);
-  }
-  &::after {
-    transform: translate3d(-50%, -50%, 0) rotateZ(-45deg);
-  }
+.smartphoto-header > .smartphoto-dismiss {
+  @include btn-ctrl();
 }
 
 .smartphoto-arrows li {
@@ -49,19 +141,11 @@ $smartphoto-skin: "black"; // "black" or "white"
 }
 
 .smartphoto-arrow-left a {
-  &::before,
-  &::after {
-    width: 25%;
-    transform-origin: 0.1rem 50%;
-  }
+  @include btn-ctrl("previous");
 }
 
 .smartphoto-arrow-right a {
-  &::before,
-  &::after {
-    width: 25%;
-    transform-origin: calc(100% - 0.1rem) 50%;
-  }
+  @include btn-ctrl("next");
 }
 
 // HEADER & FOOTER
@@ -73,6 +157,7 @@ $smartphoto-skin: "black"; // "black" or "white"
   display: flex;
   background-color: transparent;
   z-index: +1;
+  background-color: transparentize($smartphotoColorBack, 0.2);
 }
 
 // HEADER
@@ -85,50 +170,17 @@ $smartphoto-skin: "black"; // "black" or "white"
     height: auto;
   }
 
+  // Outlined items
+  > .smartphoto-count,
+  > .smartphoto-dismiss {
+    outline: $smartphoto-border-size solid $smartphotoColorFront;
+  }
+
   > .smartphoto-count {
     @include h-padding($smartphoto-gutter);
     line-height: $smartphoto-btn-size;
     flex-shrink: 0;
     height: $smartphoto-btn-size;
-
-    // Counter styling
-
-    // min-width: $smartphoto-btn-size * 1.5;
-    // font-size: 0;
-    // overflow: hidden;
-    // position: relative;
-    // display: flex;
-
-    // &::before {
-    //   content: "";
-    //   display: block;
-    //   position: absolute;
-    //   @include size($smartphoto-btn-size * 1.5);
-    //   background-color: white;
-    //   top: 50%;
-    //   right: 50%;
-    //   transform-origin: 100% 50%;
-    //   transform: translate3d(0,-50%,0) rotate(18deg);
-    //   z-index: -1;
-    // }
-
-    // > span {
-    //   font-size: $font-size-base;
-    //   flex-basis: 50%;
-
-    //   &:first-child {
-    //     color: black;
-    //     transform: translateY(- $smartphoto-btn-size / 16);
-    //     text-align: right;
-    //     font-size: $font-size-big;
-    //     padding-right: $smartphoto-btn-size / 8;
-    //   }
-
-    //   &:last-child {
-    //     transform: translateY($smartphoto-btn-size / 16);
-    //     padding-left: $smartphoto-btn-size / 8;
-    //   }
-    // }
   }
 
   > .smartphoto-caption {
@@ -174,6 +226,7 @@ $smartphoto-skin: "black"; // "black" or "white"
   a {
     opacity: 0.75;
     filter: grayscale(25%);
+    background: $gray-light;
 
     @include hocus() {
       filter: grayscale(0);
@@ -185,6 +238,8 @@ $smartphoto-skin: "black"; // "black" or "white"
       opacity: 1;
       filter: grayscale(0);
       transform: translate3d(- $smartphoto-gutter / 8, - $smartphoto-gutter / 8, 0);
+      outline: $smartphoto-border-size solid $smartphotoColorFront;
+      box-shadow: ($smartphoto-gutter / 2) ($smartphoto-gutter / 2) 0 0 $smartphotoColorFront;
     }
   }
 }
@@ -195,81 +250,47 @@ $smartphoto-skin: "black"; // "black" or "white"
   z-index: initial;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////
-// SKIN
+// COUNTER
 
-@if $smartphoto-skin == "black" {
+// Unused styles
 
-  // BLACK SKIN
+// .smartphoto-count {
 
-  .smartphoto-header > .smartphoto-count,
-  .smartphoto-header > .smartphoto-dismiss {
-    outline: $smartphoto-border-size solid white;
-  }
+//   min-width: $smartphoto-btn-size * 1.5;
+//   font-size: 0;
+//   overflow: hidden;
+//   position: relative;
+//   display: flex;
 
-  .smartphoto-arrows > li > a {
-    background-color: black;
-  }
+//   &::before {
+//     content: "";
+//     display: block;
+//     position: absolute;
+//     @include size($smartphoto-btn-size * 1.5);
+//     background-color: $smartphotoColorBack;
+//     top: 50%;
+//     right: 50%;
+//     transform-origin: 100% 50%;
+//     transform: translate3d(0,-50%,0) rotate(18deg);
+//     z-index: -1;
+//   }
 
-  .smartphoto-header,
-  .smartphoto-nav {
-    background-color: rgba(0,0,0,0.75);
-  }
+//   > span {
+//     font-size: $font-size-base;
+//     flex-basis: 50%;
 
-  .smartphoto-nav {
-    a {
-      background: $gray-dark;
-      &.current {
-        outline: $smartphoto-border-size solid white;
-        box-shadow: ($smartphoto-gutter / 2) ($smartphoto-gutter / 2) 0 0 white;
-      }
-    }
-  }
+//     &:first-child {
+//       color: black;
+//       transform: translateY(- $smartphoto-btn-size / 16);
+//       text-align: right;
+//       font-size: $font-size-big;
+//       padding-right: $smartphoto-btn-size / 8;
+//     }
 
-} @else {
-
-  // WHITE SKIN
-  
-  .smartphoto {
-    background-color: white;
-  }
-  
-  .smartphoto-count,
-  .smartphoto-caption {
-    color: black;
-  }
-  
-  .smartphoto-header > .smartphoto-count,
-  .smartphoto-header > .smartphoto-dismiss {
-    outline: $smartphoto-border-size solid black;
-  }
-  
-  .smartphoto-arrows > li > a {
-    background-color: white;
-  }
-  
-  .smartphoto-header,
-  .smartphoto-nav {
-    background-color: rgba(255,255,255,0.85);
-  }
-  
-  .smartphoto-nav {
-    a {
-      background: $gray-light;
-      &.current {
-        outline: $smartphoto-border-size solid black;
-        box-shadow: ($smartphoto-gutter / 2) ($smartphoto-gutter / 2) 0 0 black;
-      }
-    }
-  }
-  
-  .smartphoto-header > .smartphoto-dismiss,
-  .smartphoto-arrows a {
-    &::before,
-    &::after {
-      background-color: black;
-    }
-  }
-}
-
+//     &:last-child {
+//       transform: translateY($smartphoto-btn-size / 16);
+//       padding-left: $smartphoto-btn-size / 8;
+//     }
+//   }
+// }
