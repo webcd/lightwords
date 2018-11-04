@@ -139,24 +139,33 @@ module.exports = {
     // new webpack.HotModuleReplacementPlugin() // Seems buggy: https://github.com/webpack/webpack/issues/1583
 
     // BROWSERSYNC
-    new BrowserSyncPlugin({
-      // notify: false,
-      // host: 'localhost',
-      port: 3000,
-      // logLevel: 'silent',
-      files: [
-        // '{lib,templates}/**/*.php', '*.php',
-        "*.css",
-        "**/*.php",
-        "**/*.twig",
-        // dest + '/**',
-        "!**/*.map"
-      ],
-      // files: ['./*.php'],
-      proxy: "localhost:8000", // The Docker wp port
-      open: false,
-      browser: ["google chrome", "firefox"]
-    })
+    new BrowserSyncPlugin(
+      {
+        // notify: false,
+        // host: 'localhost',
+        port: 3000,
+        // logLevel: 'silent',
+        files: [
+          // '{lib,templates}/**/*.php', '*.php',
+          "*.css",
+          "**/*.php",
+          "**/*.twig",
+          // dest + '/**',
+          "!**/*.map"
+        ],
+        // files: ['./*.php'],
+        proxy: "localhost:8000", // The Docker wp port
+        open: false,
+        browser: ["google chrome", "firefox"]
+      },
+      // plugin options
+      {
+        // prevent BrowserSync from reloading the page
+        // and let Webpack Dev Server take care of this
+        reload: false,
+        injectCss: true,
+      }
+    )
 
     // // Nodemon: "hot reload this Webpack config file too"
     // // See: https://survivejs.com/webpack/developing/webpack-dev-server/#making-it-faster-to-develop-configuration
