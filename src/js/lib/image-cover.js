@@ -11,9 +11,13 @@ const imageCover = (() => {
         $itemImg.addEventListener("load", function() {
           // this.style.transform = "translateX(100000rem)"
           this.style.opacity = "0"
+          this.style.position = "absolute" // Remowe from flow
+          this.style.transform = "scale3d(0,0,0)"
 
           const $parent = this.parentNode
           const url = this.getAttribute("src")
+
+          // this.style.display = "none"
 
           $parent.style.backgroundImage = `url("${url}")`
           $parent.style.backgroundSize = "cover"
@@ -21,7 +25,7 @@ const imageCover = (() => {
           $parent.style.backgroundPosition = "50% 50%"
           $parent.style.display = "block"
 
-          console.warn("image-cover.js: replaced", this)
+          console.log("image-cover.js: replaced", url)
         })
       }
     }

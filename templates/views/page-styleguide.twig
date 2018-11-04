@@ -595,73 +595,141 @@
       </div>
     </section>
 
-    <section class="wrapper wrapper--padding">
+    <section class="wrapper wrapper--padding bg-gray-dark color-white">
       <div class="container">
 
-        <h2>[FX] - Lightbox images</h2>
+        <h2>[FX] - Parallax images</h2>
 
         <div class="row row--quarter-gutter">
-          <div class="col-sm-6 col-lg-4">
-            <a class="lightbox image-cover" href="https://picsum.photos/1024/812/?random">
-              <img src="https://picsum.photos/1024/812/?random" alt="Custom caption">
+          <div class="col-sm-6 col-lg-4 overflow-hidden">
+            <!-- Child Image Parallax -->
+            <div class="jarallax" data-speed="0">
+              <img class="jarallax-img" src="https://picsum.photos/800/600/?random" alt="Super caption text!">
+              <h3 class="color-white" style="padding: 12rem 3rem;">Child image</h3>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 overflow-hidden">
+            <!-- Background Image Parallax -->
+            <div class="jarallax" style="background-image: url('https://picsum.photos/801/600/?random');" data-speed="0.25">
+              <h3 class="color-white" style="padding: 12rem 3rem;">Background image</h3>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 overflow-hidden">
+            <!-- Child Image Parallax + Lightbox link -->
+            <a href="https://picsum.photos/808/606/?random" class="jarallax lightbox" data-speed="0.5">
+              <img class="jarallax-img" src="https://picsum.photos/808/606/?random" alt="Super caption text!">
+              <h3 class="color-white" style="padding: 12rem 3rem;">Lightbox child image</h3>
             </a>
           </div>
-          <div class="col-sm-6 col-lg-4">
-            <a class="lightbox image-cover" href="https://picsum.photos/1024/513/?random">
-              <img src="https://picsum.photos/1024/513/?random" alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias natus rerum voluptatem a molestias expedita. Beatae quidem perspiciatis quo sed? Eligendi, quisquam. Iure natus dolores perferendis tempora molestiae, qui at.">
-            </a>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <a class="lightbox" href="https://picsum.photos/812/1025/?random">
-              <img src="https://picsum.photos/812/1025/?random" alt="Very long custom caption">
-            </a>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <a class="lightbox" href="https://picsum.photos/1025/813/?random">
-              <img src="https://picsum.photos/1025/813/?random" alt="Caption 4">
-            </a>
-          </div>
-          <div class="col-sm-6 col-lg-4">
-            <a class="lightbox" href="https://picsum.photos/1026/812/?random">
-              <img src="https://picsum.photos/1026/812/?random" alt="Caption 5">
-            </a>
-          </div>
+          {# <div class="col-sm-8 overflow-hidden">
+              <!-- Background YouTube Parallax -->
+              <div class="jarallax" data-jarallax-video="https://www.youtube.com/watch?v=ab0TSkLe-E0" data-speed="0.8">
+                <h1 class="color-white" style="padding: 12rem 3rem;">Your video content here...</h1>
+              </div>
+            </div>
+            <div class="col-sm-4 overflow-hidden">
+              <!-- Element will be parallaxed on 250 pixels from the screen center by Y axis and on -100 pixels from the screen center by X axis -->
+              <div data-jarallax-element="0 -100">
+                <h1 style="padding: 12rem 3rem;">Your content here...</h1>
+              </div>
+            </div> #}
         </div>
 
       </div>
     </section>
 
-    <section class="wrapper wrapper--padding bg-gray-dark color-white">
+    <section class="wrapper wrapper--padding background-cover" style="background-image: url('https://picsum.photos/1920/1080/?random')">
+      <div class="container">
+        <h2 class="color-white padding-double no-margin">[FX] - Image wrapper</h2>
+      </div>
+    </section>
+
+    <section class="wrapper wrapper--padding background-cover jarallax" data-speed="0.5" style="background-image: url('https://picsum.photos/1921/1080/?random')">
+      <div class="container">
+        <h2 class="color-white padding-double no-margin">[FX] - Parallax wrapper</h2>
+      </div>
+    </section>
+
+    <section class="wrapper wrapper--padding image-cover">
+      <img src="https://picsum.photos/1920/1081/?random" alt="Custom caption" style="display: none;">
+      <div class="container">
+        <h2 class="color-white padding-double no-margin">[FX] - Image cover wrapper</h2>
+      </div>
+    </section>
+
+    <section class="wrapper wrapper--padding image-cover jarallax" data-speed="0">
+      <img src="https://picsum.photos/1921/1081/?random" alt="Custom caption" style="display: none;">
+      <div class="container">
+        <h2 class="color-white padding-double no-margin">[FX] - Parallax image cover wrapper (TODO)</h2>
+      </div>
+    </section>
+
+    <section class="wrapper wrapper--padding">
       <div class="container">
 
-        <h2>[FX] - Parallax on scroll</h2>
+        <h2>[FX] - Lightbox images</h2>
+
+        <div class="row row--quarter-gutter margin-bottom-double">
+          <div class="col-6">
+            <a class="lightbox margin-bottom-quarter" href="https://picsum.photos/812/925/?random">
+              <img src="https://picsum.photos/812/925/?random" alt="Very long custom caption">
+            </a>
+            <a class="lightbox margin-bottom-quarter" href="https://picsum.photos/1025/813/?random">
+              <img src="https://picsum.photos/1025/813/?random" alt="Caption 4">
+            </a>
+            {# <a href="https://picsum.photos/808/606/?random" class="jarallax lightbox" data-speed="0.5">
+              <img class="jarallax-img" src="https://picsum.photos/808/606/?random" alt="Super caption text!">
+            </a> #}
+            <a class="lightbox" href="https://picsum.photos/812/924/?random">
+              <img src="https://picsum.photos/812/924/?random" alt="Very long custom caption">
+            </a>
+          </div>
+          <div class="col-6">
+            <a class="lightbox margin-bottom-quarter" href="https://picsum.photos/1026/814/?random">
+              <img src="https://picsum.photos/1026/814/?random" alt="Caption 4">
+            </a>
+            <a class="lightbox margin-bottom-quarter" href="https://picsum.photos/812/1026/?random">
+              <img src="https://picsum.photos/812/1026/?random" alt="Very long custom caption">
+            </a>
+            <a class="lightbox" href="https://picsum.photos/1026/815/?random">
+              <img src="https://picsum.photos/1026/815/?random" alt="Caption 4">
+            </a>
+          </div>
+        </div>
+
+        <h2>[FX] - Lightbox images cover</h2>
 
         <div class="row row--quarter-gutter">
-          <div class="col-sm-6 overflow-hidden">
-            <!-- Background Image Parallax -->
-            <div class="jarallax" data-speed="0.5">
-              <img class="jarallax-img" src="https://picsum.photos/800/600/?random" alt="">
-              <h1 class="color-white" style="padding: 12rem 3rem;">data-speed 0.5</h1>
-            </div>
+          <div class="col-6 col-md-4">
+            <a class="lightbox image-cover square" href="https://picsum.photos/1024/812/?random">
+              <img src="https://picsum.photos/1024/812/?random" alt="Custom caption">
+            </a>
           </div>
-          <div class="col-sm-6 overflow-hidden">
-            <!-- Alternate: Background Image Parallax -->
-            <div class="jarallax" style="background-image: url('https://picsum.photos/801/600/?random');" data-speed="0">
-              <h1 class="color-white" style="padding: 12rem 3rem;">data-speed 0</h1>
-            </div>
+          <div class="col-6 col-md-4">
+            <a class="lightbox image-cover square" href="https://picsum.photos/1023/513/?random">
+              <img src="https://picsum.photos/1023/513/?random" alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias natus rerum voluptatem a molestias expedita. Beatae quidem perspiciatis quo sed? Eligendi, quisquam. Iure natus dolores perferendis tempora molestiae, qui at.">
+            </a>
           </div>
-          {# <div class="col-sm-8 overflow-hidden">
-            <!-- Background YouTube Parallax -->
-            <div class="jarallax" data-jarallax-video="https://www.youtube.com/watch?v=ab0TSkLe-E0" data-speed="0.8">
-              <h1 class="color-white" style="padding: 12rem 3rem;">Your video content here...</h1>
-            </div>
+          <div class="col-6 col-md-4">
+            <a class="lightbox image-cover square" href="https://picsum.photos/1023/812/?random">
+              <img src="https://picsum.photos/1023/812/?random" alt="Custom caption">
+            </a>
           </div>
-          <div class="col-sm-4 overflow-hidden">
-            <!-- Element will be parallaxed on 250 pixels from the screen center by Y axis and on -100 pixels from the screen center by X axis -->
-            <div data-jarallax-element="0 -100">
-              <h1 style="padding: 12rem 3rem;">Your content here...</h1>
-            </div>
-          </div> #}
+          <div class="col-6 col-md-4">
+            <a class="lightbox image-cover square" href="https://picsum.photos/1023/514/?random">
+              <img src="https://picsum.photos/1023/514/?random" alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias natus rerum voluptatem a molestias expedita. Beatae quidem perspiciatis quo sed? Eligendi, quisquam. Iure natus dolores perferendis tempora molestiae, qui at.">
+            </a>
+          </div>
+          <div class="col-6 col-md-4">
+            <a class="lightbox image-cover square" href="https://picsum.photos/1023/813/?random">
+              <img src="https://picsum.photos/1023/813/?random" alt="Custom caption">
+            </a>
+          </div>
+          <div class="col-6 col-md-4">
+            <a class="lightbox image-cover square" href="https://picsum.photos/1023/516/?random">
+              <img src="https://picsum.photos/1023/516/?random" alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias natus rerum voluptatem a molestias expedita. Beatae quidem perspiciatis quo sed? Eligendi, quisquam. Iure natus dolores perferendis tempora molestiae, qui at.">
+            </a>
+          </div>
         </div>
 
       </div>

@@ -1,5 +1,9 @@
 /* LIGHBOX */
 
+.lightbox {
+  display: block;
+}
+
 // VARIABLES
 
 $smartphoto-gutter: $gutter-half;
@@ -227,6 +231,8 @@ html .white .sa_owl_theme .owl-nav .owl-next {
     opacity: 0.75;
     filter: grayscale(25%);
     background: $gray-light;
+    background-size: cover;
+    background-position: 50% 50%;
 
     @include hocus() {
       filter: grayscale(0);
