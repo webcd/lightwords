@@ -9,7 +9,8 @@ const imageCover = (() => {
 
       if ($itemImg) {
         $itemImg.addEventListener("load", function() {
-          this.style.transform = "translateX(100000rem)"
+          // this.style.transform = "translateX(100000rem)"
+          this.style.opacity = "0"
 
           const $parent = this.parentNode
           const url = this.getAttribute("src")
@@ -19,6 +20,8 @@ const imageCover = (() => {
           $parent.style.backgroundRepeat = "no-repeat"
           $parent.style.backgroundPosition = "50% 50%"
           $parent.style.display = "block"
+
+          console.warn("image-cover.js: replaced", this)
         })
       }
     }
@@ -30,6 +33,8 @@ const imageCover = (() => {
   if ($items.length) {
     setImagesSize($items)
   }
+
+  console.log("image-cover.js is loaded")
 })()
 
 export default imageCover
