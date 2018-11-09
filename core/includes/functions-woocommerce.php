@@ -27,6 +27,7 @@ add_action('after_setup_theme', function () {
 // MY-ACCOUNT ITEMS ICONS
 function getMyAccountItemIcon($item)
 {
+  
     $fontAwesome = array(
         "dashboard" => 'fa-user',
         "orders" => 'fa-file-text',

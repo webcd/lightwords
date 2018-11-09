@@ -32,11 +32,6 @@ function ddump($what)
     echo '</pre>';
 }
 
-// WOOCOMMERCE
-// TODO: move this elsewhere
-include 'functions-woocommerce.php';
-include 'functions-woocommerce-hooks.php';
-
 // TODO: move this elsewhere
 
 // Disable TinyMCE automatic paragraph removal
