@@ -1,6 +1,5 @@
 <?php
 // WOOCOMMERCE
-// TODO: move this elsewhere
 
 if (class_exists('WooCommerce')) {
     Timber\Integrations\WooCommerce\WooCommerce::init();
@@ -27,22 +26,22 @@ add_action('after_setup_theme', function () {
 // MY-ACCOUNT ITEMS ICONS
 function getMyAccountItemIcon($item)
 {
-  
     $fontAwesome = array(
         "dashboard" => 'fa-user',
         "orders" => 'fa-file-text',
         "downloads" => 'fa-cloud-download',
         "edit-address" => 'fa-map-marker',
         "edit-account" => 'fa-user-plus',
-        "customer-logout" => 'fa-power-off'
+        "customer-logout" => 'fa-power-off',
     );
 
-    return (array_key_exists($item, $fontAwesome)) ? $fontAwesome[$item]: "";
+    return (array_key_exists($item, $fontAwesome)) ? $fontAwesome[$item] : "";
 }
 
 // CART PAGE
 
 // Add a title to the product table
+// TODO: template needed!
 add_action('woocommerce_before_cart_table', 'display_cart_product_list_title', 1);
 function display_cart_product_list_title()
 {
@@ -52,6 +51,7 @@ function display_cart_product_list_title()
 // CHECKOUT PAGE
 
 // Add a title to the billing section
+// TODO: template needed!
 add_action('woocommerce_review_order_before_payment', 'display_checkout_billing_title', 1);
 function display_checkout_billing_title()
 {

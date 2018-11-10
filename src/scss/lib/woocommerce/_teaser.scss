@@ -29,7 +29,8 @@
       > .teaser-link {
         display: block;
         padding: $gutter-half;
-        @include h(3);
+        @include h(4);
+        font-weight: normal;
         color: $gray;
         text-align: center;
       }
@@ -74,23 +75,8 @@
   font-weight: $font-weight-semibold;
 }
 
-.price {
-  display: block;
+.teaser-product-price {
   padding: $gutter-half;
-  text-align: center;
-  color: $color-price;
-  @include h(3);
-  font-weight: $font-weight-normal;
-  
-  > del {
-    font-size: $font-size-base;
-    color: $color-price-old;
-  }
-  
-  > span,
-  > ins {
-    font-size: $font-size-big;
-    text-decoration: none;
-  }
+  text-align: center; 
 }
 

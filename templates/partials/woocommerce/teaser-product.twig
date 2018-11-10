@@ -5,6 +5,20 @@
 	{{ fn('timber_set_product', post) }}
 
 	<div class="teaser-content">
+
+		{# Debug #}
+		{# {{ fn('ddump', post.product) }} #}
+
+		{########################################}
+		{# SALE FLASH #}
+
+		{# TODO #}
+
+		{########################################}
+		{# THUMBNAIL #}
+
+		{# TODO #}
+
 		{##
 		 # woocommerce_before_shop_loop_item_title hook.
 		 #
@@ -13,6 +27,13 @@
 		 #}
 		{% do action('woocommerce_before_shop_loop_item_title') %}
 
+		{########################################}
+		{# TITLE #}
+
+		<h3 class="teaser-title">
+			<a class="teaser-link" href="{{ post.link }}">{{ post.title }}</a>
+		</h3>
+	
 		{##
 		 # woocommerce_shop_loop_item_title hook.
 		 #
@@ -20,10 +41,8 @@
 		 #}
 		{% do action('woocommerce_shop_loop_item_title') %}
 
-		{# TITLE #}
-		<h3 class="teaser-title">
-			<a class="teaser-link" href="{{ post.link }}">{{ post.title }}</a>
-		</h3>
+		{########################################}
+		{# RATING #}
 
 		{% if post.product.rating_counts|length > 0 %}
 			<div class="teaser-rating">
@@ -34,15 +53,30 @@
 			</div>
 		{% endif %}
 
-		{# {{ fn('ddump', post.product) }} #}
+		{########################################}
+		{# PRICE #}
+
+		<div class="teaser-product-price">
+			{% include "partials/woocommerce/price-product.twig" %}
+		</div>
 
 		{##
 		 # woocommerce_after_shop_loop_item_title hook.
 		 #
 		 # REMOVED @hooked woocommerce_template_loop_rating - 5
-		 # @hooked woocommerce_template_loop_price - 10
+		 # REMOVED @hooked woocommerce_template_loop_price - 10
 		 #}
 		{% do action('woocommerce_after_shop_loop_item_title') %}
+
+		{########################################}
+		{# LINK CLOSE ?! #}
+
+		{# TODO #}
+
+		{########################################}
+		{# ADD TO CART #}
+
+		{# TODO #}
 
 		{##
 		 # woocommerce_after_shop_loop_item hook.
@@ -53,5 +87,6 @@
 		 # @hooked woocommerce_template_loop_add_to_cart - 10
 		 #}
 		{% do action('woocommerce_after_shop_loop_item', []) %}
+
 	</div>
 </div>

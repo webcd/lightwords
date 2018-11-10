@@ -92,7 +92,7 @@
             <div class="menu-item-link item-product item-product--shipping">
               <span class="item-product__shipping-label">Frais de port</span>
               <span class="item-product__price item-product__price--shipping">
-                {{ fn('wc_price', cart.shipping_total) }}
+                {{ cart.shipping_total|formatPrice }}
               </span>
             </div>
           </li>
@@ -103,7 +103,7 @@
                 Total <em>({{ cart.get_cart_contents_count }} produits)</em>
               </span>
               <span class="item-product__price item-product__price--total">
-                {{ fn('wc_price', cart.total) }}
+                {{ cart.total|formatPrice }}
               </span>
             </div>
           </li>
@@ -125,7 +125,7 @@
           <li class="menu-item highlight">
             <a href="{{ cart.get_checkout_url }}" class="menu-item-link">
               <i class="fa fa-fw fa-arrow-circle-right"></i>
-              <span>Passer commande</span>
+              <span>Valider la commande</span>
             </a>
           </li>
 

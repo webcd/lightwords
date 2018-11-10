@@ -3,13 +3,13 @@
 // Removing things we display "by hand" (in templates files)
 // (See: https://businessbloomer.com/woocommerce-visual-hook-guide-single-product-page/#tab-additional_information)
 
-////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 // GLOBAL
 
 // Remove woocommerce breadcrumb (we use global Yoast breadcrumb instead)
 remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 
-////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 // SINGLE PRODUCT PAGE
 
 // Remove product notices
@@ -42,7 +42,7 @@ remove_action('woocommerce_single_product_summary', 'woocommerce_template_single
 // Remove related products
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
 
-////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 // PRODUCT ARCHIVE PAGE
 
 // Remove archive wrapper div opening
@@ -72,7 +72,7 @@ remove_action('woocommerce_archive_description', 'woocommerce_product_archive_de
 // Remove archive wrapper div closing
 remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper', 10);
 
-////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 // PRODUCT TEASER COMPONENT
 
 // Remove teaser on sale
@@ -86,7 +86,7 @@ remove_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_pro
 // Remove teaser rating
 remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
 // Remove teaser price
-// remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
 
 // Remove teaser... link close thing???
 // remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );

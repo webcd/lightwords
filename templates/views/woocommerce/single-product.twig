@@ -1,8 +1,10 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-{# {{ fn('ddump', post.product.average_rating) }} #}
   <article class="single">
+
+		{# Debug #}
+		{# {{ fn('ddump', post.product) }} #}
 
     <section class="wrapper bg-secondary color-white">
       <div class="container">
@@ -11,7 +13,8 @@
           #
           # @hooked wc_print_notices - 10
           #}
-        {% do action('woocommerce_before_single_product') %}
+        {% do 
+          action('woocommerce_before_single_product') %}
       </div>
     </section>
 
@@ -29,7 +32,8 @@
                   # @hooked woocommerce_show_product_sale_flash - 10
                   # @hooked woocommerce_show_product_images - 20
                 #}
-                {% do action('woocommerce_before_single_product_summary') %}
+                {% do 
+                  action('woocommerce_before_single_product_summary') %}
 
                 {# {% if post.thumbnail %}
                     <img src="{{ post.thumbnail.src('thumbnail') }}">
@@ -57,7 +61,8 @@
                   {% endif %}
 
                   <div class="publish">
-                    <span class="date">Ajouté le {{ post.post_date|date}}</span>
+                    <span class="date">Ajouté le
+                      {{ post.post_date|date}}</span>
                     <span>&bull;</span>
 
                     {% if post.product.sku %}
@@ -68,11 +73,11 @@
                       <span>&bull;</span>
                     {% endif %}
 
-                    {% if post.product.rating_counts|length > 0 %}
+                    {% if post.product.rating_counts | length > 0 %}
                       <a href="#tab-reviews" class="product-rating">
                         {% include 'partials/woocommerce/rating.twig' with {
-                          'rating': post.product.average_rating,
-                          'rating_counts': post.product.rating_counts|length
+                          'rating' : post.product.average_rating,
+                          'rating_counts' : post.product.rating_counts | length
                         } %}
                       </a>
                     {% else %}
@@ -91,27 +96,15 @@
 
                 <div class="product-summary">
 
-                  <p class="price">
-                    {% if post.product.sale_price %}
-                      <del>
-                        <span class="woocommerce-Price-amount amount">
-                          {{ fn('wc_price', post.product.regular_price) }}
-                        </span>
-                      </del>
-                      <ins>
-                        <span class="woocommerce-Price-amount amount">
-                          {{ fn('wc_price', post.product.sale_price) }}
-                        </span>
-                      </ins>
-                    {% else %}
-                      <ins>
-                        <span class="woocommerce-Price-amount amount">
-                          {{ fn('wc_price', post.product.regular_price) }}
-                        </span>
-                      </ins>
-                    {% endif %}
-                  </p>
+                  {########################################}
+                  {# PRICE #}
 
+                  <div class="single-product-price">
+                    {% include "partials/woocommerce/price-product.twig" %}
+                  </div>
+
+                  {########################################}
+                  {# SHORT DESCRIPTION #}
                   <div class="woocommerce-product-details__short-description">
                     {{ post.product.short_description }}
                   </div>
@@ -128,20 +121,23 @@
                     # @hooked woocommerce_template_single_sharing - 50
                     # @hooked WC_Structured_Data::generate_product_data() - 60
                     #}
-                  {% do action( 'woocommerce_single_product_summary' ) %}
+                  {% do 
+                    action('woocommerce_single_product_summary') %}
 
                   {% if post.manage_stock %}
-                    <div>{{ post.stock_quantity }} en stock</div>
+                    <div>{{ post.stock_quantity }}
+                      en stock</div>
                   {% endif %}
                 </div>
               </div>
             </div>
 
           </div>
-        </div> <!-- End .article-content-header -->
+        </div>
+        <!-- End .article-content-header -->
 
         <div class="article-content-body">
-        
+
           <section class="wrapper wrapper--padding bg-gray-lighter">
             <div class="container">
               {##
@@ -151,11 +147,13 @@
                 # @hooked woocommerce_upsell_display - 15
                 # REMOVED @hooked woocommerce_output_related_products - 20
                 #}
-              {% do action('woocommerce_after_single_product_summary') %}
+              {% do 
+                action('woocommerce_after_single_product_summary') %}
 
               {# <div class="content">{{ post.content }}</div> #}
 
-              {% do action('woocommerce_after_single_product') %}
+              {% do 
+                action('woocommerce_after_single_product') %}
             </div>
           </section>
 

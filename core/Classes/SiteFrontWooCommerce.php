@@ -2,14 +2,13 @@
 
 namespace App\Classes;
 
-class SiteWooCommerce extends \App\Lib\SiteCore
+class SiteFrontWooCommerce extends \App\Lib\SiteCore
 {
 
     public function __construct($loader)
     {
         $this->includes();
         parent::__construct($loader);
-
     }
 
     public function includes()
@@ -31,12 +30,10 @@ class SiteWooCommerce extends \App\Lib\SiteCore
     public function filters()
     {
         $this->loader->add_filter('timber/twig', $this, 'add_to_twig');
-
     }
 
     public function add_to_twig($twig)
     {
-
         // Filters
         //$twig->addFilter(new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
         $twig->addFilter(new \Twig_SimpleFilter('formatPrice', array($this, 'formatPrice')));
@@ -47,7 +44,6 @@ class SiteWooCommerce extends \App\Lib\SiteCore
     // Price text formatting - Twig filter
     public function formatPrice($price, $args = array())
     {
-
         $args = apply_filters(
             'wc_price_args', wp_parse_args(
                 $args, array(
@@ -78,12 +74,12 @@ class SiteWooCommerce extends \App\Lib\SiteCore
         $context['price_whole'] = $price_fractions[0];
         $context['price_cents'] = $price_fractions[1];
         $context['price_args'] = $args;
+
         if ($args['ex_tax_label'] && wc_tax_enabled()) {
             $context['tax_label'] = WC()->countries->ex_tax_or_vat();
-
         }
 
-        //Assignation des variables au template
-        return \Timber::compile('woocommerce/price-formatted.twig', $context);
+        // Compile twig template
+        return \Timber::compile('woocommerce/price.twig', $context);
     }
 }
