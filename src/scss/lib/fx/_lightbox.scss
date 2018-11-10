@@ -1,14 +1,13 @@
 /* LIGHBOX */
 
-.lightbox {
-  display: block;
-}
+////////////////////////////////////////////////////////////////////////////////
+// SMARTPHOTO
 
 // VARIABLES
 
 $smartphoto-gutter: $gutter-half;
 $smartphoto-btn-size: $navbar-btn-size;
-$smartphoto-border-size: 0.2rem;
+$smartphoto-border-size: 2px;
 
 $skin: "light"; // "dark" or "light"
 
@@ -22,95 +21,13 @@ $smartphotoColorFront: black;
   $smartphotoColorFront: white;
 }
 
-// MIXINS
-
-@mixin btn-ctrl($type: "cancel") {
-  width: $smartphoto-btn-size !important;
-  height: $smartphoto-btn-size !important;
-  background: none !important;
-  background: $smartphotoColorBack !important;
-
-  &::before,
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    height: $smartphoto-border-size;
-    background-color: $smartphotoColorFront;
-    transition: all 0.25s;
-  }
-
-  &::before {
-    transform: translate3d(-50%, -50%, 0) rotateZ(45deg);
-  }
-  &::after {
-    transform: translate3d(-50%, -50%, 0) rotateZ(-45deg);
-  }
-
-  @if $type == "previous" {
-    &::before,
-    &::after {
-      width: 25%;
-      transform-origin: 0.1rem 50%;
-    }
-  
-  } @else if $type == "next" {
-    &::before,
-    &::after {
-      width: 25%;
-      transform-origin: calc(100% - 0.1rem) 50%;
-    }
-  }
-
-  &:hover {
-    background-color: $smartphotoColorFront !important;
-
-    &::before,
-    &::after {
-      background-color: $smartphotoColorBack;
-    }
-  }
-}
-
-// Owl Carousel (aka SLide Anything)
-// Specificity war!
-
-html .white .sa_owl_theme .owl-nav .owl-prev {
-  @include btn-ctrl("previous");
-}
-
-html .white .sa_owl_theme .owl-nav .owl-next {
-  @include btn-ctrl("next");
-}
-
-// Smart Slider 3
-
-.nextend-arrow {
-  &.nextend-arrow-previous {
-    @include btn-ctrl("previous");
-  }
-
-  &.nextend-arrow-next {
-    @include btn-ctrl("next");
-  }
-
-  > img {
-    display: none !important;
-  }
+.lightbox {
+  display: block;
 }
 
 .smartphoto {
   // Above ALL (but debug-zone)
   z-index: 99999;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// SMARTPHOTO
-
-.smartphoto {
   background-color: $smartphotoColorBack;
 }
 
@@ -145,11 +62,11 @@ html .white .sa_owl_theme .owl-nav .owl-next {
 }
 
 .smartphoto-arrow-left a {
-  @include btn-ctrl("previous");
+  @include btn-ctrl("left");
 }
 
 .smartphoto-arrow-right a {
-  @include btn-ctrl("next");
+  @include btn-ctrl("right");
 }
 
 // HEADER & FOOTER
@@ -195,8 +112,12 @@ html .white .sa_owl_theme .owl-nav .owl-next {
     font-weight: $font-weight-semibold;
     font-size: $font-size-small;
 
-    @include bp('sm') { font-size: $font-size-base; }
-    @include bp('lg') { font-size: $font-size-big; }
+    @include bp("sm") {
+      font-size: $font-size-base;
+    }
+    @include bp("lg") {
+      font-size: $font-size-big;
+    }
   }
 
   > .smartphoto-dismiss {
@@ -243,9 +164,14 @@ html .white .sa_owl_theme .owl-nav .owl-next {
       position: relative;
       opacity: 1;
       filter: grayscale(0);
-      transform: translate3d(- $smartphoto-gutter / 8, - $smartphoto-gutter / 8, 0);
+      transform: translate3d(
+        -$smartphoto-gutter / 8,
+        -$smartphoto-gutter / 8,
+        0
+      );
       outline: $smartphoto-border-size solid $smartphotoColorFront;
-      box-shadow: ($smartphoto-gutter / 2) ($smartphoto-gutter / 2) 0 0 $smartphotoColorFront;
+      box-shadow: ($smartphoto-gutter / 2) ($smartphoto-gutter / 2) 0 0
+        $smartphotoColorFront;
     }
   }
 }

@@ -51,8 +51,6 @@
 @import 'lib/base/forms-select2';
 @import 'lib/base/styleguide';
 
-@import 'lib/fx/lightbox';
-
 /* LIGHTWORDS - COMPONENTS */
 @import 'lib/components/breadcrumb';
 @import 'lib/components/nav';
@@ -70,8 +68,11 @@
 @import 'lib/components/image-wall';
 @import 'lib/components/author';
 @import 'lib/components/rating';
+@import 'lib/components/buttons-ctrl';
 
 // @import 'lib/components/wp-adminbar';
+
+@import 'lib/fx/lightbox';
 
 /* LIGHTWORDS - LAYOUT */
 @import 'lib/layout/panels';

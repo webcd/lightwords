@@ -1,9 +1,7 @@
 <section class="wrapper wrapper--hero">
   <div class="hero">
-    <div class="hero__img" style="background-image: url('{{ img|resize(1920) }}');"
-      data-parallax="0.5"
-    >
-    {#
+    <div class="hero__img" style="background-image: url('{{ img|resize(1920) }}');" data-parallax="0.5">
+      {#
     <img class="hero__img"
       src="{{ post.thumbnail.src|resize(1920) }}"
       srcset="
@@ -20,7 +18,7 @@
       alt="{{ post.thumbnail.alt }}" />
     #}
 
-      {% if fn('is_front_page') or slogan %}
+      {% if fn('is_front_page')or slogan %}
         <div class="hero__content">
 
           {% if slogan %}
@@ -37,14 +35,15 @@
 
         </div>
 
-        <div class="hero__scroll-down scroll-btn scroll-btn-down" data-scroll=".wrapper--article-content">
-          <svg viewBox="0 0 71 71">
-            <use xlink:href="#scroll-down"></use>
-          </svg>
-        </div>
       {% endif %}
-
     </div>
-    
+
+    <div class="hero__scroll-down btn scroll-btn scroll-btn--down" data-scroll=".wrapper--article-content">
+      <div class="sr-only">Scroll to content</div>
+      {# <svg viewBox="0 0 71 71">
+        <use xlink:href="#scroll-down"></use>
+      </svg> #}
+    </div>
+
   </div>
 </section>

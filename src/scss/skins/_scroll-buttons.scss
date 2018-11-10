@@ -1,51 +1,45 @@
 /* SCROLL BUTTONS */
 
 .scroll-btn {
-  display: block;
+  // transition: transform 0.5s $ease-bump, opacity 0.5s;
+  // transition: all 0.25s;
 
-  width: $scroll-btn-size;
-  height: $scroll-btn-size;
-  border-radius: 50%;
-  cursor: pointer;
-  @include shadow(1);
-  transition: all 0.5s $ease-bump;
-
-  @include hocus() {
-    @include shadow(2);
-  }
-
-  // SCROLL DOWN
-
-  &.scroll-btn-down {
+  // SCROLL DOWN ("down to content")
+  
+  &.scroll-btn--down {
+    @include btn-ctrl("down");
+    @include btn-ctrl-color(true);
+  
     transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1);
     opacity: 1;
-
-    @include hocus() {
-      transform: translate3d(-50%, 0, 0) scale3d(1.25, 1.25, 1);
-    }
-    
-    /*body*/.has-scroll-top-active & {
-      // Hide the button when enough scrolled down
-      transform: translate3d(-50%, -100vh, 0);
+  
+    // Hide the button when enough scrolled down
+    /*body*/
+    .has-scroll-top-active & {
+      transform: translate3d(-50%, -100%, 0);
       opacity: 0;
     }
-  }  
-
-  // SCROLL UP (TO TOP)
-
-  &.scroll-btn-up {
+  }
+  
+  // SCROLL UP ("back to top")
+  
+  &.scroll-btn--up {
+    @include btn-ctrl("up");
+    @include btn-ctrl-color(true);
+  
     position: fixed;
     left: 50%;
     bottom: $gutter;
-    transform: translate3d(-50%, 200%, 0) scale3d(1, 1, 1) rotateZ(0.5turn);
+    transform: translate3d(-50%, 100%, 0) scale3d(1, 1, 1);
+    opacity: 0;
 
-    /*body*/.has-scroll-top-active & {
-      transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1) rotateZ(0.5turn);
+    z-index: 10;
   
-      @include hocus() {
-        transform: translate3d(-50%, 0, 0) scale3d(1.25, 1.25, 1) rotateZ(0.5turn);
-      }
+    // Show the button when enough scrolled down
+    /*body*/
+    .has-scroll-top-active & {
+      transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1);
+      opacity: 1;
     }
   }
 }
-

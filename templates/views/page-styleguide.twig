@@ -99,6 +99,7 @@
         <div class="row">
           <div class="col-xs-6 col-sm-4 col-md-3">
             <h3>Colors</h3>
+            <button class="btn">.btn</button>
             <button class="btn btn-default">.btn-default</button>
             <button class="btn btn-black">.btn-black</button>
             <button class="btn btn-gray">.btn-gray</button>
@@ -109,6 +110,7 @@
           </div>
           <div class="col-xs-6 col-sm-4 col-md-3">
             <h3>Rounded</h3>
+            <button class="btn btn-round">.btn-round</button>
             <button class="btn btn-default btn-round">.btn-round</button>
             <button class="btn btn-black btn-round">.btn-round</button>
             <button class="btn btn-gray btn-round">.btn-round</button>
@@ -119,6 +121,7 @@
           </div>
           <div class="col-xs-6 col-sm-4 col-md-3">
             <h3>Hollow</h3>
+            <button class="btn btn-hollow">.btn-hollow</button>
             <div style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;">
               <button class="btn btn-default btn-hollow">.btn-hollow</button>
             </div>
@@ -130,6 +133,21 @@
             <button class="btn btn-primary btn-hollow">.btn-hollow</button>
             <button class="btn btn-secondary btn-hollow">.btn-hollow</button>
             <button class="btn btn-ternary btn-hollow">.btn-hollow</button>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+            <h3>Rounded hollow</h3>
+            <button class="btn btn-round btn-hollow">.btn-hollow</button>
+            <div style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;">
+              <button class="btn btn-default btn-round btn-hollow">.btn-hollow</button>
+            </div>
+            <button class="btn btn-black btn-round btn-hollow">.btn-hollow</button>
+            <button class="btn btn-gray btn-round btn-hollow">.btn-hollow</button>
+            <div style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;">
+              <button class="btn btn-white btn-round btn-hollow">.btn-hollow</button>
+            </div>
+            <button class="btn btn-primary btn-round btn-hollow">.btn-hollow</button>
+            <button class="btn btn-secondary btn-round btn-hollow">.btn-hollow</button>
+            <button class="btn btn-ternary btn-round btn-hollow">.btn-hollow</button>
           </div>
           <div class="col-xs-6 col-sm-4 col-md-3">
             <h3>Sizes</h3>
@@ -147,13 +165,20 @@
           </div>
           <div class="col-xs-6 col-sm-4 col-md-3">
             <h3>Disabled</h3>
+            <button class="btn" disabled="disabled">disabled</button>
             <button class="btn btn-default" disabled="disabled">disabled</button>
             <button class="btn btn-black" disabled="disabled">disabled</button>
+            <button class="btn btn-gray" disabled="disabled">disabled</button>
+            <button class="btn btn-white" disabled="disabled">disabled</button>
             <button class="btn btn-primary btn-round" disabled="disabled">disabled</button>
             <button class="btn btn-secondary btn-hollow" disabled="disabled">disabled</button>
+            <button class="btn btn-ternary" disabled="disabled">disabled</button>
           </div>
           <div class="col-xs-6 col-sm-4 col-md-3">
             <h3>Icons</h3>
+            <button class="btn">
+              <i class="fa fa-star"></i>
+              .btn</button>
             <button class="btn btn-default">
               <i class="fa fa-user"></i>
               .btn-default</button>
@@ -182,6 +207,30 @@
               <button class="btn btn-white btn-caret btn-hollow btn-block">.btn-caret</button>
             </div>
             <button class="btn btn-secondary btn-caret btn-wrap">.btn-caret very very long button multi-line content</button>
+          </div>
+          <div class="col-sm-6 bg-gray-lighter">
+            <h3>Control (::pseudo elements)</h3>
+            <div>
+              <button class="btn btn-ctrl btn-ctrl-left"></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-left"></button>
+              <button class="btn btn-ctrl btn-ctrl-left btn-ctrl-inverted"></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-left btn-ctrl-inverted"></button>
+              .btn-ctrl-left
+            </div>
+            <div><button class="btn btn-ctrl btn-ctrl-right"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-right"></button> <button class="btn btn-ctrl btn-ctrl-right btn-ctrl-inverted"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-right btn-ctrl-inverted"></button> .btn-ctrl-right</div>
+            <div><button class="btn btn-ctrl btn-ctrl-up"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-up"></button> <button class="btn btn-ctrl btn-ctrl-up btn-ctrl-inverted"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-up btn-ctrl-inverted"></button> .btn-ctrl-up</div>
+            <div><button class="btn btn-ctrl btn-ctrl-down"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-down"></button> <button class="btn btn-ctrl btn-ctrl-down btn-ctrl-inverted"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-down btn-ctrl-inverted"></button> .btn-ctrl-down</div>
+            <div><button class="btn btn-ctrl btn-ctrl-close"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-close"></button> <button class="btn btn-ctrl btn-ctrl-close btn-ctrl-inverted"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-close btn-ctrl-inverted"></button> .btn-ctrl-close</div>
+            <div><button class="btn btn-ctrl btn-ctrl-plus"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-plus"></button> <button class="btn btn-ctrl btn-ctrl-plus btn-ctrl-inverted"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-plus btn-ctrl-inverted"></button> .btn-ctrl-plus</div>
+            <div><button class="btn btn-ctrl btn-ctrl-minus"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-minus"></button> <button class="btn btn-ctrl btn-ctrl-minus btn-ctrl-inverted"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-minus btn-ctrl-inverted"></button> .btn-ctrl-minus</div>
+            <div><button class="btn btn-ctrl btn-ctrl-search"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-search"></button> <button class="btn btn-ctrl btn-ctrl-search btn-ctrl-inverted"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-search btn-ctrl-inverted"></button> .btn-ctrl-search</div>
+            <div>
+              <button class="btn btn-ctrl btn-ctrl-menu"><span class="btn-ctrl-extra"></span></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-menu"><span class="btn-ctrl-extra"></span></button>
+              <button class="btn btn-ctrl btn-ctrl-menu btn-ctrl-inverted"><span class="btn-ctrl-extra"></span></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-menu btn-ctrl-inverted"><span class="btn-ctrl-extra"></span></button>
+              .btn-ctrl-menu
+            </div>
           </div>
         </div>
 

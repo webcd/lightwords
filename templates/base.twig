@@ -96,10 +96,11 @@
 
   <!-- SCROLL TO TOP BUTTON -->
   {% if CONFIG.hasScrollTop %}
-    <div class="scroll-btn scroll-btn-up" data-scroll="body">
-      <svg viewBox="0 0 71 71">
+    <div class="scroll-btn btn scroll-btn--up" data-scroll="body">
+      <div class="sr-only">Scroll to top</div>
+      {# <svg viewBox="0 0 71 71">
         <use xlink:href="#scroll-down"></use>
-      </svg>
+      </svg> #}
     </div>
   {% endif %}
 
