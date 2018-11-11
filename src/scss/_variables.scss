@@ -92,8 +92,8 @@ $breakpoints-pixels-per-rem: (
   'xs': 10,
   'sm': 10,
   'md': 10,
-  'lg': 11,
-  'xl': 12
+  'lg': 10,
+  'xl': 11
 ) !default;
 
 // Line height
@@ -110,21 +110,21 @@ $font-weight-bold: 700 !default;
 
 // Headings
 $font-size-h1: (floor($font-size-base * 2.6 * 10) / 10) !default;
-$font-size-h2: (floor($font-size-base * 2.15 * 10) / 10) !default;
-$font-size-h3: (floor($font-size-base * 1.7 * 10) / 10) !default;
+$font-size-h2: (floor($font-size-base * 2 * 10) / 10) !default;
+$font-size-h3: (floor($font-size-base * 1.5 * 10) / 10) !default;
 $font-size-h4: (floor($font-size-base * 1.25 * 10) / 10) !default;
 $font-size-h5: $font-size-base !default;
 $font-size-h6: (floor($font-size-base * 0.9 * 10) / 10) !default;
 
-$font-weight-h1: $font-weight-bold !default;
-$font-weight-h2: $font-weight-normal !default;
+$font-weight-h1: $font-weight-semibold !default;
+$font-weight-h2: $font-weight-light !default;
 $font-weight-h3: $font-weight-semibold !default;
 $font-weight-h4: $font-weight-normal !default;
 $font-weight-h5: $font-weight-bold !default;
 $font-weight-h6: $font-weight-normal !default;
 
-$font-family-h1: $font-family-serif !default;
-$font-family-h2: $font-family-serif !default;
+$font-family-h1: $font-family-sans-serif !default;
+$font-family-h2: $font-family-sans-serif !default;
 $font-family-h3: $font-family-sans-serif !default;
 $font-family-h4: $font-family-sans-serif !default;
 $font-family-h5: $font-family-sans-serif !default;

@@ -1,3 +1,19 @@
+/*body*/.single-product {
+
+  .wrapper--article-content {
+  }
+
+  .article-content-header {
+    padding-top: $gutter-half;
+  }
+
+  .wrapper--product-tabs {
+    padding-top: 0;
+  }
+}
+
+// MESSAGE ZONE
+
 .woocommerce-message {
   @include v-padding($gutter-quarter);
 
@@ -7,36 +23,55 @@
   }
 }
 
-.product-images {
-  position: relative;
-  margin-top: -$gutter-half;
+// PRODUCT LAYOUT
 
-  .onsale {
-    position: absolute;
-    top: $gutter;
-    right: 0;
+.product-images,
+.product-content {
+  > * {
+    padding: $gutter;
+    background-color: white;
+  }
+}
+
+
+// PRODUCT IMAGE
+
+.product-images {
+
+  > .product-images__header {
+
+  }
+
+  > .product-images__images {
+    position: relative;
   }
 
   .woocommerce-product-gallery {
-    text-align: center;
+    // text-align: center;
   }
 
   .woocommerce-product-gallery__wrapper {
     @include row();
+    @include row("half-gutter");
     justify-content: flex-start;
+    @include v-margin(0);
   }
 
   .woocommerce-product-gallery__image {
-    flex-basis: calc(100px + 3rem);
-    background-color: $product-img-bg;
+    // flex-basis: calc(25% + 3rem);
+    @include col("min", 3);
+    @include col("xs", 2);
+    @include col("sm", 4);
+    @include col("md", 3);
 
     > a {
       display: block;
 
       > img {
         object-fit: contain;
-        width: auto !important;
-        height: auto !important;
+        width: auto;
+        height: auto;
+        margin: 0;
       }
     }
 
@@ -44,11 +79,21 @@
       @include column('full');
     }
   }
+
+  .main-title {
+    // padding-bottom: 0;
+    text-transform: uppercase;
+  }
+
+  .breadcrumb {
+    // padding-top: $gutter-half;
+    // padding-bottom: 0;
+  }
 }
 
 .product-content {
   @include bp("lg") {
-    padding-left: $gutter-double;
+    // padding-left: $gutter-double;
   }
 
   .product-summary {
@@ -59,8 +104,9 @@
 
   form.cart {
     .single_add_to_cart_button {
-      @include btn('block');
+      // @include btn('block');
       @include btn('black');
+      @include btn('lg');
     }
   }
 }
@@ -94,6 +140,8 @@ table.variations {
 
   tr {
     @include row();
+    @include row("half-gutter");
+    @include v-margin(0);
 
     td.label,
     td.value {
@@ -123,46 +171,68 @@ table.variations {
 }
 
 .woocommerce-tabs {
-  // margin-bottom: $gutter-double;
-  // display: flex;
-  @include row();
+  @include v-margin(-$gutter-half);
 
-  > * {
+  @include bp('md') {
+    @include v-margin(0);
   }
 
   > ul.tabs {
-    // @include reset-list();
+    @include reset-list();
     list-style-type: none;
-    @include col('sm', 4);
-    @include col('md', 6);
-    @include col('lg', 5);
-    @include col('xl', 4);
 
     > li {
       display: block;
+      margin-bottom: $gutter-quarter;
 
       > a {
         display: block;
-        padding: $gutter-quarter 0;
+        padding: $gutter-half;
         @include h(4);
+        background-color: $gray-lighter;
+        color: $gray-light;
+        text-transform: uppercase;
       }
 
       &.active {
-        > a::before {
-          content: "› ";
+        > a {
+          background-color: white;
+          color: $gray-dark;
+          font-weight: $font-weight-semibold;
+
+          &::before {
+            content: "› ";
+          }
+        }
+      }
+    }
+
+    @include bp('md') {
+      display: flex;
+      margin-bottom: 0;
+
+      > li {
+        margin-bottom: 0;
+
+        > a {
+          @include v-padding($gutter);
+          @include h-padding($gutter-double);
         }
       }
     }
   }
 
   > .panel {
+    background-color: white;
+    padding: $gutter;
+
     @include col('sm', 8);
     @include col('md', 6);
     @include col('lg', 7);
     @include col('xl', 8);
 
-    @include bp("lg") {
-      padding-left: $gutter-double;
+    @include bp("md") {
+      padding: $gutter-double;
     }
   }
 }
@@ -173,14 +243,3 @@ table.variations {
   }
 }
 
-// WOO SWIPE PLUGIN OVERIDES
-
-.product-images {
-  margin-top: 0;
-  overflow-x: hidden;
-
-  .onsale {
-    top: $gutter-half;
-    right: $gutter-half;
-  }
-}

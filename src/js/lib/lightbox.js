@@ -22,7 +22,7 @@ const lightbox = (() => {
     }
   }
 
-  const selector = ".lightbox, .wall .gallery a"
+  const selector = ".lightbox, .wall .gallery a, .woocommerce-product-gallery__image > a"
   const $items = document.querySelectorAll(selector)
 
   if ($items.length) {

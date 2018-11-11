@@ -53,6 +53,6 @@
   @include hocus() {
     opacity: 1;
     transform: scale3d(1,1,1) rotateZ(9deg);
-    @include shadow(2);
+    // @include shadow(2);
   }
 }

@@ -26,21 +26,27 @@
 .price-product {
   > del {
     text-decoration: none;
+    margin-left: $gutter-quarter;
+    // font-size: $font-size-price-old-ratio * 100%;
 
     > .price {
       color: $color-price-old;
       font-weight: $font-weight-normal;
       position: relative;
 
+      .teaser-product-price & {
+        font-size: $font-size-price-archive * $font-size-price-old-ratio;
+      }
+
       // Stroked price
       &::after {
         content: "";
         position: absolute;
-        width: 100%;
-        height: 1px;
+        width: 120%;
+        height: 2px;
         background-color: currentColor;
         top: 50%;
-        left: 0;
+        left: -10%;
       }
     }
   }

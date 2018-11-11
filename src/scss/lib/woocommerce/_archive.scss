@@ -10,11 +10,11 @@
 
   > .woo-item,
   .product {
-    @include col("min", 6);
+    @include col("xs", 6);
     @include col("sm", 4);
     @include col("md", 6);
     @include col("lg", 4);
-    @include col("xl", 3);
+    // @include col("xl", 3);
   }
 }
 
@@ -27,19 +27,35 @@
     > li {
       display: block;
 
+      &:not(:last-child) {
+        margin-right: $gutter-half;
+      }
+
       > span,
       > a {
-        display: inline-block;
-        padding: $gutter-quarter $gutter-half;
-        margin: $gutter-eighth;
-        background-color: $gray-lightest;
+        display: block;
       }
 
       > span {
-        background-color: $gray-light;
+        background-color: black;
+        color: white;
+        @include size($btn-ctrl-size);
+        line-height: $btn-ctrl-size;
+        text-align: center;
       }
 
       > a {
+        &:not(.next) {
+          @include btn();
+          @include btn-ctrl("text");
+        }
+        &.next {
+          @include btn();
+          @include btn-ctrl("right");
+          font-size: 0;
+        }
+        padding: 0 !important;
+        font-weight: $font-weight-normal !important;
       }
     }
   }
@@ -47,24 +63,35 @@
 
 .woo-products-header {
   @include row();
-  margin-top: 0;
-  margin-bottom: 0;
+  @include v-margin(0);
   align-items: center;
+  margin-bottom: $gutter;
 
   > * {
     display: block;
     @include col("xs", 6);
-    @include col("md", 4);
+    @include col("lg", 4);
     margin: 0;
   }
 
-  @include bp($bp-woo-sidebar) {
-    @include v-padding($gutter-half);
-  }
-
-  // Replace product counter in forst position
+  // Replace product counter in first position
   .woocommerce-result-count {
     order: -1;
+    text-align: center;
+    @include v-padding(0);
+
+    @include bp('xs') {
+      text-align: left;
+    }
+  }
+
+  .woocommerce-notices-wrapper {
+    order: -2;
+    flex-basis: 100%;
+
+    &:empty {
+      display: none;
+    }
   }
 
   .woof_products_top_panel {

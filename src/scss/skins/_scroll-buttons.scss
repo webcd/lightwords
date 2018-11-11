@@ -8,7 +8,7 @@
   
   &.scroll-btn--down {
     @include btn-ctrl("down");
-    @include btn-ctrl-color(true);
+    @include btn-ctrl-color("down", true);
   
     transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1);
     opacity: 1;
@@ -25,7 +25,7 @@
   
   &.scroll-btn--up {
     @include btn-ctrl("up");
-    @include btn-ctrl-color(true);
+    @include btn-ctrl-color("up", true);
   
     position: fixed;
     left: 50%;

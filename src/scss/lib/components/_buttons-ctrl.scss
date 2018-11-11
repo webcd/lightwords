@@ -9,6 +9,7 @@ $btn-ctrl-bg-color: white;
 
 // Button color
 @mixin btn-ctrl-color(
+  $type: "cancel",
   $inverted: false,
   $color: $btn-ctrl-color,
   $bg-color: $btn-ctrl-bg-color,
@@ -32,13 +33,14 @@ $btn-ctrl-bg-color: white;
     background-color: $color;
   }
 
-  &.btn-ctrl-search {
+  @if $type == "search" {
     &::before {
       background-color: $bg-color;
       color: $color;
     }
   }
-  &.btn-ctrl-menu {
+
+  @if $type == "menu" {
     > span.btn-ctrl-extra {
       background-color: $color;
     }
@@ -46,20 +48,21 @@ $btn-ctrl-bg-color: white;
 
   @include hocus() {
     background-color: $color !important;
-    color: $color !important;
+    color: $bg-color !important;
   
     &::before,
     &::after {
       background-color: $bg-color;
     }
   
-    &.btn-ctrl-search {
+    @if $type == "search" {
       &::before {
         background-color: $color;
         color: $bg-color;
       }
     }
-    &.btn-ctrl-menu {
+
+    @if $type == "menu" {
       > span.btn-ctrl-extra {
         background-color: $bg-color;
       }
@@ -74,10 +77,12 @@ $btn-ctrl-bg-color: white;
   $border-size: $btn-ctrl-border-size
 ) {
 
+  position: relative;
+
   > span.btn-ctrl-extra,
   &::before,
   &::after {
-    display: block;
+    display: block !important;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -103,6 +108,16 @@ $btn-ctrl-bg-color: white;
   }
 
   @if $type == "cancel" {
+  } @else if $type == "text" {
+    line-height: $size;
+    text-align: center;
+
+    &::before {
+      transform: translate3d(-50%, -50%, 0) scale3d(0,0,0);
+    }
+    &::after {
+      transform: translate3d(-50%, -50%, 0) rotateZ(-90deg) scale3d(0,0,0);
+    }
   } @else if $type == "plus" {
     &::before {
       transform: translate3d(-50%, -50%, 0);
@@ -196,6 +211,7 @@ $btn-ctrl-bg-color: white;
 // Main mixin
 @mixin btn-ctrl(
   $type: "cancel", 
+  $inverted: false,
   $size: $btn-ctrl-size,
   $border-size: $btn-ctrl-border-size
 ) {
@@ -203,45 +219,86 @@ $btn-ctrl-bg-color: white;
   width: $size !important;
   height: $size !important;
   @include btn-ctrl-icon($type, $size, $border-size);
-  @include btn-ctrl-color();
+  @include btn-ctrl-color($type, $inverted);
   border: $btn-ctrl-border-size solid transparent;
 }
 
 // Helper classes
 
 .btn-ctrl-left {
-  @include btn-ctrl("left");
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("left");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("left", true);
+  }  
 }
 .btn-ctrl-right {
-  @include btn-ctrl("right");
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("right");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("right", true);
+  }  
 }
 .btn-ctrl-up {
-  @include btn-ctrl("up");
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("up");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("up", true);
+  }  
 }
 .btn-ctrl-down {
-  @include btn-ctrl("down");
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("down");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("down", true);
+  }  
 }
 .btn-ctrl-close {
-  @include btn-ctrl("close");
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("close");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("close", true);
+  }  
 }
 .btn-ctrl-plus {
-  @include btn-ctrl("plus");
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("plus");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("plus", true);
+  }  
 }
 .btn-ctrl-minus {
-  @include btn-ctrl("minus");
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("minus");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("minus", true);
+  }  
 }
 .btn-ctrl-menu {
-  @include btn-ctrl("menu");
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("menu");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("menu", true);
+  }  
 }
 .btn-ctrl-search {
-  @include btn-ctrl("search");
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("search");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("search", true);
+  }  
 }
 
-.btn-ctrl-inverted {
-  @include btn-ctrl-color(true);
-}
-
-.btn-ctrl-border {
+.btn-ctrl.btn-ctrl-border {
   border: $btn-ctrl-border-size solid;
 }
 
@@ -259,6 +316,11 @@ html .white .sa_owl_theme .owl-nav .owl-prev {
 
 html .white .sa_owl_theme .owl-nav .owl-next {
   @include btn-ctrl("right");
+}
+
+html .white .sa_owl_theme .owl-nav .owl-prev,
+html .white .sa_owl_theme .owl-nav .owl-next {
+  position: absolute;
 }
 
 // Smart Slider 3

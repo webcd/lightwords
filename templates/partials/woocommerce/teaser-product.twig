@@ -1,84 +1,99 @@
-<div {{ fn('post_class', ['list-item', 'teaser', 'teaser--product'] ) }}
-	data-onclick-url="{{ post.link }}"
->
+<div {{ fn('post_class', ['list-item', 'teaser', 'teaser--product'] ) }} data-onclick-url="{{ post.link }}">
 
-	{{ fn('timber_set_product', post) }}
+  {{ fn('timber_set_product', post) }}
 
-	<div class="teaser-content">
+  <div class="teaser-content">
 
-		{# Debug #}
-		{# {{ fn('ddump', post.product) }} #}
+    {# Debug #}
+    {# {{ fn('ddump', post.product) }} #}
 
-		{########################################}
-		{# SALE FLASH #}
+    {########################################}
+    {# SALE FLASH #}
 
-		{# TODO #}
+    {# TODO #}
 
-		{########################################}
-		{# THUMBNAIL #}
+    {########################################}
+    {# THUMBNAIL #}
 
-		{# TODO #}
+    {# TODO #}
 
-		{##
+    {##
 		 # woocommerce_before_shop_loop_item_title hook.
 		 #
 		 # @hooked woocommerce_show_product_loop_sale_flash - 10
 		 # @hooked woocommerce_template_loop_product_thumbnail - 10
 		 #}
-		{% do action('woocommerce_before_shop_loop_item_title') %}
+    {% do 
+      action('woocommerce_before_shop_loop_item_title') %}
 
-		{########################################}
-		{# TITLE #}
+    {########################################}
+    {# TERMS #}
 
-		<h3 class="teaser-title">
-			<a class="teaser-link" href="{{ post.link }}">{{ post.title }}</a>
-		</h3>
-	
-		{##
+    {# TODO #}
+
+    <div class="terms">
+      <a class="category-link btn btn-primary btn-xs ripple" href="//192.168.0.11:3000/categorie-produit/clothing/accessories/">Accessories</a>
+      <a class="category-link btn btn-primary btn-xs ripple" href="//192.168.0.11:3000/categorie-produit/music/">Music</a>
+      <a class="tag-link btn btn-xs ripple" href="//192.168.0.11:3000/etiquette-produit/product-tag-a/">#Product tag A</a>
+      <a class="tag-link btn btn-xs ripple" href="//192.168.0.11:3000/etiquette-produit/product-tag-b/">#Product tag B</a>
+    </div>
+
+    {########################################}
+    {# TITLE #}
+
+    <h3 class="teaser-title">
+      <a class="teaser-link" href="{{ post.link }}">{{ post.title }}</a>
+    </h3>
+
+    {##
 		 # woocommerce_shop_loop_item_title hook.
 		 #
 		 # REMOVED @hooked woocommerce_template_loop_product_title - 10
 		 #}
-		{% do action('woocommerce_shop_loop_item_title') %}
+    {% do 
+      action('woocommerce_shop_loop_item_title') %}
 
-		{########################################}
-		{# RATING #}
-
-		{% if post.product.rating_counts|length > 0 %}
-			<div class="teaser-rating">
-				{% include 'partials/woocommerce/rating.twig' with {
-					'rating': post.product.average_rating,
-					'rating_counts': post.product.rating_counts|length
-				} %}
-			</div>
-		{% endif %}
-
-		{########################################}
-		{# PRICE #}
-
-		<div class="teaser-product-price">
-			{% include "partials/woocommerce/price-product.twig" %}
+    {########################################}
+		{# DESCRIPTION #}
+		
+		<div class="teaser-description">
+			{{ post.product.short_description }}
 		</div>
 
-		{##
+		<div class="flex-filler"></div>
+
+    {########################################}
+    {# METAS #}
+
+    {% include 'woocommerce/metas.twig' %}
+
+    {########################################}
+    {# PRICE #}
+
+    <div class="teaser-product-price">
+      {% include "partials/woocommerce/price-product.twig" %}
+    </div>
+
+    {##
 		 # woocommerce_after_shop_loop_item_title hook.
 		 #
 		 # REMOVED @hooked woocommerce_template_loop_rating - 5
 		 # REMOVED @hooked woocommerce_template_loop_price - 10
 		 #}
-		{% do action('woocommerce_after_shop_loop_item_title') %}
+    {% do 
+      action('woocommerce_after_shop_loop_item_title') %}
 
-		{########################################}
-		{# LINK CLOSE ?! #}
+    {########################################}
+    {# LINK CLOSE ?! #}
 
-		{# TODO #}
+    {# TODO #}
 
-		{########################################}
-		{# ADD TO CART #}
+    {########################################}
+    {# ADD TO CART #}
 
-		{# TODO #}
+    {# TODO #}
 
-		{##
+    {##
 		 # woocommerce_after_shop_loop_item hook.
 		 #
 		 # The second parameter is currently needed to prevent an issue with Timber action calls.
@@ -86,7 +101,8 @@
 		 # @hooked woocommerce_template_loop_product_link_close - 5
 		 # @hooked woocommerce_template_loop_add_to_cart - 10
 		 #}
-		{% do action('woocommerce_after_shop_loop_item', []) %}
+    {% do 
+      action('woocommerce_after_shop_loop_item', []) %}
 
-	</div>
+  </div>
 </div>

@@ -1,8 +1,5 @@
 /* LIGHBOX */
 
-////////////////////////////////////////////////////////////////////////////////
-// SMARTPHOTO
-
 // VARIABLES
 
 $smartphoto-gutter: $gutter-half;
@@ -25,10 +22,14 @@ $smartphotoColorFront: black;
   display: block;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// SMARTPHOTO
+
 .smartphoto {
   // Above ALL (but debug-zone)
   z-index: 99999;
   background-color: $smartphotoColorBack;
+  font-family: $font-family-sans-serif;
 }
 
 .smartphoto-count,
