@@ -29,15 +29,15 @@
 
   height: 100vh;
 
-  /*html*/.topbar-expanded & {
+  /*body*/.topbar-expanded & {
     // [MANUAL] height: calc(100vh - $navbar-height-mobile);
     height: calc(100vh - 6rem);
   }
-  /*html*/.admin-bar & {
+  /*body*/.admin-bar & {
     // [MANUAL] height: calc(100vh - $wp-adminbar-height-mobile);
     height: calc(100vh - 46px);
   }
-  /*html*/.admin-bar.topbar-expanded & {
+  /*body*/.admin-bar.topbar-expanded & {
     // [MANUAL] height: calc(100vh - $navbar-height-mobile - $wp-adminbar-height-mobile);
     height: calc(100vh - 6rem - 48px);
   }

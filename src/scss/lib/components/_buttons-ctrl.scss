@@ -46,7 +46,8 @@ $btn-ctrl-bg-color: white;
     }
   }
 
-  @include hocus() {
+  // @include hocus() {
+  &:hover {
     background-color: $color !important;
     color: $bg-color !important;
   
@@ -120,7 +121,7 @@ $btn-ctrl-bg-color: white;
     }
   } @else if $type == "plus" {
     &::before {
-      transform: translate3d(-50%, -50%, 0);
+      transform: translate3d(-50%, -50%, 0) rotateZ(180deg);
     }
     &::after {
       transform: translate3d(-50%, -50%, 0) rotateZ(-90deg);

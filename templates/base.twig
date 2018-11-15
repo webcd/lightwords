@@ -124,6 +124,11 @@
   {% if do_debug_zone %}
     <!-- DEBUG ZONE -->
     <div class="debug-zone">
+      <div class="debug-zone__toggle">
+        <button class="btn btn-ctrl" data-toggle="body" data-toggle-classname="debug-zone-active">
+          <span class="sr-only">Toggle debug zone</span>
+        </button>
+      </div>
       <div class="debug-zone__item debug-zone__item--bp"></div>
     </div>
   {% endif %}
