@@ -8,12 +8,12 @@
   {% elseif post.product.regular_price %}
     {# Simple product #}
     <ins>{{ post.product.regular_price|formatPrice }}</ins>
-  
+
   {% elseif post.product.price %}
     {# Variable product #}
-    <ins>{{ post.product.price|formatPrice }}</ins> -
-    {# TODO: missing upper price! #}
-    <ins>TODO</ins>
+    <ins>{{ post.product|formatVariableProductPrice }}</ins>
+
   {% endif %}
 
 </div>
+

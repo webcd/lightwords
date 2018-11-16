@@ -37,6 +37,7 @@ class SiteFrontWooCommerce extends \App\Lib\SiteCore
         // Filters
         //$twig->addFilter(new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
         $twig->addFilter(new \Twig_SimpleFilter('formatPrice', array($this, 'formatPrice')));
+        $twig->addFilter(new \Twig_SimpleFilter('formatVariableProductPrice', array($this, 'formatVariableProductPrice')));
 
         return $twig;
     }
@@ -44,6 +45,7 @@ class SiteFrontWooCommerce extends \App\Lib\SiteCore
     // Price text formatting - Twig filter
     public function formatPrice($price, $args = array())
     {
+
         $args = apply_filters(
             'wc_price_args', wp_parse_args(
                 $args, array(
@@ -82,4 +84,32 @@ class SiteFrontWooCommerce extends \App\Lib\SiteCore
         // Compile twig template
         return \Timber::compile('woocommerce/price.twig', $context);
     }
+
+    // Formatting of a variable product price
+    // If there is a range of prices, return the range
+    // If not, then return only single price
+    public function formatVariableProductPrice($product, $args = array())
+    {
+
+        if ($product instanceof \WC_Product_Variable) {
+
+            // Take minimum and maximum price for variations, and compare them
+            $prices = $product->get_variation_prices( true );
+
+            $min_price     = current( $prices['price'] );
+            $max_price     = end( $prices['price'] );
+
+            if ( $min_price !== $max_price ) {
+                return $this->formatPrice($min_price) . ' - ' . $this->formatPrice($max_price);
+            }
+
+        }
+
+        // If min and max prices are not the same,
+        // or product is not a variable product, then return the standard price formatting
+        return $this->formatPrice($min_price);
+
+
+    }
+
 }
