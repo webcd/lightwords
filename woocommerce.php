@@ -73,8 +73,8 @@ if (is_singular('product')) {
         $context['title'] = 'Produits';
         $context['category_description'] = 'Découvrez nos produits&nbsp;!';
 
-        // TODO: get the shop page thumbnail
-        $image = get_the_post_thumbnail_url();
+        // Get the shop page thumbnail
+        $image = get_the_post_thumbnail_url( get_option( 'woocommerce_shop_page_id' ) );
         $context['category_image'] = $image;
 
     } else {
