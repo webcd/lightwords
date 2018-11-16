@@ -96,4 +96,7 @@ function display_category_image($category)
     if ($link_image) {
         echo $link_image;
     }
+    else {
+        echo wc_placeholder_img_src();
+    }
 }
