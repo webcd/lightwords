@@ -47,6 +47,10 @@ if (is_singular('product')) {
     $posts = Timber::get_posts();
     $context['post'] = $posts;
 
+    // Total post count
+    global $wp_query;
+    $context['found_posts'] = $wp_query->found_posts;
+
     // Sub-categories
     if (is_product_category()) {
         $category = new TimberTerm();

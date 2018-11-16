@@ -99,7 +99,7 @@
 									{# PRODUCTS #}
 
 									{% if posts %}
-										<h2>{{ posts|length }} produits</h2>
+										<h2>{{ found_posts }} produits</h2>
 										<ul class="woo-list woo-list--products">
 											{% do fn('woocommerce_product_subcategories') %}
 
