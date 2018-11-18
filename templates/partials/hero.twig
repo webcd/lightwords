@@ -46,8 +46,22 @@
         {% endif %}
 
         {% if fn('is_front_page') %}
+          <div class="hero__form">
+  
+            <div class="form row">
+              <div class="input-block required">
+                {# <label for="text01">Your stuff</label> #}
+                <div class="input input--inline">
+                  <input type="text" id="text01" placeholder="My stuff">
+                  <button class="input-after btn btn-ctrl btn-ctrl-inverted btn-ctrl-search"></button>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+
           <div class="hero__btn">
-            <a href="#" class="btn btn-black btn-lg btn-hollow btn-wrap">Call to ACTION!</a>
+            <a href="#" class="btn btn-primary btn-lg btn-wrap">Call to ACTION!</a>
           </div>
         {% endif %}
 

@@ -80,6 +80,7 @@ $font-family-base: $font-family-sans-serif !default;
 // Font size
 $font-size-base: 1.6rem !default;
 
+$font-size-biggest: (floor($font-size-base * 2 * 10) / 10) !default;
 $font-size-bigger: (floor($font-size-base * 1.5 * 10) / 10) !default;
 $font-size-big: (floor($font-size-base * 1.25 * 10) / 10) !default;
 $font-size-small: (floor($font-size-base * 0.9 * 10) / 10) !default;
