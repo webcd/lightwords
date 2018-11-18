@@ -217,18 +217,57 @@
               <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-left btn-ctrl-inverted"></button>
               .btn-ctrl-left
             </div>
-            <div><button class="btn btn-ctrl btn-ctrl-right"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-right"></button> <button class="btn btn-ctrl btn-ctrl-right btn-ctrl-inverted"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-right btn-ctrl-inverted"></button> .btn-ctrl-right</div>
-            <div><button class="btn btn-ctrl btn-ctrl-up"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-up"></button> <button class="btn btn-ctrl btn-ctrl-up btn-ctrl-inverted"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-up btn-ctrl-inverted"></button> .btn-ctrl-up</div>
-            <div><button class="btn btn-ctrl btn-ctrl-down"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-down"></button> <button class="btn btn-ctrl btn-ctrl-down btn-ctrl-inverted"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-down btn-ctrl-inverted"></button> .btn-ctrl-down</div>
-            <div><button class="btn btn-ctrl btn-ctrl-close"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-close"></button> <button class="btn btn-ctrl btn-ctrl-close btn-ctrl-inverted"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-close btn-ctrl-inverted"></button> .btn-ctrl-close</div>
-            <div><button class="btn btn-ctrl btn-ctrl-plus"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-plus"></button> <button class="btn btn-ctrl btn-ctrl-plus btn-ctrl-inverted"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-plus btn-ctrl-inverted"></button> .btn-ctrl-plus</div>
-            <div><button class="btn btn-ctrl btn-ctrl-minus"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-minus"></button> <button class="btn btn-ctrl btn-ctrl-minus btn-ctrl-inverted"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-minus btn-ctrl-inverted"></button> .btn-ctrl-minus</div>
-            <div><button class="btn btn-ctrl btn-ctrl-search"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-search"></button> <button class="btn btn-ctrl btn-ctrl-search btn-ctrl-inverted"></button> <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-search btn-ctrl-inverted"></button> .btn-ctrl-search</div>
             <div>
-              <button class="btn btn-ctrl btn-ctrl-menu"><span class="btn-ctrl-extra"></span></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-menu"><span class="btn-ctrl-extra"></span></button>
-              <button class="btn btn-ctrl btn-ctrl-menu btn-ctrl-inverted"><span class="btn-ctrl-extra"></span></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-menu btn-ctrl-inverted"><span class="btn-ctrl-extra"></span></button>
+              <button class="btn btn-ctrl btn-ctrl-right"></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-right"></button>
+              <button class="btn btn-ctrl btn-ctrl-right btn-ctrl-inverted"></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-right btn-ctrl-inverted"></button>
+              .btn-ctrl-right</div>
+            <div>
+              <button class="btn btn-ctrl btn-ctrl-up"></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-up"></button>
+              <button class="btn btn-ctrl btn-ctrl-up btn-ctrl-inverted"></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-up btn-ctrl-inverted"></button>
+              .btn-ctrl-up</div>
+            <div>
+              <button class="btn btn-ctrl btn-ctrl-down"></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-down"></button>
+              <button class="btn btn-ctrl btn-ctrl-down btn-ctrl-inverted"></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-down btn-ctrl-inverted"></button>
+              .btn-ctrl-down</div>
+            <div>
+              <button class="btn btn-ctrl btn-ctrl-close"></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-close"></button>
+              <button class="btn btn-ctrl btn-ctrl-close btn-ctrl-inverted"></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-close btn-ctrl-inverted"></button>
+              .btn-ctrl-close</div>
+            <div>
+              <button class="btn btn-ctrl btn-ctrl-plus"></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-plus"></button>
+              <button class="btn btn-ctrl btn-ctrl-plus btn-ctrl-inverted"></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-plus btn-ctrl-inverted"></button>
+              .btn-ctrl-plus</div>
+            <div>
+              <button class="btn btn-ctrl btn-ctrl-minus"></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-minus"></button>
+              <button class="btn btn-ctrl btn-ctrl-minus btn-ctrl-inverted"></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-minus btn-ctrl-inverted"></button>
+              .btn-ctrl-minus</div>
+            <div>
+              <button class="btn btn-ctrl btn-ctrl-search"></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-search"></button>
+              <button class="btn btn-ctrl btn-ctrl-search btn-ctrl-inverted"></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-search btn-ctrl-inverted"></button>
+              .btn-ctrl-search</div>
+            <div>
+              <button class="btn btn-ctrl btn-ctrl-menu">
+                <span class="btn-ctrl-extra"></span></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-menu">
+                <span class="btn-ctrl-extra"></span></button>
+              <button class="btn btn-ctrl btn-ctrl-menu btn-ctrl-inverted">
+                <span class="btn-ctrl-extra"></span></button>
+              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-menu btn-ctrl-inverted">
+                <span class="btn-ctrl-extra"></span></button>
               .btn-ctrl-menu
             </div>
           </div>
@@ -713,7 +752,42 @@
       </div>
     </section>
 
-    <section class="wrapper wrapper--padding">
+    <section class="wrapper">
+
+        <div class="video-cover-wrapper" style="min-height: 65vh;">
+          <div class="video-cover" style="background-image: url('{{ theme.link }}/dist/img/working-with-espresso.jpg');">
+  
+            {% include "video.twig" with {'name': 'working-with-espresso'} %}
+  
+            <div class="hero__content">
+              <h2 class="img-display">[FX] - Video cover wrapper</h2>
+            </div>
+  
+          </div>
+        </div>
+  
+      </section>
+  
+      <section class="wrapper">
+  
+        <div class="video-cover-wrapper" style="min-height: 65vh;">
+          <div class="video-cover" style="background-image: url('{{ theme.link }}/dist/img/keyboard-typing.jpg');">
+  
+            {% include "video.twig" with {'name': 'keyboard-typing'} %}
+  
+            <div class="hero__overlay"></div>
+  
+            <div class="hero__content">
+                <h2 class="color-black">[FX] - Parallax video cover wrapper [TODO]</h2>
+                <div>(With overlay)</div>
+              </div>
+  
+          </div>
+        </div>
+  
+      </section>
+  
+      <section class="wrapper wrapper--padding">
       <div class="container">
 
         <h2>[FX] - Lightbox images</h2>

@@ -109,6 +109,7 @@ module.exports = {
     new CopyWebpackPlugin(
       [
         { from: "img/favicon/*.*", to: __dirname + "/dist" },
+        { from: "img/video/*.*", to: __dirname + "/dist" },
         { from: "img/*.*", to: __dirname + "/dist" }
       ],
       {

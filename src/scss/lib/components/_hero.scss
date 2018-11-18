@@ -17,23 +17,21 @@
 }
 
 .hero__img {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: 50% 50%;
+  @include absolute-full();
+  @include bg-cover();
 
   > .hero-img {
     object-fit: cover;
   }
 }
 
+.hero__overlay {
+  @include absolute-full();
+  background-color: rgba(255,255,255,0.5);
+}
+
 .hero__content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
+  @include absolute-center();
   text-align: center;
   width: 90%;
 
