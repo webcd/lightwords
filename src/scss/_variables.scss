@@ -109,8 +109,8 @@ $font-weight-semibold: 500 !default;
 $font-weight-bold: 700 !default;
 
 // Headings
-$font-size-h1: (floor($font-size-base * 2.6 * 10) / 10) !default;
-$font-size-h2: (floor($font-size-base * 2 * 10) / 10) !default;
+$font-size-h1: (floor($font-size-base * 2.0 * 10) / 10) !default;
+$font-size-h2: (floor($font-size-base * 1.6 * 10) / 10) !default;
 $font-size-h3: (floor($font-size-base * 1.5 * 10) / 10) !default;
 $font-size-h4: (floor($font-size-base * 1.25 * 10) / 10) !default;
 $font-size-h5: $font-size-base !default;
