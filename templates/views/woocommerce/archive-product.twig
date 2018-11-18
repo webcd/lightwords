@@ -4,185 +4,164 @@
 
   <article class="archive">
 
-		{% if CONFIG.hero %}
+    {% if CONFIG.hero and category_image %}
 
-			{% if post.get_thumbnail %}
-				
-				{% include "hero.twig" with { 'img': post.thumbnail.src } %}
+			{% include "hero.twig" with {
+				'img' : category_image,
+				'slogan' : category_description
+			} %}
 
-			{% endif %}
+    {% endif %}
 
-			{% if category_image %}
+    <section class="wrapper wrapper--article-content">
+      <div class="article-content">
 
-				{% include "hero.twig" with {
-					'img': category_image, 
-					'slogan': category_description
-				} %}
+        {% include "article-content-header.twig" %}
 
-			{% endif %}
+        <div class="article-content-body">
 
-		{% endif %}
-
-		<section class="wrapper wrapper--article-content">
-			<div class="article-content">
-
-				{% include "article-content-header.twig" %}
-
-				<div class="article-content-body">
-
-					{##
+          {##
 						# woocommerce_before_main_content hook.
 						#
 						# REMOVED @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
 						# REMOVED @hooked woocommerce_breadcrumb - 20
 						# @hooked WC_Structured_Data::generate_website_data() - 30
 						#}
-					{% do action('woocommerce_before_main_content') %}
+          {% do 
+            action('woocommerce_before_main_content') %}
 
-					{% if not category_image and category_description %}
-						<section class="wrapper bg-product-img wrapper--padding-half">
-							<div class="container">
+          <section class="wrapper wrapper--woo-content">
+            <div class="container">
 
-								<div class="woo-archive-description">
-									{#
-										# woocommerce_archive_description hook.
-										#
-										# REMOVED @hooked woocommerce_taxonomy_archive_description - 10
-										# REMOVED @hooked woocommerce_product_archive_description - 10
-										#}
-									{% do action('woocommerce_archive_description') %}
+              <article class="woo-content row row--double-gutter">
 
-									{{ category_description }}
-								</div>
+                <main class="woo-content-main col-md-8 col-lg-9">
 
-							</div>
-						</section>
-					{% endif %}
+                  {# PRODUCTS LIST HEADER #}
 
-					<section class="wrapper wrapper--woo-content">
-						<div class="container">
+                  <!-- <section class="wrapper bg-gray-lighter overflow-hidden"> <div class="container"> -->
+                  <div class="woo-products-header">
+                    {##
+											# woocommerce_before_shop_loop hook.
+                      #
+                      # @hooked "woof_products_top_panel"
+											# @hooked wc_print_notices - 10
+											# @hooked woocommerce_result_count - 20
+											# @hooked woocommerce_catalog_ordering - 30
+											#}
+                    {% do 
+                      action('woocommerce_before_shop_loop') %}
+                  </div>
+                  <!-- </div> </section> -->
 
-							<article class="woo-content row row--double-gutter">
+                  {# SUB-CATEGORIES #}
 
-								<main class="woo-content-main col-md-8 col-lg-9">
+                  {% if subcategories and(subcategories | length > 0) %}
+                    {# WTF??? #}
+                    <h2>{{ subcategories|length }}
+                      catégories</h2>
+                    <div class="woo-list woo-list--categories">
+                      {% for category in subcategories %}
+                        <li class="woo-item">
+                          {% include 'partials/woocommerce/teaser-category.twig' %}
+                        </li>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
 
-										{# PRODUCTS LIST HEADER #}
+                  {# PRODUCTS #}
 
-										<!-- <section class="wrapper bg-gray-lighter overflow-hidden">
-												<div class="container"> -->
-													<div class="woo-products-header">
-														{#
-															# woocommerce_before_shop_loop hook.
-															#
-															# @hooked wc_print_notices - 10
-															# @hooked woocommerce_result_count - 20
-															# @hooked woocommerce_catalog_ordering - 30
-															#}
-														{% do action('woocommerce_before_shop_loop') %}
-													</div>
-												<!-- </div>
-											</section> -->
-											
-									{# SUB-CATEGORIES #}
-						
-									{% if subcategories and (subcategories|length > 0) %}{# WTF??? #}
-										<h2>{{ subcategories|length }} catégories</h2>
-										<div class="woo-list woo-list--categories">
-											{% for category in subcategories %}
-												<li class="woo-item">
-													{% include 'partials/woocommerce/teaser-category.twig' %}
-												</li>
-											{% endfor %}
-										</div>
-									{% endif %}
+                  {% if posts %}
+                    <h2>{{ found_posts }}
+                      produits</h2>
+                    <ul class="woo-list woo-list--products">
+                      {% do 
+                        fn('woocommerce_product_subcategories') %}
 
-									{# PRODUCTS #}
-
-									{% if posts %}
-										<h2>{{ found_posts }} produits</h2>
-										<ul class="woo-list woo-list--products">
-											{% do fn('woocommerce_product_subcategories') %}
-
-											{##
+                      {##
 												# Depending on your WooCommerce display settings, the `woocommerce_product_subcategories` function
 												# might reset the $wp_query global. By calling `have_posts()`, we check if there are posts we can
 												# display.
 												#}
-											{% for post in posts if fn('have_posts') %}
-												<li class="woo-item">
-													{% include 'partials/woocommerce/teaser-product.twig' %}
-												</li>
-											{% endfor %}
-										</ul>
+                      {% for post in posts if fn('have_posts') %}
+                        <li class="woo-item">
+                          {% include 'partials/woocommerce/teaser-product.twig' %}
+                        </li>
+                      {% endfor %}
+                    </ul>
 
-									{% elseif not fn('woocommerce_product_subcategories', [{
+                  {% elseif not fn('woocommerce_product_subcategories', [{
 										before: fn('woocommerce_product_loop_start', false),
 										after: fn('woocommerce_product_loop_end', false)
 									}]) %}
-										{##
+                    {##
 											# woocommerce_no_products_found hook.
 											#
 											# @hooked wc_no_products_found - 10
 											#}
-										{% do action('woocommerce_no_products_found') %}
+                    {% do 
+                      action('woocommerce_no_products_found') %}
 
-									{% endif %}
+                  {% endif %}
 
-									{##
+                  {##
 										# woocommerce_after_shop_loop hook.
 										#
 										# @hooked woocommerce_pagination - 10
 										#}
-									{% do action('woocommerce_after_shop_loop') %}
+                  {% do 
+                    action('woocommerce_after_shop_loop') %}
 
-									{#
+                  {#
 										# woocommerce_sidebar hook.
 										#
 										# @hooked woocommerce_get_sidebar - 10
 										#}
-									{% do action('woocommerce_sidebar') %}
+                  {% do 
+                    action('woocommerce_sidebar') %}
 
-								</main>
+                </main>
 
-								{# WOO SIDEBAR #}
+                {# WOO SIDEBAR #}
 
-								{% if widgets_woo_sidebar_1 %}
-									<aside class="woo-content-sidebar col-md-4 col-lg-3">
+                {% if widgets_woo_sidebar_1 %}
+                  <aside class="woo-content-sidebar col-md-4 col-lg-3">
 
-										{# WOO FILTERS #}
+                    {# WOO FILTERS #}
 
-										<div class="woo-filters-header">
-											<h2 class="woo-filters-title">Filtres</h2>
-											<button class="woo-filters-btn-toggle btn btn-ctrl btn-ctrl-plus" data-toggle=".WOOF_Widget" data-toggle-classname="active">
-												<span class="sr-only">Ouvrir</span>
-												<!-- <i class="fa fa-fw fa-lg fa-plus"></i> -->
-											</button>
-										</div>
+                    <div class="woo-filters-header">
+                      <h2 class="woo-filters-title">Filtres</h2>
+                      <button class="woo-filters-btn-toggle btn btn-ctrl btn-ctrl-plus" data-toggle=".WOOF_Widget" data-toggle-classname="active">
+                        <span class="sr-only">Ouvrir</span>
+                        <!-- <i class="fa fa-fw fa-lg fa-plus"></i> -->
+                      </button>
+                    </div>
 
-										<section class="woo-content-sidebar-widgets">
-											{{ widgets_woo_sidebar_1 }}
-										</section>
+                    <section class="woo-content-sidebar-widgets">
+                      {{ widgets_woo_sidebar_1 }}
+                    </section>
 
-									</aside>
-								{% endif %}
+                  </aside>
+                {% endif %}
 
-							</article>
+              </article>
 
-						</div>
-					</section>
+            </div>
+          </section>
 
-					{##
+          {##
 						# woocommerce_after_main_content hook.
 						#
 						# REMOVED @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
 						#}
-					{% do action('woocommerce_after_main_content') %}
+          {% do 
+            action('woocommerce_after_main_content') %}
 
-				</div>
+        </div>
 
-			</div>
-		</section>
+      </div>
+    </section>
 
-	</article>
+  </article>
 
 {% endblock %}
