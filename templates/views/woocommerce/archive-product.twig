@@ -58,7 +58,7 @@
 
                   {% if subcategories and(subcategories | length > 0) %}
                     {# WTF??? #}
-                    <h2>{{ subcategories|length }}
+                    <h2><span>{{ subcategories|length }}</span>
                       catégories</h2>
                     <div class="woo-list woo-list--categories">
                       {% for category in subcategories %}
@@ -72,7 +72,7 @@
                   {# PRODUCTS #}
 
                   {% if posts %}
-                    <h2>{{ found_posts }}
+                    <h2><span>{{ found_posts }}</span>
                       produits</h2>
                     <ul class="woo-list woo-list--products">
                       {% do 

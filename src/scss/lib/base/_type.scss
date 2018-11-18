@@ -34,7 +34,7 @@ body {
   padding-left: 0;
 }
 
-// Reset all margin top
+// Margin bottom
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -46,6 +46,11 @@ ul,
 blockquote, cite {
   margin-top: 0;
   margin-bottom: $gutter;
+}
+
+h1, .h1,
+h2, .h2 {
+  margin-bottom: $gutter-double;
 }
 
 // PARAGRAPHS
@@ -135,6 +140,12 @@ a {
     line-height: $line-height-smaller;
     font-weight: $font-weight-h2;
     font-family: $font-family-h2;
+
+    text-transform: uppercase;
+
+    > span {
+      font-weight: $font-weight-bold;
+    }
   
     @include bp('xs') {
       font-size: $font-size-h2 * 7 / 8;
