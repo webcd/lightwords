@@ -266,6 +266,10 @@ class StarterSite extends \TimberSite
         $twig->addFilter(new \Twig_SimpleFilter('formatPhone', array($this, 'formatPhone')));
         $twig->addFilter(new \Twig_SimpleFilter('formatPhoneLink', array($this, 'formatPhoneLink')));
 
+        $twig->addTest(new \Twig_SimpleTest('ondisk', function ($file) {
+            return file_exists($file);
+        }));
+
         return $twig;
     }
 
