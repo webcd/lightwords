@@ -24,6 +24,10 @@
       <i class="fa fa-fw fa-lg fa-search"></i>
     </button>
 
+    {# <button class="btn btn-ctrl btn-ctrl-search" data-toggle="#topbar, body" data-toggle-classname="topbar-expanded">
+      <span class="sr-only">Toggle search</span>
+    </button> #}
+
   </li>
 {% endif %}
 
@@ -31,14 +35,17 @@
 
 <li class="menu-item menu-item--button menu-item--hamburger hidden-expanded">
 
-  <button type="button" class="menu-item-link"
-    data-panel-toggle data-panel-target="panel-menu"
-  >
+  <button type="button" class="menu-item-link" data-panel-toggle="data-panel-toggle" data-panel-target="panel-menu">
     <span class="sr-only">Toggle navigation</span>
     <div class="hamburger-wrapper">
       <div class="hamburger"></div>
     </div>
   </button>
+
+  {# <button class="btn btn-ctrl btn-ctrl-menu" data-panel-toggle="data-panel-toggle" data-panel-target="panel-menu">
+      <span class="btn-ctrl-extra"></span>
+    <span class="sr-only">Toggle navigation</span>
+  </button> #}
 
 </li>
 
@@ -53,5 +60,8 @@
     <i class="fa fa-fw fa-lg fa-plus"></i>
   </button>
 
-</li>
+  {# <button class="btn btn-ctrl btn-ctrl-plus" data-toggle="body" data-toggle-classname="header-uncompressed">
+    <span class="sr-only">Toggle topbar</span>
+  </button> #}
 
+</li>
