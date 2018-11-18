@@ -69,9 +69,9 @@ if (is_singular('product')) {
         // SHOP ROOT ARCHIVE
 
         // Default title and description
+        $context['title'] = woocommerce_page_title(false);
         // TODO: Use the magic shop strings ("produits" / "boutique" / whatever)
-        $context['title'] = 'Produits';
-        $context['category_description'] = 'Découvrez nos produits&nbsp;!';
+        $context['category_description'] = 'Découvrez tous nos produits&nbsp;!';
 
         // Get the shop page thumbnail
         $image = get_the_post_thumbnail_url( get_option( 'woocommerce_shop_page_id' ) );
