@@ -152,7 +152,9 @@ module.exports = {
           "**/*.php",
           "**/*.twig",
           // dest + '/**',
-          "!**/*.map"
+          "!**/*.map",
+          "!vendor",
+          "!node_modules"
         ],
         // files: ['./*.php'],
         proxy: "localhost:8000", // The Docker wp port
