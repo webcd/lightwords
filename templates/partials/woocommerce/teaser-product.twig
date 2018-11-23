@@ -1,4 +1,4 @@
-<div {{ fn('post_class', ['list-item', 'teaser', 'teaser--product'] ) }} data-onclick-url="{{ post.link }}">
+<div {{ fn('post_class', ['list-item', 'teaser', 'teaser--product', ( post.product.is_featured() ? 'teaser--featured' : '')] ) }} data-onclick-url="{{ post.link }}">
 
   {{ fn('timber_set_product', post) }}
 
@@ -7,10 +7,8 @@
     {# Debug #}
     {# {{ fn('ddump', post.product) }} #}
 
-    {########################################}
-    {# SALE FLASH #}
-
-    {# TODO #}
+    {# Badges: featured, on-sale #}
+    {% include 'partials/woocommerce/badges.twig' %}
 
     {########################################}
     {# THUMBNAIL #}

@@ -21,7 +21,7 @@
     <section class="wrapper wrapper--article-content bg-gray-lightest">
       <div class="article-content">
 
-        <div class="article-content-header" id="product-{{ post.id }}" {{ fn('post_class', ['product', 'product--' ~ post.product.get_type()]) }}>
+        <div class="article-content-header" id="product-{{ post.id }}" {{ fn('post_class', ['product', 'product--' ~ post.product.get_type(), ( post.product.is_featured() ? 'product--featured' : '')]) }}>
 
           <div class="container">
             <div class="row">
@@ -40,11 +40,13 @@
                   {##
                     # woocommerce_before_single_product_summary hook.
                     #
-                    # @hooked woocommerce_show_product_sale_flash - 10
                     # @hooked woocommerce_show_product_images - 20
                   #}
                   {% do 
                     action('woocommerce_before_single_product_summary') %}
+
+                  {# Badges: featured, on-sale #}
+                  {% include 'partials/woocommerce/badges.twig' %}
   
                   {# {% if post.thumbnail %}
                       <img src="{{ post.thumbnail.src('thumbnail') }}">
