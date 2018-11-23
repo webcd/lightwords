@@ -1,0 +1,8 @@
+{% set availability_info = post.product.get_availability() %}
+{% if availability_info and availability_info.availability %}
+
+  <div class="stock stock-{{ availability_info.class }}">
+    {{ availability_info.availability }}
+  </div>
+
+{% endif %}

@@ -100,3 +100,10 @@ function display_category_image($category)
         echo wc_placeholder_img_src();
     }
 }
+
+// We don't use the default WooCommerce stock code
+// The stock HTML that we will use is located in partials/woocommerce/stock.twig
+add_filter('woocommerce_get_stock_html', 'disable_default_woocommerce_stock_html');
+function disable_default_woocommerce_stock_html($html) {
+    return '';
+}

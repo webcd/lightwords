@@ -94,12 +94,10 @@
                     action('woocommerce_single_product_summary') %}
 
                   {########################################}
-                  {# STOCK - TODO! #}
-
-                  {% if post.manage_stock %}
-                    <div>{{ post.stock_quantity }}
-                      en stock</div>
-                  {% endif %}
+                  {# STOCK #}
+                  <div class="single-product-stock">
+                    {% include "partials/woocommerce/stock.twig" %}
+                  </div>
 
                 </div>
               </div>
