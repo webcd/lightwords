@@ -29,13 +29,13 @@
     {########################################}
     {# TERMS #}
 
-    {# TODO #}
-
     <div class="terms">
-      <a class="category-link btn btn-primary btn-xs ripple" href="//192.168.0.11:3000/categorie-produit/clothing/accessories/">Accessories</a>
-      <a class="category-link btn btn-primary btn-xs ripple" href="//192.168.0.11:3000/categorie-produit/music/">Music</a>
-      <a class="tag-link btn btn-xs ripple" href="//192.168.0.11:3000/etiquette-produit/product-tag-a/">#Product tag A</a>
-      <a class="tag-link btn btn-xs ripple" href="//192.168.0.11:3000/etiquette-produit/product-tag-b/">#Product tag B</a>
+      {% for category in post.terms('product_cat') %}
+        <a class="category-link btn btn-primary btn-xs ripple" href="{{ category.link }}">{{ category.title }}</a>
+      {% endfor %}
+      {% for tag in post.terms('product_tag') %}
+        <a class="tag-link btn btn-xs ripple" href="{{ tag.link }}">#{{ tag.title }}</a>
+      {% endfor %}
     </div>
 
     {########################################}
