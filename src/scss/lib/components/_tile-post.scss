@@ -1,4 +1,4 @@
-/* SKIN - LIGHT - POSTS */
+/* TILE-POST */
 
 ///////////////////////////////////////////////////////////////////////////////
 // METAS
@@ -24,10 +24,21 @@
   font-style: italic;
   margin-top: $gutter-quarter;
   padding-top: $gutter-eighth;
+
+  color: $gray-light;
 }
 
 .tag-link {
   text-transform: none;
+
+  border-color: transparent;
+  color: $color-secondary;
+
+  @include hocus() {
+    background-color: transparent;
+    border-color: transparent;
+    color: lighten($color-secondary, 20%);
+  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -100,15 +111,18 @@
   bottom: 0;
   margin: 0;
   padding: $gutter-quarter $gutter-half;
+  background-color: rgba(255, 255, 255, 0.75);
 
   a {
     font-weight: $font-weight-light;
+    color: black;
   }
 }
 
 .tile__body {
   margin-top: $gutter-half;
   margin-bottom: $gutter-half;
+  color: $gray-darker;
 
   .read-more {
     display: block;
@@ -130,4 +144,3 @@
     background-color: white;
   }
 }
-

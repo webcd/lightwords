@@ -14,7 +14,7 @@
 
   @include hocus() {
     color: currentColor;
-    text-decoration: none;
+    text-decoration: none !important;
     &:after {
       transform: scale3d(1, 1, 1);
     }
