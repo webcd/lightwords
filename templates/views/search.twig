@@ -1,0 +1,60 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+  <article class="archive">
+
+    <section class="wrapper wrapper--article-content">
+      <div class="article-content">
+
+        {% include "article-content-header.twig" %}
+
+        <div class="article-content-body">
+          <div class="container">
+
+            {% for post_type in post_types %}
+                              
+              {% if  _context['post_type_' ~ post_type] is defined %}
+              
+                {% set post_type_labels = function('get_post_type_object', post_type).labels %}
+                {% set posts = _context['post_type_' ~ post_type] %}
+                {% set nbr_posts = posts|length %}
+
+                <section class="posts row">
+              
+                  <h2> 
+                  {{ nbr_posts }}
+                  {% if nbr_posts > 1 %}
+                    {{ post_type_labels.name }}
+                  {% else %}
+                    {{ post_type_labels.singular_name }}
+                  {% endif %}               
+                  </h2>
+
+                  {% for post in posts %}
+                  
+                    {# if the post type is product, the teaser is in the woocommerce folder #}                 
+                    {% if function('file_exists', 'wp-content/themes/lightwords/templates/partials/teaser-' ~ post_type ~ '.twig') 
+                        or function('file_exists', 'wp-content/themes/lightwords/templates/partials/woocommerce/teaser-' ~ post_type ~ '.twig') %}
+                        {% include 'teaser-' ~ post_type ~ '.twig' %}
+                    {% else %}
+                      {% include 'teaser-post.twig' %}
+                    {% endif %}                                                
+
+                  {% endfor %}
+
+                </section>
+
+              {% endif %}
+              
+            {% endfor %}
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </article>
+
+{% endblock %}
