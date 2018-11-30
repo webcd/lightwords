@@ -1,0 +1,24 @@
+/* WRAPPERS-HALF */
+
+.wrapper--half-cover {
+  position: relative;
+  
+  > .half-cover {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    z-index: -1;
+
+    &.half-cover--left { top: 0; }
+    &.half-cover--right { bottom: 0; }
+
+    @include bp('sm') {
+      width: 50%;
+      height: 100%;
+  
+      &.half-cover--left { left: 0; }
+      &.half-cover--right { right: 0; }
+    }
+  }
+
+}

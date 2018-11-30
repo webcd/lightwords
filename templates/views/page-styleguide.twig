@@ -1,938 +1,1544 @@
-{% extends "base.twig" %}
+{% extends "base.twig" %} {% block content %}
 
-{% block content %}
+<article class="post-type-styleguide" id="post-{{post.ID}}">
+  {% include 'base-content.twig' with {'slogan': 'Let\'s style \'em all!'} %}
 
-  <article class="post-type-styleguide" id="post-{{post.ID}}">
+  <section class="wrapper wrapper--padding">
+    <div class="container">
+      <!-- Styleguide content -->
 
-    {% include 'base-content.twig' with {'slogan': 'Let\'s style \'em all!'} %}
+      <!-- MODAL -->
+      <h2>Modal</h2>
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-modal="data-modal"
+        data-modal-target="#myModal"
+      >
+        Launch demo modal
+      </button>
 
-    <section class="wrapper wrapper--padding">
-      <div class="container">
+      <hr />
 
-        <!-- Styleguide content -->
-
-        <!-- MODAL -->
-        <h2>Modal</h2>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-modal="data-modal" data-modal-target="#myModal">
-          Launch demo modal
-        </button>
-
-        <hr>
-
-        <!-- Modal content -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-              </div>
-              <div class="modal-body">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet suscipit rerum quam est illum, earum quae voluptates fugit accusamus sit iusto corrupti deleniti iste amet quaerat omnis? Quae aliquid quasi est eos ex minima, ab voluptate, itaque saepe commodi nemo explicabo unde, laboriosam laudantium enim adipisci! Tempore repellendus eaque ea....
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- HEADINGS -->
-        <h2>Headings</h2>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <h1>Heading 1</h1>
-            <h1>Heading 1
-              <br>on two lines</h1>
-            <h2>Heading 2</h2>
-            <h2>Heading 2
-              <br>on two lines</h2>
-            <h2>
-              <span>Phatty</span>
-              heading 2</h2>
-          </div>
-          <div class="col-sm-6">
-            <h3>Heading 3</h3>
-            <h3>Heading 3
-              <br>on two lines</h3>
-            <h4>Heading 4</h4>
-            <h4>Heading 4
-              <br>on two lines</h4>
-            <h5>Heading 5</h5>
-            <h5>Heading 5
-              <br>on two lines</h5>
-            <h6>Heading 6</h6>
-            <h6>Heading 6
-              <br>on two lines</h6>
-          </div>
-        </div>
-
-        <hr>
-
-        <!-- BODY TEXT -->
-        <h2>Body text</h2>
-
-        <p class="big">[BIG] Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt, aspernatur. A provident error, molestias dolore quos facilis, doloribus eaque tempora voluptas, voluptatem animi commodi libero dicta qui enim laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem molestias praesentium voluptate. Magni at, provident culpa minima ex porro ipsum ut dignissimos nam commodi quis qui dolorum saepe perferendis beatae alias facere assumenda voluptatem eum suscipit architecto! Ea.</p>
-
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt, aspernatur. A provident error, molestias dolore quos facilis, doloribus eaque tempora voluptas, voluptatem animi commodi libero dicta qui enim laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem molestias praesentium voluptate. Magni at, provident culpa minima ex porro ipsum ut dignissimos nam commodi quis qui dolorum saepe perferendis beatae alias facere assumenda voluptatem eum suscipit architecto! Ea.</p>
-
-        <p class="small">[SMALL] Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt, aspernatur. A provident error, molestias dolore quos facilis, doloribus eaque tempora voluptas, voluptatem animi commodi libero dicta qui enim laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem molestias praesentium voluptate. Magni at, provident culpa minima ex porro ipsum ut dignissimos nam commodi quis qui dolorum saepe perferendis beatae alias facere assumenda voluptatem eum suscipit architecto! Ea.</p>
-
-        <hr>
-
-        <h2>Capped width</h2>
-
-        <p class="max-width-xs">[XS] A provident error, molestias dolore quos facilis, doloribus eaque tempora voluptas, voluptatem animi commodi libero dicta qui enim laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem molestias praesentium voluptate. Magni at, provident culpa minima ex porro ipsum ut dignissimos nam commodi quis qui dolorum saepe perferendis beatae alias facere assumenda voluptatem eum suscipit architecto! Ea.</p>
-
-        <p class="max-width-sm">[SM] Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt, aspernatur. A provident error, molestias dolore quos facilis, doloribus eaque tempora voluptas, voluptatem animi commodi libero dicta qui enim laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem molestias praesentium voluptate. Magni at, provident culpa minima ex porro ipsum ut dignissimos nam commodi quis qui dolorum saepe perferendis beatae alias facere assumenda voluptatem eum suscipit architecto! Ea.</p>
-
-        <p class="max-width-md">[MD] Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt, aspernatur. A provident error, molestias dolore quos facilis, doloribus eaque tempora voluptas, voluptatem animi commodi libero dicta qui enim laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem molestias praesentium voluptate. Magni at, provident culpa minima ex porro ipsum ut dignissimos nam commodi quis qui dolorum saepe perferendis beatae alias facere assumenda voluptatem eum suscipit architecto! Ea.</p>
-
-        <hr>
-
-        <blockquote>
-          <p>I do not fear computers. I fear the lack of them.</p>
-          <cite>– Isaac Asimov</cite>
-        </blockquote>
-
-        <blockquote>
-          <p>But I don't want comfort. I want God, I want poetry, I want real danger, I want freedom, I want goodness. I want sin.</p>
-          <cite>– Aldous Huxley, Brave New World</cite>
-        </blockquote>
-
-        <hr>
-
-        <!-- BUTTONS -->
-        <h2>Buttons</h2>
-
-        <div class="row">
-          <div class="col-xs-6 col-sm-4 col-md-3">
-            <h3>Colors</h3>
-            <button class="btn">.btn</button>
-            <button class="btn btn-default">.btn-default</button>
-            <button class="btn btn-black">.btn-black</button>
-            <button class="btn btn-gray">.btn-gray</button>
-            <button class="btn btn-white">.btn-white</button>
-            <button class="btn btn-primary">.btn-primary</button>
-            <button class="btn btn-secondary">.btn-secondary</button>
-            <button class="btn btn-ternary">.btn-ternary</button>
-          </div>
-          <div class="col-xs-6 col-sm-4 col-md-3">
-            <h3>Rounded</h3>
-            <button class="btn btn-round">.btn-round</button>
-            <button class="btn btn-default btn-round">.btn-round</button>
-            <button class="btn btn-black btn-round">.btn-round</button>
-            <button class="btn btn-gray btn-round">.btn-round</button>
-            <button class="btn btn-white btn-round">.btn-round</button>
-            <button class="btn btn-primary btn-round">.btn-round</button>
-            <button class="btn btn-secondary btn-round">.btn-round</button>
-            <button class="btn btn-ternary btn-round">.btn-round</button>
-          </div>
-          <div class="col-xs-6 col-sm-4 col-md-3">
-            <h3>Hollow</h3>
-            <button class="btn btn-hollow">.btn-hollow</button>
-            <div style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;">
-              <button class="btn btn-default btn-hollow">.btn-hollow</button>
-            </div>
-            <button class="btn btn-black btn-hollow">.btn-hollow</button>
-            <button class="btn btn-gray btn-hollow">.btn-hollow</button>
-            <div style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;">
-              <button class="btn btn-white btn-hollow">.btn-hollow</button>
-            </div>
-            <button class="btn btn-primary btn-hollow">.btn-hollow</button>
-            <button class="btn btn-secondary btn-hollow">.btn-hollow</button>
-            <button class="btn btn-ternary btn-hollow">.btn-hollow</button>
-          </div>
-          <div class="col-xs-6 col-sm-4 col-md-3">
-            <h3>Rounded hollow</h3>
-            <button class="btn btn-round btn-hollow">.btn-hollow</button>
-            <div style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;">
-              <button class="btn btn-default btn-round btn-hollow">.btn-hollow</button>
-            </div>
-            <button class="btn btn-black btn-round btn-hollow">.btn-hollow</button>
-            <button class="btn btn-gray btn-round btn-hollow">.btn-hollow</button>
-            <div style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;">
-              <button class="btn btn-white btn-round btn-hollow">.btn-hollow</button>
-            </div>
-            <button class="btn btn-primary btn-round btn-hollow">.btn-hollow</button>
-            <button class="btn btn-secondary btn-round btn-hollow">.btn-hollow</button>
-            <button class="btn btn-ternary btn-round btn-hollow">.btn-hollow</button>
-          </div>
-          <div class="col-xs-6 col-sm-4 col-md-3">
-            <h3>Sizes</h3>
-            <button class="btn btn-primary btn-xs">.btn-xs</button>
-            <button class="btn btn-primary btn-sm">.btn-sm</button>
-            <button class="btn btn-primary">.btn</button>
-            <a href="#" class="btn btn-primary btn-lg">.btn-lg</a>
-            <button class="btn btn-primary btn-xl">.btn-xl</button>
-          </div>
-          <div class="col-xs-6 col-sm-4 col-md-3">
-            <h3>Layout</h3>
-            <button class="btn btn-primary btn-block">.btn-block</button>
-            <button class="btn btn-secondary btn-wrap">.btn-wrap very very long button multi-line content</button>
-            <button class="btn btn-black btn-wrap btn-round">.btn-wrap rounded very very long button multi-line content</button>
-          </div>
-          <div class="col-xs-6 col-sm-4 col-md-3">
-            <h3>Disabled</h3>
-            <button class="btn" disabled="disabled">disabled</button>
-            <button class="btn btn-default" disabled="disabled">disabled</button>
-            <button class="btn btn-black" disabled="disabled">disabled</button>
-            <button class="btn btn-gray" disabled="disabled">disabled</button>
-            <button class="btn btn-white" disabled="disabled">disabled</button>
-            <button class="btn btn-primary btn-round" disabled="disabled">disabled</button>
-            <button class="btn btn-secondary btn-hollow" disabled="disabled">disabled</button>
-            <button class="btn btn-ternary" disabled="disabled">disabled</button>
-          </div>
-          <div class="col-xs-6 col-sm-4 col-md-3">
-            <h3>Icons</h3>
-            <button class="btn">
-              <i class="fa fa-star"></i>
-              .btn</button>
-            <button class="btn btn-default">
-              <i class="fa fa-user"></i>
-              .btn-default</button>
-            <button class="btn btn-black">.btn-black
-              <i class="fa fa-arrow-right"></i>
-            </button>
-            <button class="btn btn-gray btn-lg">
-              <i class="fa fa-envelope"></i>
-              .btn-gray</button>
-            <button class="btn btn-white">
-              <svg class="btn-icon" viewbox="0 0 44 44">
-                <use xlink:href="#logo-mobile"></use>
-              </svg>
-              .btn-white
-            </button>
-            <button class="btn btn-primary">.btn-primary</button>
-            <button class="btn btn-secondary">.btn-secondary</button>
-            <button class="btn btn-ternary">.btn-ternary</button>
-          </div>
-          <div class="col-xs-6 col-sm-4 col-md-3">
-            <h3>Caret</h3>
-            <button class="btn btn-default btn-caret">.btn-caret</button>
-            <button class="btn btn-primary btn-caret btn-xs">.btn-caret</button>
-            <button class="btn btn-black btn-caret btn-round btn-xl">.btn-caret</button>
-            <div style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;">
-              <button class="btn btn-white btn-caret btn-hollow btn-block">.btn-caret</button>
-            </div>
-            <button class="btn btn-secondary btn-caret btn-wrap">.btn-caret very very long button multi-line content</button>
-          </div>
-          <div class="col-sm-6 bg-gray-lighter">
-            <h3>Control (::pseudo elements)</h3>
-            <div>
-              <button class="btn btn-ctrl btn-ctrl-left"></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-left"></button>
-              <button class="btn btn-ctrl btn-ctrl-left btn-ctrl-inverted"></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-left btn-ctrl-inverted"></button>
-              .btn-ctrl-left
-            </div>
-            <div>
-              <button class="btn btn-ctrl btn-ctrl-right"></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-right"></button>
-              <button class="btn btn-ctrl btn-ctrl-right btn-ctrl-inverted"></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-right btn-ctrl-inverted"></button>
-              .btn-ctrl-right</div>
-            <div>
-              <button class="btn btn-ctrl btn-ctrl-up"></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-up"></button>
-              <button class="btn btn-ctrl btn-ctrl-up btn-ctrl-inverted"></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-up btn-ctrl-inverted"></button>
-              .btn-ctrl-up</div>
-            <div>
-              <button class="btn btn-ctrl btn-ctrl-down"></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-down"></button>
-              <button class="btn btn-ctrl btn-ctrl-down btn-ctrl-inverted"></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-down btn-ctrl-inverted"></button>
-              .btn-ctrl-down</div>
-            <div>
-              <button class="btn btn-ctrl btn-ctrl-close"></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-close"></button>
-              <button class="btn btn-ctrl btn-ctrl-close btn-ctrl-inverted"></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-close btn-ctrl-inverted"></button>
-              .btn-ctrl-close</div>
-            <div>
-              <button class="btn btn-ctrl btn-ctrl-plus"></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-plus"></button>
-              <button class="btn btn-ctrl btn-ctrl-plus btn-ctrl-inverted"></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-plus btn-ctrl-inverted"></button>
-              .btn-ctrl-plus</div>
-            <div>
-              <button class="btn btn-ctrl btn-ctrl-minus"></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-minus"></button>
-              <button class="btn btn-ctrl btn-ctrl-minus btn-ctrl-inverted"></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-minus btn-ctrl-inverted"></button>
-              .btn-ctrl-minus</div>
-            <div>
-              <button class="btn btn-ctrl btn-ctrl-search"></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-search"></button>
-              <button class="btn btn-ctrl btn-ctrl-search btn-ctrl-inverted"></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-search btn-ctrl-inverted"></button>
-              .btn-ctrl-search</div>
-            <div>
-              <button class="btn btn-ctrl btn-ctrl-menu">
-                <span class="btn-ctrl-extra"></span></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-menu">
-                <span class="btn-ctrl-extra"></span></button>
-              <button class="btn btn-ctrl btn-ctrl-menu btn-ctrl-inverted">
-                <span class="btn-ctrl-extra"></span></button>
-              <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-menu btn-ctrl-inverted">
-                <span class="btn-ctrl-extra"></span></button>
-              .btn-ctrl-menu
-            </div>
-          </div>
-        </div>
-
-        <hr>
-
-        <!-- FORMS -->
-        <h2>Forms</h2>
-
-        <div class="row">
-          <div class="col-md-6">
-            <section class="form row">
-              <div class="input-block col-md-6 required">
-                <label for="text01">Text input</label>
-                <div class="input">
-                  <input type="text" id="text01" placeholder="Placeholder text">
-                </div>
-              </div>
-              <div class="input-block col-md-6 required">
-                <label for="text02">Text input with a very very long label</label>
-                <div class="input input--inline">
-                  <div class="input-before">
-                    <i class="fa fa-user"></i>
-                  </div>
-                  <input type="text" id="text02" placeholder="Placeholder text">
-                </div>
-              </div>
-              <div class="input-block col-md-6">
-                <label for="number01">Number input</label>
-                <div class="input">
-                  <input type="number" id="number01" value="9">
-                </div>
-                <div class="input-info">This is the input info text</div>
-              </div>
-              <div class="input-block col-md-6">
-                <label for="number02">Number input with unit</label>
-                <div class="input input--inline">
-                  <input type="number" id="number02" value="0">
-                  <div class="input-after">€</div>
-                </div>
-              </div>
-              <div class="input-block col-md-6">
-                <div class="label">Radio</div>
-                <div class="input">
-                  <input type="radio" id="radio10" name="radio01x" checked="checked">
-                  <label for="radio10">Yes I do</label>
-                  <input type="radio" id="radio11" name="radio01x">
-                  <label for="radio11">No way</label>
-                </div>
-              </div>
-              <div class="input-block col-md-6">
-                <div class="label">Checkbox</div>
-                <div class="input">
-                  <input type="checkbox" id="check010" checked="checked">
-                  <label for="check010">Very very long checkbox label Lorem ipsum dolor sit amet consectetur adipisicing elit.</label>
-                </div>
-                <div class="input-info">This is a very long input info text Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, rem.</div>
-              </div>
-              <div class="input-block required">
-                <div class="label">Inline radio</div>
-                <div class="input input--inline">
-                  <input type="radio" id="radio019" name="radios9">
-                  <label for="radio019">Label radio</label>
-                  <input type="radio" id="radio029" name="radios9">
-                  <label for="radio029">Very long label radio</label>
-                  <input type="radio" id="radio039" name="radios9">
-                  <label for="radio039">Label radio</label>
-                </div>
-              </div>
-              <div class="input-block">
-                <div class="label">Inline checkbox</div>
-                <div class="input input--inline">
-                  <input type="checkbox" id="check10">
-                  <label for="check10">Label one</label>
-                  <input type="checkbox" id="check11">
-                  <label for="check11">Second label</label>
-                  <input type="checkbox" id="check12">
-                  <label for="check12">Oh my label!</label>
-                </div>
-              </div>
-
-              <div>
-                <input type="submit" value="input[type=submit]">
-              </div>
-              <div>
-                <button type="submit" class="btn-lg btn-round btn-hollow btn-black btn-caret">
-                  <i class="fa fa-star"></i>
-                  Form submit button</button>
-              </div>
-            </section>
-          </div>
-
-          <div class="col-md-6">
-            <section class="form row">
-              <div class="input-block">
-                <label for="area01">Select</label>
-                <div class="input">
-                  <select name="" id="">
-                    <option value="">One</option>
-                    <option value="">Very very long two</option>
-                    <option value="">Three</option>
-                  </select>
-                </div>
-              </div>
-              <div class="input-block">
-                <label for="area01">Textarea</label>
-                <div class="input">
-                  <textarea name="" id="area01" cols="30" rows="10" placeholder="Placeholder text"></textarea>
-                </div>
-              </div>
-              <!-- error -->
-              <h3>Error state</h3>
-              <div class="message message--error">
-                <i class="fa fa-warning"></i>
-                There are some errors!
-              </div>
-              <div class="input-block col-md-6 required error">
-                <label for="text011">Text input</label>
-                <div class="input">
-                  <input type="text" id="text011" placeholder="Placeholder text">
-                </div>
-                <div class="input-info">This field is required.</div>
-              </div>
-              <div class="input-block col-md-6 required error overflow-hidden">
-                <label for="area011">Select</label>
-                <div class="input">
-                  <select name="" id="">
-                    <option value="">One</option>
-                    <option value="">Very very long two</option>
-                    <option value="">Three</option>
-                  </select>
-                </div>
-                <div class="input-info">This field is required.</div>
-              </div>
-              <div class="input-block required error">
-                <div class="label">Inline radio</div>
-                <div class="input input--inline">
-                  <input type="radio" id="radio011" name="radios" checked="checked">
-                  <label for="radio011">Label radio</label>
-                  <input type="radio" id="radio021" name="radios">
-                  <label for="radio021">Very long label radio</label>
-                  <input type="radio" id="radio031" name="radios">
-                  <label for="radio031">Label radio</label>
-                </div>
-                <div class="input-info">This field is required.</div>
-              </div>
-              <!-- mentions -->
-              <div>
-                <p class="small">Fields marked with a * are required.</p>
-                <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, consequatur aperiam et ullam culpa aut quod? Suscipit, alias ea? A suscipit neque, dolorem aspernatur provident incidunt sint fugit dolorum quas!</p>
-              </div>
-            </section>
-          </div>
-          <div class="col-xs-6 col-sm-4 col-md-3"></div>
-        </div>
-
-        <hr>
-
-        <h3>Gravity forms</h3>
-
-        <div class="gf_browser_chrome gform_wrapper" id="gform_wrapper_1">
-          <form method="post" enctype="multipart/form-data" id="gform_1" action="/contact/">
-            <div class="gform_heading">
-              <span class="gform_description">La description du formulaire se place ici.</span>
-            </div>
-            <div class="gform_body">
-              <ul id="gform_fields_1" class="gform_fields top_label form_sublabel_below description_below">
-                <li id="field_1_1" class="gfield gf_left_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                  <label class="gfield_label" for="input_1_1">Nom
-                    <span class="gfield_required">*</span>
-                  </label>
-                  <div class="ginput_container ginput_container_text">
-                    <input name="input_1" id="input_1_1" type="text" value="" class="medium" tabindex="1" aria-required="true" aria-invalid="false" placeholder="Votre nom">
-                  </div>
-                </li>
-                <li id="field_1_2" class="gfield gf_right_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                  <label class="gfield_label" for="input_1_2">Prénom
-                    <span class="gfield_required">*</span>
-                  </label>
-                  <div class="ginput_container ginput_container_text">
-                    <input name="input_2" id="input_1_2" type="text" value="" class="medium" tabindex="2" aria-required="true" aria-invalid="false">
-                  </div>
-                </li>
-                <li id="field_1_3" class="gfield gf_left_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                  <label class="gfield_label" for="input_1_3">Adresse email
-                    <span class="gfield_required">*</span>
-                  </label>
-                  <div class="ginput_container ginput_container_text">
-                    <input name="input_3" id="input_1_3" type="email" value="" class="medium" tabindex="3" aria-required="true" aria-invalid="false">
-                  </div>
-                </li>
-                <li id="field_1_4" class="gfield gf_right_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                  <label class="gfield_label" for="input_1_4">Je suis
-                    <span class="gfield_required">*</span>
-                  </label>
-                  <div class="ginput_container ginput_container_select">
-                    <select name="input_4" id="input_1_4" class="medium gfield_select" tabindex="4" aria-required="true" aria-invalid="false" data-placeholder="Choisissez votre statut">
-                      <option value="Un particulier">Un particulier</option>
-                      <option value="Un professionnel">Un professionnel</option>
-                    </select>
-                  </div>
-                </li>
-                <li id="field_1_5" class="gfield full-input gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                  <label class="gfield_label" for="input_1_5">Sujet
-                    <span class="gfield_required">*</span>
-                  </label>
-                  <div class="ginput_container ginput_container_text">
-                    <input name="input_5" id="input_1_5" type="text" value="" class="large" tabindex="5" aria-required="true" aria-invalid="false">
-                  </div>
-                </li>
-                <li id="field_1_6" class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                  <label class="gfield_label" for="input_1_6">Votre message
-                    <span class="gfield_required">*</span>
-                  </label>
-                  <div class="ginput_container ginput_container_textarea">
-                    <textarea name="input_6" id="input_1_6" class="textarea medium" tabindex="6" aria-required="true" aria-invalid="false" rows="10" cols="50"></textarea>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="gform_footer top_label">
-              <input type="submit" id="gform_submit_button_1" class="gform_button button" value="Envoyer" tabindex="7" onclick="if(window[&quot;gf_submitting_1&quot;]){return false;}  window[&quot;gf_submitting_1&quot;]=true;  " onkeypress="if( event.keyCode == 13 ){ if(window[&quot;gf_submitting_1&quot;]){return false;} window[&quot;gf_submitting_1&quot;]=true;  jQuery(&quot;#gform_1&quot;).trigger(&quot;submit&quot;,[true]); }">
-
-            </div>
-          </form>
-        </div>
-
-        <hr>
-
-        <div class="gf_browser_chrome gform_wrapper gform_validation_error" id="gform_wrapper_1">
-          <form method="post" enctype="multipart/form-data" id="gform_1" action="/contact/">
-            <div class="gform_heading">
-              <span class="gform_description"></span>
-            </div>
-            <div class="validation_error">Le formulaire ne semble pas correctement rempli. Les erreurs ont été mises en surbrillance plus bas.</div>
-            <div class="gform_body">
-              <ul id="gform_fields_1" class="gform_fields top_label form_sublabel_below description_below">
-                <li id="field_1_1" class="gfield gfield_error gf_left_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                  <label class="gfield_label" for="input_1_1">Nom
-                    <span class="gfield_required">*</span>
-                  </label>
-                  <div class="ginput_container ginput_container_text">
-                    <input name="input_1" id="input_1_1" type="text" value="" class="medium" tabindex="1" aria-required="true" aria-invalid="true">
-                  </div>
-                  <div class="gfield_description validation_message">Ce champ est nécessaire</div>
-                </li>
-                <li id="field_1_2" class="gfield gfield_error gf_right_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                  <label class="gfield_label" for="input_1_2">Prénom
-                    <span class="gfield_required">*</span>
-                  </label>
-                  <div class="ginput_container ginput_container_text">
-                    <input name="input_2" id="input_1_2" type="text" value="" class="medium" tabindex="2" aria-required="true" aria-invalid="true">
-                  </div>
-                  <div class="gfield_description validation_message">Ce champ est nécessaire</div>
-                </li>
-                <li id="field_1_3" class="gfield gfield_error gf_left_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                  <label class="gfield_label" for="input_1_3">Adresse email
-                    <span class="gfield_required">*</span>
-                  </label>
-                  <div class="ginput_container ginput_container_text">
-                    <input name="input_3" id="input_1_3" type="text" value="" class="medium" tabindex="3" aria-required="true" aria-invalid="true">
-                  </div>
-                  <div class="gfield_description validation_message">Ce champ est nécessaire</div>
-                </li>
-                <li id="field_1_4" class="gfield gf_right_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                  <label class="gfield_label" for="input_1_4">Je suis
-                    <span class="gfield_required">*</span>
-                  </label>
-                  <div class="ginput_container ginput_container_select">
-                    <select name="input_4" id="input_1_444" class="medium gfield_select" tabindex="4" aria-required="true" aria-invalid="false" data-placeholder="Choisissez votre statut">
-                      <option value="Un particulier">Un particulier</option>
-                      <option value="Un professionnel">Un professionnel</option>
-                    </select>
-                  </div>
-                </li>
-                <li id="field_1_5" class="gfield gfield_error full-input gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                  <label class="gfield_label" for="input_1_5">Sujet
-                    <span class="gfield_required">*</span>
-                  </label>
-                  <div class="ginput_container ginput_container_text">
-                    <input name="input_5" id="input_1_5" type="text" value="" class="large" tabindex="5" aria-required="true" aria-invalid="true">
-                  </div>
-                  <div class="gfield_description validation_message">Ce champ est nécessaire</div>
-                </li>
-                <li id="field_1_6" class="gfield gfield_error gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible">
-                  <label class="gfield_label" for="input_1_6">Votre message
-                    <span class="gfield_required">*</span>
-                  </label>
-                  <div class="ginput_container ginput_container_textarea">
-                    <textarea name="input_6" id="input_1_6" class="textarea medium" tabindex="6" aria-required="true" aria-invalid="true" rows="10" cols="50"></textarea>
-                  </div>
-                  <div class="gfield_description validation_message">Ce champ est nécessaire</div>
-                </li>
-              </ul>
-            </div>
-            <div class="gform_footer top_label">
-              <input type="submit" id="gform_submit_button_1" class="gform_button button" value="Envoyer" tabindex="7" onclick="if(window[&quot;gf_submitting_1&quot;]){return false;}  window[&quot;gf_submitting_1&quot;]=true;  " onkeypress="if( event.keyCode == 13 ){ if(window[&quot;gf_submitting_1&quot;]){return false;} window[&quot;gf_submitting_1&quot;]=true;  jQuery(&quot;#gform_1&quot;).trigger(&quot;submit&quot;,[true]); }">
-              <input type="hidden" class="gform_hidden" name="is_submit_1" value="1">
-              <input type="hidden" class="gform_hidden" name="gform_submit" value="1">
-
-              <input type="hidden" class="gform_hidden" name="gform_unique_id" value="5ab62d094a294">
-              <input type="hidden" class="gform_hidden" name="state_1" value="WyJbXSIsIjI3ZGFiMzk3MmVkZWMzNTMxY2FmM2MxMDZiNDUxMDU2Il0=">
-              <input type="hidden" class="gform_hidden" name="gform_target_page_number_1" id="gform_target_page_number_1" value="0">
-              <input type="hidden" class="gform_hidden" name="gform_source_page_number_1" id="gform_source_page_number_1" value="1">
-              <input type="hidden" name="gform_field_values" value="">
-
-            </div>
-          </form>
-        </div>
-
-      </div>
-    </section>
-
-    <hr>
-
-    <!-- COLORS -->
-    <section class="wrapper wrapper--padding">
-      <div class="container">
-        <h2>Colors</h2>
-      </div>
-    </section>
-
-    {% set colors = ['primary', 'secondary', 'ternary'] %}
-    {% set shades = ['-darkest', '-darker', '-dark', '', '-light', '-lighter', '-lightest'] %}
-
-    {% for color in colors %}
-      <section class="wrapper wrapper--padding bg-{{ color }} color-white">
-        <div class="container">
-          <h3>Color:
-            {{ color }}</h3>
-          <div class="row row--auto-size">
-            {% for shade in shades %}
-              <article class="color-block bg-{{ color }}{{ shade }}">
-                <div>{{ color }}{{ shade }}</div>
-              </article>
-            {% endfor %}
-          </div>
-        </div>
-      </section>
-    {% endfor %}
-
-    {% set shades = ['black', 'gray-darkest', 'gray-darker', 'gray-dark', 'gray', 'gray-light', 'gray-lighter', 'gray-lightest', 'white'] %}
-
-    <section class="wrapper wrapper--padding bg-gray color-white">
-      <div class="container">
-        <h3>Color: gray</h3>
-        <div class="row row--auto-size">
-          {% for shade in shades %}
-            <article class="color-block bg-{{ shade }}">
-              <div>{{ shade }}</div>
-            </article>
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-
-    <section class="wrapper wrapper--padding">
-      <div class="container">
-
-        <h2>[FX] - Shadows</h2>
-
-        <div class="row row--quarter-gutter">
-          <div class="col-xxs-6 col-sm-3">
-            <div class="styleguide-shadow-demo shadow-0">.shadow-0</div>
-          </div>
-          <div class="col-xxs-6 col-sm-3">
-            <div class="styleguide-shadow-demo shadow-1">.shadow-1</div>
-          </div>
-          <div class="col-xxs-6 col-sm-3">
-            <div class="styleguide-shadow-demo shadow-2">.shadow-2</div>
-          </div>
-          <div class="col-xxs-6 col-sm-3">
-            <div class="styleguide-shadow-demo shadow-3">.shadow-3</div>
-          </div>
-          <div class="col-xxs-6 col-sm-3">
-            <div class="styleguide-shadow-demo shadow-4">.shadow-4</div>
-          </div>
-          <div class="col-xxs-6 col-sm-3">
-            <div class="styleguide-shadow-demo shadow-5">.shadow-5</div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="wrapper wrapper--padding bg-gray-lighter">
-      <div class="container">
-
-        <h2>[FX] - 3D hover</h2>
-
-        <div class="row row--quarter-gutter">
-          <div class="col-sm-6">
-            <div class="hover3d">
-              <button class="btn btn-black">
-                <i class="fa fa-2x fa-smile-o"></i>
+      <!-- Modal content -->
+      <div
+        class="modal fade"
+        id="myModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="hover3d-20">
-              <button class="btn btn-black">Hover 3D</button>
+            <div class="modal-body">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet
+              suscipit rerum quam est illum, earum quae voluptates fugit
+              accusamus sit iusto corrupti deleniti iste amet quaerat omnis?
+              Quae aliquid quasi est eos ex minima, ab voluptate, itaque saepe
+              commodi nemo explicabo unde, laboriosam laudantium enim adipisci!
+              Tempore repellendus eaque ea....
             </div>
-            <div class="hover3d-10">
-              <button class="btn btn-primary">Hover 3D longer</button>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="hover3d-2">
-              <img src="https://picsum.photos/1200/600/?random" alt="">
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-default"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
             </div>
           </div>
         </div>
-
       </div>
-    </section>
 
-    <section class="wrapper wrapper--padding bg-gray-dark color-white">
-      <div class="container">
+      <!-- HEADINGS -->
+      <h2>Headings</h2>
 
-        <h2>[FX] - Parallax images</h2>
+      <div class="row">
+        <div class="col-sm-6">
+          <h1>Heading 1</h1>
+          <h1>Heading 1 <br />on two lines</h1>
+          <h2>Heading 2</h2>
+          <h2>Heading 2 <br />on two lines</h2>
+          <h2><span>Phatty</span> heading 2</h2>
+        </div>
+        <div class="col-sm-6">
+          <h3>Heading 3</h3>
+          <h3>Heading 3 <br />on two lines</h3>
+          <h4>Heading 4</h4>
+          <h4>Heading 4 <br />on two lines</h4>
+          <h5>Heading 5</h5>
+          <h5>Heading 5 <br />on two lines</h5>
+          <h6>Heading 6</h6>
+          <h6>Heading 6 <br />on two lines</h6>
+        </div>
+      </div>
 
-        <div class="row row--quarter-gutter">
-          <div class="col-sm-6 col-lg-4 overflow-hidden">
-            <!-- Child Image Parallax -->
-            <div class="jarallax" data-speed="0">
-              <img class="jarallax-img" src="https://picsum.photos/800/600/?random" alt="Super caption text!">
-              <h3 class="color-white" style="padding: 12rem 3rem;">Child image</h3>
-            </div>
+      <hr />
+
+      <!-- BODY TEXT -->
+      <h2>Body text</h2>
+
+      <p class="big">
+        [BIG] Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+        a natus ex dolores, itaque voluptas quo! Nesciunt, aspernatur. A
+        provident error, molestias dolore quos facilis, doloribus eaque tempora
+        voluptas, voluptatem animi commodi libero dicta qui enim laborum
+        accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut
+        exercitationem molestias praesentium voluptate. Magni at, provident
+        culpa minima ex porro ipsum ut dignissimos nam commodi quis qui dolorum
+        saepe perferendis beatae alias facere assumenda voluptatem eum suscipit
+        architecto! Ea.
+      </p>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a
+        natus ex dolores, itaque voluptas quo! Nesciunt, aspernatur. A provident
+        error, molestias dolore quos facilis, doloribus eaque tempora voluptas,
+        voluptatem animi commodi libero dicta qui enim laborum accusamus!
+        Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem
+        molestias praesentium voluptate. Magni at, provident culpa minima ex
+        porro ipsum ut dignissimos nam commodi quis qui dolorum saepe
+        perferendis beatae alias facere assumenda voluptatem eum suscipit
+        architecto! Ea.
+      </p>
+
+      <p class="small">
+        [SMALL] Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt, aspernatur.
+        A provident error, molestias dolore quos facilis, doloribus eaque
+        tempora voluptas, voluptatem animi commodi libero dicta qui enim laborum
+        accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut
+        exercitationem molestias praesentium voluptate. Magni at, provident
+        culpa minima ex porro ipsum ut dignissimos nam commodi quis qui dolorum
+        saepe perferendis beatae alias facere assumenda voluptatem eum suscipit
+        architecto! Ea.
+      </p>
+
+      <hr />
+
+      <h2>Capped width</h2>
+
+      <p class="max-width-xs">
+        [XS] A provident error, molestias dolore quos facilis, doloribus eaque
+        tempora voluptas, voluptatem animi commodi libero dicta qui enim laborum
+        accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut
+        exercitationem molestias praesentium voluptate. Magni at, provident
+        culpa minima ex porro ipsum ut dignissimos nam commodi quis qui dolorum
+        saepe perferendis beatae alias facere assumenda voluptatem eum suscipit
+        architecto! Ea.
+      </p>
+
+      <p class="max-width-sm">
+        [SM] Adipisci a natus ex dolores, itaque voluptas quo! Nesciunt,
+        aspernatur. A provident error, molestias dolore quos facilis, doloribus
+        eaque tempora voluptas, voluptatem animi commodi libero dicta qui enim
+        laborum accusamus! Aliquid eligendi, fugit optio dolorum nesciunt ut
+        exercitationem molestias praesentium voluptate. Magni at, provident
+        culpa minima ex porro ipsum ut dignissimos nam commodi quis qui dolorum
+        saepe perferendis beatae alias facere assumenda voluptatem eum suscipit
+        architecto! Ea.
+      </p>
+
+      <p class="max-width-md">
+        [MD] Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a
+        natus ex dolores, itaque voluptas quo! Nesciunt, aspernatur. A provident
+        error, molestias dolore quos facilis, doloribus eaque tempora voluptas,
+        voluptatem animi commodi libero dicta qui enim laborum accusamus!
+        Aliquid eligendi, fugit optio dolorum nesciunt ut exercitationem
+        molestias praesentium voluptate. Magni at, provident culpa minima ex
+        porro ipsum ut dignissimos nam commodi quis qui dolorum saepe
+        perferendis beatae alias facere assumenda voluptatem eum suscipit
+        architecto! Ea.
+      </p>
+
+      <hr />
+
+      <blockquote>
+        <p>I do not fear computers. I fear the lack of them.</p>
+        <cite>– Isaac Asimov</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>
+          But I don't want comfort. I want God, I want poetry, I want real
+          danger, I want freedom, I want goodness. I want sin.
+        </p>
+        <cite>– Aldous Huxley, Brave New World</cite>
+      </blockquote>
+
+      <hr />
+
+      <!-- BUTTONS -->
+      <h2>Buttons</h2>
+
+      <div class="row">
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <h3>Colors</h3>
+          <button class="btn">.btn</button>
+          <button class="btn btn-default">.btn-default</button>
+          <button class="btn btn-black">.btn-black</button>
+          <button class="btn btn-gray">.btn-gray</button>
+          <button class="btn btn-white">.btn-white</button>
+          <button class="btn btn-primary">.btn-primary</button>
+          <button class="btn btn-secondary">.btn-secondary</button>
+          <button class="btn btn-ternary">.btn-ternary</button>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <h3>Rounded</h3>
+          <button class="btn btn-round">.btn-round</button>
+          <button class="btn btn-default btn-round">.btn-round</button>
+          <button class="btn btn-black btn-round">.btn-round</button>
+          <button class="btn btn-gray btn-round">.btn-round</button>
+          <button class="btn btn-white btn-round">.btn-round</button>
+          <button class="btn btn-primary btn-round">.btn-round</button>
+          <button class="btn btn-secondary btn-round">.btn-round</button>
+          <button class="btn btn-ternary btn-round">.btn-round</button>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <h3>Hollow</h3>
+          <button class="btn btn-hollow">.btn-hollow</button>
+          <div
+            style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;"
+          >
+            <button class="btn btn-default btn-hollow">.btn-hollow</button>
           </div>
-          <div class="col-sm-6 col-lg-4 overflow-hidden">
-            <!-- Background Image Parallax -->
-            <div class="jarallax" style="background-image: url('https://picsum.photos/801/600/?random');" data-speed="0.25">
-              <h3 class="color-white" style="padding: 12rem 3rem;">Background image</h3>
-            </div>
+          <button class="btn btn-black btn-hollow">.btn-hollow</button>
+          <button class="btn btn-gray btn-hollow">.btn-hollow</button>
+          <div
+            style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;"
+          >
+            <button class="btn btn-white btn-hollow">.btn-hollow</button>
           </div>
-          <div class="col-sm-6 col-lg-4 overflow-hidden">
-            <!-- Child Image Parallax + Lightbox link -->
-            <a href="https://picsum.photos/808/606/?random" class="jarallax lightbox" data-speed="0.5">
-              <img class="jarallax-img" src="https://picsum.photos/808/606/?random" alt="Super caption text!">
-              <h3 class="color-white" style="padding: 12rem 3rem;">Lightbox child image</h3>
-            </a>
+          <button class="btn btn-primary btn-hollow">.btn-hollow</button>
+          <button class="btn btn-secondary btn-hollow">.btn-hollow</button>
+          <button class="btn btn-ternary btn-hollow">.btn-hollow</button>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <h3>Rounded hollow</h3>
+          <button class="btn btn-round btn-hollow">.btn-hollow</button>
+          <div
+            style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;"
+          >
+            <button class="btn btn-default btn-round btn-hollow">
+              .btn-hollow
+            </button>
           </div>
-          {# <div class="col-sm-8 overflow-hidden">
-              <!-- Background YouTube Parallax -->
-              <div class="jarallax" data-jarallax-video="https://www.youtube.com/watch?v=ab0TSkLe-E0" data-speed="0.8">
-                <h1 class="color-white" style="padding: 12rem 3rem;">Your video content here...</h1>
+          <button class="btn btn-black btn-round btn-hollow">
+            .btn-hollow
+          </button>
+          <button class="btn btn-gray btn-round btn-hollow">.btn-hollow</button>
+          <div
+            style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;"
+          >
+            <button class="btn btn-white btn-round btn-hollow">
+              .btn-hollow
+            </button>
+          </div>
+          <button class="btn btn-primary btn-round btn-hollow">
+            .btn-hollow
+          </button>
+          <button class="btn btn-secondary btn-round btn-hollow">
+            .btn-hollow
+          </button>
+          <button class="btn btn-ternary btn-round btn-hollow">
+            .btn-hollow
+          </button>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <h3>Sizes</h3>
+          <button class="btn btn-primary btn-xs">.btn-xs</button>
+          <button class="btn btn-primary btn-sm">.btn-sm</button>
+          <button class="btn btn-primary">.btn</button>
+          <a href="#" class="btn btn-primary btn-lg">.btn-lg</a>
+          <button class="btn btn-primary btn-xl">.btn-xl</button>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <h3>Layout</h3>
+          <button class="btn btn-primary btn-block">.btn-block</button>
+          <button class="btn btn-secondary btn-wrap">
+            .btn-wrap very very long button multi-line content
+          </button>
+          <button class="btn btn-black btn-wrap btn-round">
+            .btn-wrap rounded very very long button multi-line content
+          </button>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <h3>Disabled</h3>
+          <button class="btn" disabled="disabled">disabled</button>
+          <button class="btn btn-default" disabled="disabled">disabled</button>
+          <button class="btn btn-black" disabled="disabled">disabled</button>
+          <button class="btn btn-gray" disabled="disabled">disabled</button>
+          <button class="btn btn-white" disabled="disabled">disabled</button>
+          <button class="btn btn-primary btn-round" disabled="disabled">
+            disabled
+          </button>
+          <button class="btn btn-secondary btn-hollow" disabled="disabled">
+            disabled
+          </button>
+          <button class="btn btn-ternary" disabled="disabled">disabled</button>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <h3>Icons</h3>
+          <button class="btn"><i class="fa fa-star"></i> .btn</button>
+          <button class="btn btn-default">
+            <i class="fa fa-user"></i> .btn-default
+          </button>
+          <button class="btn btn-black">
+            .btn-black <i class="fa fa-arrow-right"></i>
+          </button>
+          <button class="btn btn-gray btn-lg">
+            <i class="fa fa-envelope"></i> .btn-gray
+          </button>
+          <button class="btn btn-white">
+            <svg class="btn-icon" viewbox="0 0 44 44">
+              <use xlink:href="#logo-mobile"></use>
+            </svg>
+            .btn-white
+          </button>
+          <button class="btn btn-primary">.btn-primary</button>
+          <button class="btn btn-secondary">.btn-secondary</button>
+          <button class="btn btn-ternary">.btn-ternary</button>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <h3>Caret</h3>
+          <button class="btn btn-default btn-caret">.btn-caret</button>
+          <button class="btn btn-primary btn-caret btn-xs">.btn-caret</button>
+          <button class="btn btn-black btn-caret btn-round btn-xl">
+            .btn-caret
+          </button>
+          <div
+            style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;"
+          >
+            <button class="btn btn-white btn-caret btn-hollow btn-block">
+              .btn-caret
+            </button>
+          </div>
+          <button class="btn btn-secondary btn-caret btn-wrap">
+            .btn-caret very very long button multi-line content
+          </button>
+        </div>
+        <div class="col-sm-6 bg-gray-lighter">
+          <h3>Control (::pseudo elements)</h3>
+          <div>
+            <button class="btn btn-ctrl btn-ctrl-left"></button>
+            <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-left"></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-left btn-ctrl-inverted"
+            ></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-border btn-ctrl-left btn-ctrl-inverted"
+            ></button>
+            .btn-ctrl-left
+          </div>
+          <div>
+            <button class="btn btn-ctrl btn-ctrl-right"></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-border btn-ctrl-right"
+            ></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-right btn-ctrl-inverted"
+            ></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-border btn-ctrl-right btn-ctrl-inverted"
+            ></button>
+            .btn-ctrl-right
+          </div>
+          <div>
+            <button class="btn btn-ctrl btn-ctrl-up"></button>
+            <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-up"></button>
+            <button class="btn btn-ctrl btn-ctrl-up btn-ctrl-inverted"></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-border btn-ctrl-up btn-ctrl-inverted"
+            ></button>
+            .btn-ctrl-up
+          </div>
+          <div>
+            <button class="btn btn-ctrl btn-ctrl-down"></button>
+            <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-down"></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-down btn-ctrl-inverted"
+            ></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-border btn-ctrl-down btn-ctrl-inverted"
+            ></button>
+            .btn-ctrl-down
+          </div>
+          <div>
+            <button class="btn btn-ctrl btn-ctrl-close"></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-border btn-ctrl-close"
+            ></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-close btn-ctrl-inverted"
+            ></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-border btn-ctrl-close btn-ctrl-inverted"
+            ></button>
+            .btn-ctrl-close
+          </div>
+          <div>
+            <button class="btn btn-ctrl btn-ctrl-plus"></button>
+            <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-plus"></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-plus btn-ctrl-inverted"
+            ></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-border btn-ctrl-plus btn-ctrl-inverted"
+            ></button>
+            .btn-ctrl-plus
+          </div>
+          <div>
+            <button class="btn btn-ctrl btn-ctrl-minus"></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-border btn-ctrl-minus"
+            ></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-minus btn-ctrl-inverted"
+            ></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-border btn-ctrl-minus btn-ctrl-inverted"
+            ></button>
+            .btn-ctrl-minus
+          </div>
+          <div>
+            <button class="btn btn-ctrl btn-ctrl-search"></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-border btn-ctrl-search"
+            ></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-search btn-ctrl-inverted"
+            ></button>
+            <button
+              class="btn btn-ctrl btn-ctrl-border btn-ctrl-search btn-ctrl-inverted"
+            ></button>
+            .btn-ctrl-search
+          </div>
+          <div>
+            <button class="btn btn-ctrl btn-ctrl-menu">
+              <span class="btn-ctrl-extra"></span>
+            </button>
+            <button class="btn btn-ctrl btn-ctrl-border btn-ctrl-menu">
+              <span class="btn-ctrl-extra"></span>
+            </button>
+            <button class="btn btn-ctrl btn-ctrl-menu btn-ctrl-inverted">
+              <span class="btn-ctrl-extra"></span>
+            </button>
+            <button
+              class="btn btn-ctrl btn-ctrl-border btn-ctrl-menu btn-ctrl-inverted"
+            >
+              <span class="btn-ctrl-extra"></span>
+            </button>
+            .btn-ctrl-menu
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- FORMS -->
+      <h2>Forms</h2>
+
+      <div class="row">
+        <div class="col-md-6">
+          <section class="form row">
+            <div class="input-block col-md-6 required">
+              <label for="text01">Text input</label>
+              <div class="input">
+                <input type="text" id="text01" placeholder="Placeholder text" />
               </div>
             </div>
-            <div class="col-sm-4 overflow-hidden">
-              <!-- Element will be parallaxed on 250 pixels from the screen center by Y axis and on -100 pixels from the screen center by X axis -->
-              <div data-jarallax-element="0 -100">
-                <h1 style="padding: 12rem 3rem;">Your content here...</h1>
+            <div class="input-block col-md-6 required">
+              <label for="text02">Text input with a very very long label</label>
+              <div class="input input--inline">
+                <div class="input-before"><i class="fa fa-user"></i></div>
+                <input type="text" id="text02" placeholder="Placeholder text" />
               </div>
-            </div> #}
+            </div>
+            <div class="input-block col-md-6">
+              <label for="number01">Number input</label>
+              <div class="input">
+                <input type="number" id="number01" value="9" />
+              </div>
+              <div class="input-info">This is the input info text</div>
+            </div>
+            <div class="input-block col-md-6">
+              <label for="number02">Number input with unit</label>
+              <div class="input input--inline">
+                <input type="number" id="number02" value="0" />
+                <div class="input-after">€</div>
+              </div>
+            </div>
+            <div class="input-block col-md-6">
+              <div class="label">Radio</div>
+              <div class="input">
+                <input
+                  type="radio"
+                  id="radio10"
+                  name="radio01x"
+                  checked="checked"
+                />
+                <label for="radio10">Yes I do</label>
+                <input type="radio" id="radio11" name="radio01x" />
+                <label for="radio11">No way</label>
+              </div>
+            </div>
+            <div class="input-block col-md-6">
+              <div class="label">Checkbox</div>
+              <div class="input">
+                <input type="checkbox" id="check010" checked="checked" />
+                <label for="check010"
+                  >Very very long checkbox label Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit.</label
+                >
+              </div>
+              <div class="input-info">
+                This is a very long input info text Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Eligendi, rem.
+              </div>
+            </div>
+            <div class="input-block required">
+              <div class="label">Inline radio</div>
+              <div class="input input--inline">
+                <input type="radio" id="radio019" name="radios9" />
+                <label for="radio019">Label radio</label>
+                <input type="radio" id="radio029" name="radios9" />
+                <label for="radio029">Very long label radio</label>
+                <input type="radio" id="radio039" name="radios9" />
+                <label for="radio039">Label radio</label>
+              </div>
+            </div>
+            <div class="input-block">
+              <div class="label">Inline checkbox</div>
+              <div class="input input--inline">
+                <input type="checkbox" id="check10" />
+                <label for="check10">Label one</label>
+                <input type="checkbox" id="check11" />
+                <label for="check11">Second label</label>
+                <input type="checkbox" id="check12" />
+                <label for="check12">Oh my label!</label>
+              </div>
+            </div>
+
+            <div><input type="submit" value="input[type=submit]" /></div>
+            <div>
+              <button
+                type="submit"
+                class="btn-lg btn-round btn-hollow btn-black btn-caret"
+              >
+                <i class="fa fa-star"></i> Form submit button
+              </button>
+            </div>
+          </section>
         </div>
 
+        <div class="col-md-6">
+          <section class="form row">
+            <div class="input-block">
+              <label for="area01">Select</label>
+              <div class="input">
+                <select name="" id="">
+                  <option value="">One</option>
+                  <option value="">Very very long two</option>
+                  <option value="">Three</option>
+                </select>
+              </div>
+            </div>
+            <div class="input-block">
+              <label for="area01">Textarea</label>
+              <div class="input">
+                <textarea
+                  name=""
+                  id="area01"
+                  cols="30"
+                  rows="10"
+                  placeholder="Placeholder text"
+                ></textarea>
+              </div>
+            </div>
+            <!-- error -->
+            <h3>Error state</h3>
+            <div class="message message--error">
+              <i class="fa fa-warning"></i> There are some errors!
+            </div>
+            <div class="input-block col-md-6 required error">
+              <label for="text011">Text input</label>
+              <div class="input">
+                <input
+                  type="text"
+                  id="text011"
+                  placeholder="Placeholder text"
+                />
+              </div>
+              <div class="input-info">This field is required.</div>
+            </div>
+            <div class="input-block col-md-6 required error overflow-hidden">
+              <label for="area011">Select</label>
+              <div class="input">
+                <select name="" id="">
+                  <option value="">One</option>
+                  <option value="">Very very long two</option>
+                  <option value="">Three</option>
+                </select>
+              </div>
+              <div class="input-info">This field is required.</div>
+            </div>
+            <div class="input-block required error">
+              <div class="label">Inline radio</div>
+              <div class="input input--inline">
+                <input
+                  type="radio"
+                  id="radio011"
+                  name="radios"
+                  checked="checked"
+                />
+                <label for="radio011">Label radio</label>
+                <input type="radio" id="radio021" name="radios" />
+                <label for="radio021">Very long label radio</label>
+                <input type="radio" id="radio031" name="radios" />
+                <label for="radio031">Label radio</label>
+              </div>
+              <div class="input-info">This field is required.</div>
+            </div>
+            <!-- mentions -->
+            <div>
+              <p class="small">Fields marked with a * are required.</p>
+              <p class="small">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Placeat, consequatur aperiam et ullam culpa aut quod? Suscipit,
+                alias ea? A suscipit neque, dolorem aspernatur provident
+                incidunt sint fugit dolorum quas!
+              </p>
+            </div>
+          </section>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3"></div>
       </div>
-    </section>
 
-    <section class="wrapper wrapper--padding background-cover" style="background-image: url('https://picsum.photos/1920/1080/?random')">
-      <div class="container">
-        <h2 class="color-white padding-double no-margin">[FX] - Image wrapper</h2>
-      </div>
-    </section>
+      <hr />
 
-    <section class="wrapper wrapper--padding background-cover jarallax" data-speed="0.5" style="background-image: url('https://picsum.photos/1921/1080/?random')">
-      <div class="container">
-        <h2 class="color-white padding-double no-margin">[FX] - Parallax wrapper</h2>
-      </div>
-    </section>
+      <h3>Gravity forms</h3>
 
-    <section class="wrapper wrapper--padding image-cover">
-      <img src="https://picsum.photos/1920/1081/?random" alt="Custom caption" style="display: none;">
-      <div class="container">
-        <h2 class="color-white padding-double no-margin">[FX] - Image cover wrapper</h2>
-      </div>
-    </section>
-
-    <section class="wrapper wrapper--padding image-cover jarallax" data-speed="0">
-      <img src="https://picsum.photos/1921/1081/?random" alt="Custom caption" style="display: none;">
-      <div class="container">
-        <h2 class="color-white padding-double no-margin">[FX] - Parallax image cover wrapper (TODO)</h2>
-      </div>
-    </section>
-
-    <section class="wrapper">
-
-      <div class="video-cover-wrapper" style="min-height: 65vh;">
-        <div class="video-cover" style="background-image: url('{{ theme.link }}/dist/img/working-with-espresso.jpg');">
-
-          {% include "video.twig" with {'name': 'working-with-espresso'} %}
-
-          <div class="hero__content">
-            <h2 class="img-display">[FX] - Video cover wrapper</h2>
+      <div class="gf_browser_chrome gform_wrapper" id="gform_wrapper_1">
+        <form
+          method="post"
+          enctype="multipart/form-data"
+          id="gform_1"
+          action="/contact/"
+        >
+          <div class="gform_heading">
+            <span class="gform_description"
+              >La description du formulaire se place ici.</span
+            >
           </div>
+          <div class="gform_body">
+            <ul
+              id="gform_fields_1"
+              class="gform_fields top_label form_sublabel_below description_below"
+            >
+              <li
+                id="field_1_1"
+                class="gfield gf_left_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"
+              >
+                <label class="gfield_label" for="input_1_1"
+                  >Nom <span class="gfield_required">*</span>
+                </label>
+                <div class="ginput_container ginput_container_text">
+                  <input
+                    name="input_1"
+                    id="input_1_1"
+                    type="text"
+                    value=""
+                    class="medium"
+                    tabindex="1"
+                    aria-required="true"
+                    aria-invalid="false"
+                    placeholder="Votre nom"
+                  />
+                </div>
+              </li>
+              <li
+                id="field_1_2"
+                class="gfield gf_right_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"
+              >
+                <label class="gfield_label" for="input_1_2"
+                  >Prénom <span class="gfield_required">*</span>
+                </label>
+                <div class="ginput_container ginput_container_text">
+                  <input
+                    name="input_2"
+                    id="input_1_2"
+                    type="text"
+                    value=""
+                    class="medium"
+                    tabindex="2"
+                    aria-required="true"
+                    aria-invalid="false"
+                  />
+                </div>
+              </li>
+              <li
+                id="field_1_3"
+                class="gfield gf_left_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"
+              >
+                <label class="gfield_label" for="input_1_3"
+                  >Adresse email <span class="gfield_required">*</span>
+                </label>
+                <div class="ginput_container ginput_container_text">
+                  <input
+                    name="input_3"
+                    id="input_1_3"
+                    type="email"
+                    value=""
+                    class="medium"
+                    tabindex="3"
+                    aria-required="true"
+                    aria-invalid="false"
+                  />
+                </div>
+              </li>
+              <li
+                id="field_1_4"
+                class="gfield gf_right_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"
+              >
+                <label class="gfield_label" for="input_1_4"
+                  >Je suis <span class="gfield_required">*</span>
+                </label>
+                <div class="ginput_container ginput_container_select">
+                  <select
+                    name="input_4"
+                    id="input_1_4"
+                    class="medium gfield_select"
+                    tabindex="4"
+                    aria-required="true"
+                    aria-invalid="false"
+                    data-placeholder="Choisissez votre statut"
+                  >
+                    <option value="Un particulier">Un particulier</option>
+                    <option value="Un professionnel">Un professionnel</option>
+                  </select>
+                </div>
+              </li>
+              <li
+                id="field_1_5"
+                class="gfield full-input gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"
+              >
+                <label class="gfield_label" for="input_1_5"
+                  >Sujet <span class="gfield_required">*</span>
+                </label>
+                <div class="ginput_container ginput_container_text">
+                  <input
+                    name="input_5"
+                    id="input_1_5"
+                    type="text"
+                    value=""
+                    class="large"
+                    tabindex="5"
+                    aria-required="true"
+                    aria-invalid="false"
+                  />
+                </div>
+              </li>
+              <li
+                id="field_1_6"
+                class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"
+              >
+                <label class="gfield_label" for="input_1_6"
+                  >Votre message <span class="gfield_required">*</span>
+                </label>
+                <div class="ginput_container ginput_container_textarea">
+                  <textarea
+                    name="input_6"
+                    id="input_1_6"
+                    class="textarea medium"
+                    tabindex="6"
+                    aria-required="true"
+                    aria-invalid="false"
+                    rows="10"
+                    cols="50"
+                  ></textarea>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="gform_footer top_label">
+            <input
+              type="submit"
+              id="gform_submit_button_1"
+              class="gform_button button"
+              value="Envoyer"
+              tabindex="7"
+              onclick="if(window[&quot;gf_submitting_1&quot;]){return false;}  window[&quot;gf_submitting_1&quot;]=true;  "
+              onkeypress="if( event.keyCode == 13 ){ if(window[&quot;gf_submitting_1&quot;]){return false;} window[&quot;gf_submitting_1&quot;]=true;  jQuery(&quot;#gform_1&quot;).trigger(&quot;submit&quot;,[true]); }"
+            />
+          </div>
+        </form>
+      </div>
 
+      <hr />
+
+      <div
+        class="gf_browser_chrome gform_wrapper gform_validation_error"
+        id="gform_wrapper_1"
+      >
+        <form
+          method="post"
+          enctype="multipart/form-data"
+          id="gform_1"
+          action="/contact/"
+        >
+          <div class="gform_heading">
+            <span class="gform_description"></span>
+          </div>
+          <div class="validation_error">
+            Le formulaire ne semble pas correctement rempli. Les erreurs ont été
+            mises en surbrillance plus bas.
+          </div>
+          <div class="gform_body">
+            <ul
+              id="gform_fields_1"
+              class="gform_fields top_label form_sublabel_below description_below"
+            >
+              <li
+                id="field_1_1"
+                class="gfield gfield_error gf_left_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"
+              >
+                <label class="gfield_label" for="input_1_1"
+                  >Nom <span class="gfield_required">*</span>
+                </label>
+                <div class="ginput_container ginput_container_text">
+                  <input
+                    name="input_1"
+                    id="input_1_1"
+                    type="text"
+                    value=""
+                    class="medium"
+                    tabindex="1"
+                    aria-required="true"
+                    aria-invalid="true"
+                  />
+                </div>
+                <div class="gfield_description validation_message">
+                  Ce champ est nécessaire
+                </div>
+              </li>
+              <li
+                id="field_1_2"
+                class="gfield gfield_error gf_right_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"
+              >
+                <label class="gfield_label" for="input_1_2"
+                  >Prénom <span class="gfield_required">*</span>
+                </label>
+                <div class="ginput_container ginput_container_text">
+                  <input
+                    name="input_2"
+                    id="input_1_2"
+                    type="text"
+                    value=""
+                    class="medium"
+                    tabindex="2"
+                    aria-required="true"
+                    aria-invalid="true"
+                  />
+                </div>
+                <div class="gfield_description validation_message">
+                  Ce champ est nécessaire
+                </div>
+              </li>
+              <li
+                id="field_1_3"
+                class="gfield gfield_error gf_left_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"
+              >
+                <label class="gfield_label" for="input_1_3"
+                  >Adresse email <span class="gfield_required">*</span>
+                </label>
+                <div class="ginput_container ginput_container_text">
+                  <input
+                    name="input_3"
+                    id="input_1_3"
+                    type="text"
+                    value=""
+                    class="medium"
+                    tabindex="3"
+                    aria-required="true"
+                    aria-invalid="true"
+                  />
+                </div>
+                <div class="gfield_description validation_message">
+                  Ce champ est nécessaire
+                </div>
+              </li>
+              <li
+                id="field_1_4"
+                class="gfield gf_right_half gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"
+              >
+                <label class="gfield_label" for="input_1_4"
+                  >Je suis <span class="gfield_required">*</span>
+                </label>
+                <div class="ginput_container ginput_container_select">
+                  <select
+                    name="input_4"
+                    id="input_1_444"
+                    class="medium gfield_select"
+                    tabindex="4"
+                    aria-required="true"
+                    aria-invalid="false"
+                    data-placeholder="Choisissez votre statut"
+                  >
+                    <option value="Un particulier">Un particulier</option>
+                    <option value="Un professionnel">Un professionnel</option>
+                  </select>
+                </div>
+              </li>
+              <li
+                id="field_1_5"
+                class="gfield gfield_error full-input gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"
+              >
+                <label class="gfield_label" for="input_1_5"
+                  >Sujet <span class="gfield_required">*</span>
+                </label>
+                <div class="ginput_container ginput_container_text">
+                  <input
+                    name="input_5"
+                    id="input_1_5"
+                    type="text"
+                    value=""
+                    class="large"
+                    tabindex="5"
+                    aria-required="true"
+                    aria-invalid="true"
+                  />
+                </div>
+                <div class="gfield_description validation_message">
+                  Ce champ est nécessaire
+                </div>
+              </li>
+              <li
+                id="field_1_6"
+                class="gfield gfield_error gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"
+              >
+                <label class="gfield_label" for="input_1_6"
+                  >Votre message <span class="gfield_required">*</span>
+                </label>
+                <div class="ginput_container ginput_container_textarea">
+                  <textarea
+                    name="input_6"
+                    id="input_1_6"
+                    class="textarea medium"
+                    tabindex="6"
+                    aria-required="true"
+                    aria-invalid="true"
+                    rows="10"
+                    cols="50"
+                  ></textarea>
+                </div>
+                <div class="gfield_description validation_message">
+                  Ce champ est nécessaire
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="gform_footer top_label">
+            <input
+              type="submit"
+              id="gform_submit_button_1"
+              class="gform_button button"
+              value="Envoyer"
+              tabindex="7"
+              onclick="if(window[&quot;gf_submitting_1&quot;]){return false;}  window[&quot;gf_submitting_1&quot;]=true;  "
+              onkeypress="if( event.keyCode == 13 ){ if(window[&quot;gf_submitting_1&quot;]){return false;} window[&quot;gf_submitting_1&quot;]=true;  jQuery(&quot;#gform_1&quot;).trigger(&quot;submit&quot;,[true]); }"
+            />
+            <input
+              type="hidden"
+              class="gform_hidden"
+              name="is_submit_1"
+              value="1"
+            />
+            <input
+              type="hidden"
+              class="gform_hidden"
+              name="gform_submit"
+              value="1"
+            />
+
+            <input
+              type="hidden"
+              class="gform_hidden"
+              name="gform_unique_id"
+              value="5ab62d094a294"
+            />
+            <input
+              type="hidden"
+              class="gform_hidden"
+              name="state_1"
+              value="WyJbXSIsIjI3ZGFiMzk3MmVkZWMzNTMxY2FmM2MxMDZiNDUxMDU2Il0="
+            />
+            <input
+              type="hidden"
+              class="gform_hidden"
+              name="gform_target_page_number_1"
+              id="gform_target_page_number_1"
+              value="0"
+            />
+            <input
+              type="hidden"
+              class="gform_hidden"
+              name="gform_source_page_number_1"
+              id="gform_source_page_number_1"
+              value="1"
+            />
+            <input type="hidden" name="gform_field_values" value="" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- COLORS -->
+  <section class="wrapper wrapper--padding">
+    <div class="container"><h2>Colors</h2></div>
+  </section>
+
+  {% set colors = ['primary', 'secondary', 'ternary'] %} {% set shades =
+  ['-darkest', '-darker', '-dark', '', '-light', '-lighter', '-lightest'] %} {%
+  for color in colors %}
+  <section class="wrapper wrapper--padding bg-{{ color }} color-white">
+    <div class="container">
+      <h3>Color: {{ color }}</h3>
+      <div class="row row--auto-size">
+        {% for shade in shades %}
+        <article class="color-block bg-{{ color }}{{ shade }}">
+          <div>{{ color }}{{ shade }}</div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endfor %} {% set shades = ['black', 'gray-darkest', 'gray-darker',
+  'gray-dark', 'gray', 'gray-light', 'gray-lighter', 'gray-lightest', 'white']
+  %}
+
+  <section class="wrapper wrapper--padding bg-gray color-white">
+    <div class="container">
+      <h3>Color: gray</h3>
+      <div class="row row--auto-size">
+        {% for shade in shades %}
+        <article class="color-block bg-{{ shade }}">
+          <div>{{ shade }}</div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="wrapper wrapper--padding">
+    <div class="container">
+      <h2>[FX] - Shadows</h2>
+
+      <div class="row row--quarter-gutter">
+        <div class="col-xxs-6 col-sm-3">
+          <div class="styleguide-shadow-demo shadow-0">.shadow-0</div>
+        </div>
+        <div class="col-xxs-6 col-sm-3">
+          <div class="styleguide-shadow-demo shadow-1">.shadow-1</div>
+        </div>
+        <div class="col-xxs-6 col-sm-3">
+          <div class="styleguide-shadow-demo shadow-2">.shadow-2</div>
+        </div>
+        <div class="col-xxs-6 col-sm-3">
+          <div class="styleguide-shadow-demo shadow-3">.shadow-3</div>
+        </div>
+        <div class="col-xxs-6 col-sm-3">
+          <div class="styleguide-shadow-demo shadow-4">.shadow-4</div>
+        </div>
+        <div class="col-xxs-6 col-sm-3">
+          <div class="styleguide-shadow-demo shadow-5">.shadow-5</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrapper wrapper--padding bg-gray-lighter">
+    <div class="container">
+      <h2>[FX] - 3D hover</h2>
+
+      <div class="row row--quarter-gutter">
+        <div class="col-sm-6">
+          <div class="hover3d">
+            <button class="btn btn-black">
+              <i class="fa fa-2x fa-smile-o"></i>
+            </button>
+          </div>
+          <div class="hover3d-20">
+            <button class="btn btn-black">Hover 3D</button>
+          </div>
+          <div class="hover3d-10">
+            <button class="btn btn-primary">Hover 3D longer</button>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="hover3d-2">
+            <img src="https://picsum.photos/1200/600/?random" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrapper wrapper--padding bg-gray-dark color-white">
+    <div class="container">
+      <h2>[FX] - Parallax images</h2>
+
+      <div class="row row--quarter-gutter">
+        <div class="col-sm-6 col-lg-4 overflow-hidden">
+          <!-- Child Image Parallax -->
+          <div class="jarallax" data-speed="0">
+            <img
+              class="jarallax-img"
+              src="https://picsum.photos/800/600/?random"
+              alt="Super caption text!"
+            />
+            <h3 class="color-white" style="padding: 12rem 3rem;">
+              Child image
+            </h3>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 overflow-hidden">
+          <!-- Background Image Parallax -->
+          <div
+            class="jarallax"
+            style="background-image: url('https://picsum.photos/801/600/?random');"
+            data-speed="0.25"
+          >
+            <h3 class="color-white" style="padding: 12rem 3rem;">
+              Background image
+            </h3>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 overflow-hidden">
+          <!-- Child Image Parallax + Lightbox link -->
+          <a
+            href="https://picsum.photos/808/606/?random"
+            class="jarallax lightbox"
+            data-speed="0.5"
+          >
+            <img
+              class="jarallax-img"
+              src="https://picsum.photos/808/606/?random"
+              alt="Super caption text!"
+            />
+            <h3 class="color-white" style="padding: 12rem 3rem;">
+              Lightbox child image
+            </h3>
+          </a>
+        </div>
+        {#
+        <div class="col-sm-8 overflow-hidden">
+          <!-- Background YouTube Parallax -->
+          <div
+            class="jarallax"
+            data-jarallax-video="https://www.youtube.com/watch?v=ab0TSkLe-E0"
+            data-speed="0.8"
+          >
+            <h1 class="color-white" style="padding: 12rem 3rem;">
+              Your video content here...
+            </h1>
+          </div>
+        </div>
+        <div class="col-sm-4 overflow-hidden">
+          <!--
+            Element will be parallaxed on 250 pixels from the screen center by Y axis and on -100 pixels from the screen center by X axis
+          -->
+          <div data-jarallax-element="0 -100">
+            <h1 style="padding: 12rem 3rem;">Your content here...</h1>
+          </div>
+        </div>
+        #}
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="wrapper wrapper--padding background-cover"
+    style="background-image: url('https://picsum.photos/1920/1080/?random')"
+  >
+    <div class="container">
+      <h2 class="color-white padding-double no-margin">[FX] - Image wrapper</h2>
+    </div>
+  </section>
+
+  <section
+    class="wrapper wrapper--padding background-cover jarallax"
+    data-speed="0.5"
+    style="background-image: url('https://picsum.photos/1921/1080/?random')"
+  >
+    <div class="container">
+      <h2 class="color-white padding-double no-margin">
+        [FX] - Parallax wrapper
+      </h2>
+    </div>
+  </section>
+
+  <section class="wrapper wrapper--padding image-cover">
+    <img
+      src="https://picsum.photos/1920/1081/?random"
+      alt="Custom caption"
+      style="display: none;"
+    />
+    <div class="container">
+      <h2 class="color-white padding-double no-margin">
+        [FX] - Image cover wrapper
+      </h2>
+    </div>
+  </section>
+
+  <section class="wrapper wrapper--padding image-cover jarallax" data-speed="0">
+    <img
+      src="https://picsum.photos/1921/1081/?random"
+      alt="Custom caption"
+      style="display: none;"
+    />
+    <div class="container">
+      <h2 class="color-white padding-double no-margin">
+        [FX] - Parallax image cover wrapper (TODO)
+      </h2>
+    </div>
+  </section>
+
+  <section class="wrapper wrapper--padding wrapper--half-cover">
+    <div class="half-cover half-cover--left background-cover"
+      style="background-image: url('https://picsum.photos/1921/1080/?random')"
+    ></div>
+    <div class="half-cover half-cover--right bg-primary"></div>
+    <div class="container">
+      <div
+        class="text-center bg-white padding-double no-margin max-width-sm margin-auto"
+      >
+        <h2>[FX] - Half image wrapper</h2>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim dolore
+          ipsam magnam! Laborum, assumenda maiores dolorum repellat sit beatae
+          voluptas non ratione ipsum? Minus optio debitis veniam molestiae,
+          aspernatur id.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrapper wrapper--padding wrapper--half-cover wrapper--half-cover--right">
+    <div class="half-cover half-cover--right image-cover">
+      <img src="https://picsum.photos/1921/1087/?random" 
+        alt="Custom caption"
+        style="display: none;"
+      >
+    </div>
+    <div class="container">
+      <div class="row row--double-gutter">
+        <div class="col-sm-6">
+          <div class="bg-white padding">
+            <h2>[FX] - Half cover image wrapper</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
+              explicabo blanditiis! Impedit veritatis qui totam accusamus nesciunt
+              sed, natus asperiores ut minus incidunt, facilis amet. Perferendis
+              ab deleniti similique. Vero!
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-6"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrapper wrapper--padding wrapper--half-cover">
+
+    <div class="half-cover half-cover--left background-cover jarallax"
+      style="background-image: url('https://picsum.photos/1921/1086/?random')"
+      data-speed="0.5"
+    ></div>
+    <div class="half-cover half-cover--right bg-black"></div>
+    <div class="container">
+      <div
+        class="text-center bg-white padding-double no-margin max-width-sm margin-auto"
+      >
+        <h2>[FX] - Half image parallax wrapper</h2>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim dolore
+          ipsam magnam! Laborum, assumenda maiores dolorum repellat sit beatae
+          voluptas non ratione ipsum? Minus optio debitis veniam molestiae,
+          aspernatur id.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="wrapper">
+    <div class="video-cover-wrapper" style="min-height: 65vh;">
+      <div
+        class="video-cover"
+        style="background-image: url('{{ theme.link }}/dist/img/working-with-espresso.jpg');"
+      >
+        {% include "video.twig" with {'name': 'working-with-espresso'} %}
+
+        <div class="hero__content">
+          <h2 class="img-display">[FX] - Video cover wrapper</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrapper">
+    <div class="video-cover-wrapper" style="min-height: 65vh;">
+      <div
+        class="video-cover"
+        style="background-image: url('{{ theme.link }}/dist/img/keyboard-typing.jpg');"
+      >
+        {% include "video.twig" with {'name': 'keyboard-typing'} %}
+
+        <div class="hero__overlay"></div>
+
+        <div class="hero__content">
+          <h2 class="color-black">
+            [FX] - Parallax video cover wrapper [TODO]
+          </h2>
+          <div>(With overlay)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrapper wrapper--padding">
+    <div class="container">
+      <h2>[FX] - Lightbox images</h2>
+
+      <div class="row row--quarter-gutter margin-bottom-double">
+        <div class="col-6">
+          <a
+            class="lightbox margin-bottom-quarter"
+            href="https://picsum.photos/812/925/?random"
+          >
+            <img
+              src="https://picsum.photos/812/925/?random"
+              alt="Very long custom caption"
+            />
+          </a>
+          <a
+            class="lightbox margin-bottom-quarter"
+            href="https://picsum.photos/1025/813/?random"
+          >
+            <img src="https://picsum.photos/1025/813/?random" alt="Caption 4" />
+          </a>
+          {#
+          <a
+            href="https://picsum.photos/808/606/?random"
+            class="jarallax lightbox"
+            data-speed="0.5"
+          >
+            <img
+              class="jarallax-img"
+              src="https://picsum.photos/808/606/?random"
+              alt="Super caption text!"
+            />
+          </a>
+          #}
+          <a class="lightbox" href="https://picsum.photos/812/924/?random">
+            <img
+              src="https://picsum.photos/812/924/?random"
+              alt="Very long custom caption"
+            />
+          </a>
+        </div>
+        <div class="col-6">
+          <a
+            class="lightbox margin-bottom-quarter"
+            href="https://picsum.photos/1026/814/?random"
+          >
+            <img src="https://picsum.photos/1026/814/?random" alt="Caption 4" />
+          </a>
+          <a
+            class="lightbox margin-bottom-quarter"
+            href="https://picsum.photos/812/1026/?random"
+          >
+            <img
+              src="https://picsum.photos/812/1026/?random"
+              alt="Very long custom caption"
+            />
+          </a>
+          <a class="lightbox" href="https://picsum.photos/1026/815/?random">
+            <img src="https://picsum.photos/1026/815/?random" alt="Caption 4" />
+          </a>
         </div>
       </div>
 
-    </section>
+      <h2>[FX] - Lightbox images cover</h2>
 
-    <section class="wrapper">
-
-      <div class="video-cover-wrapper" style="min-height: 65vh;">
-        <div class="video-cover" style="background-image: url('{{ theme.link }}/dist/img/keyboard-typing.jpg');">
-
-          {% include "video.twig" with {'name': 'keyboard-typing'} %}
-
-          <div class="hero__overlay"></div>
-
-          <div class="hero__content">
-            <h2 class="color-black">[FX] - Parallax video cover wrapper [TODO]</h2>
-            <div>(With overlay)</div>
-          </div>
-
+      <div class="row row--quarter-gutter">
+        <div class="col-6 col-md-4">
+          <a
+            class="lightbox image-cover square"
+            href="https://picsum.photos/1024/812/?random"
+          >
+            <img
+              src="https://picsum.photos/1024/812/?random"
+              alt="Custom caption"
+            />
+          </a>
+        </div>
+        <div class="col-6 col-md-4">
+          <a
+            class="lightbox image-cover square"
+            href="https://picsum.photos/1023/513/?random"
+          >
+            <img
+              src="https://picsum.photos/1023/513/?random"
+              alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias natus rerum voluptatem a molestias expedita. Beatae quidem perspiciatis quo sed? Eligendi, quisquam. Iure natus dolores perferendis tempora molestiae, qui at."
+            />
+          </a>
+        </div>
+        <div class="col-6 col-md-4">
+          <a
+            class="lightbox image-cover square"
+            href="https://picsum.photos/1023/812/?random"
+          >
+            <img
+              src="https://picsum.photos/1023/812/?random"
+              alt="Custom caption"
+            />
+          </a>
+        </div>
+        <div class="col-6 col-md-4">
+          <a
+            class="lightbox image-cover square"
+            href="https://picsum.photos/1023/514/?random"
+          >
+            <img
+              src="https://picsum.photos/1023/514/?random"
+              alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias natus rerum voluptatem a molestias expedita. Beatae quidem perspiciatis quo sed? Eligendi, quisquam. Iure natus dolores perferendis tempora molestiae, qui at."
+            />
+          </a>
+        </div>
+        <div class="col-6 col-md-4">
+          <a
+            class="lightbox image-cover square"
+            href="https://picsum.photos/1023/813/?random"
+          >
+            <img
+              src="https://picsum.photos/1023/813/?random"
+              alt="Custom caption"
+            />
+          </a>
+        </div>
+        <div class="col-6 col-md-4">
+          <a
+            class="lightbox image-cover square"
+            href="https://picsum.photos/1023/516/?random"
+          >
+            <img
+              src="https://picsum.photos/1023/516/?random"
+              alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias natus rerum voluptatem a molestias expedita. Beatae quidem perspiciatis quo sed? Eligendi, quisquam. Iure natus dolores perferendis tempora molestiae, qui at."
+            />
+          </a>
         </div>
       </div>
+    </div>
+  </section>
 
-    </section>
+  <section class="wrapper wrapper--padding">
+    <div class="container">
+      <h2>[FX] - Broken grid</h2>
 
-    <section class="wrapper wrapper--padding">
-      <div class="container">
-
-        <h2>[FX] - Lightbox images</h2>
-
-        <div class="row row--quarter-gutter margin-bottom-double">
-          <div class="col-6">
-            <a class="lightbox margin-bottom-quarter" href="https://picsum.photos/812/925/?random">
-              <img src="https://picsum.photos/812/925/?random" alt="Very long custom caption">
-            </a>
-            <a class="lightbox margin-bottom-quarter" href="https://picsum.photos/1025/813/?random">
-              <img src="https://picsum.photos/1025/813/?random" alt="Caption 4">
-            </a>
-            {# <a href="https://picsum.photos/808/606/?random" class="jarallax lightbox" data-speed="0.5">
-              <img class="jarallax-img" src="https://picsum.photos/808/606/?random" alt="Super caption text!">
-            </a> #}
-            <a class="lightbox" href="https://picsum.photos/812/924/?random">
-              <img src="https://picsum.photos/812/924/?random" alt="Very long custom caption">
-            </a>
-          </div>
-          <div class="col-6">
-            <a class="lightbox margin-bottom-quarter" href="https://picsum.photos/1026/814/?random">
-              <img src="https://picsum.photos/1026/814/?random" alt="Caption 4">
-            </a>
-            <a class="lightbox margin-bottom-quarter" href="https://picsum.photos/812/1026/?random">
-              <img src="https://picsum.photos/812/1026/?random" alt="Very long custom caption">
-            </a>
-            <a class="lightbox" href="https://picsum.photos/1026/815/?random">
-              <img src="https://picsum.photos/1026/815/?random" alt="Caption 4">
-            </a>
+      <div class="row row--no-gutter row--broken">
+        <div class="col-sm-6">
+          <div
+            class="square col-inner--no-gutter flex-middle background-cover"
+            style="background-image: url('https://picsum.photos/800/800/?random')"
+          >
+            <div class="h2 img-display">Square image</div>
           </div>
         </div>
-
-        <h2>[FX] - Lightbox images cover</h2>
-
-        <div class="row row--quarter-gutter">
-          <div class="col-6 col-md-4">
-            <a class="lightbox image-cover square" href="https://picsum.photos/1024/812/?random">
-              <img src="https://picsum.photos/1024/812/?random" alt="Custom caption">
-            </a>
-          </div>
-          <div class="col-6 col-md-4">
-            <a class="lightbox image-cover square" href="https://picsum.photos/1023/513/?random">
-              <img src="https://picsum.photos/1023/513/?random" alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias natus rerum voluptatem a molestias expedita. Beatae quidem perspiciatis quo sed? Eligendi, quisquam. Iure natus dolores perferendis tempora molestiae, qui at.">
-            </a>
-          </div>
-          <div class="col-6 col-md-4">
-            <a class="lightbox image-cover square" href="https://picsum.photos/1023/812/?random">
-              <img src="https://picsum.photos/1023/812/?random" alt="Custom caption">
-            </a>
-          </div>
-          <div class="col-6 col-md-4">
-            <a class="lightbox image-cover square" href="https://picsum.photos/1023/514/?random">
-              <img src="https://picsum.photos/1023/514/?random" alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias natus rerum voluptatem a molestias expedita. Beatae quidem perspiciatis quo sed? Eligendi, quisquam. Iure natus dolores perferendis tempora molestiae, qui at.">
-            </a>
-          </div>
-          <div class="col-6 col-md-4">
-            <a class="lightbox image-cover square" href="https://picsum.photos/1023/813/?random">
-              <img src="https://picsum.photos/1023/813/?random" alt="Custom caption">
-            </a>
-          </div>
-          <div class="col-6 col-md-4">
-            <a class="lightbox image-cover square" href="https://picsum.photos/1023/516/?random">
-              <img src="https://picsum.photos/1023/516/?random" alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias natus rerum voluptatem a molestias expedita. Beatae quidem perspiciatis quo sed? Eligendi, quisquam. Iure natus dolores perferendis tempora molestiae, qui at.">
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="wrapper wrapper--padding">
-      <div class="container">
-
-        <h2>[FX] - Broken grid</h2>
-
-        <div class="row row--no-gutter row--broken">
-          <div class="col-sm-6">
-            <div class="square col-inner--no-gutter flex-middle background-cover" style="background-image: url('https://picsum.photos/800/800/?random')">
-              <div class="h2 img-display">Square image</div>
+        <div class="col-sm-6">
+          <div class="square flex-middle bordeer">
+            <div class="styleguide-quote">
+              La vie ne vaut rien, mais rien ne vaut la vie.
             </div>
           </div>
-          <div class="col-sm-6">
-            <div class="square flex-middle bordeer">
-              <div class="styleguide-quote">La vie ne vaut rien, mais rien ne vaut la vie.</div>
-            </div>
-          </div>
         </div>
-
-        <div class="row row--no-gutter row--broken row--broken-inverse">
-          <div class="col-sm-6">
-            <div class="square col-inner--no-gutter flex-middle background-cover" style="background-image: url('https://picsum.photos/801/800/?random')">
-              <div class="h2 img-display">Inverse square image</div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="square flex-middle bordeer">
-              <div class="styleguide-quote">Nemo praesumitur ludere in extremis.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row row--no-gutter row--broken">
-          <div class="col-sm-6">
-            <div class="col-inner--no-gutter flex-middle background-cover jarallax" style="background-image: url('https://picsum.photos/800/801/?random')" data-speed="0">
-              <div class="h2 img-display">Parallax image</div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="flex-middle bordeer padding-double">
-              <div class="styleguide-quote">Vulnerant omnes, ultima necat.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row row--no-gutter row--broken row--broken-inverse">
-          <div class="col-sm-6">
-            <div class="square col-inner--no-gutter flex-middle background-cover jarallax" style="background-image: url('https://picsum.photos/801/801/?random')" data-speed="0">
-              <div class="h2 img-display">Parallax square image</div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="square flex-middle bordeer">
-              <div class="styleguide-quote">Nam et ipsa scientia potestas est.</div>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </section>
 
-    <!-- End styleguide content -->
+      <div class="row row--no-gutter row--broken row--broken-inverse">
+        <div class="col-sm-6">
+          <div
+            class="square col-inner--no-gutter flex-middle background-cover"
+            style="background-image: url('https://picsum.photos/801/800/?random')"
+          >
+            <div class="h2 img-display">Inverse square image</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="square flex-middle bordeer">
+            <div class="styleguide-quote">
+              Nemo praesumitur ludere in extremis.
+            </div>
+          </div>
+        </div>
+      </div>
 
-  </article>
+      <div class="row row--no-gutter row--broken">
+        <div class="col-sm-6">
+          <div
+            class="col-inner--no-gutter flex-middle background-cover jarallax"
+            style="background-image: url('https://picsum.photos/800/801/?random')"
+            data-speed="0"
+          >
+            <div class="h2 img-display">Parallax image</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="flex-middle bordeer padding-double">
+            <div class="styleguide-quote">Vulnerant omnes, ultima necat.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row--no-gutter row--broken row--broken-inverse">
+        <div class="col-sm-6">
+          <div
+            class="square col-inner--no-gutter flex-middle background-cover jarallax"
+            style="background-image: url('https://picsum.photos/801/801/?random')"
+            data-speed="0"
+          >
+            <div class="h2 img-display">Parallax square image</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="square flex-middle bordeer">
+            <div class="styleguide-quote">
+              Nam et ipsa scientia potestas est.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- End styleguide content -->
+</article>
 
 {% endblock %}

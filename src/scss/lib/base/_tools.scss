@@ -43,6 +43,11 @@
 .margin-bottom-double { margin-bottom: $gutter-double; }
 .margin-bottom-quarter { margin-bottom: $gutter-quarter; }
 
+.margin-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 // SIZE HELPER
 
 @mixin size($width, $height: $width) {

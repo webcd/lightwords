@@ -48,9 +48,12 @@ blockquote, cite {
   margin-bottom: $gutter;
 }
 
-h1, .h1,
-h2, .h2 {
+h1, .h1 {
   margin-bottom: $gutter-double;
+}
+
+h2, .h2 {
+  margin-bottom: $gutter-and-half;
 }
 
 // PARAGRAPHS
