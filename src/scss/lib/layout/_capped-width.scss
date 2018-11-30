@@ -1,0 +1,8 @@
+/* CAPPED-WIDTH */
+
+@each $breakpoint-name, $breakpoint-width in $breakpoints {
+  .max-width-#{$breakpoint-name} {
+    max-width: em2rem($breakpoint-width);
+  }
+}
+
