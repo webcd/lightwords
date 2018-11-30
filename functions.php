@@ -16,6 +16,7 @@ Timber::$dirname = array(
     'templates',
     'templates/views',
     'templates/partials',
+    'templates/partials/woocommerce',
     'dist/img',
 );
 

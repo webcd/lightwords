@@ -117,7 +117,20 @@ if (is_404()) {
         'search.twig',
         'archive.twig'
     );
+    $post_types = get_post_types();
 
+    //Display Product results in first
+    if (in_array('product', $post_types)) {     
+      unset($post_types['product']);
+      array_unshift($post_types, 'product');
+    }
+   
+    // Results group by post_type
+    foreach($context['posts'] as $post) {     
+      $context['post_type_'.$post->post_type][] = $post;     
+    }
+
+    $context['post_types'] = $post_types;
     $context['title'] = count(Timber::get_posts()) . ' résultat(s) de recherche pour "' . get_search_query() . '"';
 
 ////////////////////////////////////////////////////////////////////////////////

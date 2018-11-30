@@ -21,8 +21,7 @@
 		 # @hooked woocommerce_show_product_loop_sale_flash - 10
 		 # @hooked woocommerce_template_loop_product_thumbnail - 10
 		 #}
-    {% do 
-      action('woocommerce_before_shop_loop_item_title') %}
+    {% do action('woocommerce_before_shop_loop_item_title') %}
 
     {########################################}
     {# TERMS #}
@@ -48,14 +47,13 @@
 		 #
 		 # REMOVED @hooked woocommerce_template_loop_product_title - 10
 		 #}
-    {% do 
-      action('woocommerce_shop_loop_item_title') %}
+    {# {% do action('woocommerce_shop_loop_item_title') %} #}
 
     {########################################}
 		{# DESCRIPTION #}
 		
-		<div class="teaser-description">
-			{{ post.product.short_description }}
+		<div class="teaser-description">   
+			{{ post.post_excerpt }}
 		</div>
 
 		<div class="flex-filler"></div>
@@ -74,7 +72,7 @@
     {# PRICE #}
 
     <div class="teaser-product-price">
-      {% include "partials/woocommerce/price-product.twig" %}
+      {# {% include "partials/woocommerce/price-product.twig" %} #}
     </div>
 
     {##
@@ -83,8 +81,7 @@
 		 # REMOVED @hooked woocommerce_template_loop_rating - 5
 		 # REMOVED @hooked woocommerce_template_loop_price - 10
 		 #}
-    {% do 
-      action('woocommerce_after_shop_loop_item_title') %}
+    {% do action('woocommerce_after_shop_loop_item_title') %}
 
     {########################################}
     {# LINK CLOSE ?! #}
@@ -104,8 +101,7 @@
 		 # @hooked woocommerce_template_loop_product_link_close - 5
 		 # @hooked woocommerce_template_loop_add_to_cart - 10
 		 #}
-    {% do 
-      action('woocommerce_after_shop_loop_item', []) %}
+    {% do action('woocommerce_after_shop_loop_item', []) %}
 
   </div>
 </div>
