@@ -35,6 +35,10 @@
   padding-top: $gutter;
   padding-bottom: $gutter-double;
 
+  /*body*/.is-landing-page-only-content & {
+    @include v-padding(0);
+  }
+
   .page-template-tpl-fullwidth-page &,
   .archive.woocommerce &,
   .single.woocommerce & {
