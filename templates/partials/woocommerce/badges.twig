@@ -1,0 +1,13 @@
+{# SALE FLASH #}
+
+{% if post.product.is_on_sale() %}
+  <span class="onsale">Promo&nbsp;!</span>
+{% endif %}
+
+
+{# FEATURED PRODUCTS #}
+
+{% if post.product.is_featured() %}
+  {# Uncomment to show a badge for featured products #}
+  {# <span class="isfeatured">Mis en avant</span> #}
+{% endif %}
