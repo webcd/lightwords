@@ -14,7 +14,7 @@
     <address class="contact-infos-block contact-infos__address">
 
       <h4>
-        <i class="fa fa-lg fa-fw fa-map-marker"></i>
+        <i class="fa fa-fw fa-map-marker-alt"></i>
         {% if CONFIG.contactInfosAddressFirmName %}
           {{ CONFIG.contactInfosAddressFirmName }}</h4>
         {% else %}
@@ -59,7 +59,7 @@
     <div class="contact-infos-block contact-infos__phone-numbers">
       {% if CONFIG.contactInfosPhone1 %}
         <h4>
-          <i class="fa fa-lg fa-fw fa-phone"></i>
+          <i class="fa fa-fw fa-phone"></i>
           <a href="tel:{{ CONFIG.contactInfosPhone1|formatPhoneLink }}">
             {{ CONFIG.contactInfosPhone1|formatPhone }}
           </a>
@@ -67,7 +67,7 @@
       {% endif %}
       {% if CONFIG.contactInfosPhone2 %}
         <h4>
-          <i class="fa fa-lg fa-fw"></i>
+          <i class="fa fa-fw"></i>
           <a href="tel:{{ CONFIG.contactInfosPhone2|formatPhoneLink }}">
             {{ CONFIG.contactInfosPhone2|formatPhone }}
           </a>
@@ -75,7 +75,7 @@
       {% endif %}
       {% if CONFIG.contactInfosFax %}
         <h4>
-          <i class="fa fa-lg fa-fw"></i>
+          <i class="fa fa-fw fa-fax"></i>
           <a href="tel:{{ CONFIG.contactInfosFax|formatPhoneLink }}">
             {{ CONFIG.contactInfosFax|formatPhone }}
           </a>
@@ -84,10 +84,21 @@
       {% endif %}
     </div>
 
+    {% if CONFIG.contactInfosEmail %}
+      <div class="contact-infos-block contact-infos__email">
+        <h4>
+          <i class="far fa-fw fa-envelope"></i>
+          <a href="mailto:{{ CONFIG.contactInfosEmail }}">
+            {{ CONFIG.contactInfosEmail }}
+          </a>
+          </h4>
+      </div>
+    {% endif %}
+
     {% if CONFIG.contactInfosOpening %}
       <div class="contact-infos-block contact-infos__opening-hours">
         <h4>
-          <i class="fa fa-lg fa-fw fa-clock-o"></i>
+          <i class="far fa-fw fa-clock"></i>
           <span>Horaires</span>
         </h4>
         {% if CONFIG.contactInfosOpening1 %}
@@ -99,17 +110,6 @@
         {% if CONFIG.contactInfosOpening3 %}
           <div>{{ CONFIG.contactInfosOpening3 }}</div>
         {% endif %}
-      </div>
-    {% endif %}
-
-    {% if CONFIG.contactInfosEmail %}
-      <div class="contact-infos-block contact-infos__email">
-        <h4>
-          <i class="fa fa-lg fa-fw fa-envelope-o"></i>
-          <a href="mailto:{{ CONFIG.contactInfosEmail }}">
-            {{ CONFIG.contactInfosEmail }}
-          </a>
-          </h4>
       </div>
     {% endif %}
     

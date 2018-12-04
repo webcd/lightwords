@@ -11,7 +11,7 @@
 
     <a href="{{ my_account_link }}" class="menu-item-link">
       {# <span>{{ fn('_e', 'My Account', 'woothemes') }}</span> #}
-      <i class="fa fa-fw fa-lg fa-user"></i>
+      <i class="fa fa-fw fa-user"></i>&nbsp;
       <span class="hidden-collapsed">Mon compte</span>
     </a>
 
@@ -99,7 +99,7 @@
           ">
 
             <a href="{{ fn('wc_get_account_endpoint_url', my_account_item) }}" class="menu-item-link">
-              <i class="fa fa-fw {{ fn('getMyAccountItemIcon', my_account_item) }}"></i>
+              <i class="fa fa-fw {{ fn('getMyAccountItemIcon', my_account_item) }}"></i>&nbsp;
               <span>{{ my_account_name }}</span>
             </a>
 

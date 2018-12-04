@@ -28,9 +28,9 @@ function getMyAccountItemIcon($item)
 {
     $fontAwesome = array(
         "dashboard" => 'fa-user',
-        "orders" => 'fa-file-text',
-        "downloads" => 'fa-cloud-download',
-        "edit-address" => 'fa-map-marker',
+        "orders" => 'fa-file-alt',
+        "downloads" => 'fa-cloud-download-alt',
+        "edit-address" => 'fa-map-marker-alt',
         "edit-account" => 'fa-user-plus',
         "customer-logout" => 'fa-power-off',
     );
