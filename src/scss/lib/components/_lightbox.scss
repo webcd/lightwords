@@ -30,6 +30,25 @@ $smartphotoColorFront: black;
   z-index: 99999;
   background-color: $smartphotoColorBack;
   font-family: $font-family-sans-serif;
+  // position: relative;
+  height: 100vh;
+
+  /*body*/.admin-bar & {
+    // [MANUAL] height: calc(100vh - $wp-adminbar-height-mobile);
+    height: calc(100vh - 46px);
+    top: 46px;
+
+    @media screen and (min-width: $wp-adminbar-bp) {
+    // @include bp($wp-adminbar-bp) {
+      // [MANUAL] height: calc(100vh - $wp-adminbar-height-desktop);
+      height: calc(100vh - 32px);
+      top: 32px;
+    }
+  }
+}
+
+.smartphoto-header {
+  position: relative;
 }
 
 .smartphoto-count,
