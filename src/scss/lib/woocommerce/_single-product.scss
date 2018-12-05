@@ -189,20 +189,17 @@ table.variations {
         display: block;
         padding: $gutter-half;
         @include h(4);
+        line-height: $line-height-smaller;
         background-color: $gray-lighter;
         color: $gray-light;
         text-transform: uppercase;
+        font-weight: $font-weight-semibold;
       }
 
       &.active {
         > a {
           background-color: white;
           color: $gray-dark;
-          font-weight: $font-weight-semibold;
-
-          &::before {
-            content: "› ";
-          }
         }
       }
     }
