@@ -1,38 +1,71 @@
 // Post-footer content: 
-// - copyright text
 // - legal menu
+// - copyright text
 // - made-by link
 
+.footer-legal-menu,
 .footer-copyright,
 .footer-made-by {
   text-align: center;
 }
 
-.footer-copyright__copyright,
-.footer-copyright__legal-menu {
-  margin-bottom: $gutter-half;
-}
+// LEGAL MENU
 
-.footer-copyright__copyright {
-}
+.footer-legal-menu {
+  @include reset-list();
+  padding-left: $gutter-half;
+  margin-bottom: 0;
 
-.footer-copyright__legal-menu {
-  > li {
-    display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  > .menu-item:not(.menu-item--passive) {
+    display: block;
+    flex-basis: 100%;
+    margin-bottom: 0.4rem; // Touche zone spacing best practice
     
-    &:not(:last-child)::after {
-      content: " | ";
+    > .menu-item-link {
+      display: inline-block;
+      line-height: 4.4rem;
+
+      @include hocus() {
+        background-color: transparent;
+        color: $color-primary;
+      }
     }
+
+    @include bp('sm') {
+      flex-basis: auto;
+
+      &:not(:last-child)::after {
+        content: "//";
+        color: $color-primary;
+        font-weight: $font-weight-bold;
+        display: inline-block;
+        @include h-margin($gutter-eighth);
+      }
+    }
+    
   }
 }
 
-// Made by US!
+// COPYRIGHT
+
+.footer-copyright {
+
+  > span {}
+}
+
+// MADE BY LINK
 
 .footer-made-by {
   > span {
     font-style: italic;
   }
 }
+
+// Maker link
 
 .maker-link {
   display: inline-block;

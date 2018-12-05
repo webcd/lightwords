@@ -45,23 +45,29 @@
 <section class="wrapper wrapper--post-footer">
   <div class="container">
 
-    <div class="footer-copyright">
-      <div class="footer-copyright__copyright">Copyright {{ site.name }} &copy; {{"now"|date('Y')}}</div>
-      <ul class="footer-copyright__legal-menu">
-
+    <div class="row">
+      
+      <ul class="footer-legal-menu">
+  
         {% for item in menu_legal.get_items %}
           <li class="{{item.classes | join(' ')}}">
             <a href="{{item.get_link}}" class="menu-item-link">
-              {{item.title}}
+              <span>{{item.title}}</span>
             </a>
           </li>
         {% endfor %}
-
+  
       </ul>
-    </div>
-    <div class="footer-made-by">
-      <span>Design et réalisation&nbsp;:</span>
-      <a href="https://www.webcd.fr" target="_blank" class="maker-link">Webcd<svg viewBox="0 0 633 156"><use xlink:href="#logo-webcd"></use></svg></a>
+
+      <div class="footer-copyright">
+        <span>Copyright {{ site.name }} &copy; 2017 - {{"now"|date('Y')}}</span>
+      </div>
+
+      <div class="footer-made-by">
+        <span>Design et réalisation&nbsp;:</span>
+        <a href="https://www.webcd.fr" target="_blank" class="maker-link">Webcd<svg viewBox="0 0 633 156"><use xlink:href="#logo-webcd"></use></svg></a>
+      </div>
+
     </div>
 
   </div>
