@@ -57,38 +57,37 @@
                   {# SUB-CATEGORIES #}
 
                   {% if subcategories and(subcategories | length > 0) %}
-                    {# WTF??? #}
-                    <h2><span>{{ subcategories|length }}</span>
-                      catégories</h2>
-                    <div class="woo-list woo-list--categories">
+                    <h2><span>{{ subcategories|length }}</span> catégories</h2>
+
+                    <div class="teasers teasers--woo teasers--woo-categories">
+
                       {% for category in subcategories %}
-                        <li class="woo-item">
-                          {% include 'partials/woocommerce/teaser-category.twig' %}
-                        </li>
+                        {% include 'partials/woocommerce/teaser-category.twig' %}
                       {% endfor %}
+
                     </div>
                   {% endif %}
 
                   {# PRODUCTS #}
 
                   {% if posts %}
-                    <h2><span>{{ found_posts }}</span>
-                      produits</h2>
-                    <ul class="woo-list woo-list--products">
-                      {% do 
-                        fn('woocommerce_product_subcategories') %}
+                    <h2><span>{{ found_posts }}</span> produits</h2>
 
-                      {##
-												# Depending on your WooCommerce display settings, the `woocommerce_product_subcategories` function
-												# might reset the $wp_query global. By calling `have_posts()`, we check if there are posts we can
-												# display.
-												#}
+                    {##
+                      # Depending on your WooCommerce display settings, the `woocommerce_product_subcategories` function
+                      # might reset the $wp_query global. By calling `have_posts()`, we check if there are posts we can
+                      # display.
+                      #}
+                    {% do 
+                      fn('woocommerce_product_subcategories') %}
+
+                    <div class="teasers teasers--woo teasers--woo-productss">
                       {% for post in posts if fn('have_posts') %}
-                        <li class="woo-item">
-                          {% include 'partials/woocommerce/teaser-product.twig' %}
-                        </li>
+
+                        {% include 'partials/woocommerce/teaser-product.twig' %}
+    
                       {% endfor %}
-                    </ul>
+                    </div>
 
                   {% elseif not fn('woocommerce_product_subcategories', [{
 										before: fn('woocommerce_product_loop_start', false),

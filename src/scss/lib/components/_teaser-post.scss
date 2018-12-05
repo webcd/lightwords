@@ -1,4 +1,16 @@
-/* TILE-POST */
+/* TEASER-POST */
+
+// TEASERS (layout)
+
+.teasers {
+  @include row();
+
+  > .teaser {
+    @include col("sm", 6);
+    @include col("md", 4);
+    @include col("xl", 3);
+  }
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // METAS
@@ -56,22 +68,19 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-// TILES
+// TEASERS
 
-.tile {
-  // margin-bottom: $gutter;
-}
-
-.tile__content {
+.teaser__content {
   height: 100%;
   padding: $gutter-half;
   display: flex;
   flex-direction: column;
+  background-color: white;
 
   > * {
     flex: 0 0 auto;
 
-    &.tile__body {
+    &.teaser__body {
       flex-grow: 1;
     }
   }
@@ -85,7 +94,7 @@
   }
 }
 
-.tile__img {
+.teaser__img {
   position: relative;
   margin: -$gutter-half;
   margin-bottom: $gutter-half;
@@ -100,13 +109,13 @@
     transform: translate3d(-50%, -50%, 0) scale3d(1.2, 1.2, 1);
     transition: transform 0.5s $ease-bump;
 
-    .tile:hover & {
+    .teaser:hover & {
       transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
     }
   }
 }
 
-.tile__title {
+.teaser__title {
   position: absolute;
   bottom: 0;
   margin: 0;
@@ -119,7 +128,7 @@
   }
 }
 
-.tile__body {
+.teaser__body {
   margin-top: $gutter-half;
   margin-bottom: $gutter-half;
   color: $gray-darker;
@@ -130,7 +139,7 @@
   }
 }
 
-.tile__foot {
+.teaser__foot {
   text-align: right;
 
   .read-more {
@@ -139,8 +148,8 @@
   }
 }
 
-.tile-post {
-  .tile__content {
+.teaser-post {
+  .teaser__content {
     background-color: white;
   }
 }

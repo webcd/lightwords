@@ -1,4 +1,7 @@
-<div {{ fn('post_class', ['list-item', 'teaser', 'teaser--product', ( post.product.is_featured() ? 'teaser--featured' : '')] ) }} data-onclick-url="{{ post.link }}">
+<article
+  {{ fn('post_class', ['teaser', 'teaser--woo', 'teaser--woo-product', ( post.product.is_featured() ? 'teaser--featured' : '')] ) }}
+  data-onclick-url="{{ post.link }}"
+>
 
   {{ fn('timber_set_product', post) }}
 
@@ -104,4 +107,4 @@
     {% do action('woocommerce_after_shop_loop_item', []) %}
 
   </div>
-</div>
+</article>

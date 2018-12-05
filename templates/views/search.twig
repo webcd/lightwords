@@ -10,46 +10,46 @@
         {% include "article-content-header.twig" %}
 
         <div class="article-content-body">
-          <div class="container">
 
-            {% for post_type in post_types %}
-                              
-              {% if  _context['post_type_' ~ post_type] is defined %}
-              
-                {% set post_type_labels = function('get_post_type_object', post_type).labels %}
-                {% set posts = _context['post_type_' ~ post_type] %}
-                {% set nbr_posts = posts|length %}
+          {% for post_type in post_types %}
+            {% if _context["post_type_#{post_type}"] is defined %}
+              <section class="wrapper wrapper--padding {{ (post_type == 'post') ? 'wrapper--posts' : 'wrapper--products' }}">
+                <div class="container">
 
-                <section class="posts row">
-              
-                  <h2> 
-                  {{ nbr_posts }}
-                  {% if nbr_posts > 1 %}
-                    {{ post_type_labels.name }}
-                  {% else %}
-                    {{ post_type_labels.singular_name }}
-                  {% endif %}               
+                  {% set post_type_labels = function ('get_post_type_object', post_type).labels %}
+                  {% set posts = _context["post_type_#{post_type}"] %}
+                  {% set posts_length = posts | length %}
+
+                  <h2>
+                    <strong>{{ posts_length }}</strong>
+                    {{ (posts_length > 1) ? post_type_labels.name : post_type_labels.singular_name }}
                   </h2>
 
-                  {% for post in posts %}
-                  
-                    {# if the post type is product, the teaser is in the woocommerce folder #}                 
-                    {% if function('file_exists', 'wp-content/themes/lightwords/templates/partials/teaser-' ~ post_type ~ '.twig') 
-                        or function('file_exists', 'wp-content/themes/lightwords/templates/partials/woocommerce/teaser-' ~ post_type ~ '.twig') %}
-                        {% include 'teaser-' ~ post_type ~ '.twig' %}
-                    {% else %}
-                      {% include 'teaser-post.twig' %}
-                    {% endif %}                                                
+                  <section class="teasers {{ (post_type == 'post') ? 'teasers--posts' : 'teasers--woo' }}">
 
-                  {% endfor %}
+                    {% for post in posts %}
 
-                </section>
+                      {# If the post type is a product, the teaser template is in the woocommerce folder #}
+                      {% if "wp-content/themes/lightwords/templates/partials/teaser-#{post_type}.twig" is ondisk 
+                          or "wp-content/themes/lightwords/templates/partials/woocommerce/teaser-#{post_type}.twig" is ondisk %}
 
-              {% endif %}
-              
-            {% endfor %}
+                        {% include "teaser-#{post_type}.twig" %}
 
-          </div>
+                      {% else %}
+
+                        {% include 'teaser-post.twig' %}
+
+                      {% endif %}
+
+                    {% endfor %}
+
+                  </section>
+
+                </div>
+              </section>
+            {% endif %}
+          {% endfor %}
+
         </div>
 
       </div>

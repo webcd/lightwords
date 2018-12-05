@@ -1,5 +1,16 @@
-/*.product*/.teaser {
-  height: 100%;
+.teasers--woo {
+
+  > .teaser--woo {
+    @include col("xs", 6);
+    @include col("sm", 4);
+    @include col("md", 6);
+    @include col("lg", 4);
+    @include col("xl", 3);
+  }
+}
+
+
+.teaser--woo {
   
   > .teaser-content {
     height: 100%;

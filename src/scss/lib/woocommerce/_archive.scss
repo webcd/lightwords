@@ -1,22 +1,4 @@
-// PRODUCTS LIST
-
-/*ul*/
-.woo-list,
-.products {
-  padding-left: 0;
-  list-style-type: none;
-
-  @include row();
-
-  > .woo-item,
-  .product {
-    @include col("xs", 6);
-    @include col("sm", 4);
-    @include col("md", 6);
-    @include col("lg", 4);
-    // @include col("xl", 3);
-  }
-}
+// PAGINATION
 
 .woocommerce-pagination {
   > ul {
@@ -60,6 +42,8 @@
     }
   }
 }
+
+// ARCHIVE HEADER (results count, notices, WOOF filters...)
 
 .woo-products-header {
   @include row();

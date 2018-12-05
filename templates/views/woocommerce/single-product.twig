@@ -133,14 +133,14 @@
               <div class="container">
 
                 <h2>Produits <span>similaires</span></h2>
-                <ul class="woo-list woo-list--products">
 
+                <div class="teasers teasers--woo teasers--woo-products">
                   {% for product in related_products %}
-                    <li class="woo-item">
-                      {% include 'partials/woocommerce/teaser-product.twig' with { post: product } %}
-                    </li>
+
+                    {% include 'partials/woocommerce/teaser-product.twig' with { post: product } %}
+
                   {% endfor %}
-                </ul>
+                </div>
 
               </div>
             </section>

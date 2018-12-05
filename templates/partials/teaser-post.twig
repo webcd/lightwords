@@ -1,10 +1,11 @@
-<article class="tile tile-post col-sm-6 col-lg-4 col-xl-3"
+<article 
+  {{ fn('post_class', ['teaser', 'teaser--post'] ) }}
 	data-onclick-url="{{ post.link }}"
 >
-  <div class="tile__content">
-    <div class="tile__head">
+  <div class="teaser__content">
+    <div class="teaser__head">
 
-      <div class="tile__img">
+      <div class="teaser__img">
         {% if post.thumbnail %}
           <img
             src="{{ post.thumbnail.src|resize(480) }}"
@@ -23,20 +24,20 @@
             alt="{{ post.thumbnail.alt }}" />
           {% endif %}
 
-        <h3 class="h3 tile__title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
+        <h3 class="h3 teaser__title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
       </div>
 
       {% include "metas.twig" %}
 
     </div>
 
-    <div class="tile__body">
+    <div class="teaser__body">
       <p>
         {{post.get_preview(20, false, '')}}
       </p>
     </div>
 
-    <div class="tile__foot">
+    <div class="teaser__foot">
       <a class="read-more" href="{{ post.link }}">Lire la suite</a>
     </div>
   </div>
