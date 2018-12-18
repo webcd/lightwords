@@ -1,0 +1,21 @@
+{% if pagination %}
+    <div class="woocommerce-pagination">
+        <ul class="page-numbers">
+        {% if pagination.prev %}
+        	<li><a class="page-numbers" href="{{pagination.prev.link}}">←</a></li>
+         {% endif %}
+             {% for page in pagination.pages %}
+                 <li>
+                     {% if page.link %}
+                         <a class="page-numbers" href="{{page.link}}">{{page.title}}</a>
+                     {% else %}
+                         <span aria-current="page" class="page-numbers current">{{page.title}}</span>
+                     {% endif %}
+                 </li>
+             {% endfor %}
+         {% if pagination.next %}
+        	<li><a class="page-numbers" href="{{pagination.next.link}}">→</a></li>
+         {% endif %}
+        </ul>
+    </div>
+{% endif %}
