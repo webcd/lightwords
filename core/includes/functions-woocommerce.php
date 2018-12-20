@@ -107,3 +107,47 @@ add_filter('woocommerce_get_stock_html', 'disable_default_woocommerce_stock_html
 function disable_default_woocommerce_stock_html($html) {
     return '';
 }
+
+/**
+ * Output the pagination.
+ */
+function woocommerce_pagination() {
+    if ( ! wc_get_loop_prop( 'is_paginated' ) || ! woocommerce_products_will_display() ) {
+        return;
+    }
+
+    $total   = wc_get_loop_prop( 'total_pages' );
+    $current = wc_get_loop_prop( 'current_page' );
+    $base    = esc_url_raw( add_query_arg( 'product-page', '%#%', false ) );
+    $format  = '?product-page=%#%';
+    
+    if ( ! wc_get_loop_prop( 'is_shortcode' ) ) {
+        $format = '';
+        $base = esc_url_raw( str_replace( 999999999, '%#%', remove_query_arg( 'add-to-cart', get_pagenum_link( 999999999, false ) ) ) );
+    }
+    
+    if ( $total <= 1 ) {
+        return;
+    }
+    
+    echo '<nav class="woocommerce-pagination">';
+    $links = paginate_links( apply_filters( 'woocommerce_pagination_args', array( // WPCS: XSS ok.
+        'base'         => $base,
+        'format'       => $format,
+        'add_args'     => false,
+        'current'      => max( 1, $current ),
+        'total'        => $total,
+        'prev_text'    => '&larr;',
+        'next_text'    => '&rarr;',
+        'type'         => 'list',
+        'end_size'     => 3,
+        'mid_size'     => 3
+    ) ) );
+
+    $links = str_replace('<a class="prev', '<a rel="prev" class="prev', $links);
+    $links = str_replace('<a class="next', '<a rel="next" class="next', $links);
+    $links = str_replace("<a class='page-numbers", "<a rel='no-follow' class='page-numbers", $links);
+
+    echo $links;
+    echo '</nav>';
+}
