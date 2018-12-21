@@ -19,7 +19,7 @@
 
     &[disabled] {
       // don't submit less than 3 chars - see JS
-      background-color: transparent;
+      background-color: white;
       color: $gray-light;
       border: 0.1rem solid $gray-light;
       border-left: none;
