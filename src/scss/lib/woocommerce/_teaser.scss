@@ -9,7 +9,6 @@
   }
 }
 
-
 .teaser--woo {
   
   > .teaser-content {
@@ -147,6 +146,15 @@
 
   .button.product_type_external {
     margin-top: $gutter-half;
+  }
+
+  // Featured products
+
+  &.teaser--featured {
+
+    > .teaser-content {
+      border: 0.2rem solid $gray-light;
+    }
   }
 }
 
