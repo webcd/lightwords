@@ -1,0 +1,51 @@
+// PAGINATION
+
+.pagination,
+.woocommerce-pagination {
+  > ul {
+    @include reset-list();
+    display: flex;
+    justify-content: center;
+
+    > li {
+      display: block;
+
+      &:not(:last-child) {
+        margin-right: $gutter-half;
+      }
+
+      > span,
+      > a {
+        display: block;
+      }
+
+      > span {
+        background-color: black;
+        color: white;
+        @include size($btn-ctrl-size);
+        line-height: $btn-ctrl-size;
+        text-align: center;
+      }
+
+      > a {
+        &:not(.next):not(.prev) {
+          @include btn();
+          @include btn-ctrl("text");
+        }
+        &.next,
+        &.prev {
+          @include btn();
+          font-size: 0;
+        }
+        &.next {
+          @include btn-ctrl("right");
+        }
+        &.prev {
+          @include btn-ctrl("left");
+        }
+        padding: 0 !important;
+        font-weight: $font-weight-normal !important;
+      }
+    }
+  }
+}
