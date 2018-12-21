@@ -38,6 +38,20 @@
     @include col("xs", 12);
     @include col("md", 4);
   }
+
+  // WooCommerce Product Per Page plugin
+  // Removes inline styles
+  .products-per-page {
+    display: block;
+    float: none !important;
+    margin-left: 0 !important;
+  }
+}
+
+// WooCommerce Product Per Page plugin
+// Hide bottom widget
+.products-per-page {
+  display: none;
 }
 
 .woo-archive-description {
