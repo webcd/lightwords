@@ -12,12 +12,13 @@
         <div class="article-content-body">
           <div class="container">
 
-            <section class="teasers teasers--posts">
+            <section class="posts row">
 
               {% for post in posts %}
                 {% include "teaser-post.twig" %}
               {% endfor %}
-
+              
+              {% include "pagination.twig" %}
             </section>
 
           </div>

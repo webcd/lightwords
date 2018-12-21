@@ -21,6 +21,7 @@ if (!class_exists('Timber')) {
 $templates = array('index.twig');
 $context = Timber::get_context();
 $context['posts'] = Timber::get_posts(); // Can be empty! (404, single, page)
+$context['pagination'] = Timber::get_pagination();
 
 ////////////////////////////////////////////////////////////////////////////////
 // 404
