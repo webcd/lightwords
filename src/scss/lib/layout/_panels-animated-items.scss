@@ -1,0 +1,50 @@
+@include bp($expanded, true) {
+  
+  .dropdown-wrapper--panel {
+
+    .menu-item {
+      transform: translateX($gutter-double);
+      opacity: 0;
+      transition: all 0.25s;
+
+      @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+          transition-delay: 0.25s + $i * 0.05s;
+        }
+      }
+    }
+  }
+
+  .dropdown-wrapper--panel {
+    .menu-primary {
+      .menu-item {
+        /*body*/.panel-menu-expanded & {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .menu-item--cart {
+    .dropdown-wrapper--panel {
+      .menu-item {
+        /*body*/.panel-cart-expanded & {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .menu-item--my-account {
+    .dropdown-wrapper--panel {
+      .menu-item {
+        /*body*/.panel-my-account-expanded & {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

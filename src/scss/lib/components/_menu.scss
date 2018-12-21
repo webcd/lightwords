@@ -178,6 +178,7 @@
 
 .dropdown-menu {
   @include reset-list();
+  overflow-x: hidden;
 }
 
 .dropdown-toggle {
@@ -203,6 +204,10 @@
 // So for once, we allow MOBILE ONLY styles max-width @mq here!
 @include bp($expanded, true) {
 
+  .menu-primary {
+    padding-left: $gutter-quarter;
+  }
+
   // Sub-menus
 
   .menu-item--dropdown {
@@ -210,42 +215,50 @@
     > .dropdown-wrapper {
       margin-top: $gutter-quarter;
       flex-basis: 100%;
-      // TODO: animate hide/show
-      display: none;
+
+      &:not(.dropdown-wrapper--panel) {
+        // TODO: animate hide/show
+        display: none;
+      }
     }
 
     &.active {
-      > .dropdown-wrapper {
+      > .dropdown-wrapper:not(.dropdown-wrapper--panel) {
         display: block;
       }
     }
   }
 
-  // Nested dropdowns indentation
+  // Nested mobile dropdowns indentation
 
+  // Zero level (all panels use a first .dropdown-menu wrapper)
   .dropdown-menu {
-    // First level
-    .menu-item {
-      > .menu-item-link:first-child {
-        padding-left: $gutter-half + $width-nested-dropdown-indentation;
-      }
-    }
 
-    // Second level
+    // First level
     .dropdown-menu & {
       .menu-item {
         > .menu-item-link:first-child {
           padding-left: $gutter-half +
-            ($width-nested-dropdown-indentation * 2);
+          ($width-nested-dropdown-indentation * 1);
         }
       }
-
-      // Third (and other) level
+      
+      // Second level
       .dropdown-menu & {
         .menu-item {
           > .menu-item-link:first-child {
             padding-left: $gutter-half +
-              ($width-nested-dropdown-indentation * 3);
+            ($width-nested-dropdown-indentation * 2);
+          }
+        }
+        
+        // Third (and other) level
+        .dropdown-menu & {
+          .menu-item {
+            > .menu-item-link:first-child {
+              padding-left: $gutter-half +
+                ($width-nested-dropdown-indentation * 3);
+            }
           }
         }
       }
