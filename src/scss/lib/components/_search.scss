@@ -1,20 +1,19 @@
 /* SEARCH */
 
 .searchform {
-  position: relative;
+  display: flex;
 
   .searchform__input {
     height: $navbar-btn-size;
     line-height: $navbar-btn-size;
-    padding-right: 12rem;
+    flex-grow: 1;
+    border-right: none;
   }
 
   .searchform__submit {
-    position: absolute;
-    top: 0.1rem;
-    right: 0.1rem;
-    border: 0;
-    height: $navbar-btn-size - 0.2rem;
+    height: $navbar-btn-size;
+    border: 0.1rem solid $color-primary;
+    border-left: none;
     font-weight: $font-weight-normal;
     text-transform: uppercase;
 
@@ -22,6 +21,8 @@
       // don't submit less than 3 chars - see JS
       background-color: transparent;
       color: $gray-light;
+      border: 0.1rem solid $gray-light;
+      border-left: none;
     }
   }
 }
