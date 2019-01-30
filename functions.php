@@ -16,6 +16,7 @@ Timber::$dirname = array(
     'templates',
     'templates/views',
     'templates/partials',
+    'templates/partials/woocommerce',
     'dist/img',
 );
 
@@ -31,11 +32,6 @@ function ddump($what)
     var_dump($what);
     echo '</pre>';
 }
-
-// WOOCOMMERCE
-// TODO: move this elsewhere
-include 'functions-woocommerce.php';
-include 'functions-woocommerce-hooks.php';
 
 // THEME OPTIONS
 include 'functions-theme-options.php';

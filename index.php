@@ -21,6 +21,7 @@ if (!class_exists('Timber')) {
 $templates = array('index.twig');
 $context = Timber::get_context();
 $context['posts'] = Timber::get_posts(); // Can be empty! (404, single, page)
+$context['pagination'] = Timber::get_pagination();
 
 ////////////////////////////////////////////////////////////////////////////////
 // 404
@@ -117,7 +118,20 @@ if (is_404()) {
         'search.twig',
         'archive.twig'
     );
+    $post_types = get_post_types();
 
+    //Display Product results in first
+    if (in_array('product', $post_types)) {     
+      unset($post_types['product']);
+      array_unshift($post_types, 'product');
+    }
+   
+    // Results group by post_type
+    foreach($context['posts'] as $post) {     
+      $context['post_type_'.$post->post_type][] = $post;     
+    }
+
+    $context['post_types'] = $post_types;
     $context['title'] = count(Timber::get_posts()) . ' résultat(s) de recherche pour "' . get_search_query() . '"';
 
 ////////////////////////////////////////////////////////////////////////////////

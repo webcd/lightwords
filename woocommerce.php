@@ -47,6 +47,10 @@ if (is_singular('product')) {
     $posts = Timber::get_posts();
     $context['post'] = $posts;
 
+    // Total post count
+    global $wp_query;
+    $context['found_posts'] = $wp_query->found_posts;
+
     // Sub-categories
     if (is_product_category()) {
         $category = new TimberTerm();
@@ -65,12 +69,12 @@ if (is_singular('product')) {
         // SHOP ROOT ARCHIVE
 
         // Default title and description
+        $context['title'] = woocommerce_page_title(false);
         // TODO: Use the magic shop strings ("produits" / "boutique" / whatever)
-        $context['title'] = 'Produits';
-        $context['category_description'] = 'Découvrez nos produits&nbsp;!';
+        $context['category_description'] = 'Découvrez tous nos produits&nbsp;!';
 
-        // TODO: get the shop page thumbnail
-        $image = get_the_post_thumbnail_url();
+        // Get the shop page thumbnail
+        $image = get_the_post_thumbnail_url( get_option( 'woocommerce_shop_page_id' ) );
         $context['category_image'] = $image;
 
     } else {

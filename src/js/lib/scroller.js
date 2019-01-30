@@ -1,29 +1,33 @@
-;(function($) {
-  // DOM IS READY!
+import $ from "jquery"
 
-  $(function() {
-    var $scrollers = $('[data-scroll]')
+// SCROLLER
 
-    $scrollers.on('click', function() {
-      var scrollTarget = $(this).attr('data-scroll')
-      var $scrollTarget = $(scrollTarget)
+const scroller = (() => {
+  const $scrollers = $("[data-scroll]")
 
-      if ($scrollTarget.length === 0) {
-        console.warn('scroller.js: no such target "' + scrollTarget + '"!')
-      } else {
-        var headerHeight = 0
-        if ($('body').hasClass('sticky-header')) {
-          // TODO: shouldn't take hidden topbar into account on mobile
-          headerHeight = $('.site-header').height() / 2
-          console.log('header height (half)', headerHeight)
-        }
-        $('html, body').animate({
-            scrollTop: $scrollTarget.offset().top - headerHeight
-          },500
-        )
+  $scrollers.on("click", function() {
+    const scrollTarget = $(this).attr("data-scroll")
+    const $scrollTarget = $(scrollTarget)
+
+    if ($scrollTarget.length === 0) {
+      console.warn('scroller.js: no such target "' + scrollTarget + '"!')
+    } else {
+      let headerHeight = 0
+      if ($("body").hasClass("sticky-header")) {
+        // TODO: shouldn't take hidden topbar into account on mobile
+        headerHeight = $(".site-header").height() / 2
+        console.log("header height (half)", headerHeight)
       }
-    })
-
-    console.log('scroller.js is loaded')
+      $("html, body").animate(
+        {
+          scrollTop: $scrollTarget.offset().top - headerHeight
+        },
+        500
+      )
+    }
   })
-})(jQuery)
+
+  console.log("scroller.js is loaded")
+})()
+
+export default scroller

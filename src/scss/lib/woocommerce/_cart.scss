@@ -33,7 +33,7 @@
 
 // PRODUCT LIST
 
-/*html*/
+/*body*/
 
 .woocommerce-cart-form > .shop_table tr {
   > th {
@@ -207,7 +207,7 @@ button[type="submit"][name="update_cart"] {
     &.order-total {
       font-size: $font-size-big;
 
-      .amount {
+      .price {
         font-weight: $font-weight-semibold !important;
       }
     }
@@ -235,7 +235,7 @@ button[type="submit"][name="update_cart"] {
       text-align: left;
     }
 
-    p:last-of-type() {
+    p:last-of-type {
       text-align: center;
     }
 

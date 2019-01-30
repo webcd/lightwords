@@ -5,32 +5,13 @@
 /*****************************************************************************
  * VARIABLES
  *****************************************************************************/
+ 
 @import 'variables';
-
-// @import 'skins/dark/variables';
-
-/*****************************************************************************
- * VENDOR LIBS
- *****************************************************************************/
-
-/*****************************************************************************
- * NORMALIZE
- *****************************************************************************/
-@import '../../node_modules/normalize.css/normalize';
-
-/*****************************************************************************
- * SELECT2
- *****************************************************************************/
-@import '../../node_modules/select2/dist/css/select2';
-
-/*****************************************************************************
- * JARALLAX
- *****************************************************************************/
-@import '../../node_modules/jarallax/dist/jarallax';
 
 /*****************************************************************************
  * CYANID
  *****************************************************************************/
+
 // @import '../../node_modules/cyanid/src/css/gutter';
 // @import '../../node_modules/cyanid/src/css/breakpoints';
 // @import '../../node_modules/cyanid/src/css/units-tools';
@@ -51,32 +32,60 @@
  * LIGHTWORDS STYLES
  *****************************************************************************/
  
-/* LIGHTWORDS - FX */
-// @import 'lib/fx/css-parallax';
-@import 'lib/fx/animation';
-@import 'lib/fx/jarallax';
-@import 'lib/fx/ripple';
-@import 'lib/fx/shadows';
-
+/*****************************************************************************/
 /* LIGHTWORDS - BASE */
+
 @import 'lib/base/cdn-imports';
 @import 'lib/base/tools';
 @import 'lib/base//base';
 @import 'lib/base/type';
+@import 'lib/base/animation';
+@import 'lib/base/shadows';
+
 @import 'lib/base/buttons';
 @import 'lib/base/forms';
 @import 'lib/base/forms-radio-checkbox';
 @import 'lib/base/forms-gravity';
 @import 'lib/base/forms-select2';
-@import 'lib/base/styleguide';
 
+/*****************************************************************************/
+/* LIGHTWORDS - LAYOUT */
+
+@import 'lib/layout/capped-width';
+@import 'lib/layout/panels';
+@import 'lib/layout/panels-animated-items';
+@import 'lib/layout/fixed-ratio';
+@import 'lib/layout/wrappers';
+@import 'lib/layout/wrappers-half';
+@import 'lib/layout/layout';
+
+@import 'lib/layout/header-sticky';
+@import 'lib/layout/header-compress';
+@import 'lib/layout/header-transparent';
+
+/*****************************************************************************/
+/* LIGHTWORDS - FX */
+
+@import 'lib/fx/hover3d';
+@import 'lib/fx/video-cover';
+@import 'lib/fx/big-text';
+@import 'lib/fx/navbar-link-animated-bg';
+@import 'lib/fx/animated-links';
+@import 'lib/fx/ripple';
+@import 'lib/fx/jarallax';
+
+/*****************************************************************************/
 /* LIGHTWORDS - COMPONENTS */
+
 @import 'lib/components/breadcrumb';
 @import 'lib/components/nav';
 @import 'lib/components/logo';
 @import 'lib/components/avatar';
 @import 'lib/components/menu';
 @import 'lib/components/hero';
+// @import 'lib/components/hero-container';
+@import 'lib/components/hero-fullheight';
+@import 'lib/components/hero-title';
 @import 'lib/components/hamburger';
 @import 'lib/components/search';
 @import 'lib/components/modal';
@@ -87,55 +96,29 @@
 @import 'lib/components/image-wall';
 @import 'lib/components/author';
 @import 'lib/components/rating';
+@import 'lib/components/buttons-ctrl';
+@import 'lib/components/pagination';
+@import 'lib/components/teaser-post';
+@import 'lib/components/tag-cloud';
+@import 'lib/components/scroll-buttons';
+@import 'lib/components/social-buttons';
+@import 'lib/components/contact-infos';
+@import 'lib/components/lightbox';
 
-// @import 'lib/components/wp-adminbar';
-
-/* LIGHTWORDS - LAYOUT */
-@import 'lib/layout/panels';
-@import 'lib/layout/fixed-ratio';
-@import 'lib/layout/wrappers';
-@import 'lib/layout/layout';
-@import 'lib/layout/header-sticky';
-@import 'lib/layout/header-compress';
-@import 'lib/layout/header-transparent';
-
-/* LIGHTWORDS - DEBUG */
-@import 'lib/debug/debug';
+/*****************************************************************************/
+/* LIGHTWORDS - MISC */
 
 /* LIGHTWORDS - WOOCOMMERCE */
 @import 'lib/woocommerce/woocommerce';
 
-/*****************************************************************************
- * LIGHTWORDS SKIN
- *****************************************************************************/
+/* LIGHTWORDS - STYLEGUIDE */
+@import 'lib/base/styleguide';
 
-/* LIGHTWORDS - SKIN FEATURES */
+/* LIGHTWORDS - DEBUG */
+@import 'lib/debug/debug';
 
-// @import 'skins/hero-container';
-@import 'skins/hero-fullheight';
-@import 'skins/hero-title';
-@import 'skins/scroll-buttons';
-@import 'skins/big-text';
-
-@import 'skins/navbar-link-animated-bg';
-@import 'skins/hover3d';
-@import 'skins/social-buttons';
-@import 'skins/contact-infos';
-@import 'skins/tag-cloud';
-
-// @import 'skins/animated-links';
-@import 'skins/post-footer';
-
-/* LIGHTWORDS - SKIN WRAPPERS */
-// XOR
-@import 'skins/light/wrappers';
-// @import 'skins/dark/wrappers';
-
-/* LIGHTWORDS - SKIN TILE-POST */
-@import 'skins/tile-post';
-// XOR
-@import 'skins/light/tile-post';
-// @import 'skins/dark/tile-post';
+/* LIGHTWORDS - ADMINBAR */
+// @import 'lib/components/wp-adminbar';
 
 /*****************************************************************************
  * APP 

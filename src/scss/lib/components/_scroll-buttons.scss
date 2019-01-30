@@ -1,0 +1,45 @@
+/* SCROLL BUTTONS */
+
+.scroll-btn {
+  // transition: transform 0.5s $ease-bump, opacity 0.5s;
+  // transition: all 0.25s;
+
+  // SCROLL DOWN ("down to content")
+  
+  &.scroll-btn--down {
+    @include btn-ctrl("down");
+    @include btn-ctrl-color("down", true);
+  
+    transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1);
+    opacity: 1;
+  
+    // Hide the button when enough scrolled down
+    /*body*/
+    .has-scroll-top-active & {
+      transform: translate3d(-50%, -100%, 0);
+      opacity: 0;
+    }
+  }
+  
+  // SCROLL UP ("back to top")
+  
+  &.scroll-btn--up {
+    @include btn-ctrl("up");
+    @include btn-ctrl-color("up", true);
+  
+    position: fixed;
+    left: 50%;
+    bottom: $gutter;
+    transform: translate3d(-50%, 100%, 0) scale3d(1, 1, 1);
+    opacity: 0;
+
+    z-index: 10;
+  
+    // Show the button when enough scrolled down
+    /*body*/
+    .has-scroll-top-active & {
+      transform: translate3d(-50%, 0, 0) scale3d(1, 1, 1);
+      opacity: 1;
+    }
+  }
+}

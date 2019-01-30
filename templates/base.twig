@@ -10,6 +10,7 @@
   {{ body_class }}
   {{ body_class_config }}
   {{ landing_page ? 'is-landing-page' }}
+  {{ landing_page_only_content ? 'is-landing-page-only-content' }}
   {{ post.slug ? "slug-#{post.slug}" }}
   " data-config="{{ config_JSON }}"
 >
@@ -96,10 +97,11 @@
 
   <!-- SCROLL TO TOP BUTTON -->
   {% if CONFIG.hasScrollTop %}
-    <div class="scroll-btn scroll-btn-up" data-scroll="body">
-      <svg viewBox="0 0 71 71">
+    <div class="scroll-btn btn scroll-btn--up" data-scroll="body">
+      <div class="sr-only">Scroll to top</div>
+      {# <svg viewBox="0 0 71 71">
         <use xlink:href="#scroll-down"></use>
-      </svg>
+      </svg> #}
     </div>
   {% endif %}
 
@@ -123,12 +125,20 @@
   {% if do_debug_zone %}
     <!-- DEBUG ZONE -->
     <div class="debug-zone">
+      <div class="debug-zone__toggle">
+        <button class="btn btn-ctrl" data-toggle="body" data-toggle-classname="debug-zone-active">
+          <span class="sr-only">Toggle debug zone</span>
+        </button>
+      </div>
       <div class="debug-zone__item debug-zone__item--bp"></div>
     </div>
   {% endif %}
 
   <!-- WP_FOOTER -->
   {{ function('wp_footer') }}
+
+  <!-- Font Awesome 5 -->
+  <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
 
 </body>
 </html>

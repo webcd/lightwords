@@ -1,42 +1,28 @@
 // WOO COMMERCE LAYOUT
 
 .wrapper--woo-content {
-  background-color: $gray-light;
-
-  @include bp($bp-woo-sidebar) {
-    background: linear-gradient(
-      to right,
-      $bg-woo-sidebar 0%,
-      $bg-woo-sidebar 50%,
-      $bg-woo-main 50%,
-      $bg-woo-main 100%
-    );
-  }
+  background-color: $gray-lightest;
 }
 
 .woo-content {
-  margin-bottom: -$gutter;
-
-  @include bp($bp-woo-sidebar) {
-    display: flex;
-    align-items: stretch;
-  }
+  @include v-margin(0);
+  @include v-padding($gutter);
+  align-items: flex-start;
 }
 
 .woo-content-sidebar {
-  margin: 0 (-$gutter-half);
-  padding: $gutter-half;
+  order: -1;
+
+  padding-bottom: 0;
 
   background-color: $bg-woo-sidebar;
   color: $color-woo-sidebar;
-
-  @include bp($bp-woo-sidebar) {
-    flex-basis: $width-woo-sidebar;
-    min-width: $width-woo-sidebar;
-    margin-right: 0;
-    padding-top: $gutter;
-  }
 }
+
+.woo-content-sidebar-widgets {
+  margin-top: $gutter;
+}
+
 
 // // Uncomment this if WooCommerce sidebar has multiple widgets
 // .woo-content-sidebar-widgets {
@@ -52,15 +38,9 @@
 // }
 
 .woo-content-main {
-  padding-top: $gutter;
-  padding-bottom: $gutter;
-  background-color: $bg-woo-main;
-  color: $color-woo-main;
-
-  @include bp($bp-woo-sidebar) {
-    flex-grow: 1;
-    padding-left: $gutter;
-    padding-right: $gutter-half;
-    margin-right: -$gutter-half;
+  @include bp('md') {
+    @include v-padding(0);
   }
 }
+
+.wrapper--products { background-color: $bg-woo-main; }

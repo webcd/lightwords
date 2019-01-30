@@ -1,50 +1,80 @@
 <section class="wrapper wrapper--hero">
   <div class="hero">
-    <div class="hero__img" style="background-image: url('{{ img|resize(1920) }}');"
-      data-parallax="0.5"
-    >
-    {#
-    <img class="hero__img"
-      src="{{ post.thumbnail.src|resize(1920) }}"
-      srcset="
-        {{ post.thumbnail.src|resize(1920) }} 1920w,
-        {{ post.thumbnail.src|resize(1200) }} 1200w,
-        {{ post.thumbnail.src|resize(768) }} 768w,
-        {{ post.thumbnail.src|resize(480) }} 480w,
-        {{ post.thumbnail.src|resize(220) }} 220w
-      "
-      sizes="
-        100vw
-      "
-      itemprop="image"
-      alt="{{ post.thumbnail.alt }}" />
-    #}
 
-      {% if fn('is_front_page') or slogan %}
-        <div class="hero__content">
+    {# TODO: auto detection of video heros #}
+    {# Make use of 'ondisk' twig test + WP hierarchy: #}
+    {# {% if filename is ondisk %}... #}
+    {# {% if theme.link/dist/img/video/front-page is ondisk %}... #}
+    {# {% if theme.link/dist/img/video/page-slug is ondisk %}... #}
+    {# {% if theme.link/dist/img/video/post-slug-page is ondisk %}... #}
 
-          {% if slogan %}
-            <div class="hero__slogan">
-              {{ slogan }}
+    {% if fn('is_front_page') %}
+
+      <div class="hero__img" style="background-image: url('{{ theme.link }}/dist/img/working-with-espresso.jpg');" data-parallax="0.5">
+
+        {% include "video.twig" with {'name': 'working-with-espresso'} %}
+
+    {% else %}
+      <div class="hero__img" style="background-image: url('{{ img|resize(1920) }}');" data-parallax="0.5">
+        {#
+        <img class="hero__img"
+          src="{{ post.thumbnail.src|resize(1920) }}"
+          srcset="
+            {{ post.thumbnail.src|resize(1920) }} 1920w,
+            {{ post.thumbnail.src|resize(1200) }} 1200w,
+            {{ post.thumbnail.src|resize(768) }} 768w,
+            {{ post.thumbnail.src|resize(480) }} 480w,
+            {{ post.thumbnail.src|resize(220) }} 220w
+          "
+          sizes="
+            100vw
+          "
+          itemprop="image"
+          alt="{{ post.thumbnail.alt }}" />
+        #}
+    {% endif %}
+
+
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+
+        {% if slogan %}
+          <div class="hero__slogan">
+            {{ slogan }}
+          </div>
+        {% endif %}
+
+        {% if fn('is_front_page') %}
+          <div class="hero__form">
+  
+            <div class="form row">
+              <div class="input-block required">
+                {# <label for="text01">Your stuff</label> #}
+                <div class="input input--inline">
+                  <input type="text" id="text01" placeholder="My stuff">
+                  <button class="input-after btn btn-ctrl btn-ctrl-inverted btn-ctrl-search"></button>
+                </div>
+              </div>
             </div>
-          {% endif %}
+  
+          </div>
 
-          {% if fn('is_front_page') %}
-            <div class="hero__btn">
-              <a href="#" class="btn btn-black btn-lg btn-hollow btn-wrap">Call to ACTION!</a>
-            </div>
-          {% endif %}
+          <div class="hero__btn">
+            <a href="#" class="btn btn-primary btn-lg btn-wrap">Call to ACTION!</a>
+          </div>
+        {% endif %}
 
-        </div>
-
-        <div class="hero__scroll-down scroll-btn scroll-btn-down" data-scroll=".wrapper--article-content">
-          <svg viewBox="0 0 71 71">
-            <use xlink:href="#scroll-down"></use>
-          </svg>
-        </div>
-      {% endif %}
+      </div>
 
     </div>
-    
+
+    <div class="hero__scroll-down btn scroll-btn scroll-btn--down" data-scroll=".wrapper--article-content">
+      <div class="sr-only">Scroll to content</div>
+      {# <svg viewBox="0 0 71 71">
+          <use xlink:href="#scroll-down"></use>
+        </svg> #}
+    </div>
+
   </div>
 </section>

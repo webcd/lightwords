@@ -1,7 +1,6 @@
-/*body*/.slug-styleguide {
-
+/*body*/
+.slug-styleguide {
   .site-content {
-    
     button {
       margin-bottom: $gutter-half;
     }
@@ -20,13 +19,13 @@
       transform: rotateZ(0.25turn);
       line-height: 1;
 
-      @include bp('md') {
+      @include bp("md") {
         transform: none;
         left: $gutter-quarter;
       }
     }
 
-    &:nth-child(n+5) {
+    &:nth-child(n + 5) {
       > * {
         color: black;
       }
@@ -40,7 +39,115 @@
     line-height: $gutter-double;
     background-color: $gray-lighter;
     font-size: 1.2rem;
-    text-align: center;
     margin-bottom: $gutter;
   }
+}
+
+// STAGING AREA
+
+.col-inner--no-gutter {
+  @include bp("sm", true) {
+    margin: -$gutter-half;
+  }
+}
+
+.flex-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.img-display {
+  background-color: white;
+  color: black;
+  padding: $gutter;
+  margin: $gutter-double;
+}
+
+.square {
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+
+  > * {
+    position: absolute;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate3d(-50%, -50%, 0);
+
+    &.img-display {
+      margin: 0;
+    }
+
+    &.styleguide-quote {
+      padding: 0;
+    }
+  }
+}
+
+.row--broken {
+  $broken-grid-offset-mobile: $gutter;
+  $broken-grid-offset-desktop: $gutter;
+  
+  > *:first-child {
+    transform: translate3d(0, $broken-grid-offset-mobile, 0);
+  }
+  > *:nth-child(2) {
+    transform: translate3d(0, - $broken-grid-offset-mobile, 0);
+  }
+  
+  @include bp("sm") {
+    @include v-margin($broken-grid-offset-desktop * 4);
+    // TODO: breaks horizontal scroll!
+    // @include h-margin(- $broken-grid-offset-desktop);
+
+    > *:first-child {
+      transform: translate3d($broken-grid-offset-desktop, - $broken-grid-offset-desktop, 0);
+    }
+    > *:nth-child(2) {
+      transform: translate3d(- $broken-grid-offset-desktop, $broken-grid-offset-desktop, 0);
+    }
+
+    &.row--broken-inverse {
+      > *:first-child {
+        transform: translate3d(- $broken-grid-offset-desktop, - $broken-grid-offset-desktop, 0);
+      }
+      > *:nth-child(2) {
+        transform: translate3d($broken-grid-offset-desktop, $broken-grid-offset-desktop, 0);
+        order: -1;
+      }
+    }
+  }
+}
+
+.bordeer {
+  font-size: $font-size-bigger;
+  font-family: $font-family-serif;
+  font-style: italic;
+  color: black;
+  width: 100%;
+  box-shadow: inset 0 0 0 $gutter-quarter black;
+  background-color: white;
+
+  > * {
+
+    @include bp("sm") {
+      margin: 0;
+    }
+
+    &::before {
+      content: "“ ";
+    }
+
+    &::after {
+      content: " ”";
+    }
+  }
+}
+
+.styleguide-quote {
+  text-align: left;
+  text-indent: - $gutter-half;
 }

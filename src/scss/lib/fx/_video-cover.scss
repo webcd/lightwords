@@ -1,0 +1,20 @@
+/* VIDEO-COVER */
+
+.video-cover-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-cover {
+  @include bg-cover();
+  @include absolute-full();
+}
+
+.video-cover__video {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+
+  @include absolute-center();
+}

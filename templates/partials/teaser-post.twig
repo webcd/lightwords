@@ -1,0 +1,44 @@
+<article 
+  {{ fn('post_class', ['teaser', 'teaser--post'] ) }}
+	data-onclick-url="{{ post.link }}"
+>
+  <div class="teaser__content">
+    <div class="teaser__head">
+
+      <div class="teaser__img">
+        {% if post.thumbnail %}
+          <img
+            src="{{ post.thumbnail.src|resize(480) }}"
+            srcset="
+              {{ post.thumbnail.src|resize(768) }} 768w,
+              {{ post.thumbnail.src|resize(480) }} 480w,
+              {{ post.thumbnail.src|resize(220) }} 220w
+            "
+            sizes="
+              (min-width: 1200px) 25vw,
+              (min-width: 992px) 33.33vw,
+              (min-width: 768px) 50vw,
+              100vw
+            "
+            itemprop="image"
+            alt="{{ post.thumbnail.alt }}" />
+          {% endif %}
+
+        <h3 class="h3 teaser__title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
+      </div>
+
+      {% include "metas.twig" %}
+
+    </div>
+
+    <div class="teaser__body">
+      <p>
+        {{post.get_preview(20, false, '')}}
+      </p>
+    </div>
+
+    <div class="teaser__foot">
+      <a class="read-more" href="{{ post.link }}">Lire la suite</a>
+    </div>
+  </div>
+</article>

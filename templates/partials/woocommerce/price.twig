@@ -1,0 +1,13 @@
+<span class="price">
+
+  <span class="price__whole">{{ negative ? '-' }}{{ price_whole }}</span>{#
+#}<span class="price__separator">{{ price_args.decimal_separator }}</span>{#
+#}<span class="price__cents">{{ price_cents }}</span>{#
+#}<span class="price__currency">{{ price_symbol }}</span>
+
+  {% if tax_label is defined %}
+    <small class="price__tax-label">{{ tax_label }}</small>
+  {% endif %}
+  <!-- <small class="price__tax-label">HT</small> -->
+
+</span>

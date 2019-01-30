@@ -2,12 +2,12 @@
   <section class="wrapper wrapper--posts wrapper--padding">
     <div class="container">
 
-      <h2>Derniers articles</h2>
+      <h2>Derniers <span>articles</span></h2>
 
-      <section class="posts posts--latest row">
+      <section class="teasers teasers--posts">
         {% for post in latest_posts %}
 
-        {% include 'tile-post.twig' %}
+        {% include 'teaser-post.twig' %}
 
         {% endfor %}
       </section>

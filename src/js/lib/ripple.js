@@ -1,44 +1,44 @@
-;(function($) {
-  // DOM IS READY!
+import $ from "jquery"
 
-  $(function() {
-    // RIPPLE EFFECT
+// RIPPLE EFFECT
 
-    if (Lightwords.CONFIG.rippleEffect) {
-      $(Lightwords.CONFIG.rippleSelector).addClass('ripple')
+const ripple = (() => {
+  if (Lightwords.CONFIG.rippleEffect) {
+    $(Lightwords.CONFIG.rippleSelector).addClass("ripple")
 
-      $('.ripple').click(function(e) {
-        var rippler = $(this)
+    $(".ripple").click(function(e) {
+      const rippler = $(this)
 
-        // create .ink element if it doesn't exist
-        if (rippler.find('.ink').length == 0) {
-          rippler.append("<span class='ink'></span>")
-        }
+      // create .ink element if it doesn't exist
+      if (rippler.find(".ink").length == 0) {
+        rippler.append("<span class='ink'></span>")
+      }
 
-        var ink = rippler.find('.ink')
+      const ink = rippler.find(".ink")
 
-        // prevent quick double clicks
-        ink.removeClass('animate')
+      // prevent quick double clicks
+      ink.removeClass("animate")
 
-        // set .ink diametr
-        if (!ink.height() && !ink.width()) {
-          var d = Math.max(rippler.outerWidth(), rippler.outerHeight())
-          ink.css({ height: d, width: d })
-        }
+      // set .ink diametr
+      if (!ink.height() && !ink.width()) {
+        const d = Math.max(rippler.outerWidth(), rippler.outerHeight())
+        ink.css({ height: d, width: d })
+      }
 
-        // get click coordinates
-        var x = e.pageX - rippler.offset().left - ink.width() / 2
-        var y = e.pageY - rippler.offset().top - ink.height() / 2
+      // get click coordinates
+      const x = e.pageX - rippler.offset().left - ink.width() / 2
+      const y = e.pageY - rippler.offset().top - ink.height() / 2
 
-        // set .ink position and add class .animate
-        ink
-          .css({
-            top: y + 'px',
-            left: x + 'px'
-          })
-          .addClass('animate')
-      })
-    }
-    console.log('ripple.js is loaded')
-  })
-})(jQuery)
+      // set .ink position and add class .animate
+      ink
+        .css({
+          top: y + "px",
+          left: x + "px"
+        })
+        .addClass("animate")
+    })
+  }
+  console.log("ripple.js is loaded")
+})()
+
+export default ripple

@@ -1,0 +1,57 @@
+.price {
+  // @include h(4);
+  color: $color-price;
+  font-weight: $font-weight-price;
+  font-size: $font-size-price;
+
+  .single-product-price & {
+    font-size: $font-size-price-single;
+  }
+
+  .teaser-product-price & {
+    font-size: $font-size-price-archive;
+  }
+
+  > * {
+    font-size: $font-size-price-cents-ratio * 100%;
+  }
+
+  > .price__whole { font-size: 100%; }
+  > .price__separator {}
+  > .price__cents {}
+  > .price__currency {}
+  > .price__tax-label {}
+}
+
+.price-product {
+  > del {
+    text-decoration: none;
+    margin-left: $gutter-quarter;
+    // font-size: $font-size-price-old-ratio * 100%;
+
+    > .price {
+      color: $color-price-old;
+      font-weight: $font-weight-normal;
+      position: relative;
+
+      .teaser-product-price & {
+        font-size: $font-size-price-archive * $font-size-price-old-ratio;
+      }
+
+      // Stroked price
+      &::after {
+        content: "";
+        position: absolute;
+        width: 120%;
+        height: 2px;
+        background-color: currentColor;
+        top: 50%;
+        left: -10%;
+      }
+    }
+  }
+  
+  > ins {
+    text-decoration: none;
+  }
+}

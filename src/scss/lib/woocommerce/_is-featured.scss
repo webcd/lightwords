@@ -1,0 +1,40 @@
+$isfeatured-offset: $gutter-quarter;
+$isfeatured-after-onsale-offset: $gutter-quarter * 8;
+
+// Common
+
+.isfeatured {
+  display: inline-block;
+  padding: $gutter-eighth $gutter-half;
+  background-color: $color-primary;
+  color: white;
+  font-weight: $font-weight-light;
+  text-transform: uppercase;
+  position: absolute;
+  left: - $isfeatured-offset;
+  right: auto;
+  top: $gutter-half;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: - $isfeatured-offset;
+    @include triangle("top-right", $color-primary-darker, $isfeatured-offset);
+  }
+
+  // After on-sale badge
+
+  .onsale + & {
+     top: $isfeatured-after-onsale-offset;
+  }
+
+  // Single product
+
+  .product-images & {
+    top: $gutter-double * 2;
+    left: $gutter - $isfeatured-offset;
+  }
+}
+
+

@@ -1,17 +1,16 @@
-;(function($) {
+import $ from "jquery"
 
-  $(function() {
+// CONFIGURE
 
-    // DOM IS READY!
-    
-    // Get the JSON configuration from markup
-    var configJSON = JSON.parse(JSON.stringify($("body").data("config")));
-    
-    window.Lightwords = {};
-    window.Lightwords.CONFIG = configJSON;
+const configure = (() => {
+  // Get the JSON configuration from markup
+  const configJSON = JSON.parse(JSON.stringify($("body").data("config")))
 
-    console.log("configure.js is loaded");
-    console.log('config.json', configJSON)
-  })
+  window.Lightwords = {}
+  window.Lightwords.CONFIG = configJSON
 
-})(jQuery);
+  console.log("configure.js is loaded")
+  console.log("config.json", configJSON)
+})()
+
+export default configure

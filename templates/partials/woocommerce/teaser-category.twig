@@ -1,17 +1,18 @@
-<div {{ fn('post_class', ['list-item', 'teaser', 'teaser--category'] ) }}
+<article
+	{{ fn('post_class', [ 'teaser', 'teaser--woo', 'teaser--woo-category'] ) }}
 	data-onclick-url="{{ category.link }}"
 >
 	<div class="teaser-content">
 
+		<img src="{% do action('display_category_image', category) %}">
+
 		<h3 class="teaser-title">
 			<a class="teaser-link" href="{{ category.link }}">{{ category.name }} ({{ category.count }})</a>
 		</h3>
-
-    <img src="{% do action('display_category_image', category) %}">
 
     <div class="teaser-description">
       {{ category.description }}
     </div>
 
 	</div>
-</div>
+</article>

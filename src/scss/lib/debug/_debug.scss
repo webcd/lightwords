@@ -9,3 +9,43 @@
     outline: 1px dashed red;
   }
 }
+
+
+// Debug grid
+
+/*body*/
+.debug {
+  .debug-zone {
+    display: flex;
+    transform: translateX(calc(100% - 4.4rem));
+    transition: all 0.25s $ease-bump;
+  }
+
+  .debug-zone__toggle {
+    > button {
+      @include btn-ctrl("plus", true);
+      background-color: transparent !important;
+    }
+  }
+
+  .debug-zone__item {
+    height: $navbar-btn-size;
+    line-height: $navbar-btn-size;
+    padding: 0 $gutter-half;
+  }
+
+  // Active
+  /*body*/
+  &.debug-zone-active {
+    .debug-zone {
+      transform: translateX(0);
+    }
+
+    .debug-zone__toggle {
+      > button {
+        @include btn-ctrl("minus", true);
+        background-color: transparent !important;
+      }
+    }
+  }
+}

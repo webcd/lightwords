@@ -12,7 +12,7 @@
         <div class="article-content-body">
           <div class="container">
 
-            <h2>Profil</h2>
+            <h2>Son <span>profil</span></h2>
 
             <section class="author-metas">
     
@@ -32,13 +32,13 @@
     
             </section>
 
-            <h2>Les articles de {{ author.name }}</h2>
+            <h2><span>Les articles</span> de {{ author.name }}</h2>
             {% if posts %}
 
-              <section class="posts row">
+              <section class="teasers teasers--posts">
 
                 {% for post in posts %}
-                  {% include "tile-post.twig" %}
+                  {% include "teaser-post.twig" %}
                 {% endfor %}
 
               </section>

@@ -1,0 +1,41 @@
+<div class="metas metas--product">
+
+  {% if categories or tags %}
+    <div class="terms">
+
+      {% for cat in categories %}
+        <a class="category-link btn btn-primary btn-xs" href="{{ fn('get_term_link', cat) }}">{{cat.name}}</a>
+      {% endfor %}
+
+      {% for tag in tags %}
+        <a class="tag-link btn btn-xs" href="{{ fn('get_term_link', tag) }}">#{{tag.name}}</a>
+      {% endfor %}
+
+    </div>
+  {% endif %}
+
+  <div class="publish">
+    <span class="date">Ajouté le
+      {{ post.post_date|date}}</span>
+    <span>&bull;</span>
+
+    {% if post.product.sku %}
+      <span class="product-sku">
+        {{ fn('esc_html_e', 'SKU:', 'woocommerce' ) }}
+        {{ post.product.sku }}
+      </span>
+      <span>&bull;</span>
+    {% endif %}
+
+    {% if post.product.rating_counts | length > 0 %}
+      <a href="#tab-reviews" class="product-rating">
+        {% include 'partials/woocommerce/rating.twig' with {
+          'rating' : post.product.average_rating,
+          'rating_counts' : post.product.rating_counts | length
+        } %}
+      </a>
+    {% else %}
+      <span>Pas encore d'avis</span>
+    {% endif %}
+  </div>
+</div>

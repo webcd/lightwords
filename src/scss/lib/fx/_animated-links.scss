@@ -1,0 +1,33 @@
+@mixin rich-link() {
+  position: relative;
+  &:after {
+    position: absolute;
+    left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0.2rem;
+    background-color: currentColor;
+    transform: scale3d(0, 1, 1);
+    transition: all 0.25s $ease-bump;
+  }
+
+  @include hocus() {
+    color: currentColor;
+    text-decoration: none !important;
+    &:after {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+}
+
+// Legal links
+.footer-copyright__legal-menu,
+// Nav widget
+.widget_nav_menu ul {
+  > li {
+    > a {
+      @include rich-link();
+    }
+  }
+}

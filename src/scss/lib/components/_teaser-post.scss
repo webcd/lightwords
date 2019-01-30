@@ -1,0 +1,155 @@
+/* TEASER-POST */
+
+// TEASERS (layout)
+
+.teasers {
+  @include row();
+
+  > .teaser {
+    @include col("sm", 6);
+    @include col("md", 4);
+    @include col("xl", 3);
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// METAS
+
+.metas {
+  margin-bottom: $gutter;
+
+  .posts & {
+    margin-bottom: 0;
+  }
+}
+
+.terms {
+  padding-bottom: $gutter-quarter;
+  border-bottom: 1px dotted;
+
+  > * {
+    margin-bottom: $gutter-quarter;
+  }
+}
+
+.publish {
+  font-style: italic;
+  margin-top: $gutter-quarter;
+  padding-top: $gutter-eighth;
+
+  color: $gray-light;
+}
+
+.tag-link {
+  text-transform: none;
+
+  border-color: transparent;
+  color: $color-secondary;
+
+  @include hocus() {
+    background-color: transparent;
+    border-color: transparent;
+    color: lighten($color-secondary, 20%);
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// POST(S)
+
+// BIGGER FIRST PARAGRAPH
+.article-content-body {
+  // TODO : didn't find how to make a real excerpt in WP
+  // the <!-- more --> thing changes nothing in markup
+  // So we made the very first paragraph of content highlighted!
+  p:first-child {
+    // TODO: limit to simple article (woocommerce conflicts)
+    // font-size: $font-size-big;
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// TEASERS
+
+.teaser__content {
+  height: 100%;
+  padding: $gutter-half;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+
+  > * {
+    flex: 0 0 auto;
+
+    &.teaser__body {
+      flex-grow: 1;
+    }
+  }
+
+  @include shadow(1);
+  transition: box-shadow 0.125s;
+  cursor: pointer;
+
+  @include hocus() {
+    @include shadow(2);
+  }
+}
+
+.teaser__img {
+  position: relative;
+  margin: -$gutter-half;
+  margin-bottom: $gutter-half;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+
+  > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    transform: translate3d(-50%, -50%, 0) scale3d(1.2, 1.2, 1);
+    transition: transform 0.5s $ease-bump;
+
+    .teaser:hover & {
+      transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+    }
+  }
+}
+
+.teaser__title {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding: $gutter-quarter $gutter-half;
+  background-color: rgba(255, 255, 255, 0.75);
+
+  a {
+    font-weight: $font-weight-light;
+    color: black;
+  }
+}
+
+.teaser__body {
+  margin-top: $gutter-half;
+  margin-bottom: $gutter-half;
+  color: $gray-darker;
+
+  .read-more {
+    display: block;
+    text-align: right;
+  }
+}
+
+.teaser__foot {
+  text-align: right;
+
+  .read-more {
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+  }
+}
+
+.teaser-post {
+  .teaser__content {
+    background-color: white;
+  }
+}

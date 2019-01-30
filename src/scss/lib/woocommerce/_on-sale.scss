@@ -1,0 +1,30 @@
+$onsale-offset: $gutter-quarter;
+
+// Common
+.onsale {
+  display: inline-block;
+  padding: $gutter-eighth $gutter-half;
+  background-color: $color-primary;
+  color: white;
+  font-weight: $font-weight-light;
+  text-transform: uppercase;
+  position: absolute;
+  left: - $onsale-offset;
+  right: auto;
+  top: $gutter-half;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: - $onsale-offset;
+    @include triangle("top-right", $color-primary-darker, $onsale-offset);
+  }
+
+  // Single product
+
+  .product-images & {
+    top: $gutter-double;
+    left: $gutter - $onsale-offset;
+  }
+}

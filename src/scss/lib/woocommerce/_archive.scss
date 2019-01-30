@@ -1,70 +1,36 @@
-// PRODUCTS LIST
-
-/*ul*/
-.woo-list,
-.products {
-  padding-left: 0;
-  list-style-type: none;
-
-  @include row();
-
-  > .woo-item,
-  .product {
-    @include col("min", 6);
-    @include col("sm", 4);
-    @include col("md", 6);
-    @include col("lg", 4);
-    @include col("xl", 3);
-  }
-}
-
-.woocommerce-pagination {
-  > ul {
-    @include reset-list();
-    display: flex;
-    justify-content: center;
-
-    > li {
-      display: block;
-
-      > span,
-      > a {
-        display: inline-block;
-        padding: $gutter-quarter $gutter-half;
-        margin: $gutter-eighth;
-        background-color: $gray-lightest;
-      }
-
-      > span {
-        background-color: $gray-light;
-      }
-
-      > a {
-      }
-    }
-  }
-}
+// ARCHIVE HEADER (results count, notices, WOOF filters...)
 
 .woo-products-header {
   @include row();
-  margin-top: 0;
-  margin-bottom: 0;
+  @include v-margin(0);
   align-items: center;
+  margin-bottom: $gutter;
 
   > * {
     display: block;
     @include col("xs", 6);
-    @include col("md", 4);
+    @include col("lg", 4);
     margin: 0;
   }
 
-  @include bp($bp-woo-sidebar) {
-    @include v-padding($gutter-half);
-  }
-
-  // Replace product counter in forst position
+  // Replace product counter in first position
   .woocommerce-result-count {
     order: -1;
+    text-align: center;
+    @include v-padding(0);
+
+    @include bp('xs') {
+      text-align: left;
+    }
+  }
+
+  .woocommerce-notices-wrapper {
+    order: -2;
+    flex-basis: 100%;
+
+    &:empty {
+      display: none;
+    }
   }
 
   .woof_products_top_panel {
@@ -72,6 +38,20 @@
     @include col("xs", 12);
     @include col("md", 4);
   }
+
+  // WooCommerce Product Per Page plugin
+  // Removes inline styles
+  .products-per-page {
+    display: block;
+    float: none !important;
+    margin-left: 0 !important;
+  }
+}
+
+// WooCommerce Product Per Page plugin
+// Hide bottom widget
+.products-per-page {
+  display: none;
 }
 
 .woo-archive-description {

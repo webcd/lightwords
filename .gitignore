@@ -1,4 +1,5 @@
 node_modules
+npm-debug.log
 vendor
 composer.lock
 src/.doc

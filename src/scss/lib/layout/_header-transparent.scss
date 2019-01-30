@@ -1,7 +1,7 @@
 /* HEADER TRANSPARENT */
 
 // TODO: isolate transparent header from sticky and compressible modes
-/*html*/.has-transparent-header.has-sticky-header.has-compressible-header { // Specificity war!
+/*body*/.has-transparent-header.has-sticky-header.has-compressible-header { // Specificity war!
 
   .site-header,
   .wrapper--pre-header {

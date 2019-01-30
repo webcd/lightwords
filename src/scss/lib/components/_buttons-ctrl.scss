@@ -1,0 +1,342 @@
+/* BUTTONS-CTRL */
+
+$btn-ctrl-size: $navbar-btn-size;
+$btn-ctrl-border-size: 2px;
+$btn-ctrl-color: black;
+$btn-ctrl-bg-color: white;
+
+// MIXINS
+
+// Button color
+@mixin btn-ctrl-color(
+  $type: "cancel",
+  $inverted: false,
+  $color: $btn-ctrl-color,
+  $bg-color: $btn-ctrl-bg-color,
+) {
+  // Swap colors
+  @if $inverted {
+    $tmp: $color;
+    $color: $bg-color;
+    $bg-color: $tmp;
+  }
+
+  background: $bg-color !important;
+  color: $color;
+
+  > span.btn-ctrl-extra {
+    background-color: $color;
+  }
+
+  &::before,
+  &::after {
+    background-color: $color;
+  }
+
+  @if $type == "search" {
+    &::before {
+      background-color: $bg-color;
+      color: $color;
+    }
+  }
+
+  @if $type == "menu" {
+    > span.btn-ctrl-extra {
+      background-color: $color;
+    }
+  }
+
+  // @include hocus() {
+  &:hover {
+    background-color: $color !important;
+    color: $bg-color !important;
+  
+    &::before,
+    &::after {
+      background-color: $bg-color;
+    }
+  
+    @if $type == "search" {
+      &::before {
+        background-color: $color;
+        color: $bg-color;
+      }
+    }
+
+    @if $type == "menu" {
+      > span.btn-ctrl-extra {
+        background-color: $bg-color;
+      }
+    }
+  }
+}
+
+// Button icon
+@mixin btn-ctrl-icon(
+  $type: "cancel",
+  $size: $btn-ctrl-size,
+  $border-size: $btn-ctrl-border-size
+) {
+
+  position: relative;
+
+  > span.btn-ctrl-extra,
+  &::before,
+  &::after {
+    display: block !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: all 0.25s;
+  }
+
+  > span.btn-ctrl-extra {
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    width: 50%;
+    height: $border-size;
+  }
+
+  &::before {
+    transform: translate3d(-50%, -50%, 0) rotateZ(45deg);
+  }
+  &::after {
+    transform: translate3d(-50%, -50%, 0) rotateZ(-45deg);
+  }
+
+  @if $type == "cancel" {
+  } @else if $type == "text" {
+    line-height: $size;
+    text-align: center;
+
+    &::before {
+      transform: translate3d(-50%, -50%, 0) scale3d(0,0,0);
+    }
+    &::after {
+      transform: translate3d(-50%, -50%, 0) rotateZ(-90deg) scale3d(0,0,0);
+    }
+  } @else if $type == "plus" {
+    &::before {
+      transform: translate3d(-50%, -50%, 0) rotateZ(180deg);
+    }
+    &::after {
+      transform: translate3d(-50%, -50%, 0) rotateZ(-90deg);
+    }
+  } @else if $type == "minus" {
+    &::before {
+      transform: translate3d(-50%, -50%, 0);
+    }
+    &::after {
+      transform: translate3d(-50%, -50%, 0);
+    }
+  } @else if $type == "left" {
+    &::before,
+    &::after {
+      width: 25%;
+      transform-origin: 0.1rem 50%;
+    }
+  } @else if $type == "right" {
+    &::before,
+    &::after {
+      width: 25%;
+      transform-origin: calc(100% - 0.1rem) 50%;
+    }
+  } @else if $type == "down" {
+    &::before,
+    &::after {
+      width: $border-size;
+      height: 25%;
+      transform-origin: 50% calc(100% - 0.1rem);
+    }
+    &::before {
+      transform: translate3d(-50%, -50%, 0) rotateZ(45deg);
+    }
+    &::after {
+      transform: translate3d(-50%, -50%, 0) rotateZ(-45deg);
+    }
+  } @else if $type == "up" {
+    &::before,
+    &::after {
+      width: $border-size;
+      height: 25%;
+      transform-origin: 50% 0.1rem;
+    }
+    &::before {
+      transform: translate3d(-50%, -50%, 0) rotateZ(45deg);
+    }
+    &::after {
+      transform: translate3d(-50%, -50%, 0) rotateZ(-45deg);
+    }
+  } @else if $type == "menu" {
+    $burger-ratio: 30%;
+
+    > span.btn-ctrl-extra,
+    &::before,
+    &::after {
+      width: $burger-ratio * 1.5;
+      height: $border-size;
+    }
+    &::before {
+      top: (100% - $burger-ratio) / 2;
+      transform: translate3d(-50%, -50%, 0);
+      // Middle bar hack
+      // box-shadow: 0 ($size * 0.14) 0 0 black;
+    }
+    &::after {
+      top: 100% - ((100% - $burger-ratio) / 2);
+      // top: auto;
+      transform: translate3d(-50%, -50%, 0);
+    }
+  } @else if $type == "search" {
+    &::before {
+      @include size(40%);
+      transform: translate3d(-50%, -50%, 0);
+      border: $border-size solid currentColor;
+      // box-shadow: 0 0 0 $border-size currentColor;
+      border-radius: 50%;
+    }
+    &::after {
+      left: 50% + 40% / 2;
+      top: 50% + 40% / 2;
+      width: $border-size;
+      height: 20%;
+      transform: translate3d(-50%, -50%, 0) rotateZ(-45deg);
+    }
+  }
+}
+
+// Main mixin
+@mixin btn-ctrl(
+  $type: "cancel", 
+  $inverted: false,
+  $size: $btn-ctrl-size,
+  $border-size: $btn-ctrl-border-size
+) {
+  // @include size($size);
+  width: $size !important;
+  height: $size !important;
+  @include btn-ctrl-icon($type, $size, $border-size);
+  @include btn-ctrl-color($type, $inverted);
+  border: $btn-ctrl-border-size solid transparent;
+}
+
+// Helper classes
+
+.btn-ctrl-left {
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("left");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("left", true);
+  }  
+}
+.btn-ctrl-right {
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("right");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("right", true);
+  }  
+}
+.btn-ctrl-up {
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("up");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("up", true);
+  }  
+}
+.btn-ctrl-down {
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("down");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("down", true);
+  }  
+}
+.btn-ctrl-close {
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("close");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("close", true);
+  }  
+}
+.btn-ctrl-plus {
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("plus");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("plus", true);
+  }  
+}
+.btn-ctrl-minus {
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("minus");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("minus", true);
+  }  
+}
+.btn-ctrl-menu {
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("menu");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("menu", true);
+  }  
+}
+.btn-ctrl-search {
+  &:not(.btn-ctrl-inverted) {
+    @include btn-ctrl("search");
+  }
+  &.btn-ctrl-inverted {
+    @include btn-ctrl("search", true);
+  }  
+}
+
+.btn-ctrl.btn-ctrl-border {
+  border: $btn-ctrl-border-size solid;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// VENDOR OVERRIDES
+
+// TODO: remove all `!important` above, revamp code below (+lightbox)!
+
+// Owl Carousel (aka Slide Anything)
+// Specificity war!
+
+html .white .sa_owl_theme .owl-nav .owl-prev {
+  @include btn-ctrl("left");
+}
+
+html .white .sa_owl_theme .owl-nav .owl-next {
+  @include btn-ctrl("right");
+}
+
+html .white .sa_owl_theme .owl-nav .owl-prev,
+html .white .sa_owl_theme .owl-nav .owl-next {
+  position: absolute;
+}
+
+// Smart Slider 3
+
+.nextend-arrow {
+  &.nextend-arrow-previous {
+    @include btn-ctrl("left");
+  }
+
+  &.nextend-arrow-next {
+    @include btn-ctrl("right");
+  }
+
+  > img {
+    display: none !important;
+  }
+}
+

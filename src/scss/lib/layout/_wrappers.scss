@@ -8,8 +8,7 @@
 .wrapper--padding-quarter { @include v-padding($gutter-half); }
 .wrapper--padding-eigth { @include v-padding($gutter-quarter); }
 
-// WRAPPERS DEFAULT PADDING
-// And shadows
+// WRAPPERS DEFAULT THEMING
 
 // Macro-wrappers
 
@@ -17,16 +16,16 @@
 
 .site-header { @include shadow(1); }
 .site-content {}
-.site-footer { @include shadow(3); }
+.site-footer { background-color: $gray-lightest; @include shadow(3); }
 
 // Micro-wrappers
 
-.wrapper--pre-header {}
+.wrapper--pre-header { background-color: $topbar-color-bg; }
 .wrapper--header {}
 .wrapper--post-header {}
 
 .wrapper--pre-footer {}
-.wrapper--footer { @include v-padding($gutter); }
+.wrapper--footer { @include v-padding($gutter-double, $gutter); background-color: white; }
 .wrapper--post-footer { @include v-padding($gutter); }
 
 .wrapper--content {}
@@ -35,7 +34,8 @@
 
 .wrapper--hero {}
 .wrapper--article-content {}
-.wrapper--posts {}
-.wrapper--breadcrumb { @include v-padding($gutter-quarter); }
-.wrapper--comments { @include v-padding($gutter); }
+
+.wrapper--posts { background-color: $gray-darker; color: $gray-light; }
+.wrapper--breadcrumb { @include v-padding($gutter-quarter); background-color: $gray-lightest; }
+.wrapper--comments { @include v-padding($gutter-double); background-color: $gray-dark; color: $gray-lighter; }
 

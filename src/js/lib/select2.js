@@ -1,29 +1,30 @@
-;(function($) {
-  // DOM IS READY!
+import $ from "jquery"
+import { debounce } from "./debounce-throttle"
+import select2 from "select2"
 
-  var initSelect2 = debounce( function($selects) {
+// SELECT2
 
+const select = (() => {
+  const initSelect2 = debounce(function($selects) {
     // See: https://select2.org/configuration
     $selects.select2({
       minimumResultsForSearch: Infinity
     })
 
-    console.log('Select2 resized')
+    console.log("Select2 resized")
   }, 250)
 
-  $(function() {
+  const $selects = $("select")
 
-    var $selects = $('select')
+  if ($selects.length) {
+    initSelect2($selects)
 
-    if ($selects.length) {
-
+    window.addEventListener("resize", function() {
       initSelect2($selects)
-      
-      window.addEventListener("resize", function(){
-        initSelect2($selects)
-      })
-    }
+    })
+  }
 
-    console.log('select2.js is loaded')
-  })
-})(jQuery)
+  console.log("select2.js is loaded")
+})()
+
+export default select

@@ -1,0 +1,248 @@
+/* LIGHBOX */
+
+// VARIABLES
+
+$smartphoto-gutter: $gutter-half;
+$smartphoto-btn-size: $navbar-btn-size;
+$smartphoto-border-size: 2px;
+
+$skin: "light"; // "dark" or "light"
+
+// Computed variables
+
+$smartphotoColorBack: white;
+$smartphotoColorFront: black;
+
+@if $skin == "dark" {
+  $smartphotoColorBack: black;
+  $smartphotoColorFront: white;
+}
+
+.lightbox {
+  display: block;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// SMARTPHOTO
+
+.smartphoto {
+  // Above ALL (but debug-zone)
+  z-index: 99999;
+  background-color: $smartphotoColorBack;
+  font-family: $font-family-sans-serif;
+  // position: relative;
+  height: 100vh;
+
+  /*body*/.admin-bar & {
+    // [MANUAL] height: calc(100vh - $wp-adminbar-height-mobile);
+    height: calc(100vh - 46px);
+    top: 46px;
+
+    @media screen and (min-width: $wp-adminbar-bp) {
+    // @include bp($wp-adminbar-bp) {
+      // [MANUAL] height: calc(100vh - $wp-adminbar-height-desktop);
+      height: calc(100vh - 32px);
+      top: 32px;
+    }
+  }
+}
+
+.smartphoto-header {
+  position: relative;
+}
+
+.smartphoto-count,
+.smartphoto-caption {
+  color: $smartphotoColorFront;
+}
+
+// BUTTONS
+
+.smartphoto-header > .smartphoto-dismiss,
+.smartphoto-nav li,
+.smartphoto-arrows li {
+  @include size($smartphoto-btn-size);
+  margin: $smartphoto-gutter;
+  transition: all 0.25s;
+}
+
+.smartphoto-header > .smartphoto-dismiss,
+.smartphoto-arrows a {
+  position: relative;
+  background: none;
+}
+
+.smartphoto-header > .smartphoto-dismiss {
+  @include btn-ctrl();
+}
+
+.smartphoto-arrows li {
+  background: none;
+  transform: translateY(-50%);
+}
+
+.smartphoto-arrow-left a {
+  @include btn-ctrl("left");
+}
+
+.smartphoto-arrow-right a {
+  @include btn-ctrl("right");
+}
+
+// HEADER & FOOTER
+
+.smartphoto-header,
+.smartphoto-nav {
+  height: auto;
+  padding: 0;
+  display: flex;
+  background-color: transparent;
+  z-index: +1;
+  background-color: transparentize($smartphotoColorBack, 0.2);
+}
+
+// HEADER
+
+.smartphoto-header {
+  > * {
+    display: inline-block;
+    position: initial;
+    margin: $smartphoto-gutter;
+    height: auto;
+  }
+
+  // Outlined items
+  > .smartphoto-count,
+  > .smartphoto-dismiss {
+    outline: $smartphoto-border-size solid $smartphotoColorFront;
+  }
+
+  > .smartphoto-count {
+    @include h-padding($smartphoto-gutter);
+    line-height: $smartphoto-btn-size;
+    flex-shrink: 0;
+    height: $smartphoto-btn-size;
+  }
+
+  > .smartphoto-caption {
+    padding: 0;
+    flex-grow: 1;
+    line-height: $smartphoto-btn-size;
+    height: $smartphoto-btn-size;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-small;
+
+    @include bp("sm") {
+      font-size: $font-size-base;
+    }
+    @include bp("lg") {
+      font-size: $font-size-big;
+    }
+  }
+
+  > .smartphoto-dismiss {
+    top: 0;
+    right: 0;
+    flex-shrink: 0;
+  }
+}
+
+// FOOTER
+
+.smartphoto-nav {
+  ul {
+    flex-grow: 1;
+    // display: flex;
+    // justify-content: center;
+  }
+
+  li {
+    flex-shrink: 0;
+    @include size($smartphoto-btn-size);
+    margin-right: $smartphoto-gutter;
+    overflow: visible;
+    background: transparent;
+
+    &:not(:last-child) {
+      margin-right: 0;
+    }
+  }
+
+  a {
+    opacity: 0.75;
+    filter: grayscale(25%);
+    background: $gray-light;
+    background-size: cover;
+    background-position: 50% 50%;
+
+    @include hocus() {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+
+    &.current {
+      position: relative;
+      opacity: 1;
+      filter: grayscale(0);
+      transform: translate3d(
+        -$smartphoto-gutter / 8,
+        -$smartphoto-gutter / 8,
+        0
+      );
+      outline: $smartphoto-border-size solid $smartphotoColorFront;
+      box-shadow: ($smartphoto-gutter / 2) ($smartphoto-gutter / 2) 0 0
+        $smartphotoColorFront;
+    }
+  }
+}
+
+// CONTENT
+
+.smartphoto-list {
+  z-index: initial;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// COUNTER
+
+// Unused styles
+
+// .smartphoto-count {
+
+//   min-width: $smartphoto-btn-size * 1.5;
+//   font-size: 0;
+//   overflow: hidden;
+//   position: relative;
+//   display: flex;
+
+//   &::before {
+//     content: "";
+//     display: block;
+//     position: absolute;
+//     @include size($smartphoto-btn-size * 1.5);
+//     background-color: $smartphotoColorBack;
+//     top: 50%;
+//     right: 50%;
+//     transform-origin: 100% 50%;
+//     transform: translate3d(0,-50%,0) rotate(18deg);
+//     z-index: -1;
+//   }
+
+//   > span {
+//     font-size: $font-size-base;
+//     flex-basis: 50%;
+
+//     &:first-child {
+//       color: black;
+//       transform: translateY(- $smartphoto-btn-size / 16);
+//       text-align: right;
+//       font-size: $font-size-big;
+//       padding-right: $smartphoto-btn-size / 8;
+//     }
+
+//     &:last-child {
+//       transform: translateY($smartphoto-btn-size / 16);
+//       padding-left: $smartphoto-btn-size / 8;
+//     }
+//   }
+// }

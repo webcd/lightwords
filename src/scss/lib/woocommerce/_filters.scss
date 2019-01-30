@@ -43,6 +43,7 @@
   margin-bottom: $gutter-half;
   border-bottom: 1px solid;
   text-transform: uppercase;
+  font-style: italic;
 }
 
 
@@ -50,7 +51,7 @@
   display: none;
 }
 
-@include bp($bp-woo-sidebar, true) {
+@include bp('md', true) {
 
   .woo-filters-header {
     display: flex;
@@ -64,22 +65,8 @@
   
     > .woo-filters-btn-toggle {
       display: block;
-      height: 4.4rem;
-      width: 4.4rem;
-      position: relative;
-
-      > .fa {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate3d(-50%, -50%, 0) rotateZ(0);
-        transition: all 0.5s $ease-bump;
-      }
-
       &.active {
-        > .fa {
-          transform: translate3d(-50%, -50%, 0) rotateZ(0.5turn + 0.125turn);
-        }
+        @include btn-ctrl("minus");
       }
     }
   }
@@ -92,7 +79,7 @@
     display: block;
   }
 
-  @include bp($bp-woo-sidebar) {
+  @include bp('md') {
     display: block;
   }
 }
@@ -100,6 +87,7 @@
 .woof_redraw_zone {
   @include row();
   align-items: flex-start;
+  margin-top: 0;
 
   > * {
     @include col('xs', 6);

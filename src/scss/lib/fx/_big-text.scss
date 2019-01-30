@@ -1,0 +1,43 @@
+h1, .h1, .hero__slogan {
+
+  @include bp('md') {
+    font-size: $font-size-h1 * 1.125;
+  }
+
+  @include bp('lg') {
+    font-size: $font-size-h1 * 1.25;
+  }
+
+  @include bp('xl') {
+    font-size: $font-size-h1 * 1.5;
+  }
+
+}
+
+h2, .h2 {
+
+  @include bp('md') {
+    font-size: $font-size-h2 * 1.125;
+  }
+
+  @include bp('lg') {
+    font-size: $font-size-h2 * 1.25;
+  }
+
+  @include bp('xl') {
+    font-size: $font-size-h2 * 1.5;
+  }
+
+}
+
+h3, .h3 {
+
+  @include bp('lg') {
+    font-size: $font-size-h3 * 1.125;
+  }
+
+  @include bp('xl') {
+    font-size: $font-size-h3 * 1.25;
+  }
+
+}

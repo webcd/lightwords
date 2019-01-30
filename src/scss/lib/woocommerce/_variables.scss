@@ -9,16 +9,21 @@ $product-img-bg: #EAEFF3;
 
 $color-price: $color-secondary;
 $color-price-old: $gray-light;
+$font-weight-price: $font-weight-semibold;
+$font-size-price: $font-size-base;
+$font-size-price-cents-ratio: 0.8;
+$font-size-price-old-ratio: 0.8;
+$font-size-price-archive: $font-size-bigger;
+$font-size-price-single: $font-size-bigger;
 
-// ARCHIVE SIDEBAR
+// ARCHIVE
 
-$bp-woo-sidebar: 'md';
-$width-woo-sidebar: 32rem;
-
-$bg-woo-sidebar: $gray-darker;
-$color-woo-sidebar: $gray-lighter;
-$bg-woo-main: $gray-light;
+// Colors
+$bg-woo-sidebar: white;
+$color-woo-sidebar: $gray-darker;
+$bg-woo-main: $gray-lightest;
 $color-woo-main: $gray-darker;
+$bg-woo-teaser: white;
 
 // MENU ITEMS
 
