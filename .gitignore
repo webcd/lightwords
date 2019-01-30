@@ -4,4 +4,4 @@ composer.lock
 src/.doc
 src/.tmp
 
-# dist
+dist
