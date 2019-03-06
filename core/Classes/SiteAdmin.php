@@ -18,7 +18,7 @@ class SiteAdmin extends \App\Lib\SiteCore
         $this->loader->add_action('wp_dashboard_setup', $this, 'webcd_add_dashboard_widget', 1);
         $this->loader->add_action('widgets_init', $this, 'register_widget_areas');
         $this->loader->add_action('widgets_init', $this, 'register_widget_areas');
-        $this->loader->add_action('init', $this, 'disable_wp_emojicons', '', true);
+        $this->loader->add_action('init', $this, 'disable_wp_emojicons', 1, true);
         //$this->loader->add_action('init', $this, 'create_post_types', '', true);
         //$this->loader->add_action('init', $this, 'create_taxonomy', '', true);
     }
