@@ -258,7 +258,7 @@ class StarterSite extends \TimberSite
 
         // Enable dump() in templates
         // See: https://twig.symfony.com/doc/2.x/functions/dump.html
-        $twig->addExtension(new \Twig_Extension_Debug());
+        // $twig->addExtension(new \Twig_Extension_Debug());
 
         // Filters
         // $twig->addFilter(new \Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
