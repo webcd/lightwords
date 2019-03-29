@@ -1,15 +1,15 @@
 <div class="price-product">
 
-  {% if post.product.sale_price %}
+  {% if post.product.get_sale_price() %}
     {# On sale product #}
-    <ins>{{ post.product.sale_price|formatPrice }}</ins>
-    <del>{{ post.product.regular_price|formatPrice }}</del>
+    <ins>{{ post.product.get_sale_price()|formatPrice }}</ins>
+    <del>{{ post.product.get_regular_price()|formatPrice }}</del>
   
-  {% elseif post.product.regular_price %}
+  {% elseif post.product.get_regular_price() %}
     {# Simple product #}
-    <ins>{{ post.product.regular_price|formatPrice }}</ins>
+    <ins>{{ post.product.get_regular_price()|formatPrice }}</ins>
 
-  {% elseif post.product.price %}
+  {% elseif post.product.get_price() %}
     {# Variable product #}
     <ins>{{ post.product|formatVariableProductPrice }}</ins>
 

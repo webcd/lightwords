@@ -19,19 +19,19 @@
       {{ post.post_date|date}}</span>
     <span>&bull;</span>
 
-    {% if post.product.sku %}
+    {% if post.product.get_sku() %}
       <span class="product-sku">
         {{ fn('esc_html_e', 'SKU:', 'woocommerce' ) }}
-        {{ post.product.sku }}
+        {{ post.product.get_sku() }}
       </span>
       <span>&bull;</span>
     {% endif %}
 
-    {% if post.product.rating_counts | length > 0 %}
+    {% if post.product.get_rating_counts() | length > 0 %}
       <a href="#tab-reviews" class="product-rating">
         {% include 'partials/woocommerce/rating.twig' with {
           'rating' : post.product.average_rating,
-          'rating_counts' : post.product.rating_counts | length
+          'rating_counts' : post.product.get_rating_counts() | length
         } %}
       </a>
     {% else %}
