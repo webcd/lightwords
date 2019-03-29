@@ -17,6 +17,7 @@ class SiteFront extends \App\Lib\SiteCore
     {
         $this->loader->add_action('wp_enqueue_scripts', $this, 'enqueue_scripts', '');
         $this->loader->add_action('wp_print_scripts', $this, 'dequeue_scripts', 100);
+        $this->loader->add_action('phpmailer_init', $this, 'setup');
     }
 
     /**
@@ -62,5 +63,19 @@ class SiteFront extends \App\Lib\SiteCore
     public function dequeue_scripts()
     {
 
+    }
+
+    public function setup( \PHPMailer $phpmailer ) {
+        if(isset($_ENV['SMTP_HOST']))
+            $phpmailer->Host = $_ENV['SMTP_HOST'];
+        else if(isset($_SERVER['SMTP_HOST']))
+            $phpmailer->Host = $_SERVER['SMTP_HOST'];
+        
+        if(isset($_ENV['SMTP_PORT']))
+            $phpmailer->Port = $_ENV['SMTP_PORT'];
+        else if(isset($_SERVER['SMTP_PORT']))
+            $phpmailer->Port = $_SERVER['SMTP_PORT'];
+
+        $phpmailer->IsSMTP();
     }
 }
