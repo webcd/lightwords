@@ -51,22 +51,8 @@ if (is_singular('product')) {
     global $wp_query;
     $context['found_posts'] = $wp_query->found_posts;
 
-    // Sub-categories
-    if (is_product_category()) {
-        $category = new TimberTerm();
-    }
-
-    $context['subcategories'] = Timber::get_terms(array(
-        'taxonomy' => 'product_cat',
-        'orderby' => 'term_id',
-        'hide_empty' => true,
-        'parent' => $category->ID,
-    ));
-
-    // Shop root or category?
+    // SHOP ROOT ARCHIVE
     if (!is_product_category()) {
-
-        // SHOP ROOT ARCHIVE
 
         // Default title and description
         $context['title'] = woocommerce_page_title(false);
@@ -76,24 +62,31 @@ if (is_singular('product')) {
         // Get the shop page thumbnail
         $image = get_the_post_thumbnail_url( get_option( 'woocommerce_shop_page_id' ) );
         $context['category_image'] = $image;
+        
+        // Sub-categories
+        $context['subcategories'] = Timber::get_terms(array(
+            'taxonomy' => 'product_cat',
+            'orderby' => 'term_id',
+            'hide_empty' => false,
+            'parent' => 0,
+        ));
 
+    // CATEGORY ARCHIVE
     } else {
 
-        // CATEGORY ARCHIVE
-
         // Current category
+        $category = new TimberTerm();
         $context['category'] = $category;
 
         // Category title
         $context['title'] = single_term_title('', false);
+       
         // Queried object
         $queried_object = get_queried_object();
 
         // Category image
         // Get category image URL
-        global $wp_query;
-        $cat = $wp_query->get_queried_object();
-        $thumbnail_id = get_woocommerce_term_meta($cat->term_id, 'thumbnail_id', true);
+        $thumbnail_id = get_woocommerce_term_meta($category->term_id, 'thumbnail_id', true);
         $image = wp_get_attachment_url($thumbnail_id);
 
         if ($image) {
@@ -102,6 +95,14 @@ if (is_singular('product')) {
 
         // Category description
         $context['category_description'] = $queried_object->description;
+        
+        // Sub-categories
+        $context['subcategories'] = Timber::get_terms(array(
+            'taxonomy' => 'product_cat',
+            'orderby' => 'term_id',
+            'hide_empty' => false,
+            'parent' => $category->ID,
+        ));
     }
 
     Timber::render('views/woocommerce/archive-product.twig', $context);
