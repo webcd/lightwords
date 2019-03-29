@@ -11,13 +11,14 @@ class StarterSite extends \TimberSite
         $this->filters();
         // Load classes sites (Admin, front and plugin ...)
         $this->loadClassesSite();
+        $this->theme_setup();
         parent::__construct();
     }
 
     private function theme_setup()
     {
         // Text Domain
-        load_theme_textdomain(PROJECT_NAME, get_template_directory() . '/languages');
+        load_theme_textdomain('lightwords', get_template_directory() . '/languages');
         //  Thumbnails
         set_post_thumbnail_size(380, 230, true);
         add_theme_support('post-formats');
@@ -259,10 +260,6 @@ class StarterSite extends \TimberSite
     {
         // this is where you can add your own functions to twig
         $twig->addExtension(new \Twig_Extension_StringLoader());
-
-        // Enable dump() in templates
-        // See: https://twig.symfony.com/doc/2.x/functions/dump.html
-        // $twig->addExtension(new \Twig_Extension_Debug());
 
         // Filters
         // $twig->addFilter(new \Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
