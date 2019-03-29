@@ -4,7 +4,6 @@ namespace App\Classes;
 
 class SiteFrontWooCommerce extends \App\Lib\SiteCore
 {
-
     public function __construct($loader)
     {
         $this->includes();
@@ -21,7 +20,6 @@ class SiteFrontWooCommerce extends \App\Lib\SiteCore
      */
     public function actions()
     {
-
     }
 
     /**
@@ -45,10 +43,11 @@ class SiteFrontWooCommerce extends \App\Lib\SiteCore
     // Price text formatting - Twig filter
     public function formatPrice($price, $args = array())
     {
-
         $args = apply_filters(
-            'wc_price_args', wp_parse_args(
-                $args, array(
+            'wc_price_args',
+            wp_parse_args(
+                $args,
+                array(
                     'ex_tax_label' => false,
                     'currency' => '',
                     'decimal_separator' => wc_get_price_decimal_separator(),
@@ -90,26 +89,28 @@ class SiteFrontWooCommerce extends \App\Lib\SiteCore
     // If not, then return only single price
     public function formatVariableProductPrice($product, $args = array())
     {
-
-        if ($product instanceof \WC_Product_Variable) {
+        if ($product->is_type('variable')) {
 
             // Take minimum and maximum price for variations, and compare them
-            $prices = $product->get_variation_prices( true );
+            $prices = $product->get_variation_prices(true);
 
-            $min_price     = current( $prices['price'] );
-            $max_price     = end( $prices['price'] );
+            $min_price = current($prices['price']);
+            $max_price = end($prices['price']);
 
-            if ( $min_price !== $max_price ) {
-                return $this->formatPrice($min_price) . ' - ' . $this->formatPrice($max_price);
+            if ($min_price !== $max_price) {
+                $price = $this->formatPrice($min_price) . ' - ' . $this->formatPrice($max_price);
+            } else {
+
+                // If min and max prices are not the same,
+                // or product is not a variable product, then return the standard price formatting
+                $price = $this->formatPrice($min_price);
             }
-
+        } else {
+            $price = $this->formatPrice($product->get_price());
         }
 
         // If min and max prices are not the same,
         // or product is not a variable product, then return the standard price formatting
-        return $this->formatPrice($min_price);
-
-
+        return $price;
     }
-
 }
