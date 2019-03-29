@@ -25,33 +25,33 @@
       {% if CONFIG.contactInfosAddress1 %}
         <div>{{ CONFIG.contactInfosAddress1 }}</div>
       {% elseif is_woocommerce_active %}
-        <div>{{ fn('WC_Countries::get_base_address') }}</div>
+        <div>{{ WC_Countries.get_base_address }}</div>
       {% endif %}
       
       {% if CONFIG.contactInfosAddress2 %}
         <div>{{ CONFIG.contactInfosAddress2 }}</div>
       {% elseif is_woocommerce_active %}
-        <div>{{ fn('WC_Countries::get_base_address_2') }}</div>
+        <div>{{ WC_Countries.get_base_address_2 }}</div>
       {% endif %}
       
       <div class="address_city">
         {% if CONFIG.contactInfosAddressZipcode %}
           <span>{{ CONFIG.contactInfosAddressZipcode }}</span>
         {% elseif is_woocommerce_active %}
-          <span>{{ fn('WC_Countries::get_base_postcode') }}</span>
+          <span>{{ WC_Countries.get_base_postcode }}</span>
         {% endif %}
 
         {% if CONFIG.contactInfosAddressCity %}
           <span>{{ CONFIG.contactInfosAddressCity }}</span>
         {% elseif is_woocommerce_active %}
-          <span>{{ fn('WC_Countries::get_base_city') }}</span>
+          <span>{{ WC_Countries.get_base_city }}</span>
         {% endif %}
       </div>
       
       {% if CONFIG.contactInfosAddressCountry %}
         <div>{{ CONFIG.contactInfosAddressCountry }}</div>
       {% elseif is_woocommerce_active %}
-        <div>{{ fn('WC_Countries::get_base_country') }}</div>
+        <div>{{ WC_Countries.get_base_country }}</div>
       {% endif %}
 
     </address>

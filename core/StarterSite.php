@@ -214,6 +214,10 @@ class StarterSite extends \TimberSite
         $context['is_woocommerce_active'] = $has_woocommerce;
 
         if ($has_woocommerce) {
+            //Woocommerce - Address Shop
+            $WC_Countries = new \WC_Countries();
+            $context['WC_Countries'] = $WC_Countries;
+
             $context['my_account_link'] = get_permalink(get_option('woocommerce_myaccount_page_id'));
             $context['my_account_items'] = wc_get_account_menu_items();
         }
